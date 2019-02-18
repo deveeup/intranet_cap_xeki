@@ -1,0 +1,1 @@
+$.validator.addMethod("postalcodeIT",function(t,a){return this.optional(a)||/^\d{5}$/.test(t)},"Please specify a valid postal code");

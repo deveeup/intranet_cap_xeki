@@ -1,0 +1,26 @@
+{
+  "_comment": "Blog Admin comments for jus know ...",
+  "title": "Admin",
+  "base_slug": "admin",
+  "items_menu": [
+    {
+      "type"  : "title",
+      "title" : "Admin Module",
+      "class" : "space15"
+    },
+    {
+      "type": "url",
+      "icon": "fa fa-th-large",
+      "text": "Users",
+      "url": "xeki_admin/list-users",
+      "background": "#ce2c75"
+    },
+    {
+      "type": "url",
+      "icon": "fa fa-th-large",
+      "text": "Modules Config",
+      "url": "xeki_admin/config",
+      "background": "#3e2ccc"
+    }
+  ]
+}

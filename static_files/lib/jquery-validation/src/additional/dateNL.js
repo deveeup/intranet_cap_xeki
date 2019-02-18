@@ -1,0 +1,1 @@
+$.validator.addMethod("dateNL",function(d,t){return this.optional(t)||/^(0?[1-9]|[12]\d|3[01])[\.\/\-](0?[1-9]|1[012])[\.\/\-]([12]\d)?(\d\d)$/.test(d)},$.validator.messages.date);

@@ -1,0 +1,1 @@
+$.validator.addMethod("bankorgiroaccountNL",function(a,o){return this.optional(o)||$.validator.methods.bankaccountNL.call(this,a,o)||$.validator.methods.giroaccountNL.call(this,a,o)},"Please specify a valid bank or giro account number");

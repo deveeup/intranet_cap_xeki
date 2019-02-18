@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% block content %}
+{{ parent() }}
+<div class="container">
+    <div class="col-md-6">
+        <form method="post">
+            <h2>Form Register</h2>
+            <fieldset class="form-group">
+                <label for="user_identifier">Correo</label>
+                <input name="user_identifier" type="email" class="form-control" id="user_identifier" placeholder="Introduce tu Email">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="user_pass">Contraseña</label>
+                <input name="user_pass" type="password" class="form-control" id="user_pass" placeholder="Tu contraseña">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="user_pass2">Contraseña</label>
+                <input type="password" class="form-control" id="user_pass2" placeholder="Confirma tu contraseña">
+            </fieldset>
+            <input name="xeki_action" value="ag_auth::register" type="hidden">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+
+{% endblock %}

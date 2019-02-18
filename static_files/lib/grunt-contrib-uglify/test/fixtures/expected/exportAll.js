@@ -1,0 +1,1 @@
+!function(n,t){function o(n,t){return r+u+n+t}((function(){return this})()).testExport=n;var r=1,u=2,e=o(3,4);n.longNameA=r,n.longNameB=u,n.longFunctionC=o,n.result=e}({});

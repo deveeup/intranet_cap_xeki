@@ -1,0 +1,25 @@
+<div class="{{info_item.class}} placeholder">
+{% for item in info_item.buttons %}
+    {% if item.type=="url" %}
+
+        <div class="box_bg" style="background: {{item.background}} !important;">
+            <a href="{{xeki_admin_url_base}}/{{item.url}}">
+                <i class="{{item.icon}} fa-3x"></i>
+                <h4>{{item.text}}</h4>
+            </a>
+        </div>
+    {% endif %}
+
+
+    {% if item.type=="title" %}
+    <div class="col-md-12">
+        <div class="title h5 {{item.class}}">{{item.title}}</div>
+    </div>
+    {% endif %}
+
+    {% if item.type=="div" %}
+    <div class="{{item.class}}"></div>
+    {% endif %}
+
+{% endfor %}
+</div>

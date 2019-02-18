@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <link rel="icon" type="image/png" href="static_files/favicon.png"/>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="static_files/favicon.png"/>
+  <title>Administrator {{title}}</title>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static_files/xeki_admin/core_files/vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="static_files/xeki_admin/core_files/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-flash-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/fc-3.2.3/fh-3.1.3/kt-2.3.2/r-2.2.0/rg-1.0.2/rr-1.2.3/sc-1.4.3/sl-1.2.3/datatables.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="static_files/xeki_admin/core_files/dashboard.css" rel="stylesheet"/>
+  <link href="static_files/xeki_admin/core_files/app.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <nav class="menu">
+    <a class="logo" href="{{xeki_admin_url_base}}">
+      <img src="static_files/backend_template/logo.png" class="">
+    </a>
+    <div class="options">
+      <a class="home" href="{{xeki_admin_url_base}}"> <i class="fa fa-home fa-lg"></i>Inicio</a>
+      <a class="logout" href="{{xeki_admin_url_base}}/logout">Cerrar sesión</a>
+    </div>
+  </nav>
+
+  <div class="container-fluid main-dash sidebarMenu">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 d-none d-sm-block sidebar">
+        <ul class="nav nav-pills flex-column">
+          {% for item in menu_list %}
+            {% if item.type=="url" %}
+              <li class="nav-item">
+                <a href="{{xeki_admin_url_base}}/{{item.url}}">
+                  <i class=" {{item.icon}}"></i>
+                  <span class="padding-left">{{item.text}}</span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% if item.type=="div" %}
+              <div class="{{item.class}}"></div>
+            {% endif %}
+
+            <!-- {% if item.type=="title" %}
+              <div class="subtitle-sidebar {{item.class}}"><b>{{item.title}}</b></div>
+            {% endif %} -->
+
+            {% if item.type=="group" %}
+              <li class="has-sub" style="display: none;">
+                <a href="#">
+                  <i class="{{item.icon}}"></i>
+                  <span>{{item.text}}</span>
+                </a>
+                <ul class="sub-menu">
+                  {% for sub_item in item.items%}
+                    <li><a href="{{xeki_admin_url_base}}/{{sub_item.url}}">{{sub_item.text}}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-sm-9 col-md-10 main mainbox">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
+  </div>
+
+<script type="application/javascript" src="static_files/xeki_admin/core_files/vendor/jquery/dist/jquery.js"></script>
+
+<script src="https://unpkg.com/popper.js@^1"></script>
+<script src="static_files/xeki_admin/core_files/vendor/tether/dist/js/tether.min.js"></script>
+
+<script src="static_files/xeki_admin/core_files/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-flash-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/fc-3.2.3/fh-3.1.3/kt-2.3.2/r-2.2.0/rg-1.0.2/rr-1.2.3/sc-1.4.3/sl-1.2.3/datatables.min.css"/>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-flash-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/fc-3.2.3/fh-3.1.3/kt-2.3.2/r-2.2.0/rg-1.0.2/rr-1.2.3/sc-1.4.3/sl-1.2.3/datatables.min.js"></script>
+
+<script src="static_files/xeki_admin/core_files/vendor/tinymce/tinymce.min.js"></script>
+
+<script src="static_files/xeki_admin/core_files/vendor/jquery-ui/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.js"></script>
+
+
+<link href="static_files/xeki_admin/core_files/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
+<link href="static_files/xeki_admin/core_files/vendor/jquery-ui/themes/smoothness/theme.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" rel="stylesheet">
+
+
+<script src="static_files/xeki_admin/core_files/vendor/jquery-validation/dist/jquery.validate.js"></script>
+
+
+<script>
+    window.file_manager_path="{{AG_BASE_COMPLETE}}modules/xeki_admin/core/libs/filemanager/";
+    console.log(window.file_manager_path);
+    var adjust_height_sidebar = function(){
+        $(".sidebar").addClass("active");
+        var height = $(window).height() - 68;
+        $(".sidebar").height(height);
+        $(".mainbox").height(height-40);
+    };
+    setTimeout(function () {
+        adjust_height_sidebar();
+        $( window ).resize(function() {
+            adjust_height_sidebar();
+        });
+    }, 0);
+</script>
+{% block scripts %}
+
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,1 @@
+function longFunctionC(n,o){return longNameA+longNameB+n+o}function foo(){return 42}function bar(){return 2*foo()}function baz(){return bar()*bar()}var longNameA=1,longNameB=2,result=longFunctionC(3,4);

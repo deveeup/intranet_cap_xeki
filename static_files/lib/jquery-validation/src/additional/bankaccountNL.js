@@ -1,0 +1,1 @@
+$.validator.addMethod("bankaccountNL",function(t,a){if(this.optional(a))return!0;if(!/^[0-9]{9}|([0-9]{2} ){3}[0-9]{3}$/.test(t))return!1;var n,e,r,i=t.replace(/ /g,""),o=0,u=i.length;for(n=0;u>n;n++)e=u-n,r=i.substring(n,n+1),o+=e*r;return o%11==0},"Please specify a valid bank account number");

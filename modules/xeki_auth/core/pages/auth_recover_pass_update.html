@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+{% block content %}
+{{ parent() }}
+<div class="container">
+    <div class="col-md-6">
+        <form method="post">
+            <h2>Form recover pass</h2>
+            <fieldset class="form-group">
+                <label for="user_pass">Password</label>
+                <input name="user_pass" type="password" class="form-control" id="user_pass"
+                       placeholder="Enter password">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="user_pass_re">Password -re</label>
+                <input name="user_pass_re" type="password" class="form-control" id="user_pass_re"
+                       placeholder="Enter password">
+            </fieldset>
+
+            <input name="xeki_action" value="xeki_auth::recover_pass_update" type="hidden">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+
+{% endblock %}

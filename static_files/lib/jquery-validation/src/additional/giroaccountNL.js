@@ -1,0 +1,1 @@
+$.validator.addMethod("giroaccountNL",function(t,a){return this.optional(a)||/^[0-9]{1,7}$/.test(t)},"Please specify a valid giro account number");

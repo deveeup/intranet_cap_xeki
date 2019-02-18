@@ -1,0 +1,66 @@
+@import '_init.styl'
+
+.body-login 
+    _fullW()
+    _maxw(none)
+    _h(100vh)
+    _reset(0)
+    _dfc(center, center)
+    background-image: url('static_files/img/login_background.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    _ff('Roboto')
+    &-webs-container
+        margin-bottom 50px
+        _dfr(center, center)
+        figure 
+            will-change transform
+            img 
+                transition .5s
+                opacity .6
+                &:hover 
+                    opacity 1
+                &:active
+                    transform scale(.9)
+            &:last-child
+                border-left 2px solid $orange
+                padding 20px 0  20px 50px
+
+    &-form 
+        _dfc(center, center)
+        _minw(400px)
+        input 
+            padding 10px 
+            _br(5px)
+            border none 
+            margin 10px auto
+            _w(80%)
+            _ta(center)
+            outline none
+        button 
+            _bc($orange)
+            _br(5px)
+            padding 5px 10px  
+            _c(white)
+            border none 
+            _fz(18px)
+            will-change transform
+            transition .5s
+            outline none
+            &:active 
+                transform scale(.9)
+    &-error-container 
+        padding 0
+        margin 0 0 30px 0 
+        _bc(rgba(red, .5))
+        _w(340px)
+        _br(5px)
+        p 
+            padding  0
+            _ta(center)
+            _c(white)
+
+body 
+    _maxw(1024px)
+    _ma()
+    

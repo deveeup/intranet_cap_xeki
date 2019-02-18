@@ -1,0 +1,1 @@
+!function(n,w){var a=1,i=2}(window.argA,window.argB);

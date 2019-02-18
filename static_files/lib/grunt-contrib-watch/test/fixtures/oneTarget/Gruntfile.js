@@ -1,0 +1,1 @@
+module.exports=function(s){"use strict";s.initConfig({echo:{files:["lib/*.js"]},watch:{files:["<%= echo.files %>"],tasks:"echo"}}),s.loadTasks("../tasks"),s.loadTasks("../../../tasks"),s.registerTask("default",["echo"])};

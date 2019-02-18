@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{page_title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="description" content="{{page_description}}"/>
+  <meta name="keywords" content="{{page_keywords}}"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="static_files/favicon.png"/>
+  <link rel="icon" type="image/png" href="static_files/favicon.png"/>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="static_files/favicon.png"/>
+  <link type="text/css" rel="stylesheet" href="static_files/css/app.css"/>
+  {% block metaData %}{% endblock %}
+</head>
+<body class="body-login">
+	<div class="body-login-webs-container">
+		<figure>
+			<a href="{{cap}}" target="_blank">
+				<img src="static_files/img/login_capillas.png" alt="{{alt}} Capillas de La Fe">
+			</a>
+			<h1>{{somedata}}</h1>
+		</figure>
+		<figure>
+			<a href="{{coor}}" target="_blank">
+				<img src="static_files/img/login_coorserpark.png" alt="{{alt}} Coorserpark">
+			</a>
+		</figure>
+	</div>
+	{% if error %}
+		<div class="body-login-error-container">
+			<p>{{error}}</p>
+		</div>
+	{% endif %}
+	<form method="POST" action="#" class="body-login-form" >
+		<input type="text" placeholder="Usuario" name="username" autocomplete="off"/>
+		<input type="password" placeholder="Contraseña" name="password" autocomplete="off"/>
+		<button type="submit"> Entrar </button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+$.validator.addMethod("dateITA",function(t,e){var a,d,n,r,s,o=!1;return/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(t)?(a=t.split("/"),d=parseInt(a[0],10),n=parseInt(a[1],10),r=parseInt(a[2],10),s=new Date(Date.UTC(r,n-1,d,12,0,0,0)),o=s.getUTCFullYear()===r&&s.getUTCMonth()===n-1&&s.getUTCDate()===d):o=!1,this.optional(e)||o},$.validator.messages.date);

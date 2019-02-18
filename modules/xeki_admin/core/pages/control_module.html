@@ -1,0 +1,138 @@
+{% extends "_base.html" %} {% block content %} {{ parent() }}
+
+<h1 class="page-header">{{module.title}}</h1>
+
+
+    {% for element in module.elements %}
+    <!--<h5>-->
+        <!--{{element.type}}-->
+    <!--</h5>-->
+        <div class="row placeholders">
+            {% if element.type == "buttons" %}
+                {% include 'components/module_buttons.html' %}
+            {% endif %}
+
+            {% if element.type == "tabs" %}
+                {% include 'components/module_tabs.html' %}
+            {% endif %}
+        </div>
+
+        {% if element.type == "table" %}
+            {% include 'components/module_table.html' %}
+        {% endif %}
+
+
+        {% if element.type == "html" %}
+            {{element.html|raw}}
+        {% endif %}
+
+
+    {% endfor %}
+
+
+
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+
+
+{% for element in module.elements %}
+
+    {% if element.type == "html" %}
+        <script>
+        {{element.js|raw}}
+        </script>
+    {% endif %}
+
+    {% if element.type == "table" %}
+    <script>
+        var id_form = "{{element.table.items_query_code}}";
+        var selector = '#data-table-buttons'+id_form;
+        window.itemId = -1;
+        var options = "\
+        <div class='action-buttons'>\
+            <a class='light-green edit' href='#'>\
+                <i class='fa fa-pencil bigger-130'></i>\
+            </a>";
+            {% for item_button in element.table.custom_table_buttons %}
+                {% if item_button.type == "url" %}
+                    options +="<a class='light-green url' href='{{item_button.url}}'>\
+                        <i class='{{item_button.ico}}'></i>\
+                    </a>";
+                {% endif %}
+            {% endfor %}
+
+        options +="</div>";
+        window.table = $(selector).DataTable({
+            dom: 'fBltipr',
+            lengthMenu: [[20, 80, 200, -1], [20, 80, 200, "All"]],
+            order: [[ 0, "desc" ]],
+            buttons: [
+                {
+                    text: 'New <i class="fa fa-plus"></i>',
+                    className: "btn-sm new",
+                    action: function ( e, dt, node, config ) {
+                        js_admin = new xeki_admin();
+                        js_admin.add_new(id_form);
+                    }
+                },
+                {extend: "copy"  , className: "btn-sm"},
+                {extend: "csv"   , className: "btn-sm"},
+                {extend: "excel" , className: "btn-sm"},
+                {extend: "pdf"   , className: "btn-sm"},
+                {extend: "print" , className: "btn-sm"}
+            ],
+            responsive: false,
+            processing: true,
+            serverSide: true,
+            ajax: "ws_{{element.table.items_query_code}}/",
+            columnDefs: [
+                {
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": options
+                }]
+        });
+
+        // for edit button
+        $(selector).on('click', '.action-buttons .edit', function () {
+            var data = table.row($(this).parents('tr')).data();
+            var id_item = data[0];
+            console.log(id_item);
+            console.log(id_form);
+            js_admin = new xeki_admin();
+             js_admin.edit_item(id_form,id_item);
+        });
+
+        $(selector).on('click', '.action-buttons .url', function () {
+            var data = table.row($(this).parents('tr')).data();
+            var id_item = data[0];
+            console.log(id_item);
+            var url = $(this).attr('href');
+            console.log(url);
+            url = url.replace("{id}",id_item);
+            console.log(url);
+            $(this).attr("href", url)
+//            window.location = url;
+//            return false;
+        });
+
+
+
+
+
+
+
+    </script>
+    {% endif %}
+{% endfor %}
+<script src="static_files/xeki_admin/core_files/xeki-admin.js"></script>
+
+
+{% endblock %}

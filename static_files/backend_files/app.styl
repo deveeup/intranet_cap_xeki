@@ -1,0 +1,30 @@
+// LOGIN
+@import './_mixins.styl'
+$orange = #f46c00
+$orangeIcons= #FF5000
+$blue = #000c6e
+$blueMenu = #021D49
+$gray = #525261
+$grayA = #AAA
+$gold = #BF9F5D
+$darkPurple = #6A2117
+body
+	_bc($blueMenu)
+	.navbar
+		_bc(white)
+		_fullW()
+		_h(80px)
+		_dfr(flex-start, center)
+		_br(0)
+		img 
+			_w(200px)
+	.formContainer
+		_mTop(200px)
+		_dfr(center, center)
+		.form
+			_w(40%)
+			_padd2(20px, 40px)
+			_bc(white)
+			_br(10px)
+			.submit
+				_bc($orange)

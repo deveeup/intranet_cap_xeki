@@ -1,0 +1,25 @@
+
+<tabs class="{{element.class}}">
+    <!-- begin panel -->
+    <div class="panel panel-inverse element-box bg-white">
+        <div class="panel-body">
+
+            {% for info_item in element.items %}
+                <input id="tab{{loop.index}}" type="radio" name="tabs" {% if loop.index == 1 %}checked {% endif %}>
+                <label for="tab{{loop.index}}"><i class="{{info_item.icon}}"></i>{{info_item.title}}</label>
+            {% endfor %}
+
+            {% for info_item in element.items %}
+                <section id="content{{loop.index}}">
+                    {% if info_item.type == "buttons" %}
+                        {% include 'components/module_buttons_inner.html' %}
+                    {% endif %}
+
+                    {% if info_item.type == "html" %}
+                        {{info_item.html}}
+                    {% endif %}
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+</tabs>

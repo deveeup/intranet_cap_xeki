@@ -1,0 +1,1 @@
+var nospawn=!0;

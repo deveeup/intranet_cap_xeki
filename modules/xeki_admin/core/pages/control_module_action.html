@@ -1,0 +1,35 @@
+{% extends "_base.html" %} {% block content %} {{ parent() }}
+
+<h1 class="page-header">Dashboard</h1>
+<div class="row placeholders">
+	{% for item in menu_list %}
+		{% if item.type=="url" %}
+
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<a href="{{xeki_admin_url_base}}/{{item.url}}">
+                    <div class="box_bg" style="background: {{item.background}} !important;">
+                            <i class="{{item.icon}} fa-3x"></i>
+                            <h4>{{item.text}}</h4>
+                    </div>
+				</a>
+			</div>
+
+		{% endif %}
+
+
+		{% if item.type=="title" %}
+			<div class="col-md-12">
+				<div class="title h5 {{item.class}}">{{item.title}}</div>
+			</div>
+		{% endif %}
+
+		{% if item.type=="div" %}
+			<div class="{{item.class}}"></div>
+		{% endif %}
+
+	{% endfor %}
+
+</div>
+
+
+{% endblock %} {% block scripts %} {{ parent() }} {% endblock %}

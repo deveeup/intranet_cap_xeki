@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% block content %}
+{{ parent() }}
+<div class="container">
+    <div class="col-md-6">
+        <form method="post">
+            <h2>Cuenta no activa</h2>
+            <!--<fieldset class="form-group">-->
+                <!--<label for="user_identifier">Correo</label>-->
+                <!--<input name="email" type="email" class="form-control" id="user_identifier" value="{{email_temp}}"-->
+                       <!--placeholder="Introduce tu email">-->
+            <!--</fieldset>-->
+            <input name="xeki_action" value="xeki_auth::confirm_account_resend_email" type="hidden">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+
+{% endblock %}

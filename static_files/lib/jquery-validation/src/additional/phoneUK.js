@@ -1,0 +1,1 @@
+$.validator.addMethod("phoneUK",function(d,s){return d=d.replace(/\(|\)|\s+|-/g,""),this.optional(s)||d.length>9&&d.match(/^(?:(?:(?:00\s?|\+)44\s?)|(?:\(?0))(?:\d{2}\)?\s?\d{4}\s?\d{4}|\d{3}\)?\s?\d{3}\s?\d{3,4}|\d{4}\)?\s?(?:\d{5}|\d{3}\s?\d{3})|\d{5}\)?\s?\d{4,5})$/)},"Please specify a valid phone number");

@@ -1,0 +1,1 @@
+GMaps.prototype.checkGeofence=function(e,n,o){return o.containsLatLng(new google.maps.LatLng(e,n))},GMaps.prototype.checkMarkerGeofence=function(e,n){if(e.fences)for(var o,c=0;o=e.fences[c];c++){var t=e.getPosition();this.checkGeofence(t.lat(),t.lng(),o)||n(e,o)}};

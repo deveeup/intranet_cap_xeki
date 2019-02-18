@@ -1,0 +1,49 @@
+<!-- xeki -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>{{page_title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="description" content="{{page_description}}"/>
+  <meta name="keywords" content="{{page_keywords}}"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="static_files/favicon.png"/>
+  <link rel="icon" type="image/png" href="static_files/favicon.png"/>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="static_files/favicon.png"/>
+  <link type="text/css" rel="stylesheet" href="static_files/vendor/bootstrap/dist/css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="static_files/css/app.css"/>
+  
+  <!-- Owl -->
+  <link rel="stylesheet" href="static_files/lib/owl.carousel/dist/assets/owl.carousel.css">
+  <link rel="stylesheet" href="static_files/lib/owl.carousel/dist/assets/owl.theme.green.css"/>
+  {% block metaData %}{% endblock %}
+</head>
+<body>
+<header>
+  //header
+</header>
+{% block content %} {% endblock %}
+
+<footer>
+  //footer
+</footer>
+
+<script type="text/javascript" src="static_files/vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="static_files/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="static_files/lib/owl.carousel/dist/owl.carousel.js"></script>
+<script type="text/javascript" src="static_files/lib/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="static_files/js/_baseAnimation.js"></script>
+<script type="text/javascript" src="static_files/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+<link type="text/css" rel="stylesheet" href="static_files/lib/font-awesome/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="static_files/lib/flexslider/flexslider.css" media="screen"/>
+<link rel="stylesheet" href="static_files/lib/fancybox/source/jquery.fancybox.css" type="text/css" media="screen"/>
+
+
+{% block scripts %} {% endblock %}
+
+
+</body>
+</html>

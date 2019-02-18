@@ -1,0 +1,5 @@
+{
+    "require": {
+        "kraken-io/kraken-php": "^1.4"
+    }
+}

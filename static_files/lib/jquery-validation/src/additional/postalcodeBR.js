@@ -1,0 +1,1 @@
+$.validator.addMethod("postalcodeBR",function(d,o){return this.optional(o)||/^\d{2}.\d{3}-\d{3}?$|^\d{5}-?\d{3}?$/.test(d)},"Informe um CEP válido.");

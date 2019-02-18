@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+.body-login {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("static_files/img/login_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Roboto';
+}
+.body-login-webs-container {
+  margin-bottom: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.body-login-webs-container figure {
+  will-change: transform;
+}
+.body-login-webs-container figure img {
+  transition: 0.5s;
+  opacity: 0.6;
+}
+.body-login-webs-container figure img:hover {
+  opacity: 1;
+}
+.body-login-webs-container figure img:active {
+  transform: scale(0.9);
+}
+.body-login-webs-container figure:last-child {
+  border-left: 2px solid #e35825;
+  padding: 20px 0 20px 50px;
+}
+.body-login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 400px;
+}
+.body-login-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px auto;
+  width: 80%;
+  text-align: center;
+  outline: none;
+}
+.body-login-form button {
+  background-color: #e35825;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  will-change: transform;
+  transition: 0.5s;
+  outline: none;
+}
+.body-login-form button:active {
+  transform: scale(0.9);
+}
+.body-login-error-container {
+  padding: 0;
+  margin: 0 0 30px 0;
+  background-color: rgba(255,0,0,0.5);
+  width: 340px;
+  border-radius: 5px;
+}
+.body-login-error-container p {
+  padding: 0;
+  text-align: center;
+  color: #fff;
+}
+body {
+  max-width: 1024px;
+  margin: auto;
+}

@@ -1,0 +1,1 @@
+$.validator.addMethod("time",function(e,t){return this.optional(t)||/^([01]\d|2[0-3]|[0-9])(:[0-5]\d){1,2}$/.test(e)},"Please enter a valid time, between 00:00 and 23:59");

@@ -1,0 +1,19 @@
+# Ides
+/.idea/
+/.vscode/*
+
+
+# Cache xeki
+/cache/*
+
+
+# node
+/node_modules/*
+# yarn
+yarn.lock
+yarn-error.log
+
+#composer
+composer.lock
+
+

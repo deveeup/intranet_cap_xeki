@@ -1,0 +1,1 @@
+$.validator.addMethod("postalCodeCA",function(d,t){return this.optional(t)||/^[ABCEGHJKLMNPRSTVXY]\d[A-Z] \d[A-Z]\d$/.test(d)},"Please specify a valid postal code");

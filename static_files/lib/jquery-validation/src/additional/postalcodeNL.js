@@ -1,0 +1,1 @@
+$.validator.addMethod("postalcodeNL",function(a,t){return this.optional(t)||/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test(a)},"Please specify a valid postal code");
