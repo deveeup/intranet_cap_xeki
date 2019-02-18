@@ -22,7 +22,36 @@
 </head>
 <body>
 <header>
-  //header
+  <div class="user">
+    <figure class="user-figure">
+      <img src="static_files/img/img_profile_default.png" alt="{{alt}} Perfil">
+    </figure>
+    <div class="user-container">
+      <h4>name lastname</h4>
+      <span>position</span>
+    </div>
+  </div>  
+  <div class="business">
+    <figure class="business-figure-cap">
+      <a href="{{cap}}" target="_blank">
+        <img src="static_files/img/capillas_colors.png" alt="{{alt}} Funeraria">
+      </a>
+    </figure>
+    <div class="business-separator"></div>
+    <figure class="business-figure-coor">
+      <a href="{{coor}}" target="_blank">
+        <img src="static_files/img/coorserpark_colors.png" alt="{{alt}} Coorserpark">
+      </a>
+    </figure>
+  </div>
+  <div class="menu">
+    <figure class="menu-figure-search">
+      <img src="static_files/img/search.png" alt="{{alt}} Buscar">
+    </figure>
+    <figure class="menu-figure-burguermenu">
+      <img src="static_files/img/burguermenu.png" alt="{{alt}} Menú">
+    </figure>
+  </div>
 </header>
 {% block content %} {% endblock %}
 
