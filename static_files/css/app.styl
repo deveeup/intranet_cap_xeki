@@ -109,6 +109,12 @@ body
             &-figure-search, &-figure-burguermenu
                 margin 0 15px
                 _dfr(center, center)
+    footer 
+        _bc($blue)
+        _dfr(center, center)
+        .footer-separator 
+            border-left 1px solid white
+            _h(60px)
     .home 
         .option-bar 
             _dfr(center, center)
@@ -174,4 +180,59 @@ body
                         transform scale(.9)
                     &:hover 
                         _aReset($orange)
-                            
+        .events-container
+            _fullW()
+            _bc(#EAEAEA)
+            padding 15px 
+            .eventSliders
+                _w(80%)
+                _ma()
+                &-item 
+                    _fullW()
+                    _dfr(center, flex-start)
+                    &-figure 
+                        _w(350px)
+                        _h(160px)
+                        _reset(0)
+                        border-right 2px solid $orange
+                        img
+                            _fullW()
+                            _h(160px)
+                    &-container 
+                        _bc(rgba($blue, .7))
+                        _fullW()
+                        _h(160px)
+                        padding 10px 20px 
+                        _dfc(center, center)
+                        h3, p 
+                            _c(white)
+                            _ta(left)
+                            _fullW()
+                        p 
+                            _lh(1.3)
+                        &-viewmore
+                            _bc($orange)
+                            _aReset(white)
+                            _ma()
+                            _reset(0)
+                            _br(25px)
+                            padding 0 15px
+                            will-change transform
+                            transition .3s
+                            &:active 
+                                transform scale(.9)
+            .owl-dots
+                _fullW()
+                _h(40px)
+                _reset(0)
+                _dfr(center, center)
+                .owl-dot 
+                    _br(50%)
+                    _w(10px)
+                    _bc($blue)
+                    _dfr(center, center)
+                    margin 3px
+                    span 
+                        padding 5px
+                .active 
+                    _bc($orange)

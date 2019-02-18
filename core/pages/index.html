@@ -36,8 +36,57 @@
 				<a href="#" class="option-bar-item-title"> Inducción / Reinducción </a>
 			</div>
 		</div>
-		<div>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic explicabo dolorum ab magnam laudantium perspiciatis modi illum iusto quasi cumque sint, necessitatibus delectus, eaque ad doloribus eligendi? Tenetur, aliquam accusamus.
+		<div class="events-container">
+			<div class="eventSliders owl-carousel">
+				<div class="eventSliders-item">
+					<figure class="eventSliders-item-figure">
+						<img src="static_files/img/img_banner_default.jpg" alt="{{alt}} Image">
+					</figure>
+					<div class="eventSliders-item-container">
+						<h3>Espacio informativo</h3>
+						<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, eius nam repellat suscipit fuga eveniet libero, autem fugiat dolor obcaecati in adipisci, quis ab! Voluptate odio et quas rerum provident?
+						</p>
+						<a href="#" class="eventSliders-item-container-viewmore">Ver más</a>
+					</div>
+				</div>
+				<div class="eventSliders-item">
+					<figure class="eventSliders-item-figure">
+						<img src="static_files/img/img_banner_default.jpg" alt="{{alt}} Image">
+					</figure>
+					<div class="eventSliders-item-container">
+						<h3>Espacio informativo</h3>
+						<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, eius nam repellat suscipit fuga eveniet libero, autem fugiat dolor obcaecati in adipisci, quis ab! Voluptate odio et quas rerum provident?
+						</p>
+						<a href="#" class="eventSliders-item-container-viewmore">Ver más</a>
+					</div>
+				</div>
+			</div>
 		</div>
+		
 	</section>
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.eventSliders').owlCarousel({
+      loop: true,
+      items: 1,
+      singleItem: true,
+      transitionStyle: "fadeUp",
+      items: 1,
+      autoplay: true,
+      autoPlaySpeed: 5000,
+      autoPlayTimeout: 5000,
+			autoplayHoverPause: false,
+			dots:true,
+			nav: false,
+			dotsEach: true,
+
+    });
+  });
+</script>
 {% endblock %}

@@ -164,6 +164,17 @@ body header .menu-figure-burguermenu {
   flex-direction: row;
   justify-content: center;
 }
+body footer {
+  background-color: #010647;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body footer .footer-separator {
+  border-left: 1px solid #fff;
+  height: 60px;
+}
 body .home .option-bar {
   align-items: center;
   display: flex;
@@ -257,4 +268,91 @@ body .home .option-bar-item-title:active {
 body .home .option-bar-item-title:hover {
   text-decoration: none;
   color: #e35825;
+}
+body .home .events-container {
+  width: 100%;
+  background-color: #eaeaea;
+  padding: 15px;
+}
+body .home .events-container .eventSliders {
+  width: 80%;
+  margin: auto;
+}
+body .home .events-container .eventSliders-item {
+  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body .home .events-container .eventSliders-item-figure {
+  width: 350px;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  border-right: 2px solid #e35825;
+}
+body .home .events-container .eventSliders-item-figure img {
+  width: 100%;
+  height: 160px;
+}
+body .home .events-container .eventSliders-item-container {
+  background-color: rgba(1,6,71,0.7);
+  width: 100%;
+  height: 160px;
+  padding: 10px 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .home .events-container .eventSliders-item-container h3,
+body .home .events-container .eventSliders-item-container p {
+  color: #fff;
+  text-align: left;
+  width: 100%;
+}
+body .home .events-container .eventSliders-item-container p {
+  line-height: 1.3;
+}
+body .home .events-container .eventSliders-item-container-viewmore {
+  background-color: #e35825;
+  text-decoration: none;
+  color: #fff;
+  margin: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 25px;
+  padding: 0 15px;
+  will-change: transform;
+  transition: 0.3s;
+}
+body .home .events-container .eventSliders-item-container-viewmore:active {
+  transform: scale(0.9);
+}
+body .home .events-container .owl-dots {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body .home .events-container .owl-dots .owl-dot {
+  border-radius: 50%;
+  width: 10px;
+  background-color: #010647;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 3px;
+}
+body .home .events-container .owl-dots .owl-dot span {
+  padding: 5px;
+}
+body .home .events-container .owl-dots .active {
+  background-color: #e35825;
 }
