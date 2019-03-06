@@ -27,13 +27,12 @@
 			</a>
 		</figure>
 	</div>
-	{% if error %}
+	{% if error_login %}
 		<div class="body-login-error-container">
-			<p>{{error}}</p>
+			<p>{{error_login}}</p>
 		</div>
 	{% endif %}
-	<form method="POST" class="body-login-form" >
-		<h1>{{error_login}}</h1>
+	<form method="POST" class="body-login-form">
 		<input type="email" placeholder="Correo electrónico" name="email" autocomplete="off" required value="test@test.ai" />
 		<input type="password" placeholder="Contraseña" name="pw" autocomplete="off" required value="my_pw" />
 		{{csrf|raw}}
