@@ -1,7 +1,7 @@
 <?php
 
-  \xeki\routes::get('iniciar-sesion', 'login');
-  \xeki\routes::get('', 'home');
+  \xeki\routes::any('', 'login'); 
+  \xeki\routes::any('inicio', 'home');
 
   \xeki\routes::get('url', function($vars){
     $title = "title for seo";

@@ -30,3 +30,23 @@
 	$mail->send_email($to,$subject,$html,$array_info);
 
 });
+
+//login
+\xeki\routes::action('auth::login', function(){
+	$csrf = \xeki\module_manager::import_module('csrf');
+	$valid_csrf = $csrf->validate_token();
+	if($valid_csrf){
+		$auth = \xeki\module_manager::import_module('auth');
+		$user = $auth->login($_POST['email'],$_POST['pw']);
+		if($user->code == 'invalid_pass'){
+			\xeki\html_manager::add_extra_data("error_login","Contraseña incorrecta");
+		}elseif ($user->code == 'not_user_exit') {
+			\xeki\html_manager::add_extra_data("error_login","Usuario no existe");
+		}else {
+			\xeki\core::redirect('inicio');
+		}
+	}
+	else{
+		d("error csrf!");
+	}
+});

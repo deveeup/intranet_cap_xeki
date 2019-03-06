@@ -11,4 +11,4 @@ $keyworkds= "Funeraria, Coorserpark, Capillas de La Fe, capillas la fe, obituari
 $items_to_print=array();
 $items_to_print['info_array']=$sql_info;
 
-\xeki\html_manager::render('login/index.html',$items_to_print);
+\xeki\html_manager::render('index.html',$items_to_print);
