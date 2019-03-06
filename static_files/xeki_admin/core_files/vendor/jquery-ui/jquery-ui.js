@@ -5080,7 +5080,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 				.removeAttr( "role aria-disabled" ),
 			submenus = items.children( ".ui-menu-item-wrapper" )
 				.removeUniqueId()
-				.removeAttr( "tabIndex role aria-haspopup" );
+				.removeAttr( "tabIndex role aria-hasxeki_popup" );
 
 		// Destroy (sub)menus
 		this.element
@@ -5184,7 +5184,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_activate: function( event ) {
 		if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
-			if ( this.active.children( "[aria-haspopup='true']" ).length ) {
+			if ( this.active.children( "[aria-hasxeki_popup='true']" ).length ) {
 				this.expand( event );
 			} else {
 				this.select( event );
@@ -5215,7 +5215,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 				that._addClass( submenuCaret, "ui-menu-icon", "ui-icon " + icon );
 				item
-					.attr( "aria-haspopup", "true" )
+					.attr( "aria-hasxeki_popup", "true" )
 					.prepend( submenuCaret );
 				menu.attr( "aria-labelledby", item.attr( "id" ) );
 			} );
@@ -7219,7 +7219,7 @@ function Datepicker() {
 	this._curInst = null; // The current instance in use
 	this._keyEvent = false; // If the last event was a key event
 	this._disabledInputs = []; // List of date picker inputs that have been disabled
-	this._datepickerShowing = false; // True if the popup picker is showing , false if not
+	this._datepickerShowing = false; // True if the xeki_popup picker is showing , false if not
 	this._inDialog = false; // True if showing within a "dialog", false if not
 	this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
 	this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
@@ -7250,9 +7250,9 @@ function Datepicker() {
 		yearSuffix: "" // Additional text to append to the year in the month headers
 	};
 	this._defaults = { // Global defaults for all the date picker instances
-		showOn: "focus", // "focus" for popup on focus,
+		showOn: "focus", // "focus" for xeki_popup on focus,
 			// "button" for trigger button, or "both" for either
-		showAnim: "fadeIn", // Name of jQuery animation for popup
+		showAnim: "fadeIn", // Name of jQuery animation for xeki_popup
 		showOptions: {}, // Options for enhanced animations
 		defaultDate: null, // Used when field is blank: actual date,
 			// +/-number for offset from today, null for today
@@ -13890,7 +13890,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			"aria-expanded": "false",
 			"aria-autocomplete": "list",
 			"aria-owns": this.ids.menu,
-			"aria-haspopup": "true",
+			"aria-hasxeki_popup": "true",
 			title: this.element.attr( "title" )
 		} )
 			.insertAfter( this.element );

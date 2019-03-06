@@ -29494,7 +29494,7 @@ define("tinymce/ui/KeyboardNavigation", [
 
 			if (parentRole == "tablist") {
 				moveFocus(1, getFocusElements(focusedElement.parentNode));
-			} else if (role == "menuitem" && parentRole == "menu" && getAriaProp('haspopup')) {
+			} else if (role == "menuitem" && parentRole == "menu" && getAriaProp('hasxeki_popup')) {
 				enter();
 			} else {
 				moveFocus(1);
@@ -29520,7 +29520,7 @@ define("tinymce/ui/KeyboardNavigation", [
 
 			if (role == "menuitem" && parentRole == "menubar") {
 				enter();
-			} else if (role == "button" && getAriaProp('haspopup')) {
+			} else if (role == "button" && getAriaProp('hasxeki_popup')) {
 				enter({key: 'down'});
 			} else {
 				moveFocus(1);
@@ -31900,7 +31900,7 @@ define("tinymce/ui/MessageBox", [
  * @class tinymce.WindowManager
  * @example
  * // Opens a new dialog with the file.htm file and the size 320x240
- * // It also adds a custom parameter this can be retrieved by using tinyMCEPopup.getWindowArg inside the dialog.
+ * // It also adds a custom parameter this can be retrieved by using tinyMCExeki_popup.getWindowArg inside the dialog.
  * tinymce.activeEditor.windowManager.open({
  *    url: 'file.htm',
  *    width: 320,
@@ -31965,8 +31965,8 @@ define("tinymce/WindowManager", [
 		 * @option {String} file URL of the file to open in the window.
 		 * @option {Number} width Width in pixels.
 		 * @option {Number} height Height in pixels.
-		 * @option {Boolean} autoScroll Specifies whether the popup window can have scrollbars if required (i.e. content
-		 * larger than the popup size specified).
+		 * @option {Boolean} autoScroll Specifies whether the xeki_popup window can have scrollbars if required (i.e. content
+		 * larger than the xeki_popup size specified).
 		 */
 		self.open = function(args, params) {
 			var win;
@@ -38330,7 +38330,7 @@ define("tinymce/Editor", [
 			theme: 'modern',
 			delta_width: 0,
 			delta_height: 0,
-			popup_css: '',
+			xeki_popup_css: '',
 			plugins: '',
 			document_base_url: documentBaseUrl,
 			add_form_submit_trigger: true,
@@ -38569,7 +38569,7 @@ define("tinymce/Editor", [
 			 * tinymce.activeEditor.windowManager.alert('Hello world!');
 			 *
 			 * // Opens a new dialog with the file.htm file and the size 320x240
-			 * // It also adds a custom parameter this can be retrieved by using tinyMCEPopup.getWindowArg inside the dialog.
+			 * // It also adds a custom parameter this can be retrieved by using tinyMCExeki_popup.getWindowArg inside the dialog.
 			 * tinymce.activeEditor.windowManager.open({
 			 *    url: 'file.htm',
 			 *    width: 320,
@@ -43639,7 +43639,7 @@ define("tinymce/ui/PanelButton", [
 		postRender: function() {
 			var self = this;
 
-			self.aria('haspopup', true);
+			self.aria('hasxeki_popup', true);
 
 			self.on('click', function(e) {
 				if (e.control === self) {
@@ -43754,7 +43754,7 @@ define("tinymce/ui/ColorButton", [
 			}
 
 			return (
-				'<div id="' + id + '" class="' + self.classes + '" role="button" tabindex="-1" aria-haspopup="true">' +
+				'<div id="' + id + '" class="' + self.classes + '" role="button" tabindex="-1" aria-hasxeki_popup="true">' +
 					'<button role="presentation" hidefocus="1" type="button" tabindex="-1">' +
 						(icon ? '<i class="' + icon + '"' + image + '></i>' : '') +
 						'<span id="' + id + '-preview" class="' + prefix + 'preview"></span>' +
@@ -47064,7 +47064,7 @@ define("tinymce/ui/MenuButton", [
 				self.classes.add('fixed-width');
 			}
 
-			self.aria('haspopup', true);
+			self.aria('hasxeki_popup', true);
 
 			self.state.set('menu', settings.menu || self.render());
 		},
@@ -47358,7 +47358,7 @@ define("tinymce/ui/MenuItem", [
 			});
 
 			if (settings.menu && !settings.ariaHideMenu) {
-				self.aria('haspopup', true);
+				self.aria('hasxeki_popup', true);
 			}
 		},
 

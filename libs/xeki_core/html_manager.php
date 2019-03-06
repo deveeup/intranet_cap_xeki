@@ -297,9 +297,7 @@ class html_manager
     public static function render_json($array_json){
         \xeki\html_manager::$done_render=true;
         header('Content-Type: application/json');
-        $array_json=decode_array($array_json);
-        // convert &#acoute; to utf
-
+        utf8_size($array_json);
         $json='';
         if(is_array($array_json)){
             $json=json_encode($array_json);
@@ -330,7 +328,6 @@ class html_manager
         $_DEBUG_MODE = DEBUG_MODE;
 
         $variables_system = array(
-            "xeki_mobile" => xeki_isMobile(),
             "xeki_IS_MOBILE" => xeki_isMobile(),
             'URL_BASE' => $AG_BASE,
             'URL_BASE_COMPLETE' => $AG_BASE_COMPLETE,
@@ -346,7 +343,7 @@ class html_manager
         $dataArray = array_merge(self::$AG_RENDER_EXTRA_DATA, $dataArray);
 
 
-
+        // d($dataArray);
 //        d($dataArray);
         if(self::$ITEMSCOPE!==""){
             $dataArray['page_item_scope']=self::$ITEMSCOPE;

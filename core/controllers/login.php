@@ -1,6 +1,6 @@
 <?php
 
-$sql=\xeki\module_manager::import_module("xeki_db_sql");
+$sql=\xeki\module_manager::import_module("db-sql");
 
 $title = "Intranet";
 $description = "Lorem...";

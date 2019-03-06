@@ -55,5 +55,5 @@ $RUN_END_MODULES = false;
 
 $_ARRAY_RUN_END = array(
     #modules_names
-    'xeki_popup'
+    // 'xeki_popup'
 );

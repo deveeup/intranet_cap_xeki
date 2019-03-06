@@ -1,8 +1,6 @@
 <?php 
-
-
 namespace xeki;
-
+require_once (dirname(__FILE__)."/support_libs/error.php");
 /* 
  
 */
@@ -44,7 +42,7 @@ class core
     *
     */
     public static $_DEFAULT_PAGE_ERROR = "";
-
+    public static $_DOMAIN = "";
 
 
     public static function init(){
@@ -62,11 +60,22 @@ class core
         die();
     }
 
+    public static function get_payload(){
+        $request_body = file_get_contents('php://input');
+        $_PAY_LOAD = json_decode($request_body, true);
+        return $_PAY_LOAD;
+    }
+
     public static function analyze_url()
     {
 
-        $server = $_SERVER['HTTP_HOST'];
-        $url = $_SERVER['REQUEST_URI'];
+
+        $host = isset($_SERVER['HTTP_HOST'])?$_SERVER['HTTP_HOST']:"cli";
+        $scheme = isset($_SERVER['REQUEST_SCHEME'])?$_SERVER['REQUEST_SCHEME']:"cli";
+        $url = isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:"cli";
+        $server_name = isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"cli";
+
+
         // remove get params
         if (strpos($url, '?') !== false) {
             $url = substr($url, 0, strpos($url, '?'));
@@ -85,7 +94,7 @@ class core
             $_SERVER['REQUEST_SCHEME']=$info_cf['scheme'];
 
         }
-        $AG_BASE_COMPLETE = (isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : 'http') . '://' . $_SERVER['HTTP_HOST'] . '' . $AG_BASE;
+        $AG_BASE_COMPLETE = (isset($scheme) ? $scheme : 'http') . '://' . $host . '' . $AG_BASE;
 
         $AG_PARAMS = array_slice($AG_PARAMS, count(explode("/", $scriptName)) - 1);
 
@@ -114,7 +123,12 @@ class core
         $AG_L_PARAM = $AG_L_PARAM == $checker ? '' : $AG_L_PARAM;
 
 
-
+        self::$_DOMAIN =
+            isset($_SERVER['HTTP_X_FORWARDED_HOST']) ?
+                $_SERVER['HTTP_X_FORWARDED_HOST'] :
+                isset($_SERVER['HTTP_HOST']) ?
+                    $_SERVER['HTTP_HOST'] :
+                    $server_name;
 
         self::$URL_BASE = $AG_BASE;
         self::$URL_BASE_COMPLETE = $AG_BASE_COMPLETE;
@@ -138,35 +152,40 @@ class core
 
 
 
-        if($type!=302){
-            header("HTTP/1.1 302 Moved Permanently");
-            if (strpos($to, 'http://') !== false || strpos($to, 'https://') !== false) {
-                header('Location: ' . $to, true, 302);
-                echo '<meta http-equiv="refresh" content="0;URL="' . $to . '"/>';
-                echo '<script>window.location.replace("' . $to . '");</script>';
-                die();
-            }
-            header('Location: ' . $AG_BASE . $to, true, 302);
-            echo '<meta http-equiv="refresh" content="0;URL="' . $AG_BASE . $to . '"/>';
-            echo '<script>window.location.replace("' . $AG_BASE . $to . '");</script>';
+
+
+        if (strpos($to, 'http://') !== false || strpos($to, 'https://') !== false) {
+            $to_url  = $to;
         }
         else{
-            if (strpos($to, 'http://') !== false || strpos($to, 'https://') !== false) {
-                header('Location: ' . $to);
-                echo '<meta http-equiv="refresh" content="0;URL="' . $to . '"/>';
-                echo '<script>window.location.replace("' . $to . '");</script>';
-                die();
-            }
-            header('Location: ' . $AG_BASE . $to);
-            echo '<meta http-equiv="refresh" content="0;URL="' . $AG_BASE . $to . '"/>';
-            echo '<script>window.location.replace("' . $AG_BASE . $to . '");</script>';
+            $to_url = $AG_BASE . $to;
         }
 
+        if($type!=302){
+            header("HTTP/1.1 302 Moved Permanently");
+            header('Location: ' . $to_url, true, 302);        }
+        else{
+            header('Location: ' . $to_url);
+        }
+
+
+        echo '<meta http-equiv="refresh" content="0;URL="' . $to_url . '"/>';
+        echo '<script>window.location.replace("' . $to_url . '");</script>';
         die();
+        # Prep string with some basic normalization
+    }
+
+    public static function is_error($error)
+    {
+        if($error instanceof \xeki\error ) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     function fix_to_slug($url){
-        # Prep string with some basic normalization
         $url = to_no_tildes($url);
         $url = strtolower($url);
         $url = strip_tags($url);
@@ -250,6 +269,15 @@ class core
         );
     }
 
+    public static function set_static_files_route(){
+        
+        $route = $_SERVER['SCRIPT_NAME'];
+        $route = str_replace('index.php','',$route);
+        $route = str_replace('libs/xeki_core/_main.php','',$route);
+        $route = "/".$route."static_files/";
+        $route = str_replace('//','/',$route);
+        return $route;
+    }
     public static function text_to_acutes($str)
     {
         $chr_map = array(

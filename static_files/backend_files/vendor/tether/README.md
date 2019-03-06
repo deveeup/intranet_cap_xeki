@@ -61,7 +61,7 @@ There are tons of other useful features of Tether as well, instead of “comment
 
 * Tooltips for useful hints and tricks,
 * Dropdown menus,
-* Autocomplete popups for forms,
+* Autocomplete xeki_popups for forms,
 * and [more](http://github.hubspot.com/tether/examples/list_of_examples/)!
 
 ## Install
