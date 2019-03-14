@@ -175,6 +175,17 @@ body footer .footer-separator {
   border-left: 1px solid #fff;
   height: 60px;
 }
+body footer .footer-item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  padding: 30px 0;
+}
+body footer .footer-item-cap {
+  margin-right: 35px;
+}
 body .home .option-bar {
   align-items: center;
   display: flex;
