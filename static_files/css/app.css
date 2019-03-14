@@ -91,7 +91,6 @@ body header {
   justify-content: space-between;
   padding: 10px;
   box-shadow: 0 3px 5px #eaeaea;
-  margin-bottom: 20px;
 }
 body header .user {
   align-items: center;
@@ -186,6 +185,35 @@ body footer .footer-item {
 body footer .footer-item-cap {
   margin-right: 35px;
 }
+body .home {
+  border: 1px solid #f00;
+  position: relative;
+}
+body .home-menu {
+  background-color: #29dde8;
+  height: 250px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+body .home-menu-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+body .home-menu-close img {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+body .home-menu-container {
+  border: 1px solid #f00;
+  width: 70%;
+  margin: auto;
+}
 body .home .option-bar {
   align-items: center;
   display: flex;
@@ -194,6 +222,7 @@ body .home .option-bar {
   width: 100%;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
 }
 body .home .option-bar-item {
   width: 200px;

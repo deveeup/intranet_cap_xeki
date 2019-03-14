@@ -67,7 +67,6 @@ body
 		_dfr(space-between, center)
 		padding 10px
 		box-shadow: 0 3px 5px #EAEAEA
-		margin-bottom 20px
 		.user 
 			_dfr(center, center)
 			_reset(0)
@@ -122,10 +121,33 @@ body
 			&-cap 
 				margin-right 35px
 	.home 
+		_(red)
+		_pr()
+		&-menu 
+			_bc($electricBlue)
+			_h(250px)
+			_dn()
+			_pa()
+			_t(0)
+			_l(0)
+			_r(0)
+			_z(3)
+			&-close 
+				_pa()
+				_r(15px)
+				_t(15px)
+				img 
+					_reset(0)
+					_w(20px)
+			&-container 
+				_(red)
+				_w(70%)
+				_ma()
 		.option-bar 
 			_dfr(center, center)
 			_fullW()
 			_reset(0)
+			margin-top 20px
 			&-item
 				_w(200px)
 				_dfc(center, center)
