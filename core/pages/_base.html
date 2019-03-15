@@ -52,6 +52,23 @@
       <img src="static_files/img/burguermenu.png" alt="{{alt}} Menú">
     </figure>
   </div>
+  <div class="header-menu">
+    <figure class="header-menu-close" id="close-menu">
+      <img src="static_files/img/icon_close.png" alt="{{alt}} Cerrar">
+    </figure>
+    <div class="header-menu-container">
+      <div class="header-menu-container-item">
+        <figure>
+          <img src="" alt="{{alt}} Perfil">
+        </figure>
+        <button>
+          <a href="#">
+            Perfil
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
 {% block content %} {% endblock %}
 
@@ -93,10 +110,21 @@
 <link type="text/css" rel="stylesheet" href="static_files/lib/font-awesome/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="static_files/lib/flexslider/flexslider.css" media="screen"/>
 <link rel="stylesheet" href="static_files/lib/fancybox/source/jquery.fancybox.css" type="text/css" media="screen"/>
-
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#menu').click(function(){
+      $( ".header-menu" ).slideToggle("slow");
+    })
+    $('#close-menu').click(function(){
+      $( ".header-menu" ).slideToggle("slow");
+    })
+  });
+</script>
 
 {% block scripts %} {% endblock %}
 
 
 </body>
 </html>
+
+

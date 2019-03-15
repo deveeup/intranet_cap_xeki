@@ -64,6 +64,7 @@ body
 	_maxw(1024px)
 	_ma()
 	header 
+		_pr()
 		_dfr(space-between, center)
 		padding 10px
 		box-shadow: 0 3px 5px #EAEAEA
@@ -108,6 +109,32 @@ body
 			&-figure-search, &-figure-burguermenu
 				margin 0 15px
 				_dfr(center, center)
+		.header-menu 
+			_bc($electricBlue)
+			_h(250px)
+			_pa()
+			_t(100px)
+			_l(0)
+			_r(0)
+			_z(3)
+			&-close 
+				_pa()
+				_r(25px)
+				_t(15px)
+				img 
+					_reset(0)
+					_w(20px)
+			&-container 
+				_(red)
+				_w(70%)
+				_ma()
+				_dfr(center, center)
+				_fw(wrap)
+				padding 15px
+				&-item 
+					_(black)
+					_br(5px)
+					margin 0 10px
 	footer 
 		_bc($blue)
 		_dfr(center, center)
@@ -121,28 +148,7 @@ body
 			&-cap 
 				margin-right 35px
 	.home 
-		_(red)
 		_pr()
-		&-menu 
-			_bc($electricBlue)
-			_h(250px)
-			_dn()
-			_pa()
-			_t(0)
-			_l(0)
-			_r(0)
-			_z(3)
-			&-close 
-				_pa()
-				_r(15px)
-				_t(15px)
-				img 
-					_reset(0)
-					_w(20px)
-			&-container 
-				_(red)
-				_w(70%)
-				_ma()
 		.option-bar 
 			_dfr(center, center)
 			_fullW()
