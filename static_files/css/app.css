@@ -163,10 +163,15 @@ body header .menu-figure-burguermenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  transition: 0.5s;
+}
+body header .menu-figure-search:active,
+body header .menu-figure-burguermenu:active {
+  transform: scale(0.7);
 }
 body header .header-menu {
   background-color: #29dde8;
-  height: 250px;
+  height: 530px;
   position: absolute;
   top: 100px;
   left: 0;
@@ -177,6 +182,10 @@ body header .header-menu-close {
   position: absolute;
   right: 25px;
   top: 15px;
+  transition: 0.5s;
+}
+body header .header-menu-close:active {
+  transform: scale(0.7);
 }
 body header .header-menu-close img {
   margin: 0;
@@ -184,10 +193,9 @@ body header .header-menu-close img {
   width: 20px;
 }
 body header .header-menu-container {
-  border: 1px solid #f00;
   width: 70%;
   margin: auto;
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -195,9 +203,48 @@ body header .header-menu-container {
   padding: 15px;
 }
 body header .header-menu-container-item {
-  border: 1px solid #000;
+  background-color: #3b4663;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 10px;
+  padding: 20px 5px 5px 5px;
+  transition: 0.5s;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 170px;
+  height: 230px;
+}
+body header .header-menu-container-item:hover {
+  background-color: #e35825;
+}
+body header .header-menu-container-item:active {
+  transform: scale(0.9);
+}
+body header .header-menu-container-item figure {
+  width: 90%;
+  margin: auto;
+}
+body header .header-menu-container-item figure img {
+  width: 100%;
+}
+body header .header-menu-container-item button {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: none;
+  margin: 10px 0;
+  outline: none;
+}
+body header .header-menu-container-item button a {
+  text-decoration: none;
+  color: #3b4663;
+  font-size: 0.9em;
+  letter-spacing: -1px;
 }
 body footer {
   background-color: #010647;

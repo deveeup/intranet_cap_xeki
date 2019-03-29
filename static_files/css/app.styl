@@ -109,9 +109,12 @@ body
 			&-figure-search, &-figure-burguermenu
 				margin 0 15px
 				_dfr(center, center)
+				transition .5s 
+				&:active 
+					transform scale(.7)
 		.header-menu 
 			_bc($electricBlue)
-			_h(250px)
+			_h(530px)
 			_pa()
 			_t(100px)
 			_l(0)
@@ -121,20 +124,48 @@ body
 				_pa()
 				_r(25px)
 				_t(15px)
+				transition .5s
+				&:active 
+					transform scale(.7)
 				img 
 					_reset(0)
 					_w(20px)
 			&-container 
-				_(red)
 				_w(70%)
 				_ma()
-				_dfr(center, center)
+				_dfr(center, flex-start)
 				_fw(wrap)
 				padding 15px
 				&-item 
-					_(black)
+					_bc($blue2)
 					_br(5px)
-					margin 0 10px
+					margin 10px
+					padding 20px 5px 5px 5px
+					transition .5s
+					_dfc(flex-start, center)
+					_maxw(170px)
+					_h(230px)
+					&:hover 
+						_bc($orange)
+					&:active 
+						transform scale(.9)
+					figure 
+						_w(90%)
+						_ma()
+						img 
+							_fullW()
+					button 
+						_bc(white)
+						_br(5px)
+						_w(90%)
+						_dfr(center, center)
+						border none
+						margin 10px 0
+						outline none
+						a 
+							_aReset($blue2)
+							_fz(.9em)
+							letter-spacing: -1px
 	footer 
 		_bc($blue)
 		_dfr(center, center)
