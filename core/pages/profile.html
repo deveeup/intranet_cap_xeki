@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<div class="profile">
+  <div class="profile-header">
+    <div class="profile-header-info">
+      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+      <h2>Position</h2>
+      <h3>City Adress</h3>
+    </div>
+    <div class="profile-header-more">
+      <h2>Nivel educativo</h2>
+      <span>Profesional carrera: </span>
+      <span>Universidad: </span>
+    </div>
+    <div class="profile-header-imageContainer">
+      <figure>
+        {% if user.image == '' %}
+        <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+        {% else %}
+        <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+        {% endif %}
+      </figure>
+      <a href="" class="profile-header-imageContainer-buttonEdit">
+        <img src="static_files/img/icon_editProfile_white.png" alt="{{alt}} Editar información">
+          Editar
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}

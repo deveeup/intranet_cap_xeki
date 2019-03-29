@@ -120,6 +120,7 @@ body
 			_l(0)
 			_r(0)
 			_z(3)
+			_dn()
 			&-close 
 				_pa()
 				_r(25px)
@@ -178,6 +179,7 @@ body
 			padding 30px 0
 			&-cap 
 				margin-right 35px
+// home
 	.home 
 		_pr()
 		.option-bar 
@@ -301,3 +303,50 @@ body
 						padding 5px
 				.active 
 						_bc($orange)
+//profile 
+	.profile 
+		&-header 
+			_fullW()
+			_bc($blue2)
+			_mTop(2px)
+			padding 30px 10px 
+			_h(210px)
+			_dfr(center, center)
+			&-info 
+				_w(33%)
+				h1, h2, h3
+					_reset(0)
+				h1,h3 
+					_c(white)
+				h1 
+					_fz(1.7em)
+				h2 
+					_c($orange)
+					_fz(1.4em)
+				h3 
+					_fz(1.2em)
+			&-more 
+				_bc(white)
+				_dfc(flex-start, flex-start)
+				_w(33%)
+				padding 5px 15px
+				h2 
+					_c($orange)
+					_fz(1.4em)
+					_reset(0)
+			&-imageContainer 
+				_dfc(center, center)
+				_reset(0)
+				margin-left 50px
+				figure 
+					_reset(0)		
+					_w(150px)
+					img  
+						_reset(0)
+						_fullW()
+				&-buttonEdit 
+					_aReset(white)
+					_mTop(5px)
+					&:hover
+						_c(white)
+						text-decoration none
