@@ -458,12 +458,12 @@ body footer .footer-item-cap {
   width: 100%;
   background-color: #3b4663;
   margin-top: 2px;
-  padding: 30px 10px;
   height: 210px;
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 30px 10px;
 }
 .profile-header-info {
   width: 33%;
@@ -530,4 +530,59 @@ body footer .footer-item-cap {
 .profile-header-imageContainer-buttonEdit:hover {
   color: #fff;
   text-decoration: none;
+}
+.profile-info {
+  background-color: #e5e1e1;
+  padding: 25px 0;
+}
+.profile-info-titleContainer {
+  width: 90%;
+  background-color: #fff;
+  border-bottom: 3px solid #ff5000;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+}
+.profile-info-titleContainer h2,
+.profile-info-titleContainer a {
+  margin: 0;
+  padding: 0;
+}
+.profile-info-titleContainer h2 {
+  font-size: 1.3em;
+  color: #3b4663;
+}
+.profile-info-titleContainer a {
+  text-decoration: none;
+  color: #e35825;
+}
+.profile-info-descriptionContainer {
+  background-color: #fff;
+  width: 90%;
+  margin: 20px auto;
+  padding: 25px;
+}
+.profile-info-descriptionContainer h4 {
+  color: #ff5000;
+  font-size: 1.2em;
+}
+.profile-info-descriptionContainer p {
+  width: 100%;
+}
+.profile-info-descriptionContainer-hdv {
+  background-color: #3b4663;
+  border-radius: 5px;
+  width: 35%;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  margin: 30px calc(37.5% - 12.5px);
+  border: none;
+}
+.profile-info-descriptionContainer-hdv:hover {
+  text-decoration: none;
+  color: #fff;
 }

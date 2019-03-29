@@ -5,13 +5,13 @@
   <div class="profile-header">
     <div class="profile-header-info">
       <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-      <h2>Position</h2>
-      <h3>City Adress</h3>
+      <h2>{{ user.position }}</h2>
+      <h3>{{ user.city }}</h3>
     </div>
     <div class="profile-header-more">
       <h2>Nivel educativo</h2>
-      <span>Profesional carrera: </span>
-      <span>Universidad: </span>
+      <span>Profesional carrera: {{ user.career }}</span>
+      <span>Universidad: {{ user.university }}</span>
     </div>
     <div class="profile-header-imageContainer">
       <figure>
@@ -24,6 +24,24 @@
       <a href="" class="profile-header-imageContainer-buttonEdit">
         <img src="static_files/img/icon_editProfile_white.png" alt="{{alt}} Editar información">
           Editar
+      </a>
+    </div>
+  </div>
+  <div class="profile-info">
+    <div class="profile-info-titleContainer">
+      <h2>Mi Perfil</h2>
+      <a href="" class="profile-info-titleContainer-link">
+        Editar
+        <img src="static_files/img/icon_editProfile_orange.png" alt="{{alt}} Editar">
+      </a>
+    </div>
+    <div class="profile-info-descriptionContainer">
+      <h4>Descripción</h4>
+      <p>
+        {{user.description}}
+      </p>
+      <a href="#" class="profile-info-descriptionContainer-hdv">
+        Ver hoja de vida
       </a>
     </div>
   </div>

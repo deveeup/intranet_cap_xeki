@@ -309,9 +309,9 @@ body
 			_fullW()
 			_bc($blue2)
 			_mTop(2px)
-			padding 30px 10px 
 			_h(210px)
 			_dfr(center, center)
+			padding 30px 10px 
 			&-info 
 				_w(33%)
 				h1, h2, h3
@@ -350,3 +350,42 @@ body
 					&:hover
 						_c(white)
 						text-decoration none
+		&-info 
+			_bc($white)
+			padding 25px 0
+			&-titleContainer 
+				_w(90%)
+				_bc(white)
+				border-bottom 3px solid $orange2
+				margin 0 auto
+				_dfr(space-between, center)
+				padding 15px 
+				h2, a 
+					_reset(0)
+				h2 
+					_fz(1.3em)
+					_c($blue2)
+				a 
+					_aReset($orange)
+			&-descriptionContainer
+				_bc(white)
+				_w(90%)
+				margin 20px auto
+				padding 25px 
+				h4 
+					_c($orange2)
+					_fz(1.2em)
+				p 
+					_fullW()
+				&-hdv
+					_bc($blue2)
+					_br(5px)
+					_w(35%)
+					_aReset(white)
+					padding 10px
+					margin 30px calc(37.5% - 12.5px)
+					border none
+					&:hover 
+						text-decoration none 
+						color white
+						
