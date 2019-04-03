@@ -4,7 +4,6 @@
 $sql=\xeki\module_manager::import_module("db-sql");
 $auth = \xeki\module_manager::import_module('auth');
 
-
 #validate logged
 if(!$auth->is_logged()){
     \xeki\core::redirect('');
