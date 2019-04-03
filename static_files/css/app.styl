@@ -16,7 +16,7 @@
 		figure 
 			will-change transform
 			img 
-				transition .5s
+				transition .3s
 				opacity .6
 				&:hover 
 					opacity 1
@@ -45,7 +45,7 @@
 			border none 
 			_fz(18px)
 			will-change transform
-			transition .5s
+			transition .3s
 			outline none
 			&:active 
 				transform scale(.9)
@@ -109,7 +109,7 @@ body
 			&-figure-search, &-figure-burguermenu
 				margin 0 15px
 				_dfr(center, center)
-				transition .5s 
+				transition .3s 
 				&:active 
 					transform scale(.7)
 		.header-menu 
@@ -125,7 +125,7 @@ body
 				_pa()
 				_r(25px)
 				_t(15px)
-				transition .5s
+				transition .3s
 				&:active 
 					transform scale(.7)
 				img 
@@ -142,7 +142,7 @@ body
 					_br(5px)
 					margin 10px
 					padding 20px 5px 5px 5px
-					transition .5s
+					transition .3s
 					_dfc(flex-start, center)
 					_maxw(170px)
 					_h(230px)
@@ -350,6 +350,11 @@ body
 					&:hover
 						_c(white)
 						text-decoration none
+				a 
+					transition .3s
+					will-change transform
+					&:active 
+						transform scale(.9)
 		&-info 
 			_bc($white)
 			padding 25px 0
@@ -367,6 +372,10 @@ body
 					_c($blue2)
 				a 
 					_aReset($orange)
+					transition .3s 
+					will-change: transform
+					&:active 
+						transform scale(.9)
 			&-descriptionContainer
 				_bc(white)
 				_w(90%)
@@ -388,4 +397,164 @@ body
 					&:hover 
 						text-decoration none 
 						color white
+//edit profile 
+	.edit-profile
+		_dfr(space-between, flex-start)
+		_reset(0)
+		
+		&-info
+			_dfr(flex-start, flex-start)
+			_fw(wrap)
+			_mTop(30px)
+			_w(45%)
+			&-text
+				_fullW()
+				p 
+					_c($blue)
+					_fs(italic)
+					_fz(.9em)
+			&-image
+				_dfc(center, center)
+				figure
+					_w(150px)
+					img 
+						_fullW()
+				&-form 
+					_dfr(center, center)
+					_mTop(-10px)
+					&-file
+						width: 0.1px;
+						height: 0.1px;
+						opacity: 0;
+						overflow: hidden;
+						position: absolute;
+						z-index: -1;
+					&-label 
+						_bc($blue2)
+						_c(white)
+						_br(5px)
+						cursor pointer
+						padding 2px 10px
+						transition .3s 
+						&:hover 
+							_bc($blue)
+						&:active 
+							transform scale(.9)
+					&-submit 
+						_bc($orange)
+						_br(50%)
+						_c(white)
+						_fwb()
+						outline none
+						border none
+						margin -7px 0 0 10px
+						transition .3s
+						&:hover
+							_bc($orange2)
+						&:active 
+							transform scale(.9)
+							_bc($orange2)
+			&-user
+				margin 30px 0 0 20px
+				h1 
+					_c($blue)
+					_fz(1.4em)
+				h2 
+					_c($orange)
+					_fz(1.1em)
+				h3 
+					_c($blue)
+					_ta(center)
+					_br(25px)
+					_fz(1em)
+					_fwn()
+					_w(50%)
+					_dfr(flex-start, center)
+					img 
+						_w(20px)
+						_reset(0)
+						margin-right 5px
 						
+		&-form 
+			_reset(0)
+			_w(50%)
+			_mTop(30px)
+			&-formContainer 
+				_fullW()
+				padding 10px 0
+				_br(5px)
+				_ma()
+				_bc(rgba($white, .5))
+				_($white)
+				_dfc(center, center)
+				margin-bottom 30px
+				input[type="text"], textarea
+					_w(90%)
+					_br(5px)
+					border none
+					padding 3px 10px
+					margin-bottom 10px
+					border 1px solid $white
+					outline none
+				label 
+					_w(90%)
+					_ta(left)
+					_c($blue)
+					margin-top 5px
+				&-file
+					width: 0.1px;
+					height: 0.1px;
+					opacity: 0;
+					overflow: hidden;
+					position: absolute;
+					z-index: -1;
+				&-submit 
+					border none
+					_bc($orange)
+					_ta(center)
+					_c(white)
+					_br(5px)
+					outline none
+					padding 3px 10px 
+					transition .3s
+					&:hover 
+						_bc($orange2)
+					&:active 
+						transform scale(.9)
+				&-buttons
+					_fullW()
+					_dfr(center, center)
+					&-label 
+						_bc($blue2)
+						_br(5px)
+						text-align center !important
+						width 60% !important
+						color white !important
+						cursor pointer
+						padding 2px 10px
+						transition .3s 
+						margin 0
+						-moz-user-select: none; 
+						-webkit-user-select: none;
+						-ms-user-select: none;
+						user-select: none; 
+						&:hover 
+							_bc($blue)
+						&:active 
+							transform scale(.9)
+					&-submit 
+						_bc($orange)
+						_br(50%)
+						_c(white)
+						_fwb()
+						outline none
+						border none
+						margin 3px 0 0 10px
+						transition .3s
+						&:hover
+							_bc($orange2)
+						&:active 
+							transform scale(.9)
+							_bc($orange2)
+					
+					

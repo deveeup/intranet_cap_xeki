@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<div class="edit-profile">
+  <div class="edit-profile-info">
+    <div class="edit-profile-info-image">
+      <figure>
+        {% if user.image == '' %}
+          <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+        {% else %}
+          <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+        {% endif %}
+      </figure>
+      <form method="POST" class="edit-profile-info-image-form">
+        <input type="file" name="image" id="image" class="edit-profile-info-image-form-file">
+        <label for="image" class="edit-profile-info-image-form-label">Seleccionar</label>
+        <input type="submit" class="edit-profile-info-image-form-submit" value="&#10003;">
+      </form>
+    </div>
+    <div class="edit-profile-info-user">
+      <h1>{{user.first_name}} {{user.last_name}}</h1>
+      <h2>{{user.position}}</h2>
+      <h3>
+        <img src="static_files/img/icon-location.png" alt="{{alt}} Ubicación">
+        {{user.city|raw}}
+      </h3>
+    </div>
+    <div class="edit-profile-info-text">
+      <p>
+        Recuerda que existe información sensible y por tu seguridad no puedes actualizarla como usuario.
+        <br>
+        Si necesitas actualizar información sensible como tu nombre, dirección de correo electrónico o ciudad, deberás comunicarte con tu administrador.
+      </p>
+    </div>
+  </div>
+  <div class="edit-profile-form">
+    <form class="edit-profile-form-formContainer" method="POST">
+      <label for="username">Nombre de usuario</label>
+      <input type="text" value="{{user.username}}" placeholder="Nombre de usuario" name="username" id="username" />
+      <label for="university">Universidad de egreso</label>
+      <input type="text" value="{{user.university}}" placeholder="Universidad de egreso" name="university" id="university" />
+      <label for="career">Carrera</label>
+      <input type="text" value="{{user.career}}" placeholder="Carrera" name="career" id="career" />
+      <label for="description">Resumen profesional</label>
+      <textarea name="description" cols="30" rows="10" name="description">{{user.description}}</textarea>
+      <input type="hidden" name="xeki_action" value="upload-user" />
+      <input type="submit" class="edit-profile-form-formContainer-submit" value="&#10003; Actualizar">
+    </form>
+    <form class="edit-profile-form-formContainer">
+      <label for="username">Hoja de vida</label>
+      <input type="file" class="edit-profile-form-formContainer-file" name="hdv" id="hdv" />
+      <div class="edit-profile-form-formContainer-buttons">
+        <label for="hdv" class="edit-profile-form-formContainer-buttons-label">Seleccionar PDF</label>
+        <input type="submit" class="edit-profile-form-formContainer-buttons-submit" value="&#10003;">
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}

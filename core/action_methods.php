@@ -6,6 +6,23 @@
 	\xeki\html_manager::$done_render=true;
 });
 
+//upload user
+\xeki\routes::action('upload-user', function(){
+	$auth = \xeki\module_manager::import_module('auth');
+	$user = $auth->get_user(); 
+	$data = $_POST;
+	$data_update = [
+		'username'=>$data['username'],
+		'university'=>$data['university'],
+		'career'=>$data['career'],
+		'description'=>$data['description'],
+	];
+	$user->update($data_update);
+	\xeki\core::redirect('edit_profile');
+});
+
+
+
 // action for contact form
 \xeki\routes::action('contacto', function(){
 	// imports
@@ -28,7 +45,6 @@
 
 	// Send email
 	$mail->send_email($to,$subject,$html,$array_info);
-
 });
 
 //login

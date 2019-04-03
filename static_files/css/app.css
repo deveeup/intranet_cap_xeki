@@ -25,7 +25,7 @@
   will-change: transform;
 }
 .body-login-webs-container figure img {
-  transition: 0.5s;
+  transition: 0.3s;
   opacity: 0.6;
 }
 .body-login-webs-container figure img:hover {
@@ -62,7 +62,7 @@
   border: none;
   font-size: 18px;
   will-change: transform;
-  transition: 0.5s;
+  transition: 0.3s;
   outline: none;
 }
 .body-login-form button:active {
@@ -163,7 +163,7 @@ body header .menu-figure-burguermenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 body header .menu-figure-search:active,
 body header .menu-figure-burguermenu:active {
@@ -183,7 +183,7 @@ body header .header-menu-close {
   position: absolute;
   right: 25px;
   top: 15px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 body header .header-menu-close:active {
   transform: scale(0.7);
@@ -208,7 +208,7 @@ body header .header-menu-container-item {
   border-radius: 5px;
   margin: 10px;
   padding: 20px 5px 5px 5px;
-  transition: 0.5s;
+  transition: 0.3s;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -531,6 +531,13 @@ body footer .footer-item-cap {
   color: #fff;
   text-decoration: none;
 }
+.profile-header-imageContainer a {
+  transition: 0.3s;
+  will-change: transform;
+}
+.profile-header-imageContainer a:active {
+  transform: scale(0.9);
+}
 .profile-info {
   background-color: #e5e1e1;
   padding: 25px 0;
@@ -558,6 +565,11 @@ body footer .footer-item-cap {
 .profile-info-titleContainer a {
   text-decoration: none;
   color: #e35825;
+  transition: 0.3s;
+  will-change: transform;
+}
+.profile-info-titleContainer a:active {
+  transform: scale(0.9);
 }
 .profile-info-descriptionContainer {
   background-color: #fff;
@@ -585,4 +597,220 @@ body footer .footer-item-cap {
 .profile-info-descriptionContainer-hdv:hover {
   text-decoration: none;
   color: #fff;
+}
+.edit-profile {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.edit-profile-info {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  width: 45%;
+}
+.edit-profile-info-text {
+  width: 100%;
+}
+.edit-profile-info-text p {
+  color: #010647;
+  font-style: italic;
+  font-size: 0.9em;
+}
+.edit-profile-info-image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.edit-profile-info-image figure {
+  width: 150px;
+}
+.edit-profile-info-image figure img {
+  width: 100%;
+}
+.edit-profile-info-image-form {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -10px;
+}
+.edit-profile-info-image-form-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.edit-profile-info-image-form-label {
+  background-color: #3b4663;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 2px 10px;
+  transition: 0.3s;
+}
+.edit-profile-info-image-form-label:hover {
+  background-color: #010647;
+}
+.edit-profile-info-image-form-label:active {
+  transform: scale(0.9);
+}
+.edit-profile-info-image-form-submit {
+  background-color: #e35825;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  margin: -7px 0 0 10px;
+  transition: 0.3s;
+}
+.edit-profile-info-image-form-submit:hover {
+  background-color: #ff5000;
+}
+.edit-profile-info-image-form-submit:active {
+  transform: scale(0.9);
+  background-color: #ff5000;
+}
+.edit-profile-info-user {
+  margin: 30px 0 0 20px;
+}
+.edit-profile-info-user h1 {
+  color: #010647;
+  font-size: 1.4em;
+}
+.edit-profile-info-user h2 {
+  color: #e35825;
+  font-size: 1.1em;
+}
+.edit-profile-info-user h3 {
+  color: #010647;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: normal;
+  width: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.edit-profile-info-user h3 img {
+  width: 20px;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+}
+.edit-profile-form {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  margin-top: 30px;
+}
+.edit-profile-form-formContainer {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  margin: auto;
+  background-color: rgba(229,225,225,0.5);
+  border: 1px solid #e5e1e1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.edit-profile-form-formContainer input[type="text"],
+.edit-profile-form-formContainer textarea {
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e1e1;
+  outline: none;
+}
+.edit-profile-form-formContainer label {
+  width: 90%;
+  text-align: left;
+  color: #010647;
+  margin-top: 5px;
+}
+.edit-profile-form-formContainer-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.edit-profile-form-formContainer-submit {
+  border: none;
+  background-color: #e35825;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  padding: 3px 10px;
+  transition: 0.3s;
+}
+.edit-profile-form-formContainer-submit:hover {
+  background-color: #ff5000;
+}
+.edit-profile-form-formContainer-submit:active {
+  transform: scale(0.9);
+}
+.edit-profile-form-formContainer-buttons {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.edit-profile-form-formContainer-buttons-label {
+  background-color: #3b4663;
+  border-radius: 5px;
+  text-align: center !important;
+  width: 60% !important;
+  color: #fff !important;
+  cursor: pointer;
+  padding: 2px 10px;
+  transition: 0.3s;
+  margin: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.edit-profile-form-formContainer-buttons-label:hover {
+  background-color: #010647;
+}
+.edit-profile-form-formContainer-buttons-label:active {
+  transform: scale(0.9);
+}
+.edit-profile-form-formContainer-buttons-submit {
+  background-color: #e35825;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  margin: 3px 0 0 10px;
+  transition: 0.3s;
+}
+.edit-profile-form-formContainer-buttons-submit:hover {
+  background-color: #ff5000;
+}
+.edit-profile-form-formContainer-buttons-submit:active {
+  transform: scale(0.9);
+  background-color: #ff5000;
 }

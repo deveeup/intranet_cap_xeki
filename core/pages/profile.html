@@ -21,7 +21,7 @@
         <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% endif %}
       </figure>
-      <a href="" class="profile-header-imageContainer-buttonEdit">
+      <a href="{{URL_BASE}}edit_profile" class="profile-header-imageContainer-buttonEdit">
         <img src="static_files/img/icon_editProfile_white.png" alt="{{alt}} Editar información">
           Editar
       </a>
@@ -30,7 +30,7 @@
   <div class="profile-info">
     <div class="profile-info-titleContainer">
       <h2>Mi Perfil</h2>
-      <a href="" class="profile-info-titleContainer-link">
+      <a href="{{URL_BASE}}edit_profile" class="profile-info-titleContainer-link">
         Editar
         <img src="static_files/img/icon_editProfile_orange.png" alt="{{alt}} Editar">
       </a>
