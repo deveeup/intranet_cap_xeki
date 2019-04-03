@@ -3,6 +3,8 @@
 #import modules
 $sql=\xeki\module_manager::import_module("db-sql");
 $auth = \xeki\module_manager::import_module('auth');
+$csrf = \xeki\module_manager::import_module('csrf');
+\xeki\html_manager::add_extra_data("csrf", $csrf->get_token_html());
 
 
 #validate logged

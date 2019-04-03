@@ -43,6 +43,7 @@
       <input type="text" value="{{user.career}}" placeholder="Carrera" name="career" id="career" />
       <label for="description">Resumen profesional</label>
       <textarea name="description" cols="30" rows="10" name="description">{{user.description}}</textarea>
+      {{csrf|raw}}
       <input type="hidden" name="xeki_action" value="upload-user" />
       <input type="submit" class="edit-profile-form-formContainer-submit" value="&#10003; Actualizar">
     </form>
