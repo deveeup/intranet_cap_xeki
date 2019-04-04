@@ -84,16 +84,16 @@
 
       {% for item in transversal_process %}
         <div class="header-menu-container-item">
-          <a href="{{URL_BASE}}procesos">
+          <form method="post">
             <figure>
               <img src="static_files/img/{{item.icon}}" alt="{{alt}} {{item.name}}">
             </figure>
+            <input type="text" name="id" value="{{item.id}}"/>
+            <input type="hidden" name="xeki_action" value="process" />
             <button>
-              <a href="#">
-                {{item.name}}
-              </a>
+              {{item.name}}
             </button>
-          </a>
+          </form>
         </div>
       {% endfor %}
 

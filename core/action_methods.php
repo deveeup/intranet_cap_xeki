@@ -28,6 +28,16 @@
 		//window modal error.
 	}
 });
+//transversal process
+\xeki\routes::action('process', function(){
+	
+	$data = $_POST;
+	setcookie("idProcess",$data['id'],time()+5);
+	\xeki\core::redirect('procesos');
+
+});
+
+
 
 
 

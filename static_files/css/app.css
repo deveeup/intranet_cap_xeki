@@ -814,3 +814,6 @@ body footer .footer-item-cap {
   transform: scale(0.9);
   background-color: #ff5000;
 }
+.transversalProcess {
+  border: 1px solid #f00;
+}
