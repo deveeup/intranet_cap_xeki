@@ -14,15 +14,17 @@
     <div class="transversalProcess-body-container">
       {% for item in transversal_process_item %}
         <div class="transversalProcess-body-container-item">
-          <div class="transversalProcess-body-container-item-header">
-            <figure>
-              <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
-            </figure>
-            <h2>{{item.name}}</h2>
-          </div>
-          <p>
-            {{item.resume}}
-          </p>
+          <a href="#">
+            <div class="transversalProcess-body-container-item-header">
+              <figure>
+                <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
+              </figure>
+              <h2>{{item.name}}</h2>
+            </div>
+            <p>
+              {{item.resume}}
+            </p>
+          </a>
         </div>
       {% endfor %}
   </div>

@@ -876,6 +876,19 @@ body footer .footer-item-cap {
   width: 45%;
   padding: 20px 30px;
   margin: 10px;
+  transition: 0.3s;
+}
+.transversalProcess-body-container-item:active {
+  transform: scale(0.9);
+}
+.transversalProcess-body-container-item:hover {
+  box-shadow: 5px 5px 3px #ccc;
+}
+.transversalProcess-body-container-item a {
+  text-decoration: none;
+}
+.transversalProcess-body-container-item a:hover {
+  text-decoration: none;
 }
 .transversalProcess-body-container-item-header {
   align-items: center;
