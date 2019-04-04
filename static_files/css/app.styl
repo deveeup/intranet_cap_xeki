@@ -580,5 +580,44 @@ body
 		_(red)
 		&-banner 
 			_fullW()
+			_reset(0)
 			img 
 				_fullW()
+				_reset(0)
+		&-body 
+			_fullW()
+			_bc($white)
+			_(transparent)
+			&-title 
+				_ta(center)
+				_fz(1.5em)
+				_c($blue)
+				margin 20px auto
+				span 
+					_c($orange)
+			&-container 
+				_dfr(center, center)
+				_fw(wrap)
+				&-item 
+					_br(5px)
+					_bc(white)
+					_w(45%)
+					padding 20px 30px
+					margin 10px
+					&-header 
+						_dfr(flex-start, center)
+						figure 
+							_w(50px)
+							_reset(0)
+							img
+								_fullW()
+								_reset(0)
+						h2 
+							_reset(0)
+							_c($blue2)
+							_fz(1.5em)
+							margin-left 20px
+					p 
+						_fullW()
+						_mTop(15px)
+						_c($blue2)

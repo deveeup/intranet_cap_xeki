@@ -841,7 +841,67 @@ body footer .footer-item-cap {
 }
 .transversalProcess-banner {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .transversalProcess-banner img {
   width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.transversalProcess-body {
+  width: 100%;
+  background-color: #e5e1e1;
+  border: 1px solid transparent;
+}
+.transversalProcess-body-title {
+  text-align: center;
+  font-size: 1.5em;
+  color: #010647;
+  margin: 20px auto;
+}
+.transversalProcess-body-title span {
+  color: #e35825;
+}
+.transversalProcess-body-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.transversalProcess-body-container-item {
+  border-radius: 5px;
+  background-color: #fff;
+  width: 45%;
+  padding: 20px 30px;
+  margin: 10px;
+}
+.transversalProcess-body-container-item-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.transversalProcess-body-container-item-header figure {
+  width: 50px;
+  margin: 0;
+  padding: 0;
+}
+.transversalProcess-body-container-item-header figure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.transversalProcess-body-container-item-header h2 {
+  margin: 0;
+  padding: 0;
+  color: #3b4663;
+  font-size: 1.5em;
+  margin-left: 20px;
+}
+.transversalProcess-body-container-item p {
+  width: 100%;
+  margin-top: 15px;
+  color: #3b4663;
 }

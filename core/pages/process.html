@@ -5,6 +5,27 @@
   <figure class="transversalProcess-banner">
     <img src="static_files/img/{{banner}}" alt="{{alt}} {{title}}">
   </figure>
+  <div class="transversalProcess-body">
+    <h1 class="transversalProcess-body-title">
+      <span>&#8212;</span>
+      {{ title }}
+      <span>&#8212;</span>
+    </h1>
+    <div class="transversalProcess-body-container">
+      {% for item in transversal_process_item %}
+        <div class="transversalProcess-body-container-item">
+          <div class="transversalProcess-body-container-item-header">
+            <figure>
+              <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
+            </figure>
+            <h2>{{item.name}}</h2>
+          </div>
+          <p>
+            {{item.resume}}
+          </p>
+        </div>
+      {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
@@ -12,5 +33,4 @@
 {{ parent() }}
   <script></script>
 {% endblock %}
-
 

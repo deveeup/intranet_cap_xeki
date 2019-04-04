@@ -23,9 +23,9 @@ if(!$auth->is_logged()){
 	$queryOne = "SELECT * FROM transversal_process WHERE id = $id ORDER BY order_by ASC";
 	$transversal_process = $sql->query($queryOne);
 	
-	$queryTwo = "SELECT * FROM transversal_process_item WHERE idFather = $id ORDER BY order_by ASC";
+	$queryTwo = "SELECT * FROM transversal_process_item WHERE father_id = $id ORDER BY order_by ASC";
 	$transversal_process_item = $sql->query($queryTwo);
-
+	// d($transversal_process_item);
 	
 	#sending data to view
 	$items_to_print=array();
