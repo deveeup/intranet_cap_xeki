@@ -81,7 +81,23 @@
           </button>
         </a>
       </div>
-      <div class="header-menu-container-item">
+
+      {% for item in transversal_process %}
+        <div class="header-menu-container-item">
+          <a href="{{URL_BASE}}procesos">
+            <figure>
+              <img src="static_files/img/{{item.icon}}" alt="{{alt}} {{item.name}}">
+            </figure>
+            <button>
+              <a href="#">
+                {{item.name}}
+              </a>
+            </button>
+          </a>
+        </div>
+      {% endfor %}
+
+      <!-- <div class="header-menu-container-item">
         <a href="">
           <figure>
             <img src="static_files/img/icon_process_transversal.png" alt="{{alt}} Procesos transversales">
@@ -116,7 +132,8 @@
               </a>
             </button>
           </a>
-        </div>
+        </div> -->
+
         <div class="header-menu-container-item">
           <a href="">
             <figure>
