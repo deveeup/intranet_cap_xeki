@@ -839,3 +839,9 @@ body footer .footer-item-cap {
 .transversalProcess {
   border: 1px solid #f00;
 }
+.transversalProcess-banner {
+  width: 100%;
+}
+.transversalProcess-banner img {
+  width: 100%;
+}

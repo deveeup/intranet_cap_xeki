@@ -32,7 +32,7 @@
 \xeki\routes::action('process', function(){
 	
 	$data = $_POST;
-	setcookie("idProcess",$data['id'],time()+60);
+	setcookie("idProcess",$data['id'],time()+60000);
 	\xeki\core::redirect('procesos');
 
 });

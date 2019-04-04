@@ -31,6 +31,7 @@ if(!$auth->is_logged()){
 	$items_to_print=array();
 	$items_to_print['transversal_process'] = $transversal_process;
 	$items_to_print['banner'] = $transversal_process[0]['banner'];
+	$items_to_print['title'] = $transversal_process[0]['name'];
 	$items_to_print['transversal_process_item'] = $transversal_process_item;
 	\xeki\html_manager::render('process.html',$items_to_print);
 }
