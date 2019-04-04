@@ -18,10 +18,10 @@ $status = $auth->is_logged();
 
 if($status){
 	$query = "SELECT * FROM transversal_process order by order_by asc";
-	$transversal_process = $sql->query($query);
+	$transversal_process_global = $sql->query($query);
 
 	$items_to_global_print = array();
-	$items_to_global_print['transversal_process'] = $transversal_process;
+	$items_to_global_print['transversal_process_global'] = $transversal_process_global;
 	
 	$user = $auth->get_user();
 	$user_info = $user->get_info();
@@ -31,7 +31,7 @@ if($status){
 	\xeki\html_manager::add_extra_data("last_name", $user->get("last_name"));
 	\xeki\html_manager::add_extra_data("email", $user->get("email"));
 	\xeki\html_manager::add_extra_data("first_name", $user->get("first_name"));
-	\xeki\html_manager::add_extra_data("transversal_process", $items_to_global_print);
+	\xeki\html_manager::add_extra_data("transversal_process_global", $items_to_global_print['transversal_process_global']);
 
 }
 

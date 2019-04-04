@@ -81,16 +81,17 @@
           </button>
         </a>
       </div>
-
-      {% for item in transversal_process %}
+      {% for item in transversal_process_global %}
         <div class="header-menu-container-item">
-          <form method="post">
-            <figure>
-              <img src="static_files/img/{{item.icon}}" alt="{{alt}} {{item.name}}">
+          <form method="post" class="header-menu-container-item-form">
+            <figure class="header-menu-container-item-form-figure">
+              <button type="submit" class="header-menu-container-item-form-figure-buttonImage">
+                <img src="static_files/img/{{item.icon}}" alt="{{alt}} {{item.name}}">
+              </button>
             </figure>
-            <input type="text" name="id" value="{{item.id}}"/>
+            <input type="hidden" name="id" value="{{item.id}}"/>
             <input type="hidden" name="xeki_action" value="process" />
-            <button>
+            <button type="submit" class="header-menu-container-item-form-buttonText">
               {{item.name}}
             </button>
           </form>

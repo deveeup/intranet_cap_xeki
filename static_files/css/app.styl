@@ -140,12 +140,30 @@ body
 				&-item 
 					_bc($blue2)
 					_br(5px)
-					margin 10px
-					padding 20px 5px 5px 5px
-					transition .3s
 					_dfc(flex-start, center)
 					_maxw(170px)
 					_h(230px)
+					margin 10px
+					padding 20px 5px 5px 5px
+					transition .3s
+					&-form 
+						cursor pointer !important
+						&-buttonText
+							_w(90%)
+							font-size .9em !important
+							letter-spacing: -1px
+							margin 10px 5% !important
+							cursor pointer !important
+						&-figure 
+							&-buttonImage 
+								width 100% !important
+								background-color transparent !important
+								margin 0 !important
+								padding 0
+								cursor pointer !important
+								img 
+									_reset(0)
+									_fullW()
 					&:hover 
 						_bc($orange)
 					&:active 

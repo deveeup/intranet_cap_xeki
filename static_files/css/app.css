@@ -206,15 +206,37 @@ body header .header-menu-container {
 body header .header-menu-container-item {
   background-color: #3b4663;
   border-radius: 5px;
-  margin: 10px;
-  padding: 20px 5px 5px 5px;
-  transition: 0.3s;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   max-width: 170px;
   height: 230px;
+  margin: 10px;
+  padding: 20px 5px 5px 5px;
+  transition: 0.3s;
+}
+body header .header-menu-container-item-form {
+  cursor: pointer !important;
+}
+body header .header-menu-container-item-form-buttonText {
+  width: 90%;
+  font-size: 0.9em !important;
+  letter-spacing: -1px;
+  margin: 10px 5% !important;
+  cursor: pointer !important;
+}
+body header .header-menu-container-item-form-figure-buttonImage {
+  width: 100% !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0;
+  cursor: pointer !important;
+}
+body header .header-menu-container-item-form-figure-buttonImage img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 body header .header-menu-container-item:hover {
   background-color: #e35825;

@@ -9,6 +9,7 @@ $auth = \xeki\module_manager::import_module('auth');
 if(!$auth->is_logged()){
 	\xeki\core::redirect('');
 } else {
+	
 	#info seo
 	$title = "Intranet";
 	$description = "Lorem...";
@@ -22,7 +23,6 @@ if(!$auth->is_logged()){
 	$query = "SELECT * FROM transversal_process WHERE id = $id ORDER BY order_by ASC";
 	$transversal_process = $sql->query($query);
 	
-	d($transversal_process);
 	
 	#sending data to view
 	$items_to_print=array();
