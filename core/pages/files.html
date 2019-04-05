@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<div class="files">
+  <div class="files-body">
+    <h1 class="files-body-title">
+      <span>&#8212;</span>
+      <figure>
+        <img src="static_files/img/{{icon}}" alt="{{alt}}">
+      </figure>
+      {{ title }}
+      <span>&#8212;</span>
+    </h1>
+    <div class="files-body-container">
+      {% for item in transversal_process_subitem %}
+        <div class="files-body-container-item">
+          <a href="{{URL_BASE}}static_files/pdfs/{{item.name_file}}" target="_blank">
+            <figure>
+                <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
+            </figure>
+            <h2>
+              {{item.name}}
+            </h2>
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}
+

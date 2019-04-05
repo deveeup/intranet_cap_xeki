@@ -577,7 +577,6 @@ body
 					
 //transversalProcess
 	.transversalProcess
-		_(red)
 		&-banner 
 			_fullW()
 			_reset(0)
@@ -605,6 +604,13 @@ body
 					padding 20px 30px
 					margin 10px
 					transition .3s
+					cursor pointer
+					form
+						button 
+							background-color transparent
+							border none
+							outline none
+							cursor pointer
 					&:active 
 						transform scale(.9)
 					&:hover 
@@ -625,8 +631,63 @@ body
 							_reset(0)
 							_c($blue2)
 							_fz(1.5em)
+							_ta(left)
 							margin-left 20px
 					p 
 						_fullW()
 						_mTop(15px)
 						_c($blue2)
+						_ta(left)
+
+//files 
+	.files 
+		&-body 
+			_bc($white)
+			_(transparent)
+			&-title 
+				_dfr(center, center)
+				_fz(1.4em)
+				_c($blue2)
+				_mTop(20px)
+				figure 
+					_reset(0)
+					_maxw(40px)
+					margin 0 10px 0 0
+					img 
+						_fullW()
+				span 
+					_c($orange)
+					_fwn()
+					margin 0 15px
+			&-container 
+				_dfr(center, center)
+				_fw(wrap)
+				_w(80%)
+				_ma()
+				padding 10px
+				&-item 
+					_bc(white)
+					_w(200px)
+					_br(5px)
+					transition .3s
+					margin 10px
+					padding 20px 0
+					a  
+						text-decoration none
+					&:active 
+						transform scale(.9)
+					&:hover 
+						box-shadow 5px 5px 3px #CCCCCC
+					figure 
+						_w(40%)
+						margin 20px 30% 0 30%
+						padding 0
+						img 
+							_fullW()
+					h2
+						_fz(1.3em)
+						_c($blue2)
+						_ta(center)
+						_fwn()
+						margin 15px 0
+						

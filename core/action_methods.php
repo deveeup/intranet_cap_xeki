@@ -30,11 +30,16 @@
 });
 //transversal process
 \xeki\routes::action('process', function(){
-	
 	$data = $_POST;
 	setcookie("idProcess",$data['id'],time()+60000);
 	\xeki\core::redirect('procesos');
+});
 
+//files
+\xeki\routes::action('files', function(){
+	$data = $_POST;
+	setcookie("idFiles",$data['id'],time()+60000);
+	\xeki\core::redirect('archivos');
 });
 
 

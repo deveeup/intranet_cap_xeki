@@ -5,6 +5,7 @@
   \xeki\routes::any('perfil', 'profile');
   \xeki\routes::any('edit_profile', 'edit_profile');
   \xeki\routes::any('procesos', 'process');
+  \xeki\routes::any('archivos', 'files');
 
   \xeki\routes::get('url', function($vars){
     $title = "title for seo";

@@ -14,17 +14,21 @@
     <div class="transversalProcess-body-container">
       {% for item in transversal_process_item %}
         <div class="transversalProcess-body-container-item">
-          <a href="#">
-            <div class="transversalProcess-body-container-item-header">
-              <figure>
-                <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
-              </figure>
-              <h2>{{item.name}}</h2>
-            </div>
-            <p>
-              {{item.resume}}
-            </p>
-          </a>
+          <form method="POST">
+            <input type="hidden" name="xeki_action" value="files" />
+            <input type="hidden" name="id" value="{{item.id}}" />
+            <button>
+              <div class="transversalProcess-body-container-item-header">
+                <figure>
+                  <img src="static_files/img/{{item.icon}}" alt="{{alt}}">
+                </figure>
+                <h2>{{item.name}}</h2>
+              </div>
+              <p>
+                {{item.resume}}
+              </p>
+            </button>
+          </form>
         </div>
       {% endfor %}
   </div>
