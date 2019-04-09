@@ -109,11 +109,16 @@
 		$emailResponse = $sql->query($query);
 
 		#insert code
-		$data = array(
-			'id_user' => $emailResponse[0]['id'],
-			'code' => $code
-		);
-		$sql->insert("forgotpw_token", $data);
+		if($emailResponse){
+			$data = array(
+				'id_user' => $emailResponse[0]['id'],
+				'code' => $code
+			);
+			$sql->insert("forgotpw_token", $data);
+		}else{
+			d("dont search email");
+		}
+
 	}
 	else{
 		d("error csrf!");
