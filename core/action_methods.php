@@ -100,13 +100,17 @@
 
 	if($valid_csrf){
 		$code = rand(1000, 9999);
-
+		
+		
 		#search user
 		$email = $_POST['email'];
-
+		
 		#sql
 		$query = "SELECT * FROM auth_user WHERE email ='$email' ";
 		$emailResponse = $sql->query($query);
+
+		#set cookie id user
+		setcookie("id_user_restorepw",$emailResponse[0]['id'],time()+60000);
 
 		#insert code
 		if($emailResponse){
@@ -115,6 +119,7 @@
 				'code' => $code
 			);
 			$sql->insert("forgotpw_token", $data);
+			\xeki\core::redirect('restaurar-clave-codigo');
 		}else{
 			d("dont search email");
 		}
@@ -123,4 +128,61 @@
 	else{
 		d("error csrf!");
 	}	
+});
+
+
+//request code 
+\xeki\routes::action('auth::forgotpw', function(){
+	$sql=\xeki\module_manager::import_module("db-sql");
+
+	#id user search
+	$id = $_COOKIE["id_user_restorepw"];
+	
+	#sql
+	$query = "SELECT * FROM forgotpw_token WHERE id_user ='$id' ORDER BY id DESC";
+	$restore_pw = $sql->query($query);
+	
+});
+
+//validate code 
+\xeki\routes::action('auth::requestcode', function(){
+	$sql=\xeki\module_manager::import_module("db-sql");
+
+	#id user search
+	$id = $_COOKIE["id_user_restorepw"];
+	
+	#sql
+	$query = "SELECT * FROM forgotpw_token WHERE id_user ='$id' ORDER BY id DESC";
+	$restore_pw = $sql->query($query);
+	
+	$code_database = $restore_pw[0]['code'];
+	$code_user = $_POST['code'];
+	$user_id = $restore_pw[0]['user_id'];
+	
+	if($code_user == $code_database){
+		\xeki\core::redirect('nueva-clave');
+	}else{
+		\xeki\html_manager::add_extra_data("error_code","Código invalido");
+	}
+	
+});
+
+
+//update pw 
+\xeki\routes::action('auth::updatepw', function(){
+	$sql=\xeki\module_manager::import_module("db-sql");
+
+	$data = $_POST;
+	$user_id = $_COOKIE["id_user_restorepw"];
+
+	if($data['password'] != $data['password_confirm']){
+		\xeki\html_manager::add_extra_data("dont_match_pw","Las contraseñas no coinciden");
+	}elseif($data['user_id'] != $user_id){
+		\xeki\html_manager::add_extra_data("dont_match_user","Error de actualización, intenta nuevamente");
+	}else{
+		\xeki\html_manager::add_extra_data("update_password_successful","La contraseña se ha actualizado de manera éxitosa");
+		\xeki\core::redirect('');
+	}
+
+
 });
