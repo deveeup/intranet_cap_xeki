@@ -12,6 +12,7 @@ if(!$auth->is_logged()){
   // d($sql_info);
   $items_to_print=array();
   $items_to_print['info_array']=$sql_info;
+
   
   \xeki\html_manager::render('login/index.html',$items_to_print);
 }else {

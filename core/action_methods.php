@@ -88,4 +88,34 @@
 	else{
 		d("error csrf!");
 	}
+
+});
+
+//forgotpw
+\xeki\routes::action('auth::forgotpw', function(){
+	$csrf = \xeki\module_manager::import_module('csrf');
+	$sql=\xeki\module_manager::import_module("db-sql");
+
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf){
+		$code = rand(1000, 9999);
+
+		#search user
+		$email = $_POST['email'];
+
+		#sql
+		$query = "SELECT * FROM auth_user WHERE email ='$email' ";
+		$emailResponse = $sql->query($query);
+
+		#insert code
+		$data = array(
+			'id_user' => $emailResponse[0]['id'],
+			'code' => $code
+		);
+		$sql->insert("forgotpw_token", $data);
+	}
+	else{
+		d("error csrf!");
+	}	
 });

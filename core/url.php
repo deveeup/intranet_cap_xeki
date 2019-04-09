@@ -36,3 +36,15 @@
     $auth->logout();
     \xeki\core::redirect('');
   });
+
+  //forgot pw 
+  \xeki\routes::any('resaurar-clave', function(){
+    $sql=\xeki\module_manager::import_module("db-sql");
+    
+    $title = "Restaurar contraseña";
+    $description =  "description for seo";
+    \xeki\html_manager::set_seo($title,$description,true);
+    $items_to_print = array();
+    \xeki\html_manager::render('login/forgot-pw.html', $items_to_print);
+
+  });

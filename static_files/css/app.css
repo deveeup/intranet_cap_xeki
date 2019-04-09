@@ -14,6 +14,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.body-login-auxiliartext {
+  color: #fff;
+}
 .body-login-webs-container {
   margin-bottom: 50px;
   align-items: center;
@@ -44,6 +47,9 @@
   flex-direction: column;
   justify-content: center;
   min-width: 400px;
+}
+.body-login-form label {
+  color: #fff;
 }
 .body-login-form input {
   padding: 10px;
@@ -79,6 +85,19 @@
   padding: 0;
   text-align: center;
   color: #fff;
+}
+.body-login-forgotpw {
+  text-decoration: none;
+  color: #fff;
+  margin-top: 20px;
+  transition: 0.3s;
+  will-change: transform;
+}
+.body-login-forgotpw:hover {
+  border-bottom: 1px solid #fff;
+}
+.body-login-forgotpw:active {
+  transform: scale(0.9);
 }
 body {
   max-width: 1024px;

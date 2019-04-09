@@ -10,6 +10,8 @@
 	background-image: url('static_files/img/login_background.jpg')
 	background-repeat: no-repeat
 	background-size: cover
+	&-auxiliartext
+		_c(white)
 	&-webs-container
 		margin-bottom 50px
 		_dfr(center, center)
@@ -29,6 +31,8 @@
 	&-form 
 		_dfc(center, center)
 		_minw(400px)
+		label 
+			_c(white)
 		input 
 			padding 10px 
 			_br(5px)
@@ -59,7 +63,15 @@
 			padding  0
 			_ta(center)
 			_c(white)
-
+	&-forgotpw 
+		_aReset(white)
+		_mTop(20px)
+		transition .3s
+		will-change: transform
+		&:hover 
+			border-bottom 1px solid white
+		&:active 
+			transform scale(.9)
 body 
 	_maxw(1024px)
 	_ma()
