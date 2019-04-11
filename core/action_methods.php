@@ -79,8 +79,10 @@
 		$user = $auth->login($_POST['email'],$_POST['pw']);
 		if($user->code == 'invalid_pass'){
 			\xeki\html_manager::add_extra_data("error_login","Contraseña incorrecta");
+			setcookie("update_password_successful",false,time()+1);
 		} elseif ($user->code == 'not_user_exit') {
 			\xeki\html_manager::add_extra_data("error_login","Usuario no existe");
+			setcookie("update_password_successful",false,time()+1);
 		} else{
 			\xeki\core::redirect('inicio');
 		}
@@ -179,16 +181,20 @@
 	}elseif($data['user_id'] != $user_id){
 		\xeki\html_manager::add_extra_data("dont_match_user","Error de actualización, intenta nuevamente");
 	}else{
-		\xeki\html_manager::add_extra_data("update_password_successful","La contraseña se ha actualizado de manera éxitosa");
-		
-		
+		#import module
 		$sql=\xeki\module_manager::import_module("db-sql");
+
+		#drop data from
 		$password = hash("sha256", $_POST['password']);
 		$user_id = $_POST['user_id'];
 
+		#update data in database
 		$query = "UPDATE auth_user SET auth_user.password = '$password' WHERE id = '$user_id' ";
 		$update_data = $sql->query($query);		
 
+		#set var for message
+		setcookie("update_password_successful",true,time()+3);
+		
 
 		\xeki\core::redirect('');
 	}

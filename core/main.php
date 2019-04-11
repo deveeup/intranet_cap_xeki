@@ -32,6 +32,14 @@ if($status){
 	\xeki\html_manager::add_extra_data("email", $user->get("email"));
 	\xeki\html_manager::add_extra_data("first_name", $user->get("first_name"));
 	\xeki\html_manager::add_extra_data("transversal_process_global", $items_to_global_print['transversal_process_global']);
+	setcookie("update_password_successful",false,time()+1);
+
+}else{
+	$varUpdate = $_COOKIE["update_password_successful"];
+
+	if($varUpdate){
+		\xeki\html_manager::add_extra_data("update_password_successful","La contraseña se ha actualizado de manera éxitosa");
+	}
 
 }
 
