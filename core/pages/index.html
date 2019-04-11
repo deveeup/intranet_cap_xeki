@@ -38,30 +38,20 @@
 		</div>
 		<div class="events-container">
 			<div class="eventSliders owl-carousel">
+				{% for item in notices %}
 				<div class="eventSliders-item">
 					<figure class="eventSliders-item-figure">
-						<img src="static_files/img/img_banner_default.jpg" alt="{{alt}} Image">
+						<img src="static_files/img/{{item.image}}" alt="{{alt}} Image">
 					</figure>
 					<div class="eventSliders-item-container">
-						<h3>Espacio informativo</h3>
+						<h3>{{item.name}}</h3>
 						<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, eius nam repellat suscipit fuga eveniet libero, autem fugiat dolor obcaecati in adipisci, quis ab! Voluptate odio et quas rerum provident?
+							{{item.description}}
 						</p>
 						<a href="#" class="eventSliders-item-container-viewmore">Ver más</a>
 					</div>
 				</div>
-				<div class="eventSliders-item">
-					<figure class="eventSliders-item-figure">
-						<img src="static_files/img/img_banner_default.jpg" alt="{{alt}} Image">
-					</figure>
-					<div class="eventSliders-item-container">
-						<h3>Espacio informativo</h3>
-						<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, eius nam repellat suscipit fuga eveniet libero, autem fugiat dolor obcaecati in adipisci, quis ab! Voluptate odio et quas rerum provident?
-						</p>
-						<a href="#" class="eventSliders-item-container-viewmore">Ver más</a>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 		
