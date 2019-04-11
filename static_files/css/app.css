@@ -191,17 +191,19 @@ body header .menu {
   flex-direction: row;
   justify-content: center;
 }
-body header .menu-figure-search,
-body header .menu-figure-burguermenu {
+body header .menu figure {
   margin: 0 15px;
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   transition: 0.3s;
+  width: 24px;
 }
-body header .menu-figure-search:active,
-body header .menu-figure-burguermenu:active {
+body header .menu figure img {
+  width: 100%;
+}
+body header .menu figure:active {
   transform: scale(0.7);
 }
 body header .header-menu {
