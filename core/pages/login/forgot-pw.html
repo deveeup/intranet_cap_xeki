@@ -15,7 +15,13 @@
   {% block metaData %}{% endblock %}
 </head>
 <body class="body-login">
-	
+	{% if dont_search_email %}
+		<div class="body-login-error-container">
+			<p>
+        {{dont_search_email}}
+      </p>
+		</div>
+	{% endif %}
 	<form method="POST" class="body-login-form">
 		{{csrf|raw}}
 		<label for="email">Por favor introduce tu dirección de correo electrónico</label>

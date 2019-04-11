@@ -86,7 +86,7 @@
   border-radius: 5px;
 }
 .body-login-error-container p {
-  padding: 0;
+  padding: 0 10px;
   text-align: center;
   color: #fff;
 }

@@ -121,7 +121,7 @@
 			$sql->insert("forgotpw_token", $data);
 			\xeki\core::redirect('restaurar-clave-codigo');
 		}else{
-			d("dont search email");
+			\xeki\html_manager::add_extra_data("dont_search_email","No tenemos registro de este correo electrónico");
 		}
 
 	}
@@ -170,19 +170,19 @@
 
 //update pw 
 \xeki\routes::action('auth::updatepw', function(){
-	$sql=\xeki\module_manager::import_module("db-sql");
-
+	
 	$data = $_POST;
 	$user_id = $_COOKIE["id_user_restorepw"];
-
+	
 	if($data['password'] != $data['password_confirm']){
 		\xeki\html_manager::add_extra_data("dont_match_pw","Las contraseñas no coinciden");
 	}elseif($data['user_id'] != $user_id){
 		\xeki\html_manager::add_extra_data("dont_match_user","Error de actualización, intenta nuevamente");
 	}else{
 		\xeki\html_manager::add_extra_data("update_password_successful","La contraseña se ha actualizado de manera éxitosa");
-
-
+		
+		
+		$sql=\xeki\module_manager::import_module("db-sql");
 		$password = hash("sha256", $_POST['password']);
 		$user_id = $_POST['user_id'];
 
@@ -193,5 +193,5 @@
 		\xeki\core::redirect('');
 	}
 
-
+ 
 });
