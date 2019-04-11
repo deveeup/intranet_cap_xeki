@@ -181,6 +181,15 @@
 		\xeki\html_manager::add_extra_data("dont_match_user","Error de actualización, intenta nuevamente");
 	}else{
 		\xeki\html_manager::add_extra_data("update_password_successful","La contraseña se ha actualizado de manera éxitosa");
+
+
+		$password = hash("sha256", $_POST['password']);
+		$user_id = $_POST['user_id'];
+
+		$query = "UPDATE auth_user SET auth_user.password = '$password' WHERE id = '$user_id' ";
+		$update_data = $sql->query($query);		
+
+
 		\xeki\core::redirect('');
 	}
 
