@@ -1,9 +1,166 @@
 {% extends "_base.html" %}
 {% block content %}
 
-<div>
-  <h1>dashboard</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ab perferendis, explicabo facilis sit placeat eos consequuntur nisi. Aut aliquam nam illum debitis culpa! Explicabo ducimus quidem eligendi possimus sed.</p>
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  <div class="dash-container-menu">
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-users.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-group.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-permission.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-process.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-news.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-convenious.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+    <div class="dash-container-menu-item">
+      <figure class="dash-container-menu-item-figure">
+        <a href="#">
+          <img src="static_files/img/icon-dash-book.png" alt="{{alt}} Usuarios">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="dash-container-content">
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de usuarios</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de grupos</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Permisos de usuarios</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+    
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-process.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de procesos</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-news.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de noticias</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-convenious.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de convenios</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+    
+    <div class="dash-container-content-item">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-books.png" alt="{{alt}} Usuarios">
+      </figure>
+      <div class="dash-container-content-item-info">
+        <h3>Gestión de inducciones</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <a href="#">Administrar</a>
+      </div>
+    </div>
+
+  </div>
+  </div>
 </div>
 
 {% endblock %}

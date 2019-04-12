@@ -718,4 +718,98 @@ body
 						_ta(center)
 						_fwn()
 						margin 15px 0
-						
+
+//dashboard
+	.dash 
+		&-header
+			border-bottom 1px solid rgba($orange, .3)
+			_dfr(flex-start, center)
+			padding-bottom 5px
+			_mTop(10px)
+			&-figure 
+				_w(30px)
+				_reset(0)
+				_mLeft(10px)
+				img 
+					_fullW()
+			&-title 
+				_c($gray)
+				_fz(1.3em)
+				_reset(0)
+				_mLeft(5px)
+		&-container
+			_fullW()
+			_dfr(flex-start, flex-start)
+			_h(600px)
+			&-menu
+				_dfc(flex-start, center)
+				_bc(rgba($orange, .8))
+				_w(60px)
+				height: 100%;
+				&-item 
+					_fullW()
+					_dfc(center, center)
+					padding 15px 0
+					transition .5s
+					will-change: transform
+					&-figure 
+						_w(25px)
+						_reset(0)
+						img 
+							_reset(0)
+							_fullW()
+					&-title 
+						_fz(.8em)
+						_aReset(white)
+						margin 5px 0
+						&:hover 
+							_aReset(white)
+					&:hover 
+						transform scale(1.3)
+						_bc($orange)
+			&-content 
+				margin 0
+				padding 15px
+				_w(calc(100% - 60px))
+				_dfr(flex-start, flex-start)
+				_fw(wrap)
+				&-item
+					_w(445px)
+					_(rgba($gray, .5))
+					_br(0)
+					_dfr(flex-start, flex-start)
+					transition .3s
+					padding 10px
+					margin 10px
+					figure 
+						_w(35px)
+						_reset(0)
+						_mTop(5px)
+						img 
+							_reset(0)
+							_fullW()
+					&-info 
+						_reset(0)
+						_w(calc(100% - 9px))
+						padding-left 10px
+						h3 
+							_fz(1.1em)
+							_reset(0)
+						p 
+							_reset(0)
+							_fz(.8em)
+							line-height: 1.3
+							margin-bottom 10px
+						a 
+							_bc($lightBlue)
+							_aReset(white)
+							padding 3px 10px
+							_mTop(5px)
+							margin 5px 0
+							transition .8s
+							&:hover 
+								_bc($blue)
+					&:hover 
+						box-shadow 1px 1px 3px $gray
+					&:active 
+						transform scale(.9)
