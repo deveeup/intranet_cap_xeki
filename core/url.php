@@ -6,6 +6,7 @@
   \xeki\routes::any('edit_profile', 'edit_profile');
   \xeki\routes::any('procesos', 'process');
   \xeki\routes::any('archivos', 'files');
+  \xeki\routes::any('panel', 'dash');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
   \xeki\routes::get('url', function($vars){

@@ -30,7 +30,6 @@ if(!$auth->is_logged()){
 	$notices = "SELECT * FROM notices WHERE group_ref = '$id_notice' ";
 	$notices_data = $sql->query($notices);
 
-	
 	#sending data to view
 	$items_to_print = array();
 	$items_to_print['user'] = $data['user'];

@@ -50,6 +50,13 @@
         <img src="static_files/img/home-icon.png" alt="{{alt}} Buscar">
       </a>
     </figure>
+    {% if admin == 'yes' %}
+    <figure>
+      <a href="{{URL_BASE}}panel">
+        <img src="static_files/img/icon-dashboard.png" alt="{{alt}} Buscar">
+      </a>
+    </figure>
+    {% endif %}
     <figure id="menu">
       <img src="static_files/img/burguermenu.png" alt="{{alt}} Menú">
     </figure>
