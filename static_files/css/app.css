@@ -1106,6 +1106,10 @@ body footer .footer-item-cap {
   transform: scale(1.3);
   background-color: #e35825;
 }
+.dash-container-menu .selected {
+  width: 70px;
+  background-color: rgba(227,88,37,0.8);
+}
 .dash-container-content {
   margin: 0;
   padding: 15px;
@@ -1149,6 +1153,10 @@ body footer .footer-item-cap {
   font-size: 1.1em;
   margin: 0;
   padding: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-item-info p {
   margin: 0;
@@ -1156,6 +1164,10 @@ body footer .footer-item-cap {
   font-size: 0.8em;
   line-height: 1.3;
   margin-bottom: 10px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-item-info a {
   background-color: #7f91b5;
@@ -1165,6 +1177,10 @@ body footer .footer-item-cap {
   margin-top: 5px;
   margin: 5px 0;
   transition: 0.8s;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-item-info a:hover {
   background-color: #010647;

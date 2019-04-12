@@ -9,57 +9,7 @@
     <h2 class="dash-header-title">Panel de administración</h2>
   </div>
   <div class="dash-container">
-  <div class="dash-container-menu">
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-users.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-group.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-permission.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-process.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-news.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-convenious.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-    <div class="dash-container-menu-item">
-      <figure class="dash-container-menu-item-figure">
-        <a href="#">
-          <img src="static_files/img/icon-dash-book.png" alt="{{alt}} Usuarios">
-        </a>
-      </figure>
-    </div>
-  </div>
+  {% include 'dashboard/left_menu.html' %} 
   <div class="dash-container-content">
     <div class="dash-container-content-item">
       <figure>
@@ -68,8 +18,7 @@
       <div class="dash-container-content-item-info">
         <h3>Gestión de usuarios</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Administra todos usuarios. Crea nuevos usuarios, actualizar sus datos, entre otros.
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -77,13 +26,12 @@
 
     <div class="dash-container-content-item">
       <figure>
-        <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Grupos">
       </figure>
       <div class="dash-container-content-item-info">
         <h3>Gestión de grupos</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Crea, edita y gestiona todos los grupos y sus respectivos roles del sistema. 
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -91,13 +39,12 @@
 
     <div class="dash-container-content-item">
       <figure>
-        <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Permisos">
       </figure>
       <div class="dash-container-content-item-info">
         <h3>Permisos de usuarios</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Asigna y edita todos los permisos para los usuarios administradores de grupos.
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -105,13 +52,12 @@
     
     <div class="dash-container-content-item">
       <figure>
-        <img src="static_files/img/icon-dash-menu-process.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-process.png" alt="{{alt}} Procesos">
       </figure>
       <div class="dash-container-content-item-info">
         <h3>Gestión de procesos</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Gesstiona todos los procesos, subprocesos, items y archivos almacenados en el sistema.
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -119,13 +65,12 @@
 
     <div class="dash-container-content-item">
       <figure>
-        <img src="static_files/img/icon-dash-menu-news.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-news.png" alt="{{alt}} Noticias">
       </figure>
       <div class="dash-container-content-item-info">
         <h3>Gestión de noticias</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Administra todas las noticias almacenadas en el sistema, también podrás crear nuevas noticias y modificar las existentes.
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -133,13 +78,12 @@
 
     <div class="dash-container-content-item">
       <figure>
-        <img src="static_files/img/icon-dash-menu-convenious.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-convenious.png" alt="{{alt}} Convenios">
       </figure>
       <div class="dash-container-content-item-info">
         <h3>Gestión de convenios</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Administra todos los convenios creados en el sistema, tambipen podrás crear nuevos convenios y actualizar los que ya existen.
         </p>
         <a href="#">Administrar</a>
       </div>
@@ -152,8 +96,7 @@
       <div class="dash-container-content-item-info">
         <h3>Gestión de inducciones</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Administra todas las inducciones almacenadas en el sistema, crea nuevas inducciones y actualiza las que ya existen.
         </p>
         <a href="#">Administrar</a>
       </div>
