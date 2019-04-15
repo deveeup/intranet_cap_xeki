@@ -14,10 +14,67 @@
       <figure>
         <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
       </figure>
-      <h1>Usuarios registrados en el sistema</h1>
+      <h1>Información de usuario</h1>
     </div>
     <div class="dash-container-content-userEditContent">
-      lorem
+      <div class="dash-container-content-userEditContent-header">
+        <figure class="dash-container-content-userEditContent-header-figure">
+          <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{user.first_name}}" />
+        </figure>
+        <div class="dash-container-content-userEditContent-header-userInfo">
+          <div class="dash-container-content-userEditContent-header-userInfo-item">
+            <h1>{{user.first_name}} {{user.last_name}}</h1>
+          </div>
+          <div class="dash-container-content-userEditContent-header-userInfo-item">
+            <figure>
+              <img src="static_files/img/icon-dash-university.png" alt="{{alt}} {{user.first_name}}" />
+            </figure>
+            <h2>{{user.university}}, {{user.career}}</h2>
+          </div>
+          <div class="dash-container-content-userEditContent-header-userInfo-item">
+            <figure>
+              <img src="static_files/img/icon-dash-@.png" alt="{{alt}} {{user.first_name}}" />
+            </figure>
+            <h2>{{user.username}}</h2>
+          </div>
+          <div class="dash-container-content-userEditContent-header-userInfo-item">
+            <figure>
+              <img src="static_files/img/icon-dash-email.png" alt="{{alt}} {{user.first_name}}" />
+            </figure>
+            <a href="mailto:{{user.email}}">{{user.email}}</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="dash-container-content-userEditContent-infoUser">
+        <div class="dash-container-content-userEditContent-infoUser-titleContainer">
+          <figure>
+            <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Configuración de perfil">
+          </figure>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Perfil de usuario</h3>
+        </div>
+        <div class="dash-container-content-userEditContent-infoUser-formContainer">
+          <form method="POST">
+            <div class="form-control">
+              <label for="">Estado del usuario</label>
+              <select>
+                <option value="no">Inactivo</option>
+                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="">Estado del usuario</label>
+              <select>
+                <option value="no">Inactivo</option>
+                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="dash-container-content-userEditContent-security">
+        
+      </div>
     </div>
   </div>
   </div>

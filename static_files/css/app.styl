@@ -1007,6 +1007,66 @@ body
 										&:active 
 											transform scale(.9)
 				&-userEditContent
-					_(red)
 					_fullW()
 					padding 20px 0
+					&-header 
+						_dfr(flex-start, center)
+						figure 
+							_reset(0)
+							_w(150px)
+							_mRight(25px)
+							img 
+								_fullW()
+								_reset(0)
+						&-userInfo 
+							&-item
+								_dfr(flex-start, center)
+								margin 10px 0
+								h1 
+									_fz(1.1em)
+									_reset(0)
+									_c($blue)
+								h2 
+									_fwn()
+									_c($orange)
+									_reset(0)
+									_fz(1em)
+								a
+									_aReset($orange)
+									transition .3s
+									&:active 
+										transform scale(.9)
+								figure 
+									_w(25px)
+									_reset(0)
+									_mRight(7px)
+									img 
+										_reset(0)
+										_fullW()
+					&-infoUser 
+						_(red)
+						margin 15px 0 
+						&-titleContainer
+							_dfr(flex-start, center)
+							figure
+								_w(35px)
+								_reset(0)
+								img 
+									_reset(0)
+									_fullW()
+							&-title 
+								_c($orange)
+								_ta(left)
+								_reset(0)
+								_fz(1.2em)
+								_mLeft(10px)
+						&-formContainer
+							_bc(rgba($gray, .3))
+							_fullW()
+							margin 10px 0
+							padding 10px 0
+							form
+								_(red)
+								.form-control 
+									_(red)
+									_bc(transparent)

@@ -23,10 +23,10 @@ if(!$auth->is_logged()){
 
 		#var urls
 		$username = $vars[username];
-
 		#search users
 		$queryOne = "SELECT * FROM auth_user WHERE auth_user.username = '$username' ";
 		$userInfo = $sql->query($queryOne);
+		d($userInfo);
 		
 		#sending data to view
 		$items_to_print = array();

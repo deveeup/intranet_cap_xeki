@@ -1473,7 +1473,103 @@ body footer .footer-item-cap {
   transform: scale(0.9);
 }
 .dash-container-content-userEditContent {
-  border: 1px solid #f00;
   width: 100%;
   padding: 20px 0;
+}
+.dash-container-content-userEditContent-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-userEditContent-header figure {
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  margin-right: 25px;
+}
+.dash-container-content-userEditContent-header figure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-userEditContent-header-userInfo-item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+.dash-container-content-userEditContent-header-userInfo-item h1 {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  color: #010647;
+}
+.dash-container-content-userEditContent-header-userInfo-item h2 {
+  font-weight: normal;
+  color: #e35825;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+.dash-container-content-userEditContent-header-userInfo-item a {
+  text-decoration: none;
+  color: #e35825;
+  transition: 0.3s;
+}
+.dash-container-content-userEditContent-header-userInfo-item a:active {
+  transform: scale(0.9);
+}
+.dash-container-content-userEditContent-header-userInfo-item figure {
+  width: 25px;
+  margin: 0;
+  padding: 0;
+  margin-right: 7px;
+}
+.dash-container-content-userEditContent-header-userInfo-item figure img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.dash-container-content-userEditContent-infoUser {
+  border: 1px solid #f00;
+  margin: 15px 0;
+}
+.dash-container-content-userEditContent-infoUser-titleContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-userEditContent-infoUser-titleContainer figure {
+  width: 35px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-userEditContent-infoUser-titleContainer figure img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.dash-container-content-userEditContent-infoUser-titleContainer-title {
+  color: #e35825;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+.dash-container-content-userEditContent-infoUser-formContainer {
+  background-color: rgba(165,165,165,0.3);
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form {
+  border: 1px solid #f00;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control {
+  border: 1px solid #f00;
+  background-color: transparent;
 }
