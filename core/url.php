@@ -7,6 +7,7 @@
   \xeki\routes::any('procesos', 'process');
   \xeki\routes::any('archivos', 'files');
   \xeki\routes::any('panel', 'dash');
+  \xeki\routes::any('panel/usuarios', 'users');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
   \xeki\routes::get('url', function($vars){
@@ -18,19 +19,6 @@
     \xeki\html_manager::render('name.html',$items_to_print);
   });
 
-
-// urls with slugs
-  \xeki\routes::get('base/{slug}', 'render-view');
-
-
-// Static pages
-  \xeki\routes::any('trabaja-con-nosotros', function($vars){
-    $title = "title for seo";
-    $description =  "description for seo";
-    \xeki\html_manager::set_seo($title,$description,true);
-    $items_to_print = array();
-    \xeki\html_manager::render('path/name.html', $items_to_print);
-  });
 
 //logout 
   \xeki\routes::any('logout', function(){
@@ -65,19 +53,13 @@
 //new pw
 \xeki\routes::any('nueva-clave', function(){
   $sql=\xeki\module_manager::import_module("db-sql");
-  
   $title = "Restaurar contraseña";
   $description =  "description for seo";
   \xeki\html_manager::set_seo($title,$description,true);
   $items_to_print = array();
-
   $user_id = $_COOKIE["id_user_restorepw"];
-
   $items_to_print = array(
     'user_id' => $user_id
   );
-
-  
   \xeki\html_manager::render('login/set-new-pw.html', $items_to_print);
-
 });

@@ -1061,7 +1061,6 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 600px;
 }
 .dash-container-menu {
   align-items: center;
@@ -1070,7 +1069,7 @@ body footer .footer-item-cap {
   justify-content: flex-start;
   background-color: rgba(227,88,37,0.8);
   width: 60px;
-  height: 100%;
+  height: 100% !important;
 }
 .dash-container-menu-item {
   width: 100%;
@@ -1105,10 +1104,6 @@ body footer .footer-item-cap {
 .dash-container-menu-item:hover {
   transform: scale(1.3);
   background-color: #e35825;
-}
-.dash-container-menu .selected {
-  width: 70px;
-  background-color: rgba(227,88,37,0.8);
 }
 .dash-container-content {
   margin: 0;
@@ -1190,4 +1185,222 @@ body footer .footer-item-cap {
 }
 .dash-container-content-item:active {
   transform: scale(0.9);
+}
+.dash-container-content-titleContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-titleContainer figure {
+  width: 25px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-titleContainer figure img {
+  width: 100%;
+}
+.dash-container-content-titleContainer h1 {
+  margin: 0;
+  padding: 0;
+  color: #e35825;
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+.dash-container-content-tableContent {
+  width: 100%;
+  border: 1px solid transparent;
+  margin: 15px 0;
+  padding: 0;
+}
+.dash-container-content-tableContent .odd {
+  background-color: rgba(1,6,71,0.6);
+  transition: 0.5s;
+}
+.dash-container-content-tableContent .odd:hover {
+  background-color: rgba(1,6,71,0.9);
+}
+.dash-container-content-tableContent-item {
+  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(1,6,71,0.1);
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.dash-container-content-tableContent-item:hover {
+  background-color: #fff;
+}
+.dash-container-content-tableContent-item-info {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 5px 0;
+}
+.dash-container-content-tableContent-item-info-company {
+  width: 42px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-info-company img {
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-info-name {
+  width: 350px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-info-name h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  color: #fff;
+  padding-left: 10px;
+  background-color: transparent;
+}
+.dash-container-content-tableContent-item-info-name .even {
+  color: #010647;
+}
+.dash-container-content-tableContent-item-info-email {
+  width: 270px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-info-email span {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+.dash-container-content-tableContent-item-info-email .even {
+  color: #010647;
+}
+.dash-container-content-tableContent-item-info-position {
+  width: 230px;
+}
+.dash-container-content-tableContent-item-info-position span {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+.dash-container-content-tableContent-item-info-position .even {
+  color: #010647;
+}
+.dash-container-content-tableContent-item-info-viewMore {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+}
+.dash-container-content-tableContent-item-info-viewMore figure {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+.dash-container-content-tableContent-item-info-viewMore figure img {
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo {
+  display: none;
+  width: 100%;
+  background-color: #fff;
+  margin: 0;
+  padding: 15px;
+}
+.dash-container-content-tableContent-item-moreInfo-div {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo-div-imageContainer {
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 30px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-imageContainer figure {
+  margin: 0;
+  padding: 0;
+  width: 80px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-imageContainer figure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-moreInfo-div-imageContainer h3 {
+  font-size: 1.1em;
+  color: #010647;
+  text-align: center;
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoUser,
+.dash-container-content-tableContent-item-moreInfo-div-infoAdmin {
+  margin: 0;
+  padding: 0;
+  width: 350px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoUser-item,
+.dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoUser-item figure,
+.dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item figure {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoUser-item figure img,
+.dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item figure img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoUser-item span,
+.dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item span {
+  font-size: 1em;
+  margin-left: 5px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoLogin {
+  width: 200px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoLogin-item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoLogin-item figure {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoLogin-item figure img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo-div-infoLogin-item span {
+  font-size: 1em;
+  margin-left: 5px;
 }

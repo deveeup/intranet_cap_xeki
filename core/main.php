@@ -34,10 +34,12 @@ if($status){
 	\xeki\html_manager::add_extra_data("transversal_process_global", $items_to_global_print['transversal_process_global']);
 	setcookie("update_password_successful",false,time()+1);
 
+	#icon superuser
 	$user_admin = $user->get("is_superuser");
 	if($user_admin == 'yes'){
 		\xeki\html_manager::add_extra_data("admin", "yes");
 	}
+	
 
 }else{
 	$varUpdate = $_COOKIE["update_password_successful"];

@@ -740,12 +740,11 @@ body
 		&-container
 			_fullW()
 			_dfr(flex-start, flex-start)
-			_h(600px)
 			&-menu
 				_dfc(flex-start, center)
 				_bc(rgba($orange, .8))
 				_w(60px)
-				height: 100%;
+				height:100% !important
 				&-item 
 					_fullW()
 					_dfc(center, center)
@@ -767,9 +766,6 @@ body
 					&:hover 
 						transform scale(1.3)
 						_bc($orange)
-				.selected 
-					_w(70px)
-					_bc(rgba($orange, .8))
 			&-content 
 				margin 0
 				padding 15px
@@ -828,3 +824,133 @@ body
 						box-shadow 1px 1px 3px $gray
 					&:active 
 						transform scale(.9)
+				&-titleContainer
+					_dfr(flex-start, center)
+					figure
+						_w(25px)
+						_reset(0)
+						img 
+							_fullW()
+					h1 
+						_reset(0)
+						_c($orange)
+						_fz(1.3em)
+						_mLeft(10px)
+				&-tableContent 
+					_fullW()
+					_(transparent)
+					margin 15px 0
+					padding 0
+					.odd 
+						_bc(rgba($blue, .6))
+						transition .5s
+						&:hover 
+							_bc(rgba($blue, .9))
+					&-item 
+						_fullW()
+						_dfc(flex-start, flex-start)
+						_bc(rgba($blue, .1))
+						_reset(0)
+						margin 0
+						cursor pointer
+						transition .5s
+						&:hover 
+							_bc(white)
+						&-info 
+							_dfr(flex-start, center)
+							margin 0 
+							padding 5px 0
+							&-company 
+								_w(42px)
+								_reset(0)
+								img 
+									_reset(0)
+							&-name 
+								_w(350px)
+								_reset(0)
+								h3
+									_reset(0)
+									_fz(1em)
+									_c(white)
+									padding-left 10px
+									background-color transparent
+								.even 
+									_c($blue)
+							&-email 
+								_w(270px)
+								_reset(0)
+								span 
+									_reset(0)
+									_c(white)
+								.even 
+									_c($blue)
+							&-position 
+								_w(230px)
+								span 
+									_reset(0)
+									_c(white)
+								.even 
+									_c($blue)
+							&-viewMore
+								_dfr(center, center)
+								_reset(0)
+								_w(40px)
+								figure 
+									_reset(0)
+									_w(20px)
+									img 
+										_fullW()
+						&-moreInfo
+							_dn()
+							_fullW()
+							_bc(white)
+							margin 0 
+							padding 15px
+							&-div
+								_dfr(flex-start, flex-start)
+								_fullW()
+								&-imageContainer 
+									_reset(0)
+									_dfc(center, flex-start)
+									margin 0 30px
+									figure 
+										_reset(0)
+										_w(80px)
+										img 
+											_fullW()
+											_reset(0)
+									h3 
+										_fz(1.1em)
+										_c($blue)
+										_ta(center)
+										_fullW()
+								&-infoUser, &-infoAdmin
+									_reset(0)
+									_w(350px)
+									&-item 
+										_dfr(flex-start, center)
+										margin 10px 0
+										figure 
+											_reset(0)
+											_w(18px)
+											img 
+												_reset(0)
+												_fullW()
+										span 
+											_fz(1em)
+											_mLeft(5px)
+
+								&-infoLogin
+									_w(200px)
+									&-item 
+										_dfr(flex-start, center)
+										margin 10px 0
+										figure 
+											_reset(0)
+											_w(18px)
+											img 
+												_reset(0)
+												_fullW()
+										span 
+											_fz(1em)
+											_mLeft(5px)

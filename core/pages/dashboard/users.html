@@ -1,0 +1,137 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Usuarios registrados en el sistema</h1>
+    </div>
+    <div class="dash-container-content-tableContent">
+      {% for user in users %}
+      <div class="dash-container-content-tableContent-item">
+        <div class="user_title dash-container-content-tableContent-item-info {% if user.id is odd  %} odd {% endif %}">
+          <figure class="dash-container-content-tableContent-item-info-company">
+            <!-- <img src="static_files/img/" alt="{{alt}} Empresa"> -->
+          </figure>
+          
+          <div class="dash-container-content-tableContent-item-info-name">
+            <h3 class="{% if user.id is even  %} even {% endif %}">{{user.first_name}} {{user.last_name}}</h3>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-email">
+            <span class="{% if user.id is even  %} even {% endif %}">{{user.email}}</span>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-position">
+            <span class="{% if user.id is even  %} even {% endif %}">{{user.position}}</span>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-viewMore">
+            <figure>
+              {% if user.id is even  %}
+                <img src="static_files/img/view-more-blue.png" alt="{{alt}} Información de usuario">
+              {% else %}
+                <img src="static_files/img/view-more-white.png" alt="{{alt}} Información de usuario">
+              {% endif %}
+            </figure>
+          </div>
+        </div>
+        <div class="dash-container-content-tableContent-item-moreInfo">
+          <div class="dash-container-content-tableContent-item-moreInfo-div">
+            <div class="dash-container-content-tableContent-item-moreInfo-div-imageContainer">
+              <figure>
+                <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{user.first_name}}">
+              </figure>
+              <h3>{{user.first_name}}</h3>
+            </div>
+            <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser">
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-@.png" alt="{{alt}} {{user.username}}">
+                </figure>
+                <span>{{user.email}}</span>
+              </div>
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-university.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>{{user.university}}</span>
+              </div>
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-location.png" alt="{{alt}} {{user.city}}">
+                </figure>
+                <span>{{user.city}}</span>
+              </div>
+            </div>
+            <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin">
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-config.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>Super usuario: {{user.is_superuser|capitalize}}</span>
+              </div>
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-staff.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>Administrador de grupo: {{user.is_staff|capitalize}}</span>
+              </div>
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-active.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>Usuario activo: {{user.is_active|capitalize}}</span>
+              </div>
+            </div>
+            <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin">
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-join.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>
+                  Fecha de registro:
+                  <br>
+                  {{user.date_joined|date("d/m/Y")}}
+                </span>
+              </div>
+              <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin-item">
+                <figure>
+                  <img src="static_files/img/icon-dash-history.png" alt="{{alt}} {{user.university}}">
+                </figure>
+                <span>
+                  Última sesión:
+                  <br>
+                  {{user.last_login|date("d/m/Y")}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script>
+    $(document).ready(function(){
+      $(".user_title").click(function(){
+        $userContent = $(this);
+        $content = $userContent.next();
+        $content.slideToggle(400);
+      });
+    });
+  </script>
+{% endblock %}

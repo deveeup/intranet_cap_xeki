@@ -18,17 +18,15 @@ if(!$auth->is_logged()){
 	$user = $auth->get_user(); 
 	$user_admin = $user->get("is_superuser");
 	if($user_admin == 'yes'){
-
-		#cookie home selected
-		setcookie("dash_home_selected","selected",time()+60);
-		#cookie destroy
-		setcookie("dash_users_selected","",time()-5);
-
-
+		
+		#search users
+		$queryOne = "SELECT * FROM auth_user order by id";
+		$users = $sql->query($queryOne);
+		
 		#sending data to view
 		$items_to_print = array();
-		#$items_to_print['admin'] = $user_admin;
-		\xeki\html_manager::render('dashboard/index.html',$items_to_print);
+		$items_to_print['users'] = $users;
+		\xeki\html_manager::render('dashboard/users.html',$items_to_print);
 	}else{
 		\xeki\core::redirect('');
 	}
