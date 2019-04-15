@@ -739,12 +739,13 @@ body
 				_mLeft(5px)
 		&-container
 			_fullW()
+			_minh(700px)
 			_dfr(flex-start, flex-start)
 			&-menu
 				_dfc(flex-start, center)
-				_bc(rgba($orange, .8))
 				_w(60px)
-				height:100% !important
+				background-image: linear-gradient($orange, rgba($orange, .8), rgba($orange, .6), white);
+				min-height:75vh
 				&-item 
 					_fullW()
 					_dfc(center, center)
@@ -861,10 +862,14 @@ body
 							margin 0 
 							padding 5px 0
 							&-company 
-								_w(42px)
 								_reset(0)
+								_mLeft(10px)
+								_w(20px)
+								_mTop(-5px)
 								img 
 									_reset(0)
+									_fullW()
+									_br(3px)
 							&-name 
 								_w(350px)
 								_reset(0)
@@ -874,6 +879,10 @@ body
 									_c(white)
 									padding-left 10px
 									background-color transparent
+									-moz-user-select: none; 
+									-webkit-user-select: none;
+									-ms-user-select: none;
+									user-select: none; 
 								.even 
 									_c($blue)
 							&-email 
@@ -882,13 +891,21 @@ body
 								span 
 									_reset(0)
 									_c(white)
+									-moz-user-select: none; 
+									-webkit-user-select: none;
+									-ms-user-select: none;
+									user-select: none; 
 								.even 
 									_c($blue)
 							&-position 
-								_w(230px)
+								_w(241px)
 								span 
 									_reset(0)
 									_c(white)
+									-moz-user-select: none; 
+									-webkit-user-select: none;
+									-ms-user-select: none;
+									user-select: none; 
 								.even 
 									_c($blue)
 							&-viewMore
@@ -908,6 +925,7 @@ body
 							padding 15px
 							&-div
 								_dfr(flex-start, flex-start)
+								_fw(wrap)
 								_fullW()
 								&-imageContainer 
 									_reset(0)
@@ -924,9 +942,13 @@ body
 										_c($blue)
 										_ta(center)
 										_fullW()
+										-moz-user-select: none; 
+										-webkit-user-select: none;
+										-ms-user-select: none;
+										user-select: none; 
 								&-infoUser, &-infoAdmin
 									_reset(0)
-									_w(350px)
+									_w(300px)
 									&-item 
 										_dfr(flex-start, center)
 										margin 10px 0
@@ -939,9 +961,12 @@ body
 										span 
 											_fz(1em)
 											_mLeft(5px)
-
+											-moz-user-select: none; 
+											-webkit-user-select: none;
+											-ms-user-select: none;
+											user-select: none; 
 								&-infoLogin
-									_w(200px)
+									_w(150px)
 									&-item 
 										_dfr(flex-start, center)
 										margin 10px 0
@@ -954,3 +979,34 @@ body
 										span 
 											_fz(1em)
 											_mLeft(5px)
+								&-hrefContent
+									_dfc(center, center)
+									_fullW()
+									a 
+										_bc(rgba($orange, .9))
+										_aReset(white)
+										_br(25px)
+										_ta(center)
+										_dfr(center, center)
+										border none
+										padding 3px 15px
+										transition .3s
+										will-change transform
+										outline none 
+										cursor pointer
+										figure 
+											_w(20px)
+											_reset(0)
+											_mRight(5px)
+											_mTop(-5px)
+											img 
+												_fullW()
+												_reset(0)
+										&:hover 
+											_bc($orange)
+										&:active 
+											transform scale(.9)
+				&-userEditContent
+					_(red)
+					_fullW()
+					padding 20px 0

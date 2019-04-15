@@ -1057,6 +1057,7 @@ body footer .footer-item-cap {
 }
 .dash-container {
   width: 100%;
+  min-height: 700px;
   align-items: flex-start;
   display: flex;
   flex-direction: row;
@@ -1067,9 +1068,9 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(227,88,37,0.8);
   width: 60px;
-  height: 100% !important;
+  background-image: linear-gradient(#e35825, rgba(227,88,37,0.8), rgba(227,88,37,0.6), #fff);
+  min-height: 75vh;
 }
 .dash-container-menu-item {
   width: 100%;
@@ -1245,13 +1246,17 @@ body footer .footer-item-cap {
   padding: 5px 0;
 }
 .dash-container-content-tableContent-item-info-company {
-  width: 42px;
   margin: 0;
   padding: 0;
+  margin-left: 10px;
+  width: 20px;
+  margin-top: -5px;
 }
 .dash-container-content-tableContent-item-info-company img {
   margin: 0;
   padding: 0;
+  width: 100%;
+  border-radius: 3px;
 }
 .dash-container-content-tableContent-item-info-name {
   width: 350px;
@@ -1265,6 +1270,10 @@ body footer .footer-item-cap {
   color: #fff;
   padding-left: 10px;
   background-color: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-tableContent-item-info-name .even {
   color: #010647;
@@ -1278,17 +1287,25 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
   color: #fff;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-tableContent-item-info-email .even {
   color: #010647;
 }
 .dash-container-content-tableContent-item-info-position {
-  width: 230px;
+  width: 241px;
 }
 .dash-container-content-tableContent-item-info-position span {
   margin: 0;
   padding: 0;
   color: #fff;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-tableContent-item-info-position .even {
   color: #010647;
@@ -1322,6 +1339,7 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
   width: 100%;
 }
 .dash-container-content-tableContent-item-moreInfo-div-imageContainer {
@@ -1348,12 +1366,16 @@ body footer .footer-item-cap {
   color: #010647;
   text-align: center;
   width: 100%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-tableContent-item-moreInfo-div-infoUser,
 .dash-container-content-tableContent-item-moreInfo-div-infoAdmin {
   margin: 0;
   padding: 0;
-  width: 350px;
+  width: 300px;
 }
 .dash-container-content-tableContent-item-moreInfo-div-infoUser-item,
 .dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item {
@@ -1379,9 +1401,13 @@ body footer .footer-item-cap {
 .dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item span {
   font-size: 1em;
   margin-left: 5px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dash-container-content-tableContent-item-moreInfo-div-infoLogin {
-  width: 200px;
+  width: 150px;
 }
 .dash-container-content-tableContent-item-moreInfo-div-infoLogin-item {
   align-items: center;
@@ -1403,4 +1429,51 @@ body footer .footer-item-cap {
 .dash-container-content-tableContent-item-moreInfo-div-infoLogin-item span {
   font-size: 1em;
   margin-left: 5px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent a {
+  background-color: rgba(227,88,37,0.9);
+  text-decoration: none;
+  color: #fff;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: none;
+  padding: 3px 15px;
+  transition: 0.3s;
+  will-change: transform;
+  outline: none;
+  cursor: pointer;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent a figure {
+  width: 20px;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+  margin-top: -5px;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent a figure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent a:hover {
+  background-color: #e35825;
+}
+.dash-container-content-tableContent-item-moreInfo-div-hrefContent a:active {
+  transform: scale(0.9);
+}
+.dash-container-content-userEditContent {
+  border: 1px solid #f00;
+  width: 100%;
+  padding: 20px 0;
 }

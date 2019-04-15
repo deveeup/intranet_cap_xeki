@@ -10,6 +10,12 @@
   \xeki\routes::any('panel/usuarios', 'users');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
+
+
+
+  // get user edit
+  \xeki\routes::get('panel/usuarios/{username}', 'users_edit');
+
   \xeki\routes::get('url', function($vars){
     $title = "title for seo";
     $description =  "description for seo";

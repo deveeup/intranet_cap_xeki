@@ -20,9 +20,15 @@
       {% for user in users %}
       <div class="dash-container-content-tableContent-item">
         <div class="user_title dash-container-content-tableContent-item-info {% if user.id is odd  %} odd {% endif %}">
+          {% if user.company == 0 %}
+            <figure class="dash-container-content-tableContent-item-info-company">
+              <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark Previsión Exequial">
+            </figure>
+          {% else %}
           <figure class="dash-container-content-tableContent-item-info-company">
-            <!-- <img src="static_files/img/" alt="{{alt}} Empresa"> -->
-          </figure>
+              <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe Funeraria">
+            </figure>
+          {% endif %}
           
           <div class="dash-container-content-tableContent-item-info-name">
             <h3 class="{% if user.id is even  %} even {% endif %}">{{user.first_name}} {{user.last_name}}</h3>
@@ -76,19 +82,39 @@
                 <figure>
                   <img src="static_files/img/icon-dash-config.png" alt="{{alt}} {{user.university}}">
                 </figure>
-                <span>Super usuario: {{user.is_superuser|capitalize}}</span>
+                <span>Super usuario:
+                {% if user.is_superuser == 'yes' %}
+                  Si
+                {% else %}
+                  No
+                {% endif %}
+                </span>
               </div>
               <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
                 <figure>
                   <img src="static_files/img/icon-dash-staff.png" alt="{{alt}} {{user.university}}">
                 </figure>
-                <span>Administrador de grupo: {{user.is_staff|capitalize}}</span>
+                <span>
+                  Administrador de grupo: 
+                  {% if user.is_staff == 'yes' %}
+                    Si
+                  {% else %}
+                    No
+                  {% endif %}
+                </span>
               </div>
               <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
                 <figure>
                   <img src="static_files/img/icon-dash-active.png" alt="{{alt}} {{user.university}}">
                 </figure>
-                <span>Usuario activo: {{user.is_active|capitalize}}</span>
+                <span>
+                  Usuario activo: 
+                  {% if user.is_active == 'yes' %}
+                    Si
+                  {% else %}
+                    No
+                  {% endif %}
+                </span>
               </div>
             </div>
             <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin">
@@ -112,6 +138,14 @@
                   {{user.last_login|date("d/m/Y")}}
                 </span>
               </div>
+            </div>
+            <div class="dash-container-content-tableContent-item-moreInfo-div-hrefContent">
+              <a href="{{URL_BASE}}panel/usuarios/{{user.username}}">
+                <figure>
+                  <img src="static_files/img/icon-dash-edit.png" alt="{{alt}} Editar usuario">
+                </figure>
+                Editar usuario
+              </a>
             </div>
           </div>
         </div>
