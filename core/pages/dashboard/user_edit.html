@@ -55,6 +55,7 @@
         </div>
         <div class="dash-container-content-userEditContent-infoUser-formContainer">
           <form method="POST">
+            <h3 class="title">&#8226; Rol / Permisos</h3>
             <div class="form-control">
               <label for="">Estado del usuario</label>
               <select>
@@ -63,11 +64,37 @@
               </select>
             </div>
             <div class="form-control">
+              <label for="">Usuario Super administrador</label>
+              <select>
+                <option value="no">No</option>
+                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Si</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <button>Actualizar</button>
+            </div>
+          </form>
+          <form method="POST">
+            <h3 class="title">&#8226; Grupos</h3>
+            
+            <div class="form-control">
               <label for="">Estado del usuario</label>
               <select>
                 <option value="no">Inactivo</option>
                 <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
               </select>
+            </div>
+            <div class="form-control">
+              <label for="">Agregar a {{user.first_name}} al grupo </label>
+              <select>
+                {% for group in groups %}
+                  <h1>{{group.name}}</h1>
+                  <option value="{{goup.id}}">{{group.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-control">
+              <button>Actualizar</button>
             </div>
           </form>
         </div>

@@ -1044,7 +1044,6 @@ body
 										_reset(0)
 										_fullW()
 					&-infoUser 
-						_(red)
 						margin 15px 0 
 						&-titleContainer
 							_dfr(flex-start, center)
@@ -1061,12 +1060,50 @@ body
 								_fz(1.2em)
 								_mLeft(10px)
 						&-formContainer
-							_bc(rgba($gray, .3))
+							_br(5px)
 							_fullW()
-							margin 10px 0
 							padding 10px 0
+							_dfr(flex-start, center)
 							form
-								_(red)
+								_w(47%)
+								_reset(0)
+								margin-right 20px
+								_mTop(0)
+								_bc(rgba($gray, .3))
+								_br(3px)
+								padding 10px 0
+								.title
+									_c($orange)
+									margin 0 20px
+									_fz(1.2em)
 								.form-control 
-									_(red)
+									_reset(0)
 									_bc(transparent)
+									border none
+									label 
+										_reset(0)
+										_c($blue)
+										display block
+										margin 10px 10px 0 20px
+									select 
+										_reset(0)
+										_br(3px)
+										margin 0 0 0 20px
+										padding 0 9px
+										outline none
+										_w(250px)
+										box-shadow 0px 1px 5px rgba($blue, .5)
+									button 
+										_br(5px)
+										_bc($orange)
+										_c(white)
+										border none 
+										margin 10px 0 0 20px
+										padding 2px 15px
+										transition .3s 
+										will-change transform
+										outline none
+										&:hover
+											box-shadow 0px 1px 5px rgba($blue, 1)
+										&:active 
+											transform scale(.9)

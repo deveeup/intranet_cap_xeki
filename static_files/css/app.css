@@ -1533,7 +1533,6 @@ body footer .footer-item-cap {
   width: 100%;
 }
 .dash-container-content-userEditContent-infoUser {
-  border: 1px solid #f00;
   margin: 15px 0;
 }
 .dash-container-content-userEditContent-infoUser-titleContainer {
@@ -1561,15 +1560,66 @@ body footer .footer-item-cap {
   margin-left: 10px;
 }
 .dash-container-content-userEditContent-infoUser-formContainer {
-  background-color: rgba(165,165,165,0.3);
+  border-radius: 5px;
   width: 100%;
-  margin: 10px 0;
   padding: 10px 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form {
-  border: 1px solid #f00;
+  width: 47%;
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
+  margin-top: 0;
+  background-color: rgba(165,165,165,0.3);
+  border-radius: 3px;
+  padding: 10px 0;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .title {
+  color: #e35825;
+  margin: 0 20px;
+  font-size: 1.2em;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control {
-  border: 1px solid #f00;
+  margin: 0;
+  padding: 0;
   background-color: transparent;
+  border: none;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control label {
+  margin: 0;
+  padding: 0;
+  color: #010647;
+  display: block;
+  margin: 10px 10px 0 20px;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control select {
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+  margin: 0 0 0 20px;
+  padding: 0 9px;
+  outline: none;
+  width: 250px;
+  box-shadow: 0px 1px 5px rgba(1,6,71,0.5);
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control button {
+  border-radius: 5px;
+  background-color: #e35825;
+  color: #fff;
+  border: none;
+  margin: 10px 0 0 20px;
+  padding: 2px 15px;
+  transition: 0.3s;
+  will-change: transform;
+  outline: none;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control button:hover {
+  box-shadow: 0px 1px 5px #010647;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control button:active {
+  transform: scale(0.9);
 }

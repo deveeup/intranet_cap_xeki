@@ -14,7 +14,6 @@ if(!$auth->is_logged()){
 	$user = $auth->get_user(); 
 	$user_admin = $user->get("is_superuser");
 	if($user_admin == 'yes'){
-
 		#info seo
 		$title = "Intranet";
 		$description = "Lorem...";
@@ -26,11 +25,23 @@ if(!$auth->is_logged()){
 		#search users
 		$queryOne = "SELECT * FROM auth_user WHERE auth_user.username = '$username' ";
 		$userInfo = $sql->query($queryOne);
-		d($userInfo);
+
+		#search groups
+		$queryTwo = "SELECT * FROM auth_group";
+		$groups = $sql->query($queryTwo);
 		
+		#search user groups
+		$id_user = $userInfo[0]['id'];
+		$user = $auth->get_user(); 
+		$search_groups = $user->get_groups($id_user);
+		$groups_decode = json_encode($search_groups);
+		$groups_users = json_decode($groups_decode, true);
+
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['user'] = $userInfo[0];
+		$items_to_print['groups'] = $groups;
+		$items_to_print['groups_user'] = $groups_users;
 		\xeki\html_manager::render('dashboard/user_edit.html',$items_to_print);
 	}else{
 		\xeki\core::redirect('');
