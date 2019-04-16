@@ -78,14 +78,21 @@
           </form>
           <form method="POST">
             <h3 class="title">&#8226; Grupos</h3>
-            <div class="form-control">
-              <label>{{user.first_name}} pertenece a los siguientes grupos:</label>
-              <div class="form-control-groups">
-                {% for group_user in groups_users %}
-                  <a href="#">&#8226; {{ group_user.name }}</a>
-                {% endfor %}
+            {% if groups_users is empty  %}
+              <div class="form-control">
+                <label>{{user.first_name}} no pertenece a ningún grupo aún.</label>
+                
               </div>
-            </div>
+            {% else %}
+              <div class="form-control">
+                <label>{{user.first_name}} pertenece a los siguientes grupos:</label>
+                <div class="form-control-groups">
+                  {% for group_user in groups_users %}
+                    <a href="#">&#8226; {{ group_user.name }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
             <div class="form-control">
               <label for="">Agregar a {{user.first_name}} al grupo </label>
               <select>
