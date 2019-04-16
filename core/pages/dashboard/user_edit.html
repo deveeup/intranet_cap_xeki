@@ -67,7 +67,7 @@
               <label for="">Usuario Super administrador</label>
               <select>
                 <option value="no">No</option>
-                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Si</option>
+                <option value="yes" {% if user.is_superuser == 'yes' %} selected {% endif %}>Si</option>
               </select>
             </div>
             <!-- <input type="text" name="xeki_action" value="update_rol" />
