@@ -82,10 +82,11 @@
                     {{update_user_rol}}
                 </p>
               </div>
-            {% else %}
+            {% endif %}
+            {% if update_user_rol_error %}
               <div class="form-control">
                 <p class="form-control-error">
-                  Ocurrió un error, intenta nuevamente
+                  {{update_user_rol_error}}
                 </p>
               </div>
             {% endif %}

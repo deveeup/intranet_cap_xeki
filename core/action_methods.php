@@ -219,6 +219,8 @@
 	$update_db = $sql->update("auth_user", $data_update, "id = $user_id");
 	if($update_db){
 		\xeki\html_manager::add_extra_data("update_user_rol","Usuario actualizado con éxito");
+	}else {
+		\xeki\html_manager::add_extra_data("update_user_rol_error","Ocurrió un error, intenta nuevamente");
 	}
 
 });

@@ -1597,7 +1597,7 @@ body footer .footer-item-cap {
   border: none;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control-successful {
-  background-color: rgba(0,128,0,0.5);
+  background-color: rgba(0,128,0,0.7);
   color: #fff;
   font-weight: bold;
   border-radius: 5px;
@@ -1607,7 +1607,7 @@ body footer .footer-item-cap {
   padding: 10px;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control-error {
-  background-color: rgba(255,0,0,0.5);
+  background-color: rgba(255,0,0,0.7);
   color: #fff;
   font-weight: bold;
   border-radius: 5px;
