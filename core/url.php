@@ -14,7 +14,7 @@
 
 
   // get user edit
-  \xeki\routes::get('panel/usuarios/{username}', 'users_edit');
+  \xeki\routes::any('panel/usuarios/{username}', 'users_edit');
 
   \xeki\routes::get('url', function($vars){
     $title = "title for seo";

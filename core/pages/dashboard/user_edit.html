@@ -58,23 +58,37 @@
             <h3 class="title">&#8226; Rol / Permisos</h3>
             <div class="form-control">
               <label for="">Estado del usuario</label>
-              <select>
+              <select name="is_active" id="is_active">
                 <option value="no">Inactivo</option>
                 <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
               </select>
             </div>
             <div class="form-control">
               <label for="">Usuario Super administrador</label>
-              <select>
+              <select name="is_superuser" id="is_superuser">
                 <option value="no">No</option>
                 <option value="yes" {% if user.is_superuser == 'yes' %} selected {% endif %}>Si</option>
               </select>
             </div>
-            <!-- <input type="text" name="xeki_action" value="update_rol" />
-            <input type="text" name="username" value="{{user.username}}" /> -->
+            <input type="hidden" name="xeki_action" value="auth::update_rol" />
+            <input type="hidden" name="id" value="{{user.id}}" />
+            <input type="hidden" name="url" value="panel/usuarios/{{user.username}}" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
+            {% if update_user_rol %}
+              <div class="form-control">
+                <p class="form-control-successful">
+                    {{update_user_rol}}
+                </p>
+              </div>
+            {% else %}
+              <div class="form-control">
+                <p class="form-control-error">
+                  Ocurrió un error, intenta nuevamente
+                </p>
+              </div>
+            {% endif %}
           </form>
           <form method="POST">
             <h3 class="title">&#8226; Grupos</h3>

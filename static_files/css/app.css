@@ -1596,6 +1596,26 @@ body footer .footer-item-cap {
   background-color: transparent;
   border: none;
 }
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control-successful {
+  background-color: rgba(0,128,0,0.5);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px 10%;
+  text-align: center;
+  padding: 10px;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control-error {
+  background-color: rgba(255,0,0,0.5);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px 10%;
+  text-align: center;
+  padding: 10px;
+}
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control-groups {
   margin-left: 20px;
 }
