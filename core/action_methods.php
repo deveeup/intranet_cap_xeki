@@ -194,7 +194,36 @@
 
 		#set var for message
 		setcookie("update_password_successful",true,time()+3);
-		
+
+		\xeki\core::redirect('');
+	}
+
+});
+
+//update user (by user admin)
+\xeki\routes::action('auth::update_rol', function(){
+	
+	$data = $_POST;
+	$user_id = $_COOKIE["id_user_restorepw"];
+	
+	if($data['password'] != $data['password_confirm']){
+		\xeki\html_manager::add_extra_data("dont_match_pw","Las contraseñas no coinciden");
+	}elseif($data['user_id'] != $user_id){
+		\xeki\html_manager::add_extra_data("dont_match_user","Error de actualización, intenta nuevamente");
+	}else{
+		#import module
+		$sql=\xeki\module_manager::import_module("db-sql");
+
+		#drop data from
+		$password = hash("sha256", $_POST['password']);
+		$user_id = $_POST['user_id'];
+
+		#update data in database
+		$query = "UPDATE auth_user SET auth_user.password = '$password' WHERE id = '$user_id' ";
+		$update_data = $sql->query($query);		
+
+		#set var for message
+		setcookie("update_password_successful",true,time()+3);
 
 		\xeki\core::redirect('');
 	}

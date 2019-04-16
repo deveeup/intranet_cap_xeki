@@ -14,7 +14,7 @@
       <figure>
         <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
       </figure>
-      <h1>Información de usuario</h1>
+      <h1>Información</h1>
     </div>
     <div class="dash-container-content-userEditContent">
       <div class="dash-container-content-userEditContent-header">
@@ -51,7 +51,7 @@
           <figure>
             <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Configuración de perfil">
           </figure>
-          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Perfil de usuario</h3>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Perfil</h3>
         </div>
         <div class="dash-container-content-userEditContent-infoUser-formContainer">
           <form method="POST">
@@ -70,19 +70,21 @@
                 <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Si</option>
               </select>
             </div>
+            <!-- <input type="text" name="xeki_action" value="update_rol" />
+            <input type="text" name="username" value="{{user.username}}" /> -->
             <div class="form-control">
               <button>Actualizar</button>
             </div>
           </form>
           <form method="POST">
             <h3 class="title">&#8226; Grupos</h3>
-            
             <div class="form-control">
-              <label for="">Estado del usuario</label>
-              <select>
-                <option value="no">Inactivo</option>
-                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
-              </select>
+              <label>{{user.first_name}} pertenece a los siguientes grupos:</label>
+              <div class="form-control-groups">
+                {% for group_user in groups_users %}
+                  <a href="#">&#8226; {{ group_user.name }}</a>
+                {% endfor %}
+              </div>
             </div>
             <div class="form-control">
               <label for="">Agregar a {{user.first_name}} al grupo </label>
@@ -99,8 +101,30 @@
           </form>
         </div>
       </div>
+      <hr>
       <div class="dash-container-content-userEditContent-security">
-        
+        <div class="dash-container-content-userEditContent-infoUser-titleContainer">
+          <figure>
+            <img src="static_files/img/icon-dash-security.png" alt="{{alt}} Configuración de perfil">
+          </figure>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Seguridad</h3>
+        </div>
+        <div class="dash-container-content-userEditContent-infoUser-formContainer">
+          <form method="POST">
+            <h3 class="title">&#8226; Contraseña</h3>
+            <div class="form-control">
+              <label for="">Usuario Super administrador</label>
+              <input type="password">
+            </div>
+            <div class="form-control">
+              <label for="">Usuario Super administrador</label>
+              <input type="password">
+            </div>
+            <div class="form-control">
+              <button>Actualizar</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

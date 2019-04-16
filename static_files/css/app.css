@@ -1062,6 +1062,7 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  position: relative;
 }
 .dash-container-menu {
   align-items: center;
@@ -1069,8 +1070,12 @@ body footer .footer-item-cap {
   flex-direction: column;
   justify-content: flex-start;
   width: 60px;
-  background-image: linear-gradient(#e35825, rgba(227,88,37,0.8), rgba(227,88,37,0.6), #fff);
-  min-height: 75vh;
+  background-image: linear-gradient(#e35825, rgba(227,88,37,0.8), rgba(227,88,37,0.6));
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 .dash-container-menu-item {
   width: 100%;
@@ -1107,7 +1112,7 @@ body footer .footer-item-cap {
   background-color: #e35825;
 }
 .dash-container-content {
-  margin: 0;
+  margin: 0 0 0 60px;
   padding: 15px;
   width: calc(100% - 60px);
   align-items: flex-start;
@@ -1563,7 +1568,7 @@ body footer .footer-item-cap {
   border-radius: 5px;
   width: 100%;
   padding: 10px 0;
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1572,10 +1577,12 @@ body footer .footer-item-cap {
   width: 47%;
   margin: 0;
   padding: 0;
-  margin-right: 20px;
   margin-top: 0;
-  background-color: rgba(165,165,165,0.3);
+  background-color: rgba(165,165,165,0.1);
+  box-shadow: 0px 0px 5px rgba(165,165,165,0.7);
   border-radius: 3px;
+  min-height: 250px;
+  margin-right: 20px;
   padding: 10px 0;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .title {
@@ -1589,6 +1596,14 @@ body footer .footer-item-cap {
   background-color: transparent;
   border: none;
 }
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control-groups {
+  margin-left: 20px;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control-groups a {
+  text-decoration: none;
+  color: #e35825;
+  display: block;
+}
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control label {
   margin: 0;
   padding: 0;
@@ -1600,11 +1615,20 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
   border-radius: 3px;
-  margin: 0 0 0 20px;
+  margin: 5px 0 10px 20px;
   padding: 0 9px;
   outline: none;
   width: 250px;
-  box-shadow: 0px 1px 5px rgba(1,6,71,0.5);
+  box-shadow: 0px 1px 2px rgba(1,6,71,0.3);
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control input[type="password"] {
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 0px 1px 2px rgba(1,6,71,0.3);
+  margin: 5px 0 10px 20px;
+  padding: 0 9px;
+  outline: none;
+  border: none;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control button {
   border-radius: 5px;

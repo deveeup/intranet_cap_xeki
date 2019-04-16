@@ -33,7 +33,8 @@ if(!$auth->is_logged()){
 		#search user groups
 		$id_user = $userInfo[0]['id'];
 		$user = $auth->get_user(); 
-		$search_groups = $user->get_groups($id_user);
+		
+		$search_groups = $user->get_groups_by_id($id_user);
 		$groups_decode = json_encode($search_groups);
 		$groups_users = json_decode($groups_decode, true);
 
@@ -41,7 +42,7 @@ if(!$auth->is_logged()){
 		$items_to_print = array();
 		$items_to_print['user'] = $userInfo[0];
 		$items_to_print['groups'] = $groups;
-		$items_to_print['groups_user'] = $groups_users;
+		$items_to_print['groups_users'] = $groups_users;
 		\xeki\html_manager::render('dashboard/user_edit.html',$items_to_print);
 	}else{
 		\xeki\core::redirect('');

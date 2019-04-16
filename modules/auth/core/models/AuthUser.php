@@ -301,6 +301,27 @@ class User
         }
     }
 
+    public function get_groups_by_id($id){
+        $query = "Select * from auth_group, auth_user_group where auth_user_group.group_ref = auth_group.id and user_ref='{$id}'";
+        $res = $this->sql->query($query,true);
+        if(is_array($res) ){
+            // process groups
+            $groups = [];
+            foreach ($res as $item){
+                // create groups
+                $group = new Group($this->local_config);
+                $group->load_info($item['auth_group']);
+                array_push($groups,$group);
+            }
+            return $groups;
+        }
+        else{
+            // handing error sql error
+//            d($this->sql->error());
+            return new \xeki\error("sql_error");
+        }
+    }
+
     public function has_group($code){
         $query = "Select * from auth_group, auth_user_group where auth_user_group.group_ref = auth_group.id and user_ref='{$this->id}' and auth_group.code='{$code}'";
         $res = $this->sql->query($query,true);
