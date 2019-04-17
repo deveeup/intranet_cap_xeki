@@ -114,14 +114,26 @@
                   <option value="{{group.id}}">{{group.name}}</option>
                 {% endfor %}
               </select>
-
-              <input type="text" name="xeki_action" value="auth::add_group" />
-              <input type="text" name="id_user" value="{{user.id}}" />
-              
             </div>
+            <input type="hidden" name="xeki_action" value="auth::add_group" />
+            <input type="hidden" name="id_user" value="{{user.id}}" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
+            {% if add_user_group %}
+              <div class="form-control">
+                <p class="form-control-successful">
+                    {{add_user_group}}
+                </p>
+              </div>
+            {% endif %}
+            {% if add_user_group_error %}
+              <div class="form-control">
+                <p class="form-control-error">
+                  {{add_user_group_error}}
+                </p>
+              </div>
+            {% endif %}
           </form>
         </div>
       </div>

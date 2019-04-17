@@ -238,6 +238,9 @@
 
 	$add_user_group = $user->group_add_by_id($id_group, $user_id);
 
-	
-
+	if($add_user_group){
+		\xeki\html_manager::add_extra_data("add_user_group","El usuario se ha agregado al grupo");
+	}else{
+		\xeki\html_manager::add_extra_data("add_user_group_error","Ocurrió un error, intenta nuevamente");
+	}
 });
