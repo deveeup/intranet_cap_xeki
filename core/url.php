@@ -8,6 +8,7 @@
   \xeki\routes::any('archivos', 'files');
   \xeki\routes::any('panel', 'dash');
   \xeki\routes::any('panel/usuarios', 'users');
+  \xeki\routes::any('panel/grupos', 'groups');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
 
