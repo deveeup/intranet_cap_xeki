@@ -72,7 +72,6 @@
             </div>
             <input type="hidden" name="xeki_action" value="auth::update_rol" />
             <input type="hidden" name="id" value="{{user.id}}" />
-            <input type="hidden" name="url" value="panel/usuarios/{{user.username}}" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
@@ -96,7 +95,6 @@
             {% if groups_users is empty  %}
               <div class="form-control">
                 <label>{{user.first_name}} no pertenece a ningún grupo aún.</label>
-                
               </div>
             {% else %}
               <div class="form-control">
@@ -110,12 +108,16 @@
             {% endif %}
             <div class="form-control">
               <label for="">Agregar a {{user.first_name}} al grupo </label>
-              <select>
+              <select name="id_group" id="id_group">
                 {% for group in groups %}
                   <h1>{{group.name}}</h1>
-                  <option value="{{goup.id}}">{{group.name}}</option>
+                  <option value="{{group.id}}">{{group.name}}</option>
                 {% endfor %}
               </select>
+
+              <input type="text" name="xeki_action" value="auth::add_group" />
+              <input type="text" name="id_user" value="{{user.id}}" />
+              
             </div>
             <div class="form-control">
               <button>Actualizar</button>

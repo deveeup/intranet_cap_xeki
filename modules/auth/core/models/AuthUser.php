@@ -143,10 +143,53 @@ class User
             return new \xeki\error("group_add_error_sql");
         }
 
+    }
+
+    public function group_add_by_id($code_group, $id_user){
+        // get group
+        $group = new Group($this->local_config);
+        $error = $group->load_code($code_group);
+
+        if(\xeki\core::is_error($error)){
+            return $error;
+        }
+        //
+        // check is exist relation
+        $query = "Select * from auth_user_group where user_ref='{$id_user}' and group_ref='{$code_group}'";
+        $res = $this->sql->query($query);
+
+        if(is_array($res)){
+            if(count($res)>0){
+                // handling error
+                return new \xeki\error("group_already_added");
+            }
+        }
+        else{
+            // handing error sql error
+////            d($this->sql->error());
+            return new \xeki\error("group_validate_error_sql");
+        }
+
+        // add group
+
+        $data = [
+            "user_ref" => $id_user,
+            "group_ref" => $code_group
+        ];
+        $res = $this->sql->insert('auth_user_group',$data);
+        if($res){
+            return true;
+        }
+        else{
+            // handing error sql error
+            return new \xeki\error("group_add_error_sql");
+        }
+
 
 
     }
-
+    
+    
     public function group_remove($code_group){
         // get group
         $group = new Group($this->local_config);

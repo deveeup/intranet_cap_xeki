@@ -224,3 +224,20 @@
 	}
 
 });
+
+
+//add user > group (by user admin)
+\xeki\routes::action('auth::add_group', function(){
+	#import module
+	$auth = \xeki\module_manager::import_module('auth');
+	
+	#drop data
+	$user = $auth->get_user(); 
+	$user_id = $_POST['id_user'];
+	$id_group = $_POST['id_group'];
+
+	$add_user_group = $user->group_add_by_id($id_group, $user_id);
+
+	
+
+});
