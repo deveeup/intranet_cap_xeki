@@ -150,15 +150,31 @@
             <h3 class="title">&#8226; Contraseña</h3>
             <div class="form-control">
               <label for="">Usuario Super administrador</label>
-              <input type="password">
+              <input type="password" name="password" id="password" />
             </div>
             <div class="form-control">
               <label for="">Usuario Super administrador</label>
-              <input type="password">
+              <input type="password" name="password_confirm" id="password_confirm" />
             </div>
+            <input type="hidden" name="xeki_action" value="auth::updatepw_user" />
+            <input type="hidden" name="id_user" value="{{user.id}}" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
+            {% if dont_match_pw_user %}
+              <div class="form-control">
+                <p class="form-control-error">
+                  {{dont_match_pw_user}}
+                </p>
+              </div>
+            {% endif %}
+            {% if password_update_successful_user %}
+              <div class="form-control">
+                <p class="form-control-successful">
+                  {{password_update_successful_user}}
+                </p>
+              </div>
+            {% endif %}
           </form>
         </div>
       </div>

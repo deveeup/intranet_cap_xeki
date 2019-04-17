@@ -243,4 +243,29 @@
 	}else{
 		\xeki\html_manager::add_extra_data("add_user_group_error","Ocurrió un error, intenta nuevamente");
 	}
+
+});
+
+//update pw (by user admin)
+\xeki\routes::action('auth::updatepw_user', function(){
+	
+	$data = $_POST;
+	
+	if($data['password'] != $data['password_confirm']){
+		\xeki\html_manager::add_extra_data("dont_match_pw_user","Las contraseñas no coinciden");
+	}else{
+		#import module
+		$sql=\xeki\module_manager::import_module("db-sql");
+
+		#drop data from
+		$password = hash("sha256", $_POST['password']);
+		$user_id = $_POST['id_user'];
+
+		#update data in database
+		$query = "UPDATE auth_user SET auth_user.password = '$password' WHERE id = '$user_id' ";
+		$update_data = $sql->query($query);		
+		#set var for message
+		\xeki\html_manager::add_extra_data("password_update_successful_user","La contraseña se ha actualizado");
+	}
+
 });
