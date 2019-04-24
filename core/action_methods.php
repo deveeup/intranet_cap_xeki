@@ -269,3 +269,29 @@
 	}
 
 });
+
+//update pw (by user admin)
+\xeki\routes::action('auth::action_groups', function(){
+	#import module
+	$sql=\xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+	$action =	$_POST['action'];
+	$valid_csrf = $csrf->validate_token();
+	
+	d($_POST['action']);
+	if($valid_csrf) {
+		switch ($action) {
+			case "view":
+				break;
+			case "edit":
+				break;
+			case "delete":
+				d("LAGRANPUTAVIDA!");
+				\xeki\html_manager::add_extra_data("action_grosup_delete","No se puede eliminar el grupo, debido a que contiene usuarios.");
+				d("$action_grosup_delete");
+				break;
+		}
+	}else {
+		#error csrf
+	}
+});

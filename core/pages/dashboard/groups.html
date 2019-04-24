@@ -16,12 +16,55 @@
       </figure>
       <h1>Grupos registrados en el sistema</h1>
     </div>
-    <div class="dash-container-content-tableContent">
+    <div class="dash-container-content-groupsContent">
+      {% if action_grosup_delete %}
+        <div class="dash-container-content-groupsContent-item-error">
+          <p>{{action_grosup_delete}}</p>
+        </div>
+      {% endif %}
       {% for group in groups %}
-      <div class="dash-container-content-tableContent">
-        <h5>{{group.name}}</h5>
+      <div class="dash-container-content-groupsContent-item">
+        <figure class="dash-container-content-groupsContent-item-figure">
+          <a href="#">
+            <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
+          </a>
+        </figure>
+        <h5 class="dash-container-content-groupsContent-item-title"><a href="#">{{group.name}}</a></h5>
+        <div class="dash-container-content-groupsContent-item-actions">
+          <figure>
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="action" value="view" />
+              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver" />
+              </button>
+            </form>
+          </figure>
+          <figure>
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="action" value="edit" />
+              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar" />
+              </button>
+            </form>
+          </figure>
+          <figure>
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="action" value="delete" />
+              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar" />
+              </button>
+            </form>
+          </figure>
+        </div>
       </div>
       {% endfor %}
+      
     </div>
   </div>
   </div>

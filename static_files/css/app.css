@@ -1667,3 +1667,93 @@ body footer .footer-item-cap {
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control button:active {
   transform: scale(0.9);
 }
+.dash-container-content-groupsContent {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item {
+  border: 1px solid #a5a5a5;
+  margin: 10px 0;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.dash-container-content-groupsContent-item-figure {
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+.dash-container-content-groupsContent-item-figure img {
+  width: 100%;
+}
+.dash-container-content-groupsContent-item-title {
+  width: 60%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item-title a {
+  text-decoration: none;
+  color: #3b4663;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item-actions {
+  width: 35%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item-actions figure {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  margin: 0 7px;
+}
+.dash-container-content-groupsContent-item-actions figure form {
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item-actions figure form button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.dash-container-content-groupsContent-item-actions figure form button img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+  will-change: transform;
+}
+.dash-container-content-groupsContent-item-actions figure form button img:hover {
+  border-bottom: 1px solid #010647;
+}
+.dash-container-content-groupsContent-item-actions figure form button img:active {
+  transform: scale(0.8);
+}
+.dash-container-content-groupsContent-item-error {
+  border-radius: 5px;
+  background-color: rgba(255,0,0,0.8);
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  margin-top: 10px;
+}
+.dash-container-content-groupsContent-item-error p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
