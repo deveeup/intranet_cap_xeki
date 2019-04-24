@@ -289,13 +289,19 @@
 			case "edit":
 				break;
 			case "delete":
-				#modified cascade group
-				// $delete_group = $sql->delete("auth_group", "id = $id_group");
-				// if($delete_group){
-				// 	\xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha eliminado correctamente.");
-				// }else {
-				// 	\xeki\html_manager::add_extra_data("action_group_delete_fail","No se puede eliminar el grupo, debido a que contiene usuarios.");
-				// }
+				#search users in group 
+				$query = "SELECT * FROM auth_user_group WHERE group_ref ='$id_group' ";
+				$response = $sql->query($query);
+				if($response){
+						\xeki\html_manager::add_extra_data("action_group_delete_fail","No se puede eliminar el grupo, debido a que contiene usuarios.");
+				}else {
+					$delete_group = $sql->delete("auth_group", "id = $id_group");
+					if($delete_group){
+						\xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha eliminado correctamente.");
+					}else {
+						\xeki\html_manager::add_extra_data("action_group_delete_fail","Ha ocurrido un error.");
+					}
+				}
 				break;
 		}
 	}else {
