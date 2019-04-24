@@ -1757,3 +1757,16 @@ body footer .footer-item-cap {
   padding: 0;
   color: #fff;
 }
+.dash-container-content-groupsContent-item-done {
+  border-radius: 5px;
+  background-color: rgba(0,128,0,0.8);
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  margin-top: 10px;
+}
+.dash-container-content-groupsContent-item-done p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}

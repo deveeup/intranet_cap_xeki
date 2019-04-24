@@ -17,9 +17,14 @@
       <h1>Grupos registrados en el sistema</h1>
     </div>
     <div class="dash-container-content-groupsContent">
-      {% if action_grosup_delete %}
+      {% if action_group_delete_fail %}
         <div class="dash-container-content-groupsContent-item-error">
-          <p>{{action_grosup_delete}}</p>
+          <p>{{action_group_delete_fail}}</p>
+        </div>
+      {% endif %}
+      {% if action_group_delete_done %}
+        <div class="dash-container-content-groupsContent-item-done">
+          <p>{{action_group_delete_done}}</p>
         </div>
       {% endif %}
       {% for group in groups %}
@@ -34,6 +39,7 @@
           <figure>
             <form method="post">
               {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{group.id}}" />
               <input type="hidden" name="action" value="view" />
               <input type="hidden" name="xeki_action" value="auth::action_groups" />
               <button type="submit">
@@ -44,6 +50,7 @@
           <figure>
             <form method="post">
               {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{group.id}}" />
               <input type="hidden" name="action" value="edit" />
               <input type="hidden" name="xeki_action" value="auth::action_groups" />
               <button type="submit">
@@ -54,6 +61,7 @@
           <figure>
             <form method="post">
               {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{group.id}}" />
               <input type="hidden" name="action" value="delete" />
               <input type="hidden" name="xeki_action" value="auth::action_groups" />
               <button type="submit">
