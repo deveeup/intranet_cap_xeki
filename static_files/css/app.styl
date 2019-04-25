@@ -1161,38 +1161,34 @@ body
 							img 
 								_fullW()
 						&-title 
-							_w(60%)
+							_w(80%)
 							_ta(left)
 							_reset(0)
 							a
 								_aReset($blue2)
 								_reset(0)
-						&-actions 
-							_w(35%)
-							_dfr(flex-end, center)
+						figure 
 							_reset(0)
-							figure 
+							_w(30px)
+							margin 0 7px
+							form 
 								_reset(0)
-								_w(30px)
-								margin 0 7px
-								form 
+								button 
+									border none 
 									_reset(0)
-									button 
-										border none 
+									_bc(transparent)
+									cursor pointer
+									outline none
+									img 
 										_reset(0)
-										_bc(transparent)
-										cursor pointer
-										outline none
-										img 
-											_reset(0)
-											_fullW()
-											border-bottom 1px solid transparent
-											transition .3s 
-											will-change: transform
-											&:hover 
-												border-bottom 1px solid $blue
-											&:active 
-												transform scale(.8)
+										_fullW()
+										border-bottom 1px solid transparent
+										transition .3s 
+										will-change: transform
+										&:hover 
+											border-bottom 1px solid $blue
+										&:active 
+											transform scale(.8)
 						&-error 
 							_br(5px)
 							_bc(rgba(red, .8))
@@ -1211,3 +1207,30 @@ body
 							p 
 								_reset(0)
 								_c(white)
+						&-editContainer
+							_fullW()
+							_mTop(10px)
+							form 
+								.form-control 
+									padding 10px
+									_br(0)
+									_dfr(flex-start, center)
+									label
+										_reset(0)
+										margin-right 15px
+									input[type="text"]
+										_br(3px)
+										outline none
+										_(rgba($gray, .3))
+										padding 3px 10px
+										margin-right 10px
+									button 
+										background-color transparent 
+										border none
+										transition .3s
+										outline none
+										img 
+											_w(25px)
+											_reset(0)
+										&:active 
+											transform scale(.7)

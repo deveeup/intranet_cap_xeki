@@ -1692,7 +1692,7 @@ body footer .footer-item-cap {
   width: 100%;
 }
 .dash-container-content-groupsContent-item-title {
-  width: 60%;
+  width: 80%;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -1703,26 +1703,17 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
 }
-.dash-container-content-groupsContent-item-actions {
-  width: 35%;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-}
-.dash-container-content-groupsContent-item-actions figure {
+.dash-container-content-groupsContent-item figure {
   margin: 0;
   padding: 0;
   width: 30px;
   margin: 0 7px;
 }
-.dash-container-content-groupsContent-item-actions figure form {
+.dash-container-content-groupsContent-item figure form {
   margin: 0;
   padding: 0;
 }
-.dash-container-content-groupsContent-item-actions figure form button {
+.dash-container-content-groupsContent-item figure form button {
   border: none;
   margin: 0;
   padding: 0;
@@ -1730,7 +1721,7 @@ body footer .footer-item-cap {
   cursor: pointer;
   outline: none;
 }
-.dash-container-content-groupsContent-item-actions figure form button img {
+.dash-container-content-groupsContent-item figure form button img {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1738,10 +1729,10 @@ body footer .footer-item-cap {
   transition: 0.3s;
   will-change: transform;
 }
-.dash-container-content-groupsContent-item-actions figure form button img:hover {
+.dash-container-content-groupsContent-item figure form button img:hover {
   border-bottom: 1px solid #010647;
 }
-.dash-container-content-groupsContent-item-actions figure form button img:active {
+.dash-container-content-groupsContent-item figure form button img:active {
   transform: scale(0.8);
 }
 .dash-container-content-groupsContent-item-error {
@@ -1769,4 +1760,42 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
   color: #fff;
+}
+.dash-container-content-groupsContent-item-editContainer {
+  width: 100%;
+  margin-top: 10px;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control {
+  padding: 10px;
+  border-radius: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control label {
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control input[type="text"] {
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid rgba(165,165,165,0.3);
+  padding: 3px 10px;
+  margin-right: 10px;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control button {
+  background-color: transparent;
+  border: none;
+  transition: 0.3s;
+  outline: none;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control button img {
+  width: 25px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control button:active {
+  transform: scale(0.7);
 }
