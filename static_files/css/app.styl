@@ -1234,3 +1234,43 @@ body
 											_reset(0)
 										&:active 
 											transform scale(.7)
+				&-groupsContentUsers 
+					_fullW()
+					_reset(0)
+					_mTop(20px)
+					&-item 
+						_bc(rgba($gray, .2))
+						padding 5px
+						_dfr(space-between, center)
+						_fw(wrap)
+						margin 10px 0
+						&-figure 
+							_w(25px)
+							_reset(0)
+							margin 0 7px
+							_(rgba($blue,.3))
+							_br(5px)
+							img 
+								_br(5px)
+								_fullW()
+						&-nameContainer 
+							_w(520px)
+							h3
+								_reset(0)
+								_fz(1em)
+								_c($blue)
+						&-emailContainer 
+							_w(300px)
+							a
+								_reset(0)
+								_fz(1em)
+								_c($blue)
+						&-optionContainer 
+							_dfr(flex-end, center)
+							_reset(0)
+							_mRight(5px)
+							figure 
+								_w(20px)
+								_reset(0)
+								img 
+									_fullW()

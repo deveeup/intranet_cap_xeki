@@ -16,11 +16,34 @@
       </figure>
       <h1>{{group.name}}</h1>
     </div>
-    <div class="dash-container-content-groupsContent">
+    <div class="dash-container-content-groupsContentUsers">
       {% for user in users %}
-        <h2>
-          {{ user.id }}
-        </h2>
+        <div class="dash-container-content-groupsContentUsers-item">
+          {% if user.company == 0 %}
+            <figure class="dash-container-content-groupsContentUsers-item-figure">
+              <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark Previsión Exequial">
+            </figure>
+          {% else %}
+            <figure class="dash-container-content-groupsContentUsers-item-figure">
+              <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe Funeraria">
+            </figure>
+          {% endif %}
+          <div class="dash-container-content-groupsContentUsers-item-nameContainer">
+            <h3>
+              {{ user.first_name }} {{ user.last_name}}
+            </h3>
+          </div>
+          <div class="dash-container-content-groupsContentUsers-item-emailContainer">
+            <a href="mailto:{{user.email}}">
+              {{ user.email }}
+            </a>
+          </div>
+          <div class="dash-container-content-groupsContentUsers-item-optionContainer">
+            <figure>
+              <img src="static_files/img/view-more-blue.png" alt="{{alt}} Opciones">
+            </figure>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>

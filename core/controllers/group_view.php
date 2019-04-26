@@ -36,7 +36,6 @@ if(!$auth->is_logged()){
 			$array_user = $sql->query($queryThree);
 			array_push($user_list, $array_user[0]);
 		}
-
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['group'] = $group_info[0];
