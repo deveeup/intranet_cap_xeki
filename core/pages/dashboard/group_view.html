@@ -17,6 +17,11 @@
       <h1>{{group.name}}</h1>
     </div>
     <div class="dash-container-content-groupsContentUsers">
+      <div class="dash-container-content-groupsContentUsers-infoContainer">
+        <p>
+          Este grupo fue creado por {{create_by}} para la fecha: {{group.date_created|date}}
+        </p>
+      </div>
       {% for user in users %}
         <div class="dash-container-content-groupsContentUsers-item">
           {% if user.company == 0 %}
