@@ -9,6 +9,7 @@
   \xeki\routes::any('panel', 'dash');
   \xeki\routes::any('panel/usuarios', 'users');
   \xeki\routes::any('panel/grupos', 'groups');
+  \xeki\routes::any('panel/grupos/{group_id}', 'group_view');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
 

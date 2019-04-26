@@ -270,7 +270,7 @@
 
 });
 
-//update pw (by user admin)
+//delete group (by user admin)
 \xeki\routes::action('auth::action_groups', function(){
 	#import module
 	$sql=\xeki\module_manager::import_module("db-sql");
@@ -285,8 +285,9 @@
 	if($valid_csrf) {
 		switch ($action) {
 			case "view":
-				break;
-			case "edit":
+				#set var for message
+				setcookie("update_password_successful",true,time()+3);
+				\xeki\core::redirect('');
 				break;
 			case "delete":
 				#search users in group 
@@ -304,6 +305,30 @@
 				}
 				break;
 		}
+	}else {
+		#error csrf
+	}
+});
+
+//update group (by user admin)
+\xeki\routes::action('auth::update_group', function(){
+	#import module
+	$sql=\xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#vars 
+	$name =	$_POST['name'];
+	$last_name =	$_POST['last_name'];
+	$id_group = $_POST['group_id'];
+	$id_user = $_POST['id_user'];
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		#update group 
+		$query = "UPDATE auth_group  SET auth_group.name = '$name', auth_group.last_name = '$last_name', auth_group.modified_by = '$id_user' WHERE auth_group.id ='$id_group' ";
+		$response = $sql->query($query);
+		\xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha actualizado correctamente.");
 	}else {
 		#error csrf
 	}

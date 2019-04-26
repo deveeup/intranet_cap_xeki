@@ -1164,16 +1164,14 @@ body
 							_w(80%)
 							_ta(left)
 							_reset(0)
-							a
-								_aReset($blue2)
-								_reset(0)
+							_c($blue2)
 						figure 
 							_reset(0)
 							_w(30px)
 							margin 0 7px
 							form 
 								_reset(0)
-								button 
+								button, a 
 									border none 
 									_reset(0)
 									_bc(transparent)
@@ -1210,6 +1208,7 @@ body
 						&-editContainer
 							_fullW()
 							_mTop(10px)
+							_dn()
 							form 
 								.form-control 
 									padding 10px
@@ -1221,7 +1220,8 @@ body
 									input[type="text"]
 										_br(3px)
 										outline none
-										_(rgba($gray, .3))
+										border none 
+										border 1px solid rgba($gray, .3)
 										padding 3px 10px
 										margin-right 10px
 									button 

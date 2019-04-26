@@ -30,20 +30,18 @@
       {% for group in groups %}
       <div class="dash-container-content-groupsContent-item">
         <figure class="dash-container-content-groupsContent-item-figure">
-          <a href="#">
-            <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
-          </a>
+          <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
         </figure>
-        <h5 class="dash-container-content-groupsContent-item-title"><a href="#">{{group.name}}</a></h5>
+        <h5 class="dash-container-content-groupsContent-item-title">{{group.name}}</h5>
           <figure>
             <form method="post">
               {{csrf|raw}}
               <input type="hidden" name="group_id" value="{{group.id}}" />
               <input type="hidden" name="action" value="view" />
               <input type="hidden" name="xeki_action" value="auth::action_groups" />
-              <button type="submit">
+              <a href="{{URL_BASE}}panel/grupos/{{group.id}}" >
                 <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver" />
-              </button>
+              </a>
             </form>
           </figure>
           <figure>
@@ -68,11 +66,16 @@
               </button>
             </form>
           </figure>
-        <div class="dash-container-content-groupsContent-item-editContainer noje">
+        <div class="dash-container-content-groupsContent-item-editContainer editGroup">
           <form method="post">
             <div class="form-control">
+              {{csrf|raw}}
               <label for="name">Nombre del grupo</label>
               <input type="text" name="name" value="{{group.name}}" />
+              <input type="hidden" name="last_name" value="{{group.name}}" />
+              <input type="hidden" name="group_id" value="{{group.id}}">
+              <input type="hidden" name="id_user" value="{{auth_user_info.id}}">
+              <input type="hidden" name="xeki_action" value="auth::update_group">
               <button type="submit">
                 <img src="static_files/img/icon-dash-sendForm.png" alt="{{alt}} Actualizar grupo">
               </button>
@@ -94,7 +97,7 @@
     $(document).ready(function(){
       $(".form_edit_group").click(function(){
         $userContent = $(this);
-        $content = $userContent.next(".noje");
+        $content = $userContent.next(".editGroup");
         $content.slideToggle(400);
       });
     });

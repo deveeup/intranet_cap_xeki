@@ -1696,12 +1696,7 @@ body footer .footer-item-cap {
   text-align: left;
   margin: 0;
   padding: 0;
-}
-.dash-container-content-groupsContent-item-title a {
-  text-decoration: none;
   color: #3b4663;
-  margin: 0;
-  padding: 0;
 }
 .dash-container-content-groupsContent-item figure {
   margin: 0;
@@ -1713,7 +1708,8 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
 }
-.dash-container-content-groupsContent-item figure form button {
+.dash-container-content-groupsContent-item figure form button,
+.dash-container-content-groupsContent-item figure form a {
   border: none;
   margin: 0;
   padding: 0;
@@ -1721,7 +1717,8 @@ body footer .footer-item-cap {
   cursor: pointer;
   outline: none;
 }
-.dash-container-content-groupsContent-item figure form button img {
+.dash-container-content-groupsContent-item figure form button img,
+.dash-container-content-groupsContent-item figure form a img {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1729,10 +1726,12 @@ body footer .footer-item-cap {
   transition: 0.3s;
   will-change: transform;
 }
-.dash-container-content-groupsContent-item figure form button img:hover {
+.dash-container-content-groupsContent-item figure form button img:hover,
+.dash-container-content-groupsContent-item figure form a img:hover {
   border-bottom: 1px solid #010647;
 }
-.dash-container-content-groupsContent-item figure form button img:active {
+.dash-container-content-groupsContent-item figure form button img:active,
+.dash-container-content-groupsContent-item figure form a img:active {
   transform: scale(0.8);
 }
 .dash-container-content-groupsContent-item-error {
@@ -1764,6 +1763,7 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContent-item-editContainer {
   width: 100%;
   margin-top: 10px;
+  display: none;
 }
 .dash-container-content-groupsContent-item-editContainer form .form-control {
   padding: 10px;
@@ -1781,6 +1781,7 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContent-item-editContainer form .form-control input[type="text"] {
   border-radius: 3px;
   outline: none;
+  border: none;
   border: 1px solid rgba(165,165,165,0.3);
   padding: 3px 10px;
   margin-right: 10px;
