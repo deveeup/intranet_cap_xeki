@@ -22,7 +22,6 @@ if(!$auth->is_logged()){
 		#search users
 		$queryOne = "SELECT * FROM auth_user order by id";
 		$users = $sql->query($queryOne);
-		
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['users'] = $users;

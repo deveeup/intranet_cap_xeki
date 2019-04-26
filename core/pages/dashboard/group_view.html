@@ -1,0 +1,44 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Grupos registrados en el sistema</h1>
+    </div>
+    <div class="dash-container-content-groupsContent">
+      <h1><-- </h1>
+      {% for user in users %}
+        <h2>
+          {{ user[0].id }}
+        </h2>
+      {% endfor %}
+      <h1>--></h1>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script>
+    $(document).ready(function(){
+      $(".form_edit_group").click(function(){
+        $userContent = $(this);
+        $content = $userContent.next(".editGroup");
+        $content.slideToggle(400);
+      });
+    });
+  </script>
+{% endblock %}
