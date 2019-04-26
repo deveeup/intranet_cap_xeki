@@ -31,7 +31,8 @@ if(!$auth->is_logged()){
 
 		#send data users
 		$user_list = array();
-		foreach ($group_user as $group){
+		$user_group = array();
+;		foreach ($group_user as $group){
 
 			$queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$group[user_ref]' ";
 			$array_user = $sql->query($queryThree);
@@ -44,7 +45,7 @@ if(!$auth->is_logged()){
 				$groupRef = $id_group['group_ref'];
 				$querySix = "SELECT * FROM auth_group WHERE id = '$groupRef' ";
 				$infoGroupUser = $sql->query($querySix);
-				array_push($array_user[0], $infoGroupUser);
+				array_push($user_group, $infoGroupUser);
 			}
 
 			array_push($user_list, $array_user[0]);
