@@ -14,16 +14,14 @@
       <figure>
         <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Usuarios">
       </figure>
-      <h1>Grupos registrados en el sistema</h1>
+      <h1>{{group.name}}</h1>
     </div>
     <div class="dash-container-content-groupsContent">
-      <h1><-- </h1>
       {% for user in users %}
         <h2>
-          {{ user[0].id }}
+          {{ user.id }}
         </h2>
       {% endfor %}
-      <h1>--></h1>
     </div>
   </div>
   </div>

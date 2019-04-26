@@ -34,10 +34,9 @@ if(!$auth->is_logged()){
 		foreach ($group_user as $group){
 			$queryThree = "SELECT * FROM auth_user WHERE id = '$group[user_ref]' ";
 			$array_user = $sql->query($queryThree);
-			array_push($user_list, $array_user);
+			array_push($user_list, $array_user[0]);
 		}
 
-		d($user_list);
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['group'] = $group_info[0];
