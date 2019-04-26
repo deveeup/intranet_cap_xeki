@@ -32,25 +32,38 @@ if(!$auth->is_logged()){
 		#send data users
 		$user_list = array();
 		foreach ($group_user as $group){
-			$queryThree = "SELECT * FROM auth_user WHERE id = '$group[user_ref]' ";
+
+			$queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$group[user_ref]' ";
 			$array_user = $sql->query($queryThree);
+
+			$queryFive = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$group[user_ref]' ";
+			$array_user_permission = $sql->query($queryFive);
+
+			foreach ($array_user_permission as $id_group ){
+				// array_push($array_user[0], $array_user_permission[0]);
+				$groupRef = $id_group['group_ref'];
+				$querySix = "SELECT * FROM auth_group WHERE id = '$groupRef' ";
+				$infoGroupUser = $sql->query($querySix);
+				array_push($array_user[0], $infoGroupUser);
+			}
+
 			array_push($user_list, $array_user[0]);
 		}
+		d($user_list);
 
 		#created group user
 		$id_user_create_group = $group_info[0]['created_by'];
-		$queryThree = "SELECT * FROM auth_user WHERE id = '$id_user_create_group'";
-		$info_by_create = $sql->query($queryThree);
+		$queryFour = "SELECT * FROM auth_user WHERE id = '$id_user_create_group'";
+		$info_by_create = $sql->query($queryFour);
 		$create_by = $info_by_create[0]['first_name'] .' '. $info_by_create[0]['last_name'];
+
+		#
 
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['group'] = $group_info[0];
 		$items_to_print['users'] = $user_list;
 		$items_to_print['create_by'] = $create_by;
-		$items_to_print['date_create'] = 
-		$noje = date_format($group_info[0]['date_created'], "Y/m/d");
-		d($noje);
 		\xeki\html_manager::render('dashboard/group_view.html',$items_to_print);
 	}else{
 		\xeki\core::redirect('');

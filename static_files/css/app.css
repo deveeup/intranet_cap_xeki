@@ -1866,3 +1866,20 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContentUsers-item-optionContainer figure img {
   width: 100%;
 }
+.dash-container-content-groupsContentUsers-item-actionContainer {
+  border: 1px solid #00f;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 20px;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-viewProfile {
+  border-radius: 5px;
+  background-color: #e35825;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 50px;
+}
