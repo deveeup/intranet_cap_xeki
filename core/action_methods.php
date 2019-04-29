@@ -355,13 +355,14 @@
 		if($validateUserInGroup){
 			$queryTwo = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
 			$validatePermissionUser = $sql->query($queryTwo);
-			d($validatePermissionUser[0]['permission_ref']);
 			if($validatePermissionUser[0]['permission_ref'] == 3 AND $permission == 3){
 				\xeki\html_manager::add_extra_data("message_user_adm","Este usuario ya tiene permisos de administrador.");
 			}elseif ($validatePermissionUser[0]['permission_ref'] == $permission) {
 				\xeki\html_manager::add_extra_data("message_user_error","Este usuario ya tiene este permiso.");
 			}else {
 				\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
+				#validar si es UPDATE o INSERT
+					
 			}
 
 		}
