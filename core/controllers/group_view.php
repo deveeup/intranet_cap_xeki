@@ -31,24 +31,25 @@ if(!$auth->is_logged()){
 
 		#send data users
 		$user_list = array();
-		$user_group = array();
 		foreach ($group_user as $group){
 			#list users (complete info)
 			$queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$group[user_ref]' ";
 			$array_user = $sql->query($queryThree);
 			$info_users = $array_user[0];
 			// d($info_users);
-
+			
 			foreach ($array_user as $user){
 				$queryFour = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$user[id]'  ";
 				$response_auth_user_permission = $sql->query($queryFour);
 				// d($response_auth_user_permission);
+				
 				foreach ($response_auth_user_permission as $permission){
-					array_push($user_group, $permission);
-				}
-				if($user['id'] == $permission['user_ref']){
-					// d($user_group);
-					array_push($info_users, $user_group);
+					$user_group = array();
+					if($user['id'] == $permission['user_ref']){
+						array_push($user_group, $permission);
+						// d($user_group);
+						array_push($info_users, $user_group);
+					}
 				}
 				// array_push($user_list, $user_group);
 			}
