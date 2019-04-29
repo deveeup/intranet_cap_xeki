@@ -36,6 +36,8 @@ if(!$auth->is_logged()){
 			$queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$group[user_ref]' ";
 			$array_user = $sql->query($queryThree);
 			$info_users = $array_user[0];
+			$info_users[groups] = array();
+
 			// d($info_users);
 			
 			foreach ($array_user as $user){
@@ -48,7 +50,7 @@ if(!$auth->is_logged()){
 					if($user['id'] == $permission['user_ref']){
 						array_push($user_group, $permission);
 						// d($user_group);
-						array_push($info_users, $user_group);
+						array_push($info_users[groups], $user_group[0]);
 					}
 				}
 				// array_push($user_list, $user_group);
@@ -56,7 +58,6 @@ if(!$auth->is_logged()){
 			array_push($user_list, $info_users);
 		}
 		d($user_list);
-
 		
 		#created group user
 		$id_user_create_group = $group_info[0]['created_by'];
