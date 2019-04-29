@@ -357,12 +357,11 @@
 			$validatePermissionUser = $sql->query($queryTwo);
 			d($validatePermissionUser[0]['permission_ref']);
 			if($validatePermissionUser[0]['permission_ref'] == 3 AND $permission == 3){
-				// \xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha actualizado correctamente.");
-				d("Ya el usuario es adm");
+				\xeki\html_manager::add_extra_data("message_user_adm","Este usuario ya tiene permisos de administrador.");
 			}elseif ($validatePermissionUser[0]['permission_ref'] == $permission) {
-				d("Este usuario ya tiene estos permisos");
+				\xeki\html_manager::add_extra_data("message_user_error","Este usuario ya tiene este permiso.");
 			}else {
-				d("user update!");
+				\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
 			}
 
 		}

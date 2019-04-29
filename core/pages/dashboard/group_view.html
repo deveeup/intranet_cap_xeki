@@ -22,6 +22,27 @@
           Este grupo fue creado por {{create_by}} para la fecha: {{group.date_created|date}}
         </p>
       </div>
+      {% if message_user_adm %}
+        <div class="dash-container-content-groupsContentUsers-infoContainer-messageContainer">
+          <p class="dash-container-content-groupsContentUsers-infoContainer-messageContainer-error">
+            {{message_user_adm}}
+          </p>
+        </div>
+      {% endif %}
+      {% if message_user_error %}
+        <div class="dash-container-content-groupsContentUsers-infoContainer-messageContainer">
+          <p class="dash-container-content-groupsContentUsers-infoContainer-messageContainer-error">
+            {{message_user_error}}
+          </p>
+        </div>
+      {% endif %}
+      {% if message_user_successful %}
+        <div class="dash-container-content-groupsContentUsers-infoContainer-messageContainer">
+          <p class="dash-container-content-groupsContentUsers-infoContainer-messageContainer-successful">
+            {{message_user_successful}}
+          </p>
+        </div>
+      {% endif %}
       {% for user in users %}
         <div class="dash-container-content-groupsContentUsers-item">
           {% if user.company == 0 %}
@@ -70,7 +91,7 @@
                     {% endif %}
                   {% endfor %}
                 </select>
-                <input type="text" name="id_user" value="{{user.id}}">
+                <input type="hidden" name="id_user" value="{{user.id}}">
                 <input type="hidden" name="id_group" value="{{group.id}}">
                 <input type="hidden" name="xeki_action" value="auth::update_group_user">
                 {{csrf|raw}}

@@ -68,7 +68,6 @@ if(!$auth->is_logged()){
 		#info permissions table
 		$querySeven = "SELECT * FROM auth_permission";
 		$table_permission = $sql->query($querySeven);
-		
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['group'] = $group_info[0];
