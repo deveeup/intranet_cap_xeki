@@ -286,7 +286,7 @@
 		switch ($action) {
 			case "view":
 				#set var for message
-				setcookie("update_password_successful",true,time()+3);
+				setcookie("select_group_view",true,time()+3);
 				\xeki\core::redirect('');
 				break;
 			case "delete":
@@ -329,6 +329,43 @@
 		$query = "UPDATE auth_group  SET auth_group.name = '$name', auth_group.last_name = '$last_name', auth_group.modified_by = '$id_user' WHERE auth_group.id ='$id_group' ";
 		$response = $sql->query($query);
 		\xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha actualizado correctamente.");
+	}else {
+		#error csrf
+	}
+});
+
+//update group (by user admin)
+\xeki\routes::action('auth::update_group_user', function(){
+	#import module
+	$sql=\xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#vars 
+	$permission = $_POST['permission'];
+	$id_user = $_POST['id_user'];
+	$id_group = $_POST['id_group'];
+	// d($_POST);
+	
+	$valid_csrf = $csrf->validate_token();
+	if($valid_csrf) {
+		#update group 
+		$queryOne = "SELECT * FROM auth_user_group WHERE auth_user_group.user_ref = '$id_user' AND auth_user_group.group_ref = '$id_group' ";
+		$validateUserInGroup = $sql->query($queryOne);
+
+		if($validateUserInGroup){
+			$queryTwo = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
+			$validatePermissionUser = $sql->query($queryTwo);
+			d($validatePermissionUser[0]['permission_ref']);
+			if($validatePermissionUser[0]['permission_ref'] == 3 AND $permission == 3){
+				// \xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha actualizado correctamente.");
+				d("Ya el usuario es adm");
+			}elseif ($validatePermissionUser[0]['permission_ref'] == $permission) {
+				d("Este usuario ya tiene estos permisos");
+			}else {
+				d("user update!");
+			}
+
+		}
 	}else {
 		#error csrf
 	}

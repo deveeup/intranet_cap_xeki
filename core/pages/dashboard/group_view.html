@@ -58,10 +58,10 @@
                 {% endif %}
               </div>
               <form method="post" class="dash-container-content-groupsContentUsers-item-actionContainer-container-updateProfile">
-                <label for="">
+                <label for="permission">
                   Permisos para
                 </label>
-                <select name="" id="">
+                <select name="permission" id="permission">
                   {% for permission in table_permission  %}
                     {% if user.permission[0].name == permission.name %}
                       <option value="{{permission.id}}" selected> {{permission.name}} </option>
@@ -70,6 +70,10 @@
                     {% endif %}
                   {% endfor %}
                 </select>
+                <input type="text" name="id_user" value="{{user.id}}">
+                <input type="hidden" name="id_group" value="{{group.id}}">
+                <input type="hidden" name="xeki_action" value="auth::update_group_user">
+                {{csrf|raw}}
                 <button type="submit">
                   <img src="static_files/img/icon-dash-menu-check.png" alt="{{alt}} Actualizar usuario">
                 </button>
