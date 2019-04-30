@@ -371,11 +371,17 @@
 					\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
 				}else{
 					#insert
-					// $data = array(
-					// 	'id_user' => $emailResponse[0]['id'],
-					// 	'code' => $code
-					// );
-					// $sql->insert("forgotpw_token", $data);
+					$data = array(
+						'user_ref' => $id_user,
+						'permission_ref' => $permission,
+						'group_ref' => $id_group
+					);
+					$insertUser =	$sql->insert("auth_user_permission", $data);
+					if($insertUser){
+						\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
+					}else{
+						\xeki\html_manager::add_extra_data("message_user_error","Ha ocurrido un error al actualizar el usuario.");
+					}
 				}
 			}
 		}
