@@ -368,11 +368,7 @@
 					#update
 					$queryThree = "UPDATE auth_user_permission SET auth_user_permission.permission_ref = '$permission' WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
 					$responseUpdate = $sql->query($queryThree);
-					if($responseUpdate){
-						\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
-					}else{
-						\xeki\html_manager::add_extra_data("message_user_error","Ha ocurrido un error al actualizar los permisos del usuario.");
-					}
+					\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
 				}else{
 					#insert
 					// $data = array(
