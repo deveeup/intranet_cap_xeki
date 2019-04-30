@@ -360,11 +360,31 @@
 			}elseif ($validatePermissionUser[0]['permission_ref'] == $permission) {
 				\xeki\html_manager::add_extra_data("message_user_error","Este usuario ya tiene este permiso.");
 			}else {
-				\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
-				#validar si es UPDATE o INSERT
-					
+				
+				#validar si es update o insert
+				$queryTwo = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
+				$validatePermissionUser = $sql->query($queryTwo);
+				if($validatePermissionUser){
+					#update
+					$queryThree = "UPDATE auth_user_permission SET auth_user_permission.permission_ref = '$permission' WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
+					$responseUpdate = $sql->query($queryThree);
+					if($responseUpdate){
+						\xeki\html_manager::add_extra_data("message_user_successful","Usuario actualizado con éxito.");
+					}else{
+						\xeki\html_manager::add_extra_data("message_user_error","Ha ocurrido un error al actualizar los permisos del usuario.");
+					}
+				}else{
+					#insert
+					// $data = array(
+					// 	'id_user' => $emailResponse[0]['id'],
+					// 	'code' => $code
+					// );
+					// $sql->insert("forgotpw_token", $data);
+				}
 			}
-
+		}
+		else {
+			#el usuario no pertenece al grupo, no puede ser adm
 		}
 	}else {
 		#error csrf
