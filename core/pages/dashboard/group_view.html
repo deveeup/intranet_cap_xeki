@@ -80,7 +80,11 @@
               </div>
               <form method="post" class="dash-container-content-groupsContentUsers-item-actionContainer-container-updateProfile">
                 <label for="permission">
-                  Permisos para
+                  {% if user.permission %}
+                    Permisos para
+                  {% else %}
+                    Agregar permisos
+                  {% endif %}
                 </label>
                 <select name="permission" id="permission">
                   {% for permission in table_permission  %}
