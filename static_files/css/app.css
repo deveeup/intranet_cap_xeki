@@ -1791,6 +1791,7 @@ body footer .footer-item-cap {
   border: none;
   transition: 0.3s;
   outline: none;
+  cursor: pointer;
 }
 .dash-container-content-groupsContent-item-editContainer form .form-control button img {
   width: 25px;
@@ -1800,14 +1801,62 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContent-item-editContainer form .form-control button:active {
   transform: scale(0.7);
 }
+.dash-container-content-groupsContent-item-editContainer form .form-control button:hover {
+  cursor: pointer;
+}
 .dash-container-content-groupsContentUsers {
   width: 100%;
   margin: 0;
   padding: 0;
   margin-top: 10px;
 }
+.dash-container-content-groupsContentUsers-infoContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .dash-container-content-groupsContentUsers-infoContainer p {
   color: #e35825;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContentUsers-infoContainer-adminGuide {
+  padding: 0;
+  margin: 15px 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.dash-container-content-groupsContentUsers-infoContainer-adminGuide-item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 10px;
+}
+.dash-container-content-groupsContentUsers-infoContainer-adminGuide-item figure {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  margin-right: 5px;
+}
+.dash-container-content-groupsContentUsers-infoContainer-adminGuide-item figure img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.dash-container-content-groupsContentUsers-infoContainer-adminGuide-item p {
+  font-size: 0.9em;
+  color: #3b4663;
+  margin: 0;
+  padding: 0;
 }
 .dash-container-content-groupsContentUsers-infoContainer-messageContainer {
   width: 100%;
@@ -1834,6 +1883,30 @@ body footer .footer-item-cap {
   flex-wrap: wrap;
   margin: 10px 0;
 }
+.dash-container-content-groupsContentUsers-item-adminContainer {
+  width: 30px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-groupsContentUsers-item-adminContainer-figureAdm {
+  width: 15px;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.dash-container-content-groupsContentUsers-item-adminContainer-figureAdm img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .dash-container-content-groupsContentUsers-item-figure {
   width: 25px;
   margin: 0;
@@ -1845,7 +1918,6 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 20px;
 }
 .dash-container-content-groupsContentUsers-item-figure img {
   border-radius: 3px;
@@ -1909,7 +1981,7 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer {
   margin: 0;
   padding: 0;
-  width: 300px;
+  width: 270px;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -1930,6 +2002,8 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  cursor: pointer;
+  outline: none;
 }
 .dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission button img {
   width: 15px;
@@ -1949,6 +2023,8 @@ body footer .footer-item-cap {
   color: #fff;
   margin-right: 15px;
   font-size: 0.8em;
+  cursor: pointer;
+  outline: none;
   padding: 5px 10px;
   will-change: transform;
   transition: 0.3s;
@@ -1964,7 +2040,7 @@ body footer .footer-item-cap {
   transform: scale(0.8);
 }
 .dash-container-content-groupsContentUsers-item-actionContainer-container-permission {
-  width: 280px;
+  width: 330px;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -1989,7 +2065,7 @@ body footer .footer-item-cap {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 150px;
+  width: 210px;
 }
 .dash-container-content-groupsContentUsers-item-actionContainer-container-updateProfile select {
   margin: 0;

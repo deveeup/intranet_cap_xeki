@@ -57,7 +57,6 @@ if(!$auth->is_logged()){
 			}
 			array_push($user_list, $info_users);
 		}
-		// d($user_list);
 		
 		#created group user
 		$id_user_create_group = $group_info[0]['created_by'];

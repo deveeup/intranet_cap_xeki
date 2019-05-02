@@ -1229,18 +1229,43 @@ body
 										border none
 										transition .3s
 										outline none
+										cursor pointer
 										img 
 											_w(25px)
 											_reset(0)
 										&:active 
 											transform scale(.7)
+										&:hover 
+											cursor pointer							
 				&-groupsContentUsers 
 					_fullW()
 					_reset(0)
 					_mTop(10px)
 					&-infoContainer 
+						_dfc(flex-start, flex-start)
 						p 
 							_c($orange)
+							_reset(0)
+						&-adminGuide
+							padding 0
+							margin 15px 0
+							_dfr(flex-start, center)
+							_fw(wrap)
+							&-item 
+								_dfr(center, center)
+								margin 0 10px
+								figure
+									_dfr(center, center)
+									_reset(0)
+									_w(15px)
+									_mRight(5px)
+									img 
+										_reset(0)
+										_fullW()
+								p
+									_fz(.9em)
+									_c($blue2)
+									_reset(0)
 						&-messageContainer 
 							_fullW()
 							&-error
@@ -1259,6 +1284,18 @@ body
 						_dfr(space-between, center)
 						_fw(wrap)
 						margin 10px 0
+						&-adminContainer 
+							_w(30px)
+							_dfr(center, center)
+							_reset(0)
+							&-figureAdm 
+								_w(15px)
+								_reset(0)
+								_mLeft(10px)
+								_dfr(center, center)
+								img 
+									_fullW()
+									_reset(0)
 						&-figure 
 							_w(25px)
 							_reset(0)
@@ -1266,7 +1303,6 @@ body
 							_br(3px)
 							_bc(white)
 							_dfr(center, center)
-							margin-left 20px
 							img 
 								_br(3px)
 								_fullW()
@@ -1307,7 +1343,7 @@ body
 								margin-bottom -10px
 								&-buttonContainer 
 									_reset(0)
-									_w(300px)
+									_w(270px)
 									_dfr(flex-end, center)
 									&-deletePermission
 										button
@@ -1321,6 +1357,8 @@ body
 											will-change transform 
 											transition .3s
 											_dfr(center, center)
+											cursor pointer 
+											outline none
 											img 
 												_w(15px)
 												_mRight(5px)
@@ -1334,6 +1372,8 @@ body
 										_aReset(white)
 										_mRight(15px)
 										_fz(.8em)
+										cursor pointer 
+										outline none
 										padding 5px 10px
 										will-change transform 
 										transition .3s
@@ -1344,7 +1384,7 @@ body
 										&:active 
 											transform scale(.8)
 								&-permission 
-									_w(280px)
+									_w(330px)
 									_dfr(flex-start, center)
 									_mLeft(10px)
 									p 
@@ -1358,7 +1398,7 @@ body
 									_reset(0)
 									_dfr(flex-start, center)
 									_fw(wrap)
-									_w(150px)
+									_w(210px)
 									select 
 										_reset(0)
 									label 

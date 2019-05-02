@@ -21,6 +21,20 @@
         <p>
           Este grupo fue creado por {{create_by}} para la fecha: {{group.date_created|date}}
         </p>
+        <div class="dash-container-content-groupsContentUsers-infoContainer-adminGuide">
+          <div class="dash-container-content-groupsContentUsers-infoContainer-adminGuide-item">
+            <figure>
+              <img src="static_files/img/icon-dash-iconAdmin.png" alt="">
+            </figure>
+            <p>Administrador</p>
+          </div>
+          <div class="dash-container-content-groupsContentUsers-infoContainer-adminGuide-item">
+            <figure>
+              <img src="static_files/img/icon-dash-iconAdmin2.png" alt="">
+            </figure>
+            <p>Super Administrador</p>
+          </div>
+        </div>
       </div>
       {% if message_user_adm %}
         <div class="dash-container-content-groupsContentUsers-infoContainer-messageContainer">
@@ -45,6 +59,16 @@
       {% endif %}
       {% for user in users %}
         <div class="dash-container-content-groupsContentUsers-item">
+          <div class="dash-container-content-groupsContentUsers-item-adminContainer">
+            <figure class="dash-container-content-groupsContentUsers-item-adminContainer-figureAdm">
+              {% if user.permission[0].name == 'Administrador' %}
+              <img src="static_files/img/icon-dash-iconAdmin.png" alt="{{alt}} Coorserpark Previsión Exequial">
+              {% elseif user.permission[0].name == 'Super Administrador' %}
+              <img src="static_files/img/icon-dash-iconAdmin2.png" alt="{{alt}} Coorserpark Previsión Exequial">
+              {% endif %}
+            </figure>
+
+          </div>
           {% if user.company == 0 %}
             <figure class="dash-container-content-groupsContentUsers-item-figure">
               <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark Previsión Exequial">
