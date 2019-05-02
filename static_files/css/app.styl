@@ -776,8 +776,69 @@ body
 				margin 0 0 0 60px
 				padding 15px
 				_w(calc(100% - 60px))
-				_dfc(flex-start, flex-start)
+				_dfr(flex-start, flex-start)
 				_fw(wrap)
+				&-newUserContainer
+					_fullW()
+					p 
+						_fz(.9em)
+						_c($gray)
+						_fs(italic)
+						margin 10px 0
+					&-form 
+						_dfc(center, center)
+						_bc(rgba($gray, .2))
+						_br(5px)
+						_fullW()
+						_(rgba($gray, .4))
+						padding 5px 20px
+						margin-left -3px
+						&-formControl 
+							_fullW()
+							_dfr(flex-start, center)
+							_fw(wrap)
+							label 
+								_fullW()
+								_reset(0)
+								_c($blue2)
+								_mTop(10px)
+							select 
+								margin-top 10px
+								_w(48%)
+								outline none 
+								margin-right 15px 
+								transition .5s
+								_(rgba($gray, .4))
+								&:focus 
+									outline none 
+									_($orange)
+									box-shadow: 0 0 10px $orange;
+							input 
+								_w(48%)
+								margin-right 15px 
+								margin-top 10px
+								outline none 
+								padding 0 5px
+								transition .5s
+								_(rgba($gray, .4))
+								&:focus 
+									outline none 
+									_($orange)
+									box-shadow: 0 0 10px $orange;
+							button 
+								_bc(rgba($orange, .9))
+								_br(5px)
+								_c(white)
+								padding 3px 20px
+								margin 25px 0
+								border none
+								transition .3s
+								outline none
+								will-change transform
+								&:hover 
+									_bc($orange)
+								&:active 
+									transform scale(.9)
 				&-item
 					_w(445px)
 					_(rgba($gray, .5))
@@ -844,7 +905,9 @@ body
 						_mLeft(10px)
 				&-optionContainer
 					_mTop(15px)
+					_fullW()
 					a	
+						_w(140px)
 						_bc(rgba($orange, .8))
 						_aReset(white)
 						_br(5px)

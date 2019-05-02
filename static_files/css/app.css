@@ -1117,9 +1117,89 @@ body footer .footer-item-cap {
   width: calc(100% - 60px);
   align-items: flex-start;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+.dash-container-content-newUserContainer {
+  width: 100%;
+}
+.dash-container-content-newUserContainer p {
+  font-size: 0.9em;
+  color: #a5a5a5;
+  font-style: italic;
+  margin: 10px 0;
+}
+.dash-container-content-newUserContainer-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(165,165,165,0.2);
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid rgba(165,165,165,0.4);
+  padding: 5px 20px;
+  margin-left: -3px;
+}
+.dash-container-content-newUserContainer-form-formControl {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.dash-container-content-newUserContainer-form-formControl label {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #3b4663;
+  margin-top: 10px;
+}
+.dash-container-content-newUserContainer-form-formControl select {
+  margin-top: 10px;
+  width: 48%;
+  outline: none;
+  margin-right: 15px;
+  transition: 0.5s;
+  border: 1px solid rgba(165,165,165,0.4);
+}
+.dash-container-content-newUserContainer-form-formControl select:focus {
+  outline: none;
+  border: 1px solid #e35825;
+  box-shadow: 0 0 10px #e35825;
+}
+.dash-container-content-newUserContainer-form-formControl input {
+  width: 48%;
+  margin-right: 15px;
+  margin-top: 10px;
+  outline: none;
+  padding: 0 5px;
+  transition: 0.5s;
+  border: 1px solid rgba(165,165,165,0.4);
+}
+.dash-container-content-newUserContainer-form-formControl input:focus {
+  outline: none;
+  border: 1px solid #e35825;
+  box-shadow: 0 0 10px #e35825;
+}
+.dash-container-content-newUserContainer-form-formControl button {
+  background-color: rgba(227,88,37,0.9);
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 20px;
+  margin: 25px 0;
+  border: none;
+  transition: 0.3s;
+  outline: none;
+  will-change: transform;
+}
+.dash-container-content-newUserContainer-form-formControl button:hover {
+  background-color: #e35825;
+}
+.dash-container-content-newUserContainer-form-formControl button:active {
+  transform: scale(0.9);
 }
 .dash-container-content-item {
   width: 445px;
@@ -1215,8 +1295,10 @@ body footer .footer-item-cap {
 }
 .dash-container-content-optionContainer {
   margin-top: 15px;
+  width: 100%;
 }
 .dash-container-content-optionContainer a {
+  width: 140px;
   background-color: rgba(227,88,37,0.8);
   text-decoration: none;
   color: #fff;

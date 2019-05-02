@@ -71,3 +71,13 @@
   );
   \xeki\html_manager::render('login/set-new-pw.html', $items_to_print);
 });
+
+//new user
+\xeki\routes::any('crear-usuario', function(){
+  $sql=\xeki\module_manager::import_module("db-sql");
+  $title = "Crear usuario";
+  $description =  "description for seo";
+  \xeki\html_manager::set_seo($title,$description,true);
+  $items_to_print = array();
+  \xeki\html_manager::render('dashboard/new_user.html', $items_to_print);
+});

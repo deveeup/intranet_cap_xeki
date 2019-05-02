@@ -1,0 +1,71 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Nuevo usuario</h1>
+    </div>
+    <div class="dash-container-content-newUserContainer">
+      <p>
+        Recuerda que debes indicarle al usuario que, una vez creado su perfil, deberá completar la actualización de sus datos.
+      </p>
+      <form method="" class="dash-container-content-newUserContainer-form" autocomplete="off">
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Datos personales</label>
+          <input type="text" >
+          <input type="text" >
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Información del usuario</label>
+          <input type="text" >
+          <input type="email" >
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Seguridad</label>
+          <input type="password" >
+          <input type="password" >
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Información de la empresa</label>
+          <select name="" id="">
+            <option value="">Consorcio Exequial</option>
+            <option value="">Coorserpark</option>
+          </select>
+          <select name="" id="">
+            <option value="">Bogotá</option>
+            <option value="">Barranquilla</option>
+            <option value="">Cali</option>
+            <option value="">Medellín</option>
+            <option value="">Barrancabermeja</option>
+            <option value="">Manizales</option>
+          </select>
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Cargo</label>
+          <input type="text" >
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <button>Crear usuario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}
