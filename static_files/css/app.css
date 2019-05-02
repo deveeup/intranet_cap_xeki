@@ -1906,21 +1906,61 @@ body footer .footer-item-cap {
   background-color: rgba(165,165,165,0.2);
   margin-bottom: -10px;
 }
-.dash-container-content-groupsContentUsers-item-actionContainer-container-viewProfile {
-  border-radius: 5px;
-  background-color: #e35825;
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission button {
+  border-radius: 3px;
+  background-color: #3b4663;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 5px;
+  border: 1px solid #3b4663;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  will-change: transform;
+  transition: 0.3s;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission button img {
+  width: 15px;
+  margin-right: 5px;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission button:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission button:active {
+  transform: scale(0.8);
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-viewProfile {
+  border-radius: 3px;
+  background-color: #3b4663;
   text-decoration: none;
   color: #fff;
   margin-right: 15px;
+  font-size: 0.8em;
   padding: 5px 10px;
   will-change: transform;
   transition: 0.3s;
 }
-.dash-container-content-groupsContentUsers-item-actionContainer-container-viewProfile:hover {
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-viewProfile img {
+  width: 15px;
+}
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-viewProfile:hover {
   text-decoration: none;
   color: #fff;
 }
-.dash-container-content-groupsContentUsers-item-actionContainer-container-viewProfile:active {
+.dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-viewProfile:active {
   transform: scale(0.8);
 }
 .dash-container-content-groupsContentUsers-item-actionContainer-container-permission {

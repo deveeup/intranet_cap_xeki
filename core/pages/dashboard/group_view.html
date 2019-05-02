@@ -56,7 +56,7 @@
           {% endif %}
           <div class="dash-container-content-groupsContentUsers-item-nameContainer">
             <h3>
-              {{ user.first_name }} {{ user.last_name}}
+              {{ user.first_name }} {{ user.last_name }}
             </h3>
           </div>
           <div class="dash-container-content-groupsContentUsers-item-emailContainer">
@@ -99,9 +99,24 @@
                   <img src="static_files/img/icon-dash-menu-check.png" alt="{{alt}} Actualizar usuario">
                 </button>
               </form>
-              <a href="" class="dash-container-content-groupsContentUsers-item-actionContainer-container-viewProfile">
-                Ver perfil del usuario
-              </a>
+              <div class="dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer">
+                <a href="" class="dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-viewProfile">
+                  <img src="static_files/img/icon-dash-users.png" alt="{{alt}} Perfil de {{ user.first_name }} {{ user.last_name }}">
+                  Ver perfil
+                </a>
+                {% if user.permission %}
+                  <form method="post" class="dash-container-content-groupsContentUsers-item-actionContainer-container-buttonContainer-deletePermission">
+                    <input type="hidden" name="id_user" value="{{user.id}}" />
+                    <input type="hidden" name="id_group" value="{{group.id}}" />
+                    <input type="hidden" name="xeki_action" value="auth::update_permission_user" />
+                    <button type="submit">
+                      <img src="static_files/img/icon-dash-revocate.png" alt="{{alt}} Revocar permisos">
+                      Revocar permisos
+                    </button>
+                    {{csrf|raw}}
+                  </form>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>

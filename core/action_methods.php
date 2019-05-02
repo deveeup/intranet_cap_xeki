@@ -391,4 +391,40 @@
 	}else {
 		#error csrf
 	}
+	
+});
+
+//update group (by user admin)
+\xeki\routes::action('auth::update_permission_user', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	d($_POST);
+	d("Hi!");
+	#vars 
+	$id_group = $_POST['id_group'];
+	$id_user = $_POST['id_user'];
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		#update group 
+		// $query = "UPDATE auth_group  SET auth_group.name = '$name', auth_group.last_name = '$last_name', auth_group.modified_by = '$id_user' WHERE auth_group.id ='$id_group' ";
+		// $response = $sql->query($query);
+
+		$queryOne = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$id_user' AND auth_user_permission.group_ref = '$id_group' ";
+		$validateUserPermission = $sql->query($queryOne);
+		d("NOSE!");
+		if($validateUserPermission){
+			d("Si está en el grupo y tiene permisos.");
+		}else{
+			d("No está en el grupo y no tiene permisos.");
+		}
+		
+	}else {
+		d("error csrf");
+		#error csrf
+	}
 });

@@ -1305,18 +1305,44 @@ body
 								_mTop(10px)
 								_bc(rgba($gray, .2))
 								margin-bottom -10px
-								&-viewProfile 
-									_br(5px)
-									_bc($orange)
-									_aReset(white)
-									_mRight(15px)
-									padding 5px 10px
-									will-change transform 
-									transition .3s
-									&:hover 
+								&-buttonContainer 
+									_reset(0)
+									_w(300px)
+									_dfr(flex-end, center)
+									&-deletePermission
+										button
+											_br(3px)
+											_bc($blue2)
+											_aReset(white)
+											_mRight(5px)
+											_($blue2)
+											_fz(.8em)
+											padding 5px 10px
+											will-change transform 
+											transition .3s
+											_dfr(center, center)
+											img 
+												_w(15px)
+												_mRight(5px)
+											&:hover 
+												_aReset(white)
+											&:active 
+												transform scale(.8)
+									&-viewProfile 
+										_br(3px)
+										_bc($blue2)
 										_aReset(white)
-									&:active 
-										transform scale(.8)
+										_mRight(15px)
+										_fz(.8em)
+										padding 5px 10px
+										will-change transform 
+										transition .3s
+										img 
+											_w(15px)
+										&:hover 
+											_aReset(white)
+										&:active 
+											transform scale(.8)
 								&-permission 
 									_w(280px)
 									_dfr(flex-start, center)
