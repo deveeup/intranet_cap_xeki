@@ -776,7 +776,7 @@ body
 				margin 0 0 0 60px
 				padding 15px
 				_w(calc(100% - 60px))
-				_dfr(flex-start, flex-start)
+				_dfc(flex-start, flex-start)
 				_fw(wrap)
 				&-item
 					_w(445px)
@@ -842,6 +842,24 @@ body
 						_c($orange)
 						_fz(1.3em)
 						_mLeft(10px)
+				&-optionContainer
+					_mTop(15px)
+					a	
+						_bc(rgba($orange, .8))
+						_aReset(white)
+						_br(5px)
+						_dfr(center, center)
+						padding 5px 10px
+						will-change transform 
+						transition .3s
+						img 
+							_w(12px)
+							_reset(0)
+							margin-right 5px
+						&:hover 
+							_bc($orange)
+						&:active 
+							transform scale(.9)
 				&-tableContent 
 					_fullW()
 					_(transparent)
