@@ -1130,6 +1130,21 @@ body footer .footer-item-cap {
   font-style: italic;
   margin: 10px 0;
 }
+.dash-container-content-newUserContainer-messages {
+  margin: 15px 0;
+}
+.dash-container-content-newUserContainer-messages-message {
+  border-radius: 5px;
+  background-color: rgba(255,0,0,0.5);
+  padding: 10px 10px;
+  color: #fff !important;
+}
+.dash-container-content-newUserContainer-messages-message-successful {
+  border-radius: 5px;
+  background-color: rgba(0,128,0,0.5);
+  padding: 10px 10px;
+  color: #fff !important;
+}
 .dash-container-content-newUserContainer-form {
   align-items: center;
   display: flex;

@@ -453,7 +453,12 @@
 	$valid_csrf = $csrf->validate_token();
 
 	if($valid_csrf) {
-    $auth->create_user($data["email"],$password,$additional_data);
+		$response = $auth->create_user($email,$password,$additional_data);
+		if($response){
+			\xeki\html_manager::add_extra_data("message_user_create","El usuario se ha creado de manera correcta.");
+		}else {
+			\xeki\html_manager::add_extra_data("message_user_create_error","Ocurrió un error creando el usuario.");
+		}
 	}else {
 		#error csrf
 	}
