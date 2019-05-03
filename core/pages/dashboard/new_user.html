@@ -20,7 +20,7 @@
       <p>
         Recuerda que debes indicarle al usuario que, una vez creado su perfil, deberá completar la actualización de sus datos.
       </p>
-      <form method="" class="dash-container-content-newUserContainer-form" autocomplete="off">
+      <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Datos personales</label>
           <input type="text" placeholder="Nombres" name="first_name" />
@@ -38,23 +38,24 @@
         </div>
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Información de la empresa</label>
-          <select name="" id="">
-            <option value="">Consorcio Exequial</option>
-            <option value="">Coorserpark</option>
+          <select name="company" id="company">
+            {% for company in business %}
+              <option value="{{company.id}}">{{company.name}}</option>
+            {% endfor %}
+           
           </select>
-          <select name="" id="">
-            <option value="">Bogotá</option>
-            <option value="">Barranquilla</option>
-            <option value="">Cali</option>
-            <option value="">Medellín</option>
-            <option value="">Barrancabermeja</option>
-            <option value="">Manizales</option>
+          <select name="city" id="city">
+            {% for city in cities %}
+              <option value="{{city.id}}">{{city.name}}</option>
+            {% endfor %}
           </select>
         </div>
-        <div class="dash-container-content-newUserContainer-form-formControl">
+        <div class="dash-container-content-newUserContainer-form-formControl" />
           <label for="">Cargo</label>
           <input type="text" name="position" placeholder="Ejecutivo de ventas" />
         </div>
+        {{csrf|raw}}
+        <input type="hidden" name="xeki_action" value="auth::create_user" />
         <div class="dash-container-content-newUserContainer-form-formControl">
           <button>Crear usuario</button>
         </div>

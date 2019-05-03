@@ -423,3 +423,38 @@
 		#error csrf
 	}
 });
+
+
+//create_user (by user admin)
+\xeki\routes::action('auth::create_user', function(){
+	#import module
+	$csrf = \xeki\module_manager::import_module('csrf');
+	$auth = \xeki\module_manager::import_module('auth');
+
+	#vars 
+	$data = $_POST;
+	
+	$password = $data["password"];
+
+	$additional_data = [
+		"first_name" => $data["first_name"],
+		"last_name" => $data["last_name"],
+		"username" => $data["username"],
+		"email" => $data["email"],
+		"position" => $data["position"],
+		"company" => $data["company"],
+		"city" => $data["city"],
+		"is_superuser" => "no",
+		"is_staff" => "no",
+		"is_active" => "yes",
+	];
+	d($additional_data);
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+
+	}else {
+		#error csrf
+	}
+});

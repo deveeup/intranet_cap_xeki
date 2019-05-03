@@ -74,10 +74,23 @@
 
 //new user
 \xeki\routes::any('crear-usuario', function(){
+  #import modules
   $sql=\xeki\module_manager::import_module("db-sql");
+
   $title = "Crear usuario";
   $description =  "description for seo";
   \xeki\html_manager::set_seo($title,$description,true);
-  $items_to_print = array();
+
+  #queries
+  $queryOne = "SELECT * FROM cities";
+  $cities = $sql->query($queryOne);
+  $queryTwo = "SELECT * FROM company";
+  $company = $sql->query($queryTwo);
+
+  #send info > view
+  $items_to_print = array(
+    'cities' => $cities,
+    'business' => $company
+  );
   \xeki\html_manager::render('dashboard/new_user.html', $items_to_print);
 });
