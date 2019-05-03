@@ -2219,3 +2219,30 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContentUsers-item-actionContainer-container-updateProfile button:active {
   transform: scale(0.8);
 }
+.viewUser {
+  border: 1px solid #f00;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.viewUser-left {
+  border: 1px solid #000;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.viewUser-left-figure {
+  width: 150px;
+}
+.viewUser-left-figure img {
+  width: 100%;
+}
+.viewUser-right {
+  border: 1px solid #008000;
+  width: 800px;
+}

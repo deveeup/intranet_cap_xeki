@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<div class="viewUser">
+  <div class="viewUser-left">
+    <figure class="viewUser-left-figure">
+      <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{user.first_name}} {{user.last_name}}" />
+    </figure>
+    <div class="viewUser-left-infoContainer">
+      <div class="viewUser-left-infoContainer-item">
+        <figure>
+          <img src="" alt="">
+        </figure>
+        <span>
+
+        </span>
+      </div>
+      <div class="viewUser-left-infoContainer-item">
+        <figure>
+          <img src="" alt="">
+        </figure>
+        <span>
+          
+        </span>
+      </div>
+      <div class="viewUser-left-infoContainer-item">
+        <figure>
+          <img src="" alt="">
+        </figure>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="viewUser-right">
+    bla? 
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}
+
+
