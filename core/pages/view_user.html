@@ -23,16 +23,24 @@
           {{user.date_joined|date}}
         </span>
       </div>
-      <div class="viewUser-left-infoContainer-item">
-        {% for group in info_group %}
-          <figure>
-            <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Fecha de ingreso">
-          </figure>
-          <span>
-            {{user.date_joined|date}}
-          </span>
-        {% endfor %}
-      </div>  
+      {% for group in info_group %}
+        <div class="viewUser-left-infoContainer-item">
+            <figure>
+              {% if group[0].permission_ref == 1 %}
+                <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Administrador" />
+              {% elseif group[0].permission_ref == 2 %}
+                <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Super Administrador" />
+              {% endif %}
+            </figure>
+            <span>
+              {% if group[0].permission_ref == 1 %}
+                Administrador del {{group[1].name}}
+              {% elseif group[0].permission_ref == 2 %}
+                Super Administrador del {{group[1].name}}
+              {% endif %}
+            </span>
+        </div>  
+      {% endfor %}
     </div>
   </div>
   <div class="viewUser-right">

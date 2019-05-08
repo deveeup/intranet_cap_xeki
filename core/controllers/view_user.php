@@ -39,7 +39,6 @@ if(!$auth->is_logged()){
 		array_push($first_array_group, $array_group_info[0]);
 		array_push($info_group_admin, $first_array_group);
 	}
-	d($info_group_admin);
 	#sending data to view
 	$items_to_print = array();
 	$items_to_print['user'] = $array_user[0];
