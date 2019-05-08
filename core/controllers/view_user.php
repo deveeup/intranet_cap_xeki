@@ -22,10 +22,28 @@ if(!$auth->is_logged()){
 	#search user
 	$queryOne = "SELECT * FROM auth_user WHERE auth_user.username = '$username' ";
 	$array_user = $sql->query($queryOne);
+
+	$idUser = $array_user[0][id];
 	
+	$queryTwo = "SELECT * FROM auth_user_permission WHERE auth_user_permission.user_ref = '$idUser' ";
+	$info_admin = $sql->query($queryTwo);
+
+	$info_group_admin = array();
+	
+	foreach ($info_admin as $info_admin_alone){
+		$first_array_group = array();
+		array_push($first_array_group, $info_admin_alone);
+
+		$queryThree = "SELECT * FROM auth_group WHERE auth_group.id = '$info_admin_alone[group_ref]' ";
+		$array_group_info = $sql->query($queryThree);
+		array_push($first_array_group, $array_group_info[0]);
+		array_push($info_group_admin, $first_array_group);
+	}
+	d($info_group_admin);
 	#sending data to view
 	$items_to_print = array();
 	$items_to_print['user'] = $array_user[0];
+	$items_to_print['info_group'] = $info_group_admin;
 	\xeki\html_manager::render('view_user.html', $items_to_print);
 	}
 	

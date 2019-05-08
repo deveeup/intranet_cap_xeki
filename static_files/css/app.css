@@ -2238,9 +2238,37 @@ body footer .footer-item-cap {
 }
 .viewUser-left-figure {
   width: 150px;
+  margin-top: 25px;
 }
 .viewUser-left-figure img {
   width: 100%;
+}
+.viewUser-left-infoContainer {
+  background-color: #ccc;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80%;
+  border-radius: 5px;
+  padding: 10px;
+}
+.viewUser-left-infoContainer-item {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.viewUser-left-infoContainer-item figure {
+  width: 18px;
+  margin-right: 5px;
+}
+.viewUser-left-infoContainer-item figure img {
+  width: 100%;
+}
+.viewUser-left-infoContainer-item span {
+  border: 1px solid #000;
+  font-size: 0.9em;
 }
 .viewUser-right {
   border: 1px solid #008000;

@@ -9,28 +9,30 @@
     <div class="viewUser-left-infoContainer">
       <div class="viewUser-left-infoContainer-item">
         <figure>
-          <img src="" alt="">
+          <img src="static_files/img/icon-dash-menu-@.png" alt="{{alt}} Usuario">
         </figure>
         <span>
-
+          {{user.username}}
         </span>
       </div>
       <div class="viewUser-left-infoContainer-item">
         <figure>
-          <img src="" alt="">
+          <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Fecha de ingreso">
         </figure>
         <span>
-          
+          {{user.date_joined|date}}
         </span>
       </div>
       <div class="viewUser-left-infoContainer-item">
-        <figure>
-          <img src="" alt="">
-        </figure>
-        <span>
-          
-        </span>
-      </div>
+        {% for group in info_group %}
+          <figure>
+            <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Fecha de ingreso">
+          </figure>
+          <span>
+            {{user.date_joined|date}}
+          </span>
+        {% endfor %}
+      </div>  
     </div>
   </div>
   <div class="viewUser-right">
