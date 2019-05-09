@@ -469,7 +469,6 @@
 	#import module
 	$sql = \xeki\module_manager::import_module("db-sql");
 	$csrf = \xeki\module_manager::import_module('csrf');
-	d($_POST);
 
 	#validate token 
 	$valid_csrf = $csrf->validate_token();
@@ -480,7 +479,12 @@
 			'name' => $_POST["name"],
 			'created_by' => $_POST["id_user"]
 		);
-		$sql->insert("auth_group", $data);
+		$insert = $sql->insert("auth_group", $data);
+		if($insert){
+			\xeki\html_manager::add_extra_data("message_group_create","El grupo se ha creado de manera correcta.");
+		}else {
+			\xeki\html_manager::add_extra_data("message_group_create_error","Ocurrió un error creando el grupo.");
+		}
 	}else {
 		#error csrf
 	}

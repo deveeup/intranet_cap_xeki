@@ -17,17 +17,17 @@
       <h1>Nuevo grupo</h1>
     </div>
     <div class="dash-container-content-newUserContainer">
-      {% if message_user_create_error %}
+      {% if message_group_create_error %}
         <div class="dash-container-content-newUserContainer-messages">
           <p class="dash-container-content-newUserContainer-messages-message">
-            {{message_user_create_error}}
+            {{message_group_create_error}}
           </p>
         </div>
       {% endif %}
-      {% if message_user_create %}
+      {% if message_group_create %}
         <div class="dash-container-content-newUserContaine r-messages">
           <p class="dash-container-content-newUserContainer-messages-message-successful">
-            {{message_user_create}}
+            {{message_group_create}}
           </p>
         </div>
       {% endif %}
