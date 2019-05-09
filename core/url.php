@@ -95,3 +95,20 @@
     );
     \xeki\html_manager::render('dashboard/new_user.html', $items_to_print);
   });
+
+
+//new group
+  \xeki\routes::any('crear-grupo', function(){
+    #import modules
+    $auth = \xeki\module_manager::import_module('auth');
+    $user = $auth->get_user();
+    $title = "Crear grupo";
+    $description =  "description for seo";
+    \xeki\html_manager::set_seo($title,$description,true);
+
+    #send info > view
+    $items_to_print = array(
+     'user' => $user->get_info()
+    );
+    \xeki\html_manager::render('dashboard/new_group.html', $items_to_print);
+  });

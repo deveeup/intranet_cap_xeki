@@ -326,7 +326,7 @@
 
 	if($valid_csrf) {
 		#update group 
-		$query = "UPDATE auth_group  SET auth_group.name = '$name', auth_group.last_name = '$last_name', auth_group.modified_by = '$id_user' WHERE auth_group.id ='$id_group' ";
+		$query = "UPDATE auth_group  SET auth_group.name = '$name', auth_group.previous_name = '$last_name', auth_group.modified_by = '$id_user' WHERE auth_group.id ='$id_group' ";
 		$response = $sql->query($query);
 		\xeki\html_manager::add_extra_data("action_group_delete_done","El grupo se ha actualizado correctamente.");
 	}else {
@@ -459,6 +459,28 @@
 		}else {
 			\xeki\html_manager::add_extra_data("message_user_create_error","Ocurrió un error creando el usuario.");
 		}
+	}else {
+		#error csrf
+	}
+});
+
+//create_user (by user admin)
+\xeki\routes::action('auth::create_group', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+	d($_POST);
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$data = array(
+			'code' =>$$_POST["code"],
+			'name' => $_POST["name"],
+			'created_by' => $_POST["id_user"]
+		);
+		$sql->insert("auth_group", $data);
 	}else {
 		#error csrf
 	}
