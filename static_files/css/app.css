@@ -2219,15 +2219,59 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContentUsers-item-actionContainer-container-updateProfile button:active {
   transform: scale(0.8);
 }
+.error-404 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.error-404-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+  border: 1px solid rgba(204,204,204,0.8);
+  border-radius: 5px;
+  margin: 100px auto;
+}
+.error-404 h1 {
+  margin-top: 100px;
+  color: #ff5000;
+  font-style: italic;
+  font-size: 1.7em;
+}
+.error-404 figure {
+  margin-top: 20px;
+  width: 30%;
+}
+.error-404 figure img {
+  width: 100%;
+}
+.error-404 a {
+  background-color: #e35825;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  transition: 0.5s;
+}
+.error-404 a:hover {
+  background-color: #ff5000;
+}
+.error-404 a:active {
+  transform: scale(0.9);
+}
 .viewUser {
-  border: 1px solid #f00;
   align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 .viewUser-left {
-  border: 1px solid #000;
   width: 250px;
   margin: 0;
   padding: 0;
@@ -2235,6 +2279,7 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 20px;
 }
 .viewUser-left-figure {
   width: 150px;
@@ -2244,7 +2289,7 @@ body footer .footer-item-cap {
   width: 100%;
 }
 .viewUser-left-infoContainer {
-  background-color: #ccc;
+  background-color: rgba(204,204,204,0.4);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -2261,16 +2306,118 @@ body footer .footer-item-cap {
 }
 .viewUser-left-infoContainer-item figure {
   width: 18px;
+  min-width: 18px;
   margin-right: 5px;
+  margin-top: -2px;
 }
 .viewUser-left-infoContainer-item figure img {
   width: 100%;
 }
 .viewUser-left-infoContainer-item span {
-  border: 1px solid #000;
   font-size: 0.9em;
+  color: #010647;
+  font-style: italic;
+}
+.viewUser-left-infoContainer-item-nameGroup {
+  font-style: italic;
+  font-weight: bold;
 }
 .viewUser-right {
-  border: 1px solid #008000;
   width: 800px;
+}
+.viewUser-right-containerTop {
+  background-color: rgba(204,204,204,0.4);
+  margin-top: 25px;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+.viewUser-right-containerTop h2 {
+  color: #e35825;
+  font-size: 1.3em;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.viewUser-right-containerTop-item {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  width: 48%;
+}
+.viewUser-right-containerTop-item figure {
+  width: 20px;
+  margin: 0 7px 0 2px;
+}
+.viewUser-right-containerTop-item figure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.viewUser-right-containerTop-item span {
+  margin: 0;
+  padding: 0;
+  color: #010647;
+}
+.viewUser-right-containerTop-item-companyFigure {
+  border-radius: 5px;
+  background-color: #fff;
+  width: 25px !important;
+  margin: 0;
+  padding: 0;
+  margin: 0 7px 0 0 !important;
+  padding: 0 2px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.viewUser-right-containerTop-item-companyFigure img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.viewUser-right-containerBottom {
+  background-color: rgba(204,204,204,0.4);
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.viewUser-right-containerBottom h3 {
+  color: #010647;
+  font-size: 1.2em;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.viewUser-right-containerBottom p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.viewUser-right-containerBottom a {
+  background-color: #e35825;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  transition: 0.3s;
+  will-change: transform;
+}
+.viewUser-right-containerBottom a:hover {
+  box-shadow: 1px 1px 5px #ff5000;
+}
+.viewUser-right-containerBottom a:active {
+  transform: scale(0.9);
 }

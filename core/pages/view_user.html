@@ -20,31 +20,81 @@
           <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Fecha de ingreso">
         </figure>
         <span>
-          {{user.date_joined|date}}
+          Activo desde: <br> {{user.date_joined|date}}
         </span>
       </div>
+      <br>
       {% for group in info_group %}
         <div class="viewUser-left-infoContainer-item">
-            <figure>
-              {% if group[0].permission_ref == 1 %}
-                <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Administrador" />
-              {% elseif group[0].permission_ref == 2 %}
-                <img src="static_files/img/icon-dash-menu-date.png" alt="{{alt}} Super Administrador" />
-              {% endif %}
-            </figure>
-            <span>
-              {% if group[0].permission_ref == 1 %}
-                Administrador del {{group[1].name}}
-              {% elseif group[0].permission_ref == 2 %}
-                Super Administrador del {{group[1].name}}
-              {% endif %}
+          <figure>
+            {% if group[0].permission_ref == 1 %}
+              <img src="static_files/img/icon-dash-iconAdmin.png" alt="{{alt}} Administrador" />
+            {% elseif group[0].permission_ref == 2 %}
+              <img src="static_files/img/icon-dash-iconAdmin2.png" alt="{{alt}} Super Administrador" />
+            {% endif %}
+          </figure>
+          {% if group[0].permission_ref == 1 %}
+            <span class="viewUser-left-infoContainer-item-nameGroup" style="color: #9FB3DE">
+              Administrador del {{group[1].name}}
             </span>
+            {% elseif group[0].permission_ref == 2 %}
+              <span class="viewUser-left-infoContainer-item-nameGroup" style="color: #FC9175">
+                Super Administrador del {{group[1].name}}
+              </span>
+            {% endif %}
         </div>  
+        <br>
       {% endfor %}
     </div>
   </div>
   <div class="viewUser-right">
-    bla? 
+    <div class="viewUser-right-containerTop">
+      <h2>{{user.first_name}} {{user.last_name}}</h2>
+      <div class="viewUser-right-containerTop-item">
+        <figure>
+          <img src="static_files/img/icon-dash-location-2.png" alt="{{alt}} Ubicación">
+        </figure>
+        <span>Ubicación: {{user.city}}</span>
+      </div>
+      <div class="viewUser-right-containerTop-item">
+        {% if user.company == 1 %}
+          <figure class="viewUser-right-containerTop-item-companyFigure">
+            <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe">
+          </figure>
+          <span>Empresa: Consorcio Exequial</span>
+        {% else %}
+          <figure class="viewUser-right-containerTop-item-companyFigure">
+            <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark">
+          </figure>
+          <span>Empresa: <b>Coorserpark SAS</b></span>
+        {% endif %}
+      </div>
+      <div class="viewUser-right-containerTop-item">
+        <figure>
+          <img src="static_files/img/icon-dash-email-2.png" alt="{{alt}} Email">
+        </figure>
+        <span>Email: {{user.email}}</span>
+      </div>
+      <div class="viewUser-right-containerTop-item">
+        <figure>
+          <img src="static_files/img/icon-dash-phone.png" alt="{{alt}} Teléfono">
+        </figure>
+        <span>Teléfono: {{user.phone}}</span>
+      </div>
+      <div class="viewUser-right-containerTop-item">
+        <figure>
+          <img src="static_files/img/icon-dash-workPosition.png" alt="{{alt}} Cargo">
+        </figure>
+        <span>Cargo: {{user.position}}</span>
+      </div>
+    </div>
+    <div class="viewUser-right-containerBottom">
+      <h3>Resumen</h3>
+      <p>
+        {{user.description}}
+      </p>
+      <a href="#">Ver hoja de vida de {{user.first_name}}</a>
+    </div>
   </div>
 </div>
 

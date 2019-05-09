@@ -1512,22 +1512,53 @@ body
 											_w(23px)
 										&:active 
 											transform scale(.8)
+	.error-404
+		_dfc(center, center)
+		&-container 
+			_dfc(center, center)
+			_w(60%)
+			_ma()
+			_(rgba(#CCC, .8))
+			_br(5px)
+			margin 100px auto
+		h1 
+			_mTop(100px)
+			_c($orange2)
+			_fs(italic)
+			_fz(1.7em)
+		figure 
+			_mTop(20px)
+			_w(30%)
+			img 
+				_fullW()
+		a 
+			_bc($orange)
+			_aReset(white)
+			_br(5px)
+			padding 3px 10px
+			margin-bottom 50px
+			margin-top 20px
+			transition .5s
+			&:hover 
+				_bc($orange2)
+			&:active
+				transform scale(.9)
+				
 //viewUser
 	.viewUser
-		_(red)
 		_dfr(flex-start, flex-start)
 		&-left 
-			_(black)
 			_w(250px)
 			_reset(0)
 			_dfc(center, center)
+			padding-bottom 20px
 			&-figure 
 				_w(150px)
 				_mTop(25px)
 				img 
 					_fullW()
 			&-infoContainer 
-				_bc(#CCCCCC)
+				_bc(rgba(#CCC, .4))
 				_dfc(flex-start, flex-start)
 				_w(80%)
 				_br(5px)
@@ -1537,12 +1568,82 @@ body
 					_dfr(center, flex-start)
 					figure 
 						_w(18px)
+						_minw(18px )
 						_mRight(5px)
+						_mTop(-2px)
 						img 
 							_fullW()
 					span 
-						_(black)
 						_fz(.9em)
+						_c($blue)
+						_fs(italic)
+					&-nameGroup
+						_fs(italic)
+						_fwb()
 		&-right 
-			_(green)
 			_w(800px)
+			&-containerTop
+				_bc(rgba(#CCC, .4))
+				_mTop(25px)
+				_br(5px)
+				_dfr(flex-start, center)
+				_fw(wrap)
+				padding 20px
+				margin-bottom 25px
+				h2 
+					_c($orange)
+					_fz(1.3em)
+					_fullW()
+					margin-bottom 12px
+				&-item 
+					_dfr(flex-start, flex-end)
+					margin-bottom 10px
+					_w(48%)
+					figure 
+						_w(20px)
+						margin 0 7px 0 2px
+						img 
+							_fullW()
+							_reset(0)
+					span 
+						_reset(0)
+						_c($blue)
+					&-companyFigure 
+						_br(5px)
+						_bc(white)
+						width 25px !important
+						_reset(0)
+						margin 0 7px 0 0 !important
+						padding 0 2px
+						_dfr(center, center)
+						
+						img 
+							_fullW()
+							_reset(0)
+			&-containerBottom 
+				_bc(rgba(#CCC, .4))
+				_br(5px)
+				_dfr(flex-start, center)
+				_fw(wrap)
+				padding 20px
+				margin-bottom 20px
+				h3 
+					_c($blue)
+					_fz(1.2em)
+					_fullW()
+					margin-bottom 12px
+				p 
+					_reset(0)
+					margin-bottom 15px
+					_w(100%)
+				a 
+					_bc($orange)
+					_aReset(white)
+					_br(5px)
+					padding 5px 15px 
+					transition .3s
+					will-change transform
+					&:hover 
+						box-shadow 1px 1px 5px $orange2
+					&:active 
+						transform scale(.9)
