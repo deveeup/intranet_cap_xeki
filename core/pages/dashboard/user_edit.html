@@ -178,6 +178,12 @@
           </form>
         </div>
       </div>
+      <form method="post" class="dash-container-content-userEditContent-delete">
+        <input type="hidden" name="xeki_action" value="auth::delete_user" />
+        <input type="hidden" name="id_user" value="{{user.id}}" />
+        {{csrf|raw}}
+        <button>Eliminar usuario</button>
+      </form>
     </div>
   </div>
   </div>

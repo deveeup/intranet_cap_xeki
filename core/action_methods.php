@@ -464,7 +464,7 @@
 	}
 });
 
-//create_user (by user admin)
+//create_group (by user admin)
 \xeki\routes::action('auth::create_group', function(){
 	#import module
 	$sql = \xeki\module_manager::import_module("db-sql");
@@ -484,6 +484,32 @@
 			\xeki\html_manager::add_extra_data("message_group_create","El grupo se ha creado de manera correcta.");
 		}else {
 			\xeki\html_manager::add_extra_data("message_group_create_error","Ocurrió un error creando el grupo.");
+		}
+	}else {
+		#error csrf
+	}
+});
+
+//delete user (by user admin)
+\xeki\routes::action('auth::delete_user', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$id_user = $_POST["id_user"]; 
+
+		$delete_user = $sql->delete("auth_user", "id = $id_user");
+		$delete_user_group = $sql->delete("auth_user_group", "user_ref = $id_user");
+		$delete_user_permission = $sql->delete("auth_user_permission", "user_ref = $id_user");
+
+		if($delete_user){
+			\xeki\core::redirect('panel/usuarios');
+		}else {
+			# error 
 		}
 	}else {
 		#error csrf

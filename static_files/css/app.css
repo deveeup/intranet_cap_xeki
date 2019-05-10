@@ -1347,6 +1347,7 @@ body footer .footer-item-cap {
 }
 .dash-container-content-tableContent .odd {
   background-color: rgba(1,6,71,0.6);
+  border-bottom: 0.5px solid rgba(255,255,255,0.5);
   transition: 0.5s;
 }
 .dash-container-content-tableContent .odd:hover {
@@ -1606,6 +1607,24 @@ body footer .footer-item-cap {
 .dash-container-content-userEditContent {
   width: 100%;
   padding: 20px 0;
+}
+.dash-container-content-userEditContent-delete button {
+  text-decoration: none;
+  color: #e35825;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  will-change: transform;
+  transition: 0.3s;
+}
+.dash-container-content-userEditContent-delete button:hover {
+  border-bottom: 1px solid #e35825;
+}
+.dash-container-content-userEditContent-delete button:active {
+  transform: scale(0.9);
 }
 .dash-container-content-userEditContent-header {
   align-items: center;

@@ -9,6 +9,7 @@
   \xeki\routes::any('archivos', 'files');
   \xeki\routes::any('panel', 'dash');
   \xeki\routes::any('panel/usuarios', 'users');
+  \xeki\routes::any('panel/ciudades', 'cities');
   \xeki\routes::any('panel/grupos', 'groups');
   \xeki\routes::any('usuarios/{username}', 'view_user');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
@@ -112,3 +113,26 @@
     );
     \xeki\html_manager::render('dashboard/new_group.html', $items_to_print);
   });
+
+//cities
+\xeki\routes::any('ciudades', function(){
+  #import modules
+  $auth = \xeki\module_manager::import_module('auth');
+  $sql=\xeki\module_manager::import_module("db-sql");
+
+
+  $user = $auth->get_user();
+  $title = "Crear grupo";
+  $description =  "description for seo";
+  \xeki\html_manager::set_seo($title,$description,true);
+
+  $queryOne = "SELECT * FROM cities";
+  $cities = $sql->query($queryOne);
+
+  #send info > view
+  $items_to_print = array(
+    'user' => $user->get_info(),
+    'cities' => $cities
+  );
+  \xeki\html_manager::render('dashboard/cities.html', $items_to_print);
+});

@@ -943,6 +943,7 @@ body
 					padding 0
 					.odd 
 						_bc(rgba($blue, .6))
+						border-bottom 0.5px solid rgba(white, .5)	
 						transition .5s
 						&:hover 
 							_bc(rgba($blue, .9))
@@ -1108,6 +1109,20 @@ body
 				&-userEditContent
 					_fullW()
 					padding 20px 0
+					&-delete 
+						button 
+							_aReset($orange)
+							_reset(0)
+							border none 
+							background-color white
+							cursor pointer
+							outline none
+							will-change: transform
+							transition .3s
+							&:hover 
+								border-bottom 1px solid $orange
+							&:active 
+								transform scale(.9)
 					&-header 
 						_dfr(flex-start, center)
 						figure 
@@ -1512,6 +1527,8 @@ body
 											_w(23px)
 										&:active 
 											transform scale(.8)
+	
+//error
 	.error-404
 		_dfc(center, center)
 		&-container 
