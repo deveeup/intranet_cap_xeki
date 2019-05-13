@@ -35,6 +35,11 @@
       </div>
     </div>
     <div class="dash-container-content-groupsContent">
+      {% if update_city_fail %}
+        <div class="dash-container-content-groupsContent-item-error">
+          <p>{{update_city_fail}}</p>
+        </div>
+      {% endif %}
       {% if update_city %}
         <div class="dash-container-content-groupsContent-item-done">
           <p>{{update_city}}</p>

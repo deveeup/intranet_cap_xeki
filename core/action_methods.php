@@ -556,6 +556,7 @@
 			\xeki\html_manager::add_extra_data("update_city","La ciudad se ha agregado con éxito.");
 		}else{
 			#error
+			\xeki\html_manager::add_extra_data("update_city_fail","Se ha producido un error.");
 		}
 	}else{
 		#error csrf

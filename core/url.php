@@ -123,7 +123,7 @@
   $description =  "description for seo";
   \xeki\html_manager::set_seo($title,$description,true);
 
-  $queryOne = "SELECT * FROM cities";
+  $queryOne = "SELECT * FROM cities order by id desc";
   $cities = $sql->query($queryOne);
 
   #send info > view
