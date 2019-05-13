@@ -23,14 +23,9 @@
       </a>
     </div>
     <div class="dash-container-content-groupsContent">
-      {% if action_group_delete_fail %}
-        <div class="dash-container-content-groupsContent-item-error">
-          <p>{{action_group_delete_fail}}</p>
-        </div>
-      {% endif %}
-      {% if action_group_delete_done %}
+      {% if update_city %}
         <div class="dash-container-content-groupsContent-item-done">
-          <p>{{action_group_delete_done}}</p>
+          <p>{{update_city}}</p>
         </div>
       {% endif %}
       {% for city in cities %}
@@ -53,7 +48,6 @@
           <figure class="form_edit_group">
             <form method="post">
               {{csrf|raw}}
-              <input type="hidden" name="group_id" value="{{city.id}}" />
               <input type="hidden" name="action" value="edit" />
               <input type="hidden" name="xeki_action" value="auth::action_groups" />
               <button type="button" >
@@ -67,8 +61,7 @@
               {{csrf|raw}}
               <label for="name">Nombre de la ciudad</label>
               <input type="text" name="name" value="{{city.name}}" />
-              <input type="hidden" name="last_name" value="{{city.name}}" />
-              <input type="hidden" name="group_id" value="{{city.id}}" />
+              <input type="hidden" name="id_city" value="{{city.id}}" />
               <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
               <input type="hidden" name="xeki_action" value="auth::update_city" />
               <button type="submit">

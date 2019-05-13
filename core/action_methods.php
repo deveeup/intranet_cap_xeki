@@ -132,7 +132,6 @@
 	}	
 });
 
-
 //request code 
 \xeki\routes::action('auth::forgotpw', function(){
 	$sql=\xeki\module_manager::import_module("db-sql");
@@ -168,7 +167,6 @@
 	}
 	
 });
-
 
 //update pw 
 \xeki\routes::action('auth::updatepw', function(){
@@ -224,7 +222,6 @@
 	}
 
 });
-
 
 //add user > group (by user admin)
 \xeki\routes::action('auth::add_group', function(){
@@ -424,7 +421,6 @@
 	}
 });
 
-
 //create_user (by user admin)
 \xeki\routes::action('auth::create_user', function(){
 	#import module
@@ -525,19 +521,14 @@
 	#validate token 
 	$valid_csrf = $csrf->validate_token();
 
+	$name = $_POST['name'];
+	$id_city = $_POST['id_city'];
+	$id_user = $_POST['id_user'];
 	if($valid_csrf) {
-		$id_user = $_POST["id_user"]; 
-
-		$delete_user = $sql->delete("auth_user", "id = $id_user");
-		$delete_user_group = $sql->delete("auth_user_group", "user_ref = $id_user");
-		$delete_user_permission = $sql->delete("auth_user_permission", "user_ref = $id_user");
-
-		if($delete_user){
-			\xeki\core::redirect('panel/usuarios');
-		}else {
-			# error 
-		}
-	}else {
+		$queryOne = "UPDATE cities SET cities.name = '$name', cities.modified_by = '$id_user'  WHERE  cities.id = '$id_city' ";
+		$responseUpdate = $sql->query($queryOne);
+		\xeki\html_manager::add_extra_data("update_city","La ciudad se ha actualizado con éxito.");
+	}else{
 		#error csrf
 	}
 });
