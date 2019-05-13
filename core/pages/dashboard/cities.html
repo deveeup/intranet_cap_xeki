@@ -12,151 +12,74 @@
   <div class="dash-container-content">
     <div class="dash-container-content-titleContainer">
       <figure>
-        <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
+        <img src="static_files/img/icon-dash-menu-group.png" alt="{{alt}} Usuarios">
       </figure>
       <h1>Ciudades registradas en el sistema</h1>
     </div>
     <div class="dash-container-content-optionContainer">
-      <a href="{{URL_BASE}}crear-usuario">
+      <a href="{{URL_BASE}}crear-grupo">
         <img src="static_files/img/icon-dash-add.png" alt="{{alt}} Agregar usuario">
-        Crear usuario
+        Crear ciudad
       </a>
     </div>
-    <div class="dash-container-content-tableContent">
-      {% for user in users %}
-      <div class="dash-container-content-tableContent-item">
-        <div class="user_title dash-container-content-tableContent-item-info {% if user.id is odd  %} odd {% endif %}">
-          {% if user.company == 0 %}
-            <figure class="dash-container-content-tableContent-item-info-company">
-              <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark Previsión Exequial">
-            </figure>
-          {% else %}
-          <figure class="dash-container-content-tableContent-item-info-company">
-              <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe Funeraria">
-            </figure>
-          {% endif %}
-          
-          <div class="dash-container-content-tableContent-item-info-name">
-            <h3 class="{% if user.id is even  %} even {% endif %}">{{user.first_name}} {{user.last_name}}</h3>
-          </div>
-          <div class="dash-container-content-tableContent-item-info-email">
-            <span class="{% if user.id is even  %} even {% endif %}">{{user.email}}</span>
-          </div>
-          <div class="dash-container-content-tableContent-item-info-position">
-            <span class="{% if user.id is even  %} even {% endif %}">{{user.position}}</span>
-          </div>
-          <div class="dash-container-content-tableContent-item-info-viewMore">
-            <figure>
-              {% if user.id is even  %}
-                <img src="static_files/img/view-more-blue.png" alt="{{alt}} Información de usuario">
-              {% else %}
-                <img src="static_files/img/view-more-white.png" alt="{{alt}} Información de usuario">
-              {% endif %}
-            </figure>
-          </div>
-        </div> 
-        <div class="dash-container-content-tableContent-item-moreInfo">
-          <div class="dash-container-content-tableContent-item-moreInfo-div">
-            <div class="dash-container-content-tableContent-item-moreInfo-div-imageContainer">
-              <figure>
-                <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{user.first_name}}">
-              </figure>
-              <h3>{{user.first_name}}</h3>
+    <div class="dash-container-content-groupsContent">
+      {% if action_group_delete_fail %}
+        <div class="dash-container-content-groupsContent-item-error">
+          <p>{{action_group_delete_fail}}</p>
+        </div>
+      {% endif %}
+      {% if action_group_delete_done %}
+        <div class="dash-container-content-groupsContent-item-done">
+          <p>{{action_group_delete_done}}</p>
+        </div>
+      {% endif %}
+      {% for city in cities %}
+      <div class="dash-container-content-groupsContent-item">
+        <figure class="dash-container-content-groupsContent-item-figure">
+          <img src="static_files/img/icon-location.png" alt="{{alt}} Grupo">
+        </figure>
+        <h5 class="dash-container-content-groupsContent-item-title">{{city.name}}</h5>
+          <figure>
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{city.id}}" />
+              <input type="hidden" name="action" value="delete" />
+              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar" />
+              </button>
+            </form>
+          </figure>
+          <figure class="form_edit_group">
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{city.id}}" />
+              <input type="hidden" name="action" value="edit" />
+              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <button type="button" >
+                <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar" />
+              </button>
+            </form>
+          </figure>
+        <div class="dash-container-content-groupsContent-item-editContainer editGroup">
+          <form method="post">
+            <div class="form-control">
+              {{csrf|raw}}
+              <label for="name">Nombre de la ciudad</label>
+              <input type="text" name="name" value="{{city.name}}" />
+              <input type="hidden" name="last_name" value="{{city.name}}" />
+              <input type="hidden" name="group_id" value="{{city.id}}" />
+              <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
+              <input type="hidden" name="xeki_action" value="auth::update_city" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-sendForm.png" alt="{{alt}} Actualizar grupo">
+              </button>
             </div>
-            <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser">
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-@.png" alt="{{alt}} {{user.username}}">
-                </figure>
-                <span>{{user.email}}</span>
-              </div>
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-university.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>{{user.university}}</span>
-              </div>
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-location.png" alt="{{alt}} {{user.city}}">
-                </figure>
-                <span>{{user.city}}</span>
-              </div>
-            </div>
-            <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin">
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-config.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>Super usuario:
-                {% if user.is_superuser == 'yes' %}
-                  Si
-                {% else %}
-                  No
-                {% endif %}
-                </span>
-              </div>
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-staff.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>
-                  Administrador de grupo: 
-                  {% if user.is_staff == 'yes' %}
-                    Si
-                  {% else %}
-                    No
-                  {% endif %}
-                </span>
-              </div>
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoAdmin-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-active.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>
-                  Usuario activo: 
-                  {% if user.is_active == 'yes' %}
-                    Si
-                  {% else %}
-                    No
-                  {% endif %}
-                </span>
-              </div>
-            </div>
-            <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin">
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-join.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>
-                  Fecha de registro:
-                  <br>
-                  {{user.date_joined|date("d/m/Y")}}
-                </span>
-              </div>
-              <div class="dash-container-content-tableContent-item-moreInfo-div-infoLogin-item">
-                <figure>
-                  <img src="static_files/img/icon-dash-history.png" alt="{{alt}} {{user.university}}">
-                </figure>
-                <span>
-                  Última sesión:
-                  <br>
-                  {{user.last_login|date("d/m/Y")}}
-                </span>
-              </div>
-            </div>
-            <div class="dash-container-content-tableContent-item-moreInfo-div-hrefContent">
-              <a href="{{URL_BASE}}panel/usuarios/{{user.username}}">
-                <figure>
-                  <img src="static_files/img/icon-dash-edit.png" alt="{{alt}} Editar usuario">
-                </figure>
-                Editar usuario
-              </a>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
       {% endfor %}
+      
     </div>
   </div>
   </div>
@@ -167,9 +90,9 @@
 {{ parent() }}
   <script>
     $(document).ready(function(){
-      $(".user_title").click(function(){
+      $(".form_edit_group").click(function(){
         $userContent = $(this);
-        $content = $userContent.next();
+        $content = $userContent.next(".editGroup");
         $content.slideToggle(400);
       });
     });

@@ -9,7 +9,6 @@
   \xeki\routes::any('archivos', 'files');
   \xeki\routes::any('panel', 'dash');
   \xeki\routes::any('panel/usuarios', 'users');
-  \xeki\routes::any('panel/ciudades', 'cities');
   \xeki\routes::any('panel/grupos', 'groups');
   \xeki\routes::any('usuarios/{username}', 'view_user');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
@@ -28,7 +27,6 @@
     $items_to_print=array();
     \xeki\html_manager::render('name.html',$items_to_print);
   });
-
 
   //logout 
     \xeki\routes::any('logout', function(){
@@ -97,7 +95,6 @@
     \xeki\html_manager::render('dashboard/new_user.html', $items_to_print);
   });
 
-
 //new group
   \xeki\routes::any('crear-grupo', function(){
     #import modules
@@ -115,7 +112,7 @@
   });
 
 //cities
-\xeki\routes::any('ciudades', function(){
+\xeki\routes::any('panel/ciudades', function(){
   #import modules
   $auth = \xeki\module_manager::import_module('auth');
   $sql=\xeki\module_manager::import_module("db-sql");
@@ -131,7 +128,6 @@
 
   #send info > view
   $items_to_print = array(
-    'user' => $user->get_info(),
     'cities' => $cities
   );
   \xeki\html_manager::render('dashboard/cities.html', $items_to_print);
