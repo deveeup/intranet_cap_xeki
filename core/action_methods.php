@@ -532,3 +532,32 @@
 		#error csrf
 	}
 });
+
+//create city (by user admin)
+\xeki\routes::action('auth::create_city', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	$name = $_POST['name'];
+	$id_user = $_POST['id_user'];
+
+	if($valid_csrf) {
+		$data = array(
+			'name' => $_POST["name"],
+			'created_by' => $_POST["id_user"]
+		);
+		$insert = $sql->insert("cities", $data);
+
+		if($insert){
+			\xeki\html_manager::add_extra_data("update_city","La ciudad se ha agregado con éxito.");
+		}else{
+			#error
+		}
+	}else{
+		#error csrf
+	}
+});

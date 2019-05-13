@@ -17,10 +17,22 @@
       <h1>Ciudades registradas en el sistema</h1>
     </div>
     <div class="dash-container-content-optionContainer">
-      <a href="{{URL_BASE}}crear-grupo">
+      <a href="#" id="createGroup">
         <img src="static_files/img/icon-dash-add.png" alt="{{alt}} Agregar usuario">
         Crear ciudad
       </a>
+      <div class="dash-container-content-optionContainer-create">
+        <form method="post">
+          {{csrf|raw}}
+          <label for="name">Nombre de la ciudad</label>
+          <input type="text" name="name" placeholder="Bogotá" />
+          <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
+          <input type="hidden" name="xeki_action" value="auth::create_city" />
+          <button type="submit">
+            <img src="static_files/img/icon-dash-sendForm.png" alt="{{alt}} Actualizar grupo">
+          </button>
+        </form>
+      </div>
     </div>
     <div class="dash-container-content-groupsContent">
       {% if update_city %}
@@ -87,6 +99,9 @@
         $userContent = $(this);
         $content = $userContent.next(".editGroup");
         $content.slideToggle(400);
+      });
+      $("#createGroup").click(function(){
+        $( ".dash-container-content-optionContainer-create" ).slideToggle("slow");
       });
     });
   </script>

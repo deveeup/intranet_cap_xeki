@@ -936,6 +936,29 @@ body
 							_bc($orange)
 						&:active 
 							transform scale(.9)
+					&-create 
+						_($gray)
+						_dn()
+						_mTop(10px)
+						padding 10px
+						form 
+							_dfr(flex-start, center)
+							label 
+								_reset(0)
+								_mRight(10px)
+							input 
+								padding 0 5px
+							button 
+								_dfr(center, center)
+								background none 
+								border none
+								transition .3s
+								outline none
+								will-change transform 
+								&:active 
+									transform scale(.8)
+								img 
+									_w(25px)
 				&-tableContent 
 					_fullW()
 					_(transparent)

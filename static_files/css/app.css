@@ -1339,6 +1339,43 @@ body footer .footer-item-cap {
 .dash-container-content-optionContainer a:active {
   transform: scale(0.9);
 }
+.dash-container-content-optionContainer-create {
+  border: 1px solid #a5a5a5;
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+}
+.dash-container-content-optionContainer-create form {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-optionContainer-create form label {
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+.dash-container-content-optionContainer-create form input {
+  padding: 0 5px;
+}
+.dash-container-content-optionContainer-create form button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: none;
+  border: none;
+  transition: 0.3s;
+  outline: none;
+  will-change: transform;
+}
+.dash-container-content-optionContainer-create form button:active {
+  transform: scale(0.8);
+}
+.dash-container-content-optionContainer-create form button img {
+  width: 25px;
+}
 .dash-container-content-tableContent {
   width: 100%;
   border: 1px solid transparent;
