@@ -11,31 +11,18 @@
   \xeki\routes::any('panel/usuarios', 'users');
   \xeki\routes::any('panel/grupos', 'groups');
   \xeki\routes::any('usuarios/{username}', 'view_user');
+  \xeki\routes::any('panel/usuarios/{username}', 'users_edit');
+  \xeki\routes::any('panel/procesos', 'process_dash');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
-
-
-
-  // get user edit
-  \xeki\routes::any('panel/usuarios/{username}', 'users_edit');
-
-  \xeki\routes::get('url', function($vars){
-    $title = "title for seo";
-    $description =  "description for seo";
-    \xeki\html_manager::set_seo($title,$description,true);
-
-    $items_to_print=array();
-    \xeki\html_manager::render('name.html',$items_to_print);
-  });
-
-  //logout 
+  #logout 
     \xeki\routes::any('logout', function(){
       $auth = \xeki\module_manager::import_module('auth');
       $auth->logout();
       \xeki\core::redirect('');
     });
 
-  //forgot pw 
+  #forgot pw 
   \xeki\routes::any('resaurar-clave', function(){
     $sql=\xeki\module_manager::import_module("db-sql");
     
@@ -46,7 +33,7 @@
     \xeki\html_manager::render('login/forgot-pw.html', $items_to_print);
   });
 
-  //request pw
+  #request pw
   \xeki\routes::any('restaurar-clave-codigo', function(){
     $sql=\xeki\module_manager::import_module("db-sql");
     
@@ -58,7 +45,7 @@
 
   });
 
-  //new pw
+  #new pw
   \xeki\routes::any('nueva-clave', function(){
     $sql=\xeki\module_manager::import_module("db-sql");
     $title = "Restaurar contraseña";
@@ -72,7 +59,7 @@
     \xeki\html_manager::render('login/set-new-pw.html', $items_to_print);
   });
 
-  //new user
+  #new user
   \xeki\routes::any('crear-usuario', function(){
     #import modules
     $sql=\xeki\module_manager::import_module("db-sql");
@@ -95,7 +82,7 @@
     \xeki\html_manager::render('dashboard/new_user.html', $items_to_print);
   });
 
-//new group
+  #new group
   \xeki\routes::any('crear-grupo', function(){
     #import modules
     $auth = \xeki\module_manager::import_module('auth');
@@ -111,24 +98,24 @@
     \xeki\html_manager::render('dashboard/new_group.html', $items_to_print);
   });
 
-//cities
-\xeki\routes::any('panel/ciudades', function(){
-  #import modules
-  $auth = \xeki\module_manager::import_module('auth');
-  $sql=\xeki\module_manager::import_module("db-sql");
+  #cities
+  \xeki\routes::any('panel/ciudades', function(){
+    #import modules
+    $auth = \xeki\module_manager::import_module('auth');
+    $sql=\xeki\module_manager::import_module("db-sql");
 
 
-  $user = $auth->get_user();
-  $title = "Crear grupo";
-  $description =  "description for seo";
-  \xeki\html_manager::set_seo($title,$description,true);
+    $user = $auth->get_user();
+    $title = "Crear grupo";
+    $description =  "description for seo";
+    \xeki\html_manager::set_seo($title,$description,true);
 
-  $queryOne = "SELECT * FROM cities order by id desc";
-  $cities = $sql->query($queryOne);
+    $queryOne = "SELECT * FROM cities order by id desc";
+    $cities = $sql->query($queryOne);
 
-  #send info > view
-  $items_to_print = array(
-    'cities' => $cities
-  );
-  \xeki\html_manager::render('dashboard/cities.html', $items_to_print);
-});
+    #send info > view
+    $items_to_print = array(
+      'cities' => $cities
+    );
+    \xeki\html_manager::render('dashboard/cities.html', $items_to_print);
+  });

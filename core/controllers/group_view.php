@@ -54,6 +54,7 @@ if(!$auth->is_logged()){
 						array_push($info_users[permission], $user_group[0]);
 					}
 				}
+				
 			}
 			array_push($user_list, $info_users);
 		}
