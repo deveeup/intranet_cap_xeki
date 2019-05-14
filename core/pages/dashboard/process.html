@@ -28,39 +28,30 @@
         </div>
       {% endif %}
       {% for process in transversal_process %}
-      <div class="dash-container-content-groupsContent-item">
-        <figure class="dash-container-content-groupsContent-item-figure">
-          <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
-        </figure>
-        <h5 class="dash-container-content-groupsContent-item-title">{{process.name}}</h5>
-          <figure class="form_edit_group" style="width: 120px; display: flex; justify-content: flex-end; align-items: flex-end">
-            <form method="post">
-              {{csrf|raw}}
-              <input type="hidden" name="group_id" value="{{process.id}}" />
-              <input type="hidden" name="action" value="edit" />
-              <input type="hidden" name="xeki_action" value="auth::action_groups" />
-              <button type="button" >
-                <img src="static_files/img/icon-dash-arrow-bottom.png" alt="{{alt}} Ver más" style="border: none; width: 30px;" />
-              </button>
-            </form>
+        <div class="dash-container-content-groupsContent-item">
+          <figure class="dash-container-content-groupsContent-item-figure">
+            <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
           </figure>
-        <div class="dash-container-content-groupsContent-item-editContainer editGroup">
-          <form method="post">
-            <div class="form-control">
-              {{csrf|raw}}
-              <label for="name">Nombre del grupo</label>
-              <input type="text" name="name" value="{{process.name}}" />
-              <input type="hidden" name="last_name" value="{{group.name}}" />
-              <input type="hidden" name="group_id" value="{{group.id}}">
-              <input type="hidden" name="id_user" value="{{auth_user_info.id}}">
-              <input type="hidden" name="xeki_action" value="auth::update_group">
-              <button type="submit">
-                <img src="static_files/img/icon-dash-sendForm.png" alt="{{alt}} Actualizar grupo">
-              </button>
-            </div>
-          </form>
+          <h5 class="dash-container-content-groupsContent-item-title">{{process.name}}</h5>
+            <figure class="form_edit_group" style="width: 120px; display: flex; justify-content: flex-end; align-items: flex-end">
+              <form method="post">
+                {{csrf|raw}}
+                <input type="hidden" name="group_id" value="{{process.id}}" />
+                <input type="hidden" name="action" value="edit" />
+                <input type="hidden" name="xeki_action" value="auth::action_groups" />
+                <button type="button" >
+                  <img src="static_files/img/icon-dash-arrow-bottom.png" alt="{{alt}} Ver más" style="border: none; width: 30px;" />
+                </button>
+              </form>
+            </figure>
+          <div class="dash-container-content-groupsContent-item-editContainer editGroup">
+            {% for item in items %}
+              {% if process.id == item.father_id %}
+                {{item.father_id}}
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
-      </div>
       {% endfor %}
       
     </div>
