@@ -13,6 +13,7 @@
   \xeki\routes::any('usuarios/{username}', 'view_user');
   \xeki\routes::any('panel/usuarios/{username}', 'users_edit');
   \xeki\routes::any('panel/procesos', 'process_dash');
+  \xeki\routes::any('panel/procesos/subprocesos/{process}-{item}', 'subprocess_search');
   // \xeki\routes::any('restaurar-clave-codigo', 'code_pw');
 
   #logout 

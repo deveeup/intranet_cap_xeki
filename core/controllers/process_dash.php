@@ -36,5 +36,5 @@ if(!$auth->is_logged()){
 	$items_to_print=array();
 	$items_to_print['transversal_process'] = $transversal_process;
 	$items_to_print['items'] = $items_process;
-	\xeki\html_manager::render('dashboard/process.html', $items_to_print);
+	\xeki\html_manager::render('dashboard/subprocess.html', $items_to_print);
 }

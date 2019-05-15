@@ -1340,7 +1340,16 @@ body
 						&-editContainer
 							_fullW()
 							_mTop(10px)
-							_dn()
+							// _dn()
+							&-item 
+								_(rgba($gray, .3))
+								padding 5px 7px
+								margin 3px 0
+								a 
+									_aReset($blue)
+									transition .5s
+									&:hover 
+										_c($orange)
 							form 
 								.form-control 
 									padding 10px
@@ -1369,6 +1378,7 @@ body
 											transform scale(.7)
 										&:hover 
 											cursor pointer							
+						
 				&-groupsContentUsers 
 					_fullW()
 					_reset(0)
