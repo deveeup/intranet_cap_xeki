@@ -22,16 +22,20 @@ if(!$auth->is_logged()){
 
 
 	#sql
-	$queryOne = "SELECT * FROM transversal_process_item WHERE id = $item_id AND father_id = $process_id ";
+	$queryOne = "SELECT * FROM transversal_process WHERE id = $process_id ";
 	$process = $sql->query($queryOne);
-	d($process);
 
-	$queryTwo = "SELECT * FROM transversal_process_subitem WHERE father_id = $item_id ";
-	$items = $sql->query($queryTwo);
-	d($items);
+	$queryTwo = "SELECT * FROM transversal_process_item WHERE id = $item_id AND father_id = $process_id ";
+	$item = $sql->query($queryTwo);
+
+	$queryThree = "SELECT * FROM transversal_process_subitem WHERE father_id = $item_id ";
+	$subitem = $sql->query($queryThree);
+
+
 	#sending data to view
 	$items_to_print=array();
-	$items_to_print['item'] = $item;
-	$items_to_print['process'] = $process;
+	$items_to_print['process'] = $process[0];
+	$items_to_print['item'] = $item[0];
+	$items_to_print['subitem'] = $subitem;
 	\xeki\html_manager::render('dashboard/subprocess_item.html',$items_to_print);
 }

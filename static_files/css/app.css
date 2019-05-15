@@ -1890,6 +1890,54 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
 }
+.dash-container-content-groupsContent-item figure form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.dash-container-content-groupsContent-item figure form .comboBox {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 130px;
+}
+.dash-container-content-groupsContent-item figure form .comboBox label {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.dash-container-content-groupsContent-item figure form .comboBox label img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+  will-change: transform;
+  width: 25px;
+}
+.dash-container-content-groupsContent-item figure form .comboBox label img:active {
+  transform: scale(0.8);
+}
+.dash-container-content-groupsContent-item figure form .comboBox button img {
+  margin-left: 10px;
+  width: 30px;
+  will-change: transform;
+}
+.dash-container-content-groupsContent-item figure form .comboBox button img:hover {
+  border: none;
+}
+.dash-container-content-groupsContent-item figure form .comboBox button img:active {
+  transform: scale(0.8);
+}
+.dash-container-content-groupsContent-item figure form .comboBox input {
+  margin: 0;
+  padding: 0;
+  margin-left: 15px;
+}
 .dash-container-content-groupsContent-item figure form button,
 .dash-container-content-groupsContent-item figure form a {
   border: none;

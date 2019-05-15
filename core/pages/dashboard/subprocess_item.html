@@ -15,9 +15,11 @@
         <img src="static_files/img/icon_gestion_estrategica.png" alt="{{alt}} Procesos">
       </figure>
       <h1>
-        <a>{{item}} </a>
-        >
-        <a>{{process}}</a>
+        Procesos 
+        »
+        <a>{{process.name}} </a>
+        »
+        <a>{{item.name}} </a>
       </h1>
     </div>
     <div class="dash-container-content-groupsContent">
@@ -31,34 +33,47 @@
           <p>{{action_group_delete_done}}</p>
         </div>
       {% endif %}
-      {% for process in transversal_process %}
+      {% for item in subitem %}
         <div class="dash-container-content-groupsContent-item">
           <figure class="dash-container-content-groupsContent-item-figure">
-            <img src="static_files/img/icon-dash-config.png" alt="{{alt}} Grupo">
+            <img src="static_files/img/{{item.icon}}" alt="{{alt}} Grupo">
           </figure>
-          <h5 class="dash-container-content-groupsContent-item-title">{{process.name}}</h5>
-            <figure class="form_edit_group" style="width: 120px; display: flex; justify-content: flex-end; align-items: flex-end">
-              <form method="post">
-                {{csrf|raw}}
-                <input type="hidden" name="group_id" value="{{process.id}}" />
-                <input type="hidden" name="action" value="edit" />
-                <input type="hidden" name="xeki_action" value="auth::action_groups" />
-                <button type="button" >
-                  <img src="static_files/img/icon-dash-arrow-bottom.png" alt="{{alt}} Ver más" style="border: none; width: 30px;" />
+          <h5 class="dash-container-content-groupsContent-item-title" style="width: 68%">{{item.name}}</h5>
+          <figure>
+            <form method="post">
+              <a href="{{URL_BASE}}panel/grupos/{{group.id}}" target="_blank" >
+                <img src="static_files/img/icon-dash-action-viewPdf.png" alt="{{alt}} Ver" />
+              </a>
+            </form>
+          </figure>
+          <figure style="width: 130px">
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{group.id}}" />
+              <input type="hidden" name="action" value="edit" />
+              <input type="hidden" name="" value="auth::action_groups" />
+              <input type="file" name="file" id="file" accept="application/pdf,application/vnd.ms-excel">
+              <div class="comboBox">
+                <label for="file">
+                  <img src="static_files/img/icon-dash-action-selectPdf.png" alt="{{alt}} Editar" />
+                </label>
+                <button>
+                  <img src="static_files/img/icon-dash-action-reload.png" alt="{{alt}} Editar" />
                 </button>
-              </form>
-            </figure>
-          <div class="dash-container-content-groupsContent-item-editContainer editGroup">
-            {% for item in items %}
-              {% if process.id == item.father_id %}
-                <div class="dash-container-content-groupsContent-item-editContainer-item">
-                  <a href="{{URL_BASE}}/panel/procesos/subprocesos/{{item.father_id}}-{{item.id}}">
-                    {{item.name}} 
-                  </a>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
+              </div>
+            </form>
+          </figure>
+          <figure class="form_delete_pdf">
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="group_id" value="{{group.id}}" />
+              <input type="hidden" name="action" value="delete" />
+              <input type="hidden" name="" value="auth::action_groups" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-deletePdf.png" style="width: 25px" alt="{{alt}} Eliminar" />
+              </button>
+            </form>
+          </figure>
         </div>
       {% endfor %}
     </div>
@@ -71,7 +86,7 @@
 {{ parent() }}
   <script>
     $(document).ready(function(){
-      $(".form_edit_group").click(function(){
+      $(".form_delete_pdf").click(function(){
         $userContent = $(this);
         $content = $userContent.next(".editGroup");
         $content.slideToggle(400);
