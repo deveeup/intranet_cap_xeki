@@ -42,7 +42,7 @@
             <span class="">{{notice.info_group[0].name}}</span>
           </div>
           <div class="dash-container-content-tableContent-item-info-position">
-            <span class="">owner by notice 15-18-2019</span>
+            <span class="">Creado por {{notice.user[0].first_name}} {{notice.user[0].last_name}}. <br> {{notice.date_created|date}}</span>
           </div>
           <div class="dash-container-content-tableContent-item-info-viewMore">
             <figure>
@@ -96,7 +96,10 @@
       $(".user_title").click(function(){
         $userContent = $(this);
         $content = $userContent.next();
-        $content.slideToggle(400);
+        $content.slideToggle('fast', function() {
+        if ($(this).is(':visible'))
+          $(this).css('display','flex');
+        });
       });
     });
   </script>

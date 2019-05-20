@@ -981,20 +981,20 @@ body
 						&:hover 
 							_bc(white)
 						&-info 
-							_dfr(flex-start, center)
+							_dfr(flex-start, flex-start)
 							margin 0 
 							padding 5px 0
 							&-company 
 								_reset(0)
 								_mLeft(10px)
 								_w(20px)
-								_mTop(-5px)
+								_mTop(0px)
 								img 
 									_reset(0)
 									_fullW()
 									_br(3px)
 							&-name 
-								_w(350px)
+								_w(330px)
 								_reset(0)
 								h3
 									_reset(0)
@@ -1009,7 +1009,7 @@ body
 								.even 
 									_c($blue)
 							&-email 
-								_w(270px)
+								_w(290px)
 								_reset(0)
 								span 
 									_reset(0)
@@ -1043,8 +1043,9 @@ body
 										_fullW()
 						&-noticeInfo 
 							_dfr(flex-start, flex-start)
-							_fullW()
+							_w(calc(100% - 1px))
 							_($gray)
+							_dn()
 							&-figure 
 								_w(28%)
 								_reset(0)
