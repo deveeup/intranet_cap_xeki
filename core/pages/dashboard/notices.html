@@ -1,0 +1,103 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/icon-dash-menu-user.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Usuarios registrados en el sistema</h1>
+    </div>
+    <div class="dash-container-content-optionContainer">
+      <a href="{{URL_BASE}}crear-usuario">
+        <img src="static_files/img/icon-dash-add.png" alt="{{alt}} Agregar usuario">
+        Crear usuario
+      </a>
+    </div>
+    <div class="dash-container-content-tableContent">
+      {% for notice in notices %}
+      <div class="dash-container-content-tableContent-item">
+        <div class="user_title dash-container-content-tableContent-item-info odd">
+          {% if notice.for_company == 0 %}
+            <figure class="dash-container-content-tableContent-item-info-company">
+              <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark Previsión Exequial" />
+            </figure>
+          {% else %}
+            <figure class="dash-container-content-tableContent-item-info-company">
+              <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe Funeraria" />
+            </figure>
+          {% endif %}
+          <div class="dash-container-content-tableContent-item-info-name">
+            <h3 class="">{{notice.name}}</h3>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-email">
+            <span class="">{{notice.info_group[0].name}}</span>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-position">
+            <span class="">owner by notice 15-18-2019</span>
+          </div>
+          <div class="dash-container-content-tableContent-item-info-viewMore">
+            <figure>
+                <img src="static_files/img/view-more-white.png" alt="{{alt}} Información de usuario">
+            </figure>
+          </div>
+        </div> 
+        <div class="dash-container-content-tableContent-item-noticeInfo">
+          <figure class="dash-container-content-tableContent-item-noticeInfo-figure">
+            <img src="static_files/img/banner_notice_default.jpg" alt="{{alt}} " />
+          </figure>
+          <div class="dash-container-content-tableContent-item-noticeInfo-textInfo">
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-title">Titulo de la noticia</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Noticia dirigida para: Grupo de desarrolladores</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Fecha de creación: 15-12-2019</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="#">@davidrojas</a></span>
+            <div class="dash-container-content-tableContent-item-noticeInfo-actionContainer">
+              <figure>
+                <form method="post">
+                  <input type="hidden" />
+                  <button>
+                    <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver noticia">
+                    Ver
+                  </button>
+                </form>
+              </figure>
+              <figure>
+                <form method="post">
+                  <input type="hidden" />
+                  <button>
+                    <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar noticia">
+                    Editar
+                  </button>
+                </form>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script>
+    $(document).ready(function(){
+      $(".user_title").click(function(){
+        $userContent = $(this);
+        $content = $userContent.next();
+        $content.slideToggle(400);
+      });
+    });
+  </script>
+{% endblock %}

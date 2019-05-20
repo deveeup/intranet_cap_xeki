@@ -120,3 +120,59 @@
     );
     \xeki\html_manager::render('dashboard/cities.html', $items_to_print);
   });
+
+  #notices dash 
+  \xeki\routes::any('panel/noticias', function(){
+    #import modules
+    $auth = \xeki\module_manager::import_module('auth');
+    $sql=\xeki\module_manager::import_module("db-sql");
+
+    if(!$auth->is_logged()){
+      \xeki\core::redirect('');
+    } else {
+      #user admin ? 
+      $user = $auth->get_user(); 
+      $user_admin = $user->get("is_superuser");
+      if($user_admin == 'yes'){
+        #info seo
+        $title = "Intranet";
+        $description = "Lorem...";
+        $keyworkds= "Funeraria, Coorserpark, Capillas de La Fe, capillas la fe, obituarios, sedes";
+        \xeki\html_manager::set_seo($title,$description,false);
+    
+        #search notices
+        $queryOne = "SELECT * FROM notices ORDER BY id ASC";
+        $notices = $sql->query($queryOne);
+        $notices;
+
+        $info_notice = array();
+        foreach ($notices as $notice){  
+          $notice[info_group] = array();
+          #search group by notice
+          $queryTwo = "SELECT * FROM auth_group WHERE auth_group.id = '$notice[group_ref]' ";
+          $group_notice = $sql->query($queryTwo);
+
+          if($group_notice[0][id] == $notice[group_ref]){
+            array_push($notice[info_group], $group_notice[0]);
+          }
+
+          // $queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$notice[created_by]' ";
+          // $created_notice = $sql->query($queryThree);
+          // if($created_notice[0][id] == $notices[created_by]){
+          //   array_push($notices[user], $created_notice[0]);
+          // }
+          
+          array_push($info_notice, $notice);
+        }
+        d($info_notice);
+        
+        #sending data to view
+        $items_to_print = array();
+        $items_to_print['notices'] = $info_notice;
+        \xeki\html_manager::render('dashboard/notices.html',$items_to_print);
+      }else{
+        \xeki\core::redirect('');
+      }
+    }
+  });
+

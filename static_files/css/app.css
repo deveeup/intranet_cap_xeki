@@ -1466,6 +1466,8 @@ body footer .footer-item-cap {
 }
 .dash-container-content-tableContent-item-info-position {
   width: 241px;
+  margin: 0;
+  padding: 0;
 }
 .dash-container-content-tableContent-item-info-position span {
   margin: 0;
@@ -1495,6 +1497,78 @@ body footer .footer-item-cap {
 }
 .dash-container-content-tableContent-item-info-viewMore figure img {
   width: 100%;
+}
+.dash-container-content-tableContent-item-noticeInfo {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  border: 1px solid #a5a5a5;
+}
+.dash-container-content-tableContent-item-noticeInfo-figure {
+  width: 28%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.dash-container-content-tableContent-item-noticeInfo-figure img {
+  width: 100%;
+}
+.dash-container-content-tableContent-item-noticeInfo-textInfo {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dash-container-content-tableContent-item-noticeInfo-textInfo-title {
+  font-size: 1.2em;
+  color: #e35825;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo {
+  margin-left: 15px;
+  font-size: 0.9em;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure {
+  margin: 0 10px 20px 15px;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure img {
+  width: 100%;
+  padding: 0;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button {
+  padding: 0;
+  color: #010647;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  will-change: transform;
+  outline: none;
+  font-size: 0.8em;
+  border-bottom: 1px solid transparent;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button:active {
+  transform: scale(0.9);
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button:hover {
+  border-bottom: 1px solid #010647;
+}
+.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button img {
+  width: 25px;
 }
 .dash-container-content-tableContent-item-moreInfo {
   display: none;
@@ -1917,7 +1991,7 @@ body footer .footer-item-cap {
   border-bottom: 1px solid transparent;
   transition: 0.3s;
   will-change: transform;
-  width: 25px;
+  width: 30px;
 }
 .dash-container-content-groupsContent-item figure form .comboBox label img:active {
   transform: scale(0.8);
@@ -1993,6 +2067,7 @@ body footer .footer-item-cap {
 .dash-container-content-groupsContent-item-editContainer {
   width: 100%;
   margin-top: 10px;
+  display: none;
 }
 .dash-container-content-groupsContent-item-editContainer-item {
   border: 1px solid rgba(165,165,165,0.3);
