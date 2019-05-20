@@ -148,23 +148,22 @@
         $info_notice = array();
         foreach ($notices as $notice){  
           $notice[info_group] = array();
+          $notice[user] = array();
           #search group by notice
           $queryTwo = "SELECT * FROM auth_group WHERE auth_group.id = '$notice[group_ref]' ";
           $group_notice = $sql->query($queryTwo);
-
           if($group_notice[0][id] == $notice[group_ref]){
             array_push($notice[info_group], $group_notice[0]);
           }
 
-          // $queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$notice[created_by]' ";
-          // $created_notice = $sql->query($queryThree);
-          // if($created_notice[0][id] == $notices[created_by]){
-          //   array_push($notices[user], $created_notice[0]);
-          // }
-          
+          $queryThree = "SELECT * FROM auth_user WHERE auth_user.id = '$notice[created_by]' ";
+          $created_notice = $sql->query($queryThree);
+
+          if($created_notice[0][id] == $notice[created_by]){
+            array_push($notice[user], $created_notice[0]);
+          }
           array_push($info_notice, $notice);
         }
-        d($info_notice);
         
         #sending data to view
         $items_to_print = array();
