@@ -1,0 +1,78 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/image_formatos.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Nueva noticia</h1>
+    </div>
+    <div class="dash-container-content-newUserContainer">
+      {% if message_user_create_error %}
+        <div class="dash-container-content-newUserContainer-messages">
+          <p class="dash-container-content-newUserContainer-messages-message">
+            {{message_user_create_error}}
+          </p>
+        </div>
+      {% endif %}
+      {% if message_user_create %}
+        <div class="dash-container-content-newUserContaine r-messages">
+          <p class="dash-container-content-newUserContainer-messages-message-successful">
+            {{message_user_create}}
+          </p>
+        </div>
+      {% endif %}
+      <br>
+      <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Título de la noticia</label>
+          <input type="text" placeholder="Título" name="title" />
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Descripción</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">¿A quién va dirigida la noticia?</label>
+          <select name="company" id="company">
+            {% for company in business %}
+              <option value="{{company.id}}">{{company.name}}</option>
+            {% endfor %}
+          </select>
+          <select name="city" id="city">
+            {% for group in groups %}
+              <option value="{{group.id}}">{{group.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl" />
+          <label for="">Imagen</label>
+          <input type="file" name="file"  />
+        </div>
+        {{csrf|raw}}
+        <input type="hidden" name="user" value="{{auth_user_info.id}}"/>
+        <input type="hidden" name="xeki_action" value="auth::create_notice" />
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <button>Crear noticia</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}

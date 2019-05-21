@@ -1165,6 +1165,9 @@ body footer .footer-item-cap {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+.dash-container-content-newUserContainer-form-formControl textarea {
+  width: 98%;
+}
 .dash-container-content-newUserContainer-form-formControl label {
   width: 100%;
   margin: 0;

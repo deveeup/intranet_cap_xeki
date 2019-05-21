@@ -42,10 +42,6 @@
 	\xeki\core::redirect('archivos');
 });
 
-
-
-
-
 // action for contact form
 \xeki\routes::action('contacto', function(){
 	// imports
@@ -535,6 +531,36 @@
 
 //create city (by user admin)
 \xeki\routes::action('auth::create_city', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	$name = $_POST['name'];
+	$id_user = $_POST['id_user'];
+
+	if($valid_csrf) {
+		$data = array(
+			'name' => $_POST["name"],
+			'created_by' => $_POST["id_user"]
+		);
+		$insert = $sql->insert("cities", $data);
+
+		if($insert){
+			\xeki\html_manager::add_extra_data("update_city","La ciudad se ha agregado con éxito.");
+		}else{
+			#error
+			\xeki\html_manager::add_extra_data("update_city_fail","Se ha producido un error.");
+		}
+	}else{
+		#error csrf
+	}
+});
+
+//create notice 
+\xeki\routes::action('auth::create_notice', function(){
 	#import module
 	$sql = \xeki\module_manager::import_module("db-sql");
 	$csrf = \xeki\module_manager::import_module('csrf');

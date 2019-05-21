@@ -175,3 +175,25 @@
     }
   });
 
+  #new notice 
+  \xeki\routes::any('crear-noticia', function(){
+    #import modules
+    $sql=\xeki\module_manager::import_module("db-sql");
+
+    $title = "Crear noticia";
+    $description =  "description for seo";
+    \xeki\html_manager::set_seo($title,$description,true);
+
+    #queries
+    $queryOne = "SELECT * FROM auth_group";
+    $groups = $sql->query($queryOne);
+    $queryTwo = "SELECT * FROM company";
+    $company = $sql->query($queryTwo);
+    #send info > view
+    $items_to_print = array(
+      'groups' => $groups,
+      'business' => $company
+
+    );
+    \xeki\html_manager::render('dashboard/new_notice.html', $items_to_print);
+  });
