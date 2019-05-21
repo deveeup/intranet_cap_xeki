@@ -56,9 +56,9 @@
           </figure>
           <div class="dash-container-content-tableContent-item-noticeInfo-textInfo">
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-title">Titulo de la noticia</span>
-            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Noticia dirigida para: Grupo de desarrolladores</span>
-            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Fecha de creación: 15-12-2019</span>
-            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="#">@davidrojas</a></span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Noticia dirigida para: {{notice.info_group[0].name}}</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Fecha de creación: {{notice.date_created|date}}</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="#">@{{notice.user[0].username}}</a></span>
             <div class="dash-container-content-tableContent-item-noticeInfo-actionContainer">
               <figure>
                 <form method="post">
