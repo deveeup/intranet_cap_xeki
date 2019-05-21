@@ -1168,6 +1168,11 @@ body footer .footer-item-cap {
 .dash-container-content-newUserContainer-form-formControl textarea {
   width: 98%;
 }
+.dash-container-content-newUserContainer-form-formControl textarea:focus {
+  outline: none;
+  border: 1px solid #e35825;
+  box-shadow: 0 0 10px #e35825;
+}
 .dash-container-content-newUserContainer-form-formControl label {
   width: 100%;
   margin: 0;

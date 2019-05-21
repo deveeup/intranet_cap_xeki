@@ -568,21 +568,21 @@
 	#validate token 
 	$valid_csrf = $csrf->validate_token();
 
-	$name = $_POST['name'];
-	$id_user = $_POST['id_user'];
-
 	if($valid_csrf) {
 		$data = array(
-			'name' => $_POST["name"],
-			'created_by' => $_POST["id_user"]
+			'group_ref' => $_POST['group'],
+			'name' => $_POST['name'],
+			'description' => $_POST['description'],
+			'created_by' => $_POST['id_user'],
+			'for_company' => $_POST['company']
 		);
-		$insert = $sql->insert("cities", $data);
+		$insert = $sql->insert("notices", $data);
 
 		if($insert){
-			\xeki\html_manager::add_extra_data("update_city","La ciudad se ha agregado con éxito.");
+			\xeki\html_manager::add_extra_data("create_notice","La noticia se ha agregado con éxito.");
 		}else{
 			#error
-			\xeki\html_manager::add_extra_data("update_city_fail","Se ha producido un error.");
+			\xeki\html_manager::add_extra_data("create_notice_error","Se ha producido un error.");
 		}
 	}else{
 		#error csrf

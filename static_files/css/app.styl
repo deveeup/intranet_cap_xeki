@@ -811,6 +811,10 @@ body
 							_fw(wrap)
 							textarea 
 								_w(98%)
+								&:focus 
+									outline none 
+									_($orange)
+									box-shadow: 0 0 10px $orange;
 							label 
 								_fullW()
 								_reset(0)

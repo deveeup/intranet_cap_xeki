@@ -17,17 +17,17 @@
       <h1>Nueva noticia</h1>
     </div>
     <div class="dash-container-content-newUserContainer">
-      {% if message_user_create_error %}
+      {% if create_notice_error %}
         <div class="dash-container-content-newUserContainer-messages">
           <p class="dash-container-content-newUserContainer-messages-message">
-            {{message_user_create_error}}
+            {{create_notice_error}}
           </p>
         </div>
       {% endif %}
-      {% if message_user_create %}
+      {% if create_notice %}
         <div class="dash-container-content-newUserContaine r-messages">
           <p class="dash-container-content-newUserContainer-messages-message-successful">
-            {{message_user_create}}
+            {{create_notice}}
           </p>
         </div>
       {% endif %}
@@ -35,11 +35,11 @@
       <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Título de la noticia</label>
-          <input type="text" placeholder="Título" name="title" />
+          <input type="text" placeholder="Título" name="name" required />
         </div>
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Descripción</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea name="description" id="description" cols="30" rows="10" required></textarea>
         </div>
         
         <div class="dash-container-content-newUserContainer-form-formControl">
@@ -49,7 +49,7 @@
               <option value="{{company.id}}">{{company.name}}</option>
             {% endfor %}
           </select>
-          <select name="city" id="city">
+          <select name="group" id="group">
             {% for group in groups %}
               <option value="{{group.id}}">{{group.name}}</option>
             {% endfor %}
@@ -60,7 +60,7 @@
           <input type="file" name="file"  />
         </div>
         {{csrf|raw}}
-        <input type="hidden" name="user" value="{{auth_user_info.id}}"/>
+        <input type="hidden" name="id_user" value="{{auth_user_info.id}}"/>
         <input type="hidden" name="xeki_action" value="auth::create_notice" />
         <div class="dash-container-content-newUserContainer-form-formControl">
           <button>Crear noticia</button>
