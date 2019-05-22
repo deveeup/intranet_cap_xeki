@@ -1854,12 +1854,12 @@ body footer .footer-item-cap {
 }
 .dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container p {
   width: 100%;
-  color: #010647;
+  color: #a5a5a5;
   font-style: italic;
   padding: 5px 15px;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container .confirmButton {
-  background-color: #f00;
+  background-color: #e35825;
   color: #fff;
   border-radius: 5px;
   margin-left: 15px;
@@ -1870,10 +1870,10 @@ body footer .footer-item-cap {
   cursor: pointer;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container .cancelAction {
-  border: 1px solid #f00;
+  border: 1px solid #e35825;
   border-radius: 5px;
   padding: 3px 10px;
-  color: #f00;
+  color: #e35825;
   margin-left: 15px;
   cursor: pointer;
   -moz-user-select: none;
