@@ -123,7 +123,7 @@
             {% if add_user_group %}
               <div class="form-control">
                 <p class="form-control-successful">
-                    {{add_user_group}}
+                  {{add_user_group}}
                 </p>
               </div>
             {% endif %}
@@ -134,6 +134,45 @@
                 </p>
               </div>
             {% endif %}
+          </form>
+        </div>
+      </div>
+      <hr>
+      <div class="dash-container-content-userEditContent-security">
+        <div class="dash-container-content-userEditContent-infoUser-titleContainer">
+          <figure>
+            <img src="static_files/img/icon_gestion_estrategica.png" alt="{{alt}} Configuración de perfil">
+          </figure>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Información adicional del usuario</h3>
+        </div>
+        <div class="dash-container-content-userEditContent-infoUser-formContainer">
+          <form method="post" class="dash-container-content-userEditContent">
+            {{csrf|raw}}
+            <div class="form-control">
+              <label for="">Compañia</label>
+              <select name="is_active" id="is_active">
+                <option value="" disabled> Seleccione la compañia </option>
+                {% for commpany in business %}
+                  <option value="{{business.id}}" {% if city.id == user.company %} selected {% endif %}>{{commpany.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="">Ciudad</label>
+              <select name="is_active" id="is_active">
+                <option value="" disabled> Seleccione la ciudad </option>
+                {% for city in cities %}
+                  <option value="{{city.id}}" {% if city.id == user.city %} selected {% endif %}>{{city.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="">Cargo</label>
+              <input type="text" placeholder="{% if user.position %} {{user.position}} {% else %} ¿Qué cargo desempeña este usuario? {% endif %}">
+            </div>
+            <div class="form-control">
+              <button>Actualizar</button>
+            </div>
           </form>
         </div>
       </div>

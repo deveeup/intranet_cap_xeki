@@ -33,7 +33,16 @@ if(!$auth->is_logged()){
 		#search user groups
 		$id_user = $userInfo[0]['id'];
 		$user = $auth->get_user(); 
-		
+
+		#search cities 
+		$queryThree = "SELECT * FROM cities";
+		$cities = $sql->query($queryThree);
+
+		#search company 
+		$queryFour = "SELECT * FROM company";
+		$business = $sql->query($queryFour);
+
+
 		$search_groups = $user->get_groups_by_id($id_user);
 		$groups_decode = json_encode($search_groups);
 		$groups_users = json_decode($groups_decode, true);
@@ -43,6 +52,9 @@ if(!$auth->is_logged()){
 		$items_to_print['user'] = $userInfo[0];
 		$items_to_print['groups'] = $groups;
 		$items_to_print['groups_users'] = $groups_users;
+		$items_to_print['cities'] = $cities;
+		$items_to_print['business'] = $business;
+		
 		\xeki\html_manager::render('dashboard/user_edit.html',$items_to_print);
 	}else{
 		\xeki\core::redirect('');
