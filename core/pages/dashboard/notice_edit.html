@@ -1,0 +1,79 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/image_formatos.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Nueva noticia</h1>
+    </div>
+    <div class="dash-container-content-newUserContainer">
+      {% if create_notice_error %}
+        <div class="dash-container-content-newUserContainer-messages">
+          <p class="dash-container-content-newUserContainer-messages-message">
+            {{create_notice_error}}
+          </p>
+        </div>
+      {% endif %}
+      {% if create_notice %}
+        <div class="dash-container-content-newUserContaine r-messages">
+          <p class="dash-container-content-newUserContainer-messages-message-successful">
+            {{create_notice}}
+          </p>
+        </div>
+      {% endif %}
+      <p>Recuerda que debes seleccionar la imagen para actualizarla. En caso de no hacerlo, pondremos una imagen por defecto.</p>
+      <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Título de la noticia</label>
+          <input type="text" placeholder="Título" name="name" value="{{notice.name}}" required />
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">Descripción</label>
+          <textarea name="description" id="description" cols="30" rows="10" required>{{notice.description}}</textarea>
+        </div>
+        
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <label for="">¿A quién va dirigida la noticia?</label>
+          <select name="company" id="company">
+            {% for company in business %}
+              <option value="{{company.id}}" {% if notice.for_company == company.id %} selected {% endif %}>{{company.name}}</option>
+            {% endfor %}
+          </select>
+          <select name="group" id="group">
+            {% for group in groups %}
+              <option value="{{group.id}}" {% if notice.group_ref == group.id %} selected {% endif %}>{{group.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="dash-container-content-newUserContainer-form-formControl" />
+          <label for="">Imagen</label>
+          <input type="file" name="file"  />
+        </div>
+        {{csrf|raw}}
+        <input type="hidden" name="notice_id" value="{{notice.id}}"/>
+        <input type="hidden" name="id_user" value="{{auth_user_info.id}}"/>
+        <input type="hidden" name="xeki_action" value="auth::edit_notice" />
+        <div class="dash-container-content-newUserContainer-form-formControl">
+          <button>Actualizar noticia</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script></script>
+{% endblock %}

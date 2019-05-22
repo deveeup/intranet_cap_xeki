@@ -1073,30 +1073,24 @@ body
 									_fz(.9em)
 							&-actionContainer
 								_dfr(center, flex-start)
-								figure 
-									margin 0 10px 20px 15px
+								a 
 									padding 0 
+									_aReset($blue)
+									background-color transparent 
+									border none 
+									cursor pointer
+									transition .3s 
+									will-change transform
+									outline none
+									_fz(.8em)
+									border-bottom 1px solid transparent
+									_mLeft(12px)
+									&:active 
+										transform scale(.9)
+									&:hover 
+										border-bottom 1px solid $blue
 									img 
-										_fullW()
-										padding 0 
-									form 
-										button 
-											padding 0 
-											_c($blue)
-											background-color transparent 
-											border none 
-											cursor pointer
-											transition .3s 
-											will-change transform
-											outline none
-											_fz(.8em)
-											border-bottom 1px solid transparent
-											&:active 
-												transform scale(.9)
-											&:hover 
-												border-bottom 1px solid $blue
-											img 
-												_w(25px)
+										_w(25px)
 
 						&-moreInfo
 							_dn()

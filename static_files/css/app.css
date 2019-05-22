@@ -1550,16 +1550,9 @@ body footer .footer-item-cap {
   flex-direction: row;
   justify-content: center;
 }
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure {
-  margin: 0 10px 20px 15px;
+.dash-container-content-tableContent-item-noticeInfo-actionContainer a {
   padding: 0;
-}
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure img {
-  width: 100%;
-  padding: 0;
-}
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button {
-  padding: 0;
+  text-decoration: none;
   color: #010647;
   background-color: transparent;
   border: none;
@@ -1569,14 +1562,15 @@ body footer .footer-item-cap {
   outline: none;
   font-size: 0.8em;
   border-bottom: 1px solid transparent;
+  margin-left: 12px;
 }
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button:active {
+.dash-container-content-tableContent-item-noticeInfo-actionContainer a:active {
   transform: scale(0.9);
 }
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button:hover {
+.dash-container-content-tableContent-item-noticeInfo-actionContainer a:hover {
   border-bottom: 1px solid #010647;
 }
-.dash-container-content-tableContent-item-noticeInfo-actionContainer figure form button img {
+.dash-container-content-tableContent-item-noticeInfo-actionContainer a img {
   width: 25px;
 }
 .dash-container-content-tableContent-item-moreInfo {

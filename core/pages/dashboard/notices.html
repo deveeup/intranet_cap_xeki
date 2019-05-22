@@ -55,29 +55,19 @@
             <img src="static_files/img/banner_notice_default.jpg" alt="{{alt}} " />
           </figure>
           <div class="dash-container-content-tableContent-item-noticeInfo-textInfo">
-            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-title">Titulo de la noticia</span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-title">{{notice.name}}</span>
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Noticia dirigida para: {{notice.info_group[0].name}}</span>
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Fecha de creación: {{notice.date_created|date}}</span>
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="#">@{{notice.user[0].username}}</a></span>
             <div class="dash-container-content-tableContent-item-noticeInfo-actionContainer">
-              <figure>
-                <form method="post">
-                  <input type="hidden" />
-                  <button>
-                    <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver noticia">
-                    Ver
-                  </button>
-                </form>
-              </figure>
-              <figure>
-                <form method="post">
-                  <input type="hidden" />
-                  <button>
-                    <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar noticia">
-                    Editar
-                  </button>
-                </form>
-              </figure>
+              <a>
+                <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver noticia">
+                Ver
+              </a>
+              <a href="{{URL_BASE}}panel/noticias/{{notice.id}}">
+                <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar noticia">
+                Editar
+              </a>
             </div>
           </div>
         </div>

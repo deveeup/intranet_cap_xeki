@@ -588,3 +588,32 @@
 		#error csrf
 	}
 });
+
+//create notice 
+\xeki\routes::action('auth::edit_notice', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+	$notice_id = $_POST['notice_id'];
+	if($valid_csrf) {
+		$data = array(
+			'group_ref' => $_POST['group'],
+			'name' => $_POST['name'],
+			'description' => $_POST['description'],
+			'created_by' => $_POST['id_user'],
+			'for_company' => $_POST['company'],
+		);
+		$insert = $sql->update("notices", $data, " id = $notice_id ");
+		if($insert){
+			\xeki\html_manager::add_extra_data("create_notice","La noticia se ha actualizado con éxito.");
+		}else{
+			#error
+			\xeki\html_manager::add_extra_data("create_notice_error","Se ha producido un error.");
+		}
+	}else{
+		#error csrf
+	}
+});
