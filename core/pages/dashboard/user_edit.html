@@ -178,12 +178,36 @@
           </form>
         </div>
       </div>
-      <form method="post" class="dash-container-content-userEditContent-delete">
-        <input type="hidden" name="xeki_action" value="auth::delete_user" />
-        <input type="hidden" name="id_user" value="{{user.id}}" />
-        {{csrf|raw}}
-        <button>Eliminar usuario</button>
-      </form>
+      <!--  -->
+      
+
+
+      <div class="dash-container-content-userEditContent-security">
+        <div class="dash-container-content-userEditContent-infoUser-titleContainer">
+          <figure>
+            <img src="static_files/img/icon_gestion_estrategica.png" alt="{{alt}} Configuración de perfil">
+          </figure>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Gestión de usuario</h3>
+        </div>
+        <div class="dash-container-content-userEditContent-infoUser-formContainer">
+          <form method="post" class="dash-container-content-userEditContent">
+            {{csrf|raw}}
+            <div class="form-control">
+              <label id="deleteUer">
+                <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}}">
+                Eliminar usuario
+              </label>
+            </div>
+            <div id="deleteUser-container">
+              <p>¿Estás seguro que deseas eliminar este usuario?</p>
+              <input type="hidden" name="xeki_action" value="auth::delete_user" />
+              <input type="hidden" name="id_user" value="{{user.id}}" />
+              <button class="confirmButton" type="submit">Si, quiero eliminar el usuario</button>
+              <span class="cancelAction" id="cancelDelete">Cancelar acción</span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   </div>
@@ -192,5 +216,14 @@
 {% endblock %}
 {% block scripts %}
 {{ parent() }}
-  <script></script>
+  <script>
+   $(document).ready(function(){
+    $("#deleteUer").click(function(){
+      $('#deleteUser-container').slideToggle();
+    });
+    $("#cancelDelete").click(function(){
+      $('#deleteUser-container').slideToggle();
+    });
+  });
+  </script>
 {% endblock %}

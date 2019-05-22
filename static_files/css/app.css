@@ -1849,6 +1849,43 @@ body footer .footer-item-cap {
   margin: 0 20px;
   font-size: 1.2em;
 }
+.dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container {
+  display: none;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container p {
+  width: 100%;
+  color: #010647;
+  font-style: italic;
+  padding: 5px 15px;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container .confirmButton {
+  background-color: #f00;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-top: 0;
+  border: none;
+  padding: 3px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container .cancelAction {
+  border: 1px solid #f00;
+  border-radius: 5px;
+  padding: 3px 10px;
+  color: #f00;
+  margin-left: 15px;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.3s;
+  will-change: transform;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form #deleteUser-container .cancelAction:active {
+  transform: scale(0.9);
+}
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control {
   margin: 0;
   padding: 0;
@@ -1889,6 +1926,17 @@ body footer .footer-item-cap {
   color: #010647;
   display: block;
   margin: 10px 10px 0 20px;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dash-container-content-userEditContent-infoUser-formContainer form .form-control label img {
+  width: 25px;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
 }
 .dash-container-content-userEditContent-infoUser-formContainer form .form-control select {
   margin: 0;

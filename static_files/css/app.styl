@@ -1267,6 +1267,38 @@ body
 									_c($orange)
 									margin 0 20px
 									_fz(1.2em)
+								#deleteUser-container 
+									_dn()
+									p 
+										_fullW()
+										_c($blue)
+										_fs(italic)
+										padding 5px 15px
+									.confirmButton
+										_bc(red)
+										_c(white)
+										_br(5px)
+										_mLeft(15px)
+										margin-top 0
+										border none 
+										padding 3px 10px
+										outline none 
+										cursor pointer
+									.cancelAction
+										_(red)
+										_br(5px)
+										padding 3px 10px
+										_c(red)
+										_mLeft(15px)
+										cursor pointer
+										-moz-user-select: none; 
+										-webkit-user-select: none;
+										-ms-user-select: none;
+										user-select: none; 
+										transition .3s
+										will-change transform
+										&:active 
+											transform scale(.9)
 								.form-control 
 									_reset(0)
 									_bc(transparent)
@@ -1299,6 +1331,12 @@ body
 										_c($blue)
 										display block
 										margin 10px 10px 0 20px
+										cursor pointer
+										_dfr(flex-start, center)
+										img 
+											_w(25px)
+											_reset(0)
+											margin-right 5px
 									select 
 										_reset(0)
 										_br(3px)
