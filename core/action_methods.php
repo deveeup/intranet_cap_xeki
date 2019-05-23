@@ -327,7 +327,7 @@
 	}
 });
 
-//update group (by user admin)
+//update group user (by user admin)
 \xeki\routes::action('auth::update_group_user', function(){
 	#import module
 	$sql=\xeki\module_manager::import_module("db-sql");
@@ -387,7 +387,7 @@
 	
 });
 
-//update group (by user admin)
+//update permision (by user admin)
 \xeki\routes::action('auth::update_permission_user', function(){
 	#import module
 	$sql = \xeki\module_manager::import_module("db-sql");
@@ -413,6 +413,38 @@
 		}
 		
 	}else {
+		#error csrf
+	}
+});
+
+//update other info (by user admin)
+\xeki\routes::action('auth::other_info', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+	
+	if($valid_csrf) {
+
+		$idUser = $_POST['user_id'];
+
+		$data = array(
+			'company' => $_POST['company'],
+			'city' => $_POST['city'],
+			'position' => $_POST['position'],
+			'phone' => $_POST['phone']
+		);
+		$updateInfo = $sql->update("auth_user", $data, "id = $idUser ");
+
+		if($updateInfo){
+			\xeki\html_manager::add_extra_data("update_user_otherInfo", "El usuario se ha actualizado con éxito.");
+		}else{
+			#error
+			\xeki\html_manager::add_extra_data("update_user_otherInfo_error", "Se ha producido un error.");
+		}
+	}else{
 		#error csrf
 	}
 });
@@ -469,7 +501,7 @@
 		$data = array(
 			'code' =>$$_POST["code"],
 			'name' => $_POST["name"],
-			'created_by' => $_POST["id_user"]
+			'phone' => $_POST["id_user"]
 		);
 		$insert = $sql->insert("auth_group", $data);
 		if($insert){
@@ -617,3 +649,4 @@
 		#error csrf
 	}
 });
+

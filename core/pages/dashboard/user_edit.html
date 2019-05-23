@@ -150,16 +150,16 @@
             {{csrf|raw}}
             <div class="form-control">
               <label for="">Compañia</label>
-              <select name="is_active" id="is_active">
+              <select name="company">
                 <option value="" disabled> Seleccione la compañia </option>
                 {% for commpany in business %}
-                  <option value="{{business.id}}" {% if city.id == user.company %} selected {% endif %}>{{commpany.name}}</option>
+                  <option value="{{commpany.id}}" {% if commpany.id == user.company %} selected {% endif %}>{{commpany.name}}</option>
                 {% endfor %}
               </select>
             </div>
             <div class="form-control">
               <label for="">Ciudad</label>
-              <select name="is_active" id="is_active">
+              <select name="city">
                 <option value="" disabled> Seleccione la ciudad </option>
                 {% for city in cities %}
                   <option value="{{city.id}}" {% if city.id == user.city %} selected {% endif %}>{{city.name}}</option>
@@ -168,11 +168,31 @@
             </div>
             <div class="form-control">
               <label for="">Cargo</label>
-              <input type="text" placeholder="{% if user.position %} {{user.position}} {% else %} ¿Qué cargo desempeña este usuario? {% endif %}">
+              <input type="text" name="position" value="{{user.position}}" placeholder="{% if user.position %} {{user.position}} {% else %} ¿Qué cargo desempeña este usuario? {% endif %}">
             </div>
+            <div class="form-control">
+              <label for="">Número de contacto</label>
+              <input type="number" name="phone" value="{{user.phone}}" placeholder="{% if user.phone %} {{user.phone}} {% else %} Número de contacato del usuario {% endif %}">
+            </div>
+            <input type="hidden" name="user_id" value="{{user.id}}" />
+            <input type="hidden" name="xeki_action" value="auth::other_info" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
+            {% if update_user_otherInfo %}
+              <div class="form-control">
+                <p class="form-control-successful">
+                    {{update_user_otherInfo}}
+                </p>
+              </div>
+            {% endif %}
+            {% if update_user_otherInfo_error %}
+              <div class="form-control">
+                <p class="form-control-error">
+                  {{update_user_otherInfo_error}}
+                </p>
+              </div>
+            {% endif %}
           </form>
         </div>
       </div>
