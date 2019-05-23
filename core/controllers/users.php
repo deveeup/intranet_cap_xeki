@@ -35,7 +35,6 @@ if(!$auth->is_logged()){
 			}
 			array_push($info_users, $user);
 		}
-		d($info_users);
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['users'] = $info_users;
