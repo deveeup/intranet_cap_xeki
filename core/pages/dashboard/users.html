@@ -37,13 +37,13 @@
           {% endif %}
           
           <div class="dash-container-content-tableContent-item-info-name">
-            <h3 class="">{{user.first_name}} {{user.last_name}}</h3>
+            <h3 class="">{{user.first_name|raw}} {{user.last_name|raw}}</h3>
           </div>
           <div class="dash-container-content-tableContent-item-info-email">
             <span class="">{{user.email}}</span>
           </div>
           <div class="dash-container-content-tableContent-item-info-position">
-            <span class="">{{user.position}}</span>
+            <span class="">{{user.position|raw}}</span>
           </div>
           <div class="dash-container-content-tableContent-item-info-viewMore">
             <figure>
@@ -57,7 +57,7 @@
               <figure>
                 <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{user.first_name}}">
               </figure>
-              <h3>{{user.first_name}}</h3>
+              <h3>{{user.first_name|raw}}</h3>
             </div>
             <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser">
               <div class="dash-container-content-tableContent-item-moreInfo-div-infoUser-item">

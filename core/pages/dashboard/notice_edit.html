@@ -35,23 +35,22 @@
       <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Título de la noticia</label>
-          <input type="text" placeholder="Título" name="name" value="{{notice.name}}" required />
+          <input type="text" placeholder="Título" name="name" value="{{notice.name|raw}}" required />
         </div>
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">Descripción</label>
-          <textarea name="description" id="description" cols="30" rows="10" required>{{notice.description}}</textarea>
+          <textarea name="description" id="description" cols="30" rows="10" required>{{notice.description|raw}}</textarea>
         </div>
-        
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">¿A quién va dirigida la noticia?</label>
           <select name="company" id="company">
             {% for company in business %}
-              <option value="{{company.id}}" {% if notice.for_company == company.id %} selected {% endif %}>{{company.name}}</option>
+              <option value="{{company.id}}" {% if notice.for_company == company.id %} selected {% endif %}>{{company.name|raw}}</option>
             {% endfor %}
           </select>
           <select name="group" id="group">
             {% for group in groups %}
-              <option value="{{group.id}}" {% if notice.group_ref == group.id %} selected {% endif %}>{{group.name}}</option>
+              <option value="{{group.id}}" {% if notice.group_ref == group.id %} selected {% endif %}>{{group.name|raw}}</option>
             {% endfor %}
           </select>
         </div>
@@ -65,6 +64,14 @@
         <input type="hidden" name="xeki_action" value="auth::edit_notice" />
         <div class="dash-container-content-newUserContainer-form-formControl">
           <button>Actualizar noticia</button>
+        </div>
+      </form>
+      <br>
+      <form action="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
+        <h3>¿Deseas eliminar esta noticia?</h3>
+        <div>
+          <button>Si, quiero eliminar esta noticia</button>
+          <span>Cancelar</span>
         </div>
       </form>
     </div>

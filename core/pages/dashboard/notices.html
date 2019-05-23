@@ -36,10 +36,10 @@
             </figure>
           {% endif %}
           <div class="dash-container-content-tableContent-item-info-name">
-            <h3 class="">{{notice.name}}</h3>
+            <h3 class="">{{notice.name|raw}}</h3>
           </div>
           <div class="dash-container-content-tableContent-item-info-email">
-            <span class="">{{notice.info_group[0].name}}</span>
+            <span class="">{{notice.info_group[0].name|raw}}</span>
           </div>
           <div class="dash-container-content-tableContent-item-info-position">
             <span class="">Creado por {{notice.user[0].first_name}} {{notice.user[0].last_name}}. <br> {{notice.date_created|date}}</span>
