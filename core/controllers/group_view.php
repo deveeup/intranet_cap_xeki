@@ -48,7 +48,6 @@ if(!$auth->is_logged()){
 
 						$queryFive = "SELECT * FROM auth_group, auth_permission WHERE auth_permission.id = '$permission[permission_ref]' AND auth_group.id = '$permission[group_ref]' ";
 						$info_group_permission = $sql->query($queryFive);
-						// d($info_group_permission[0]);
 						array_push($user_group, $info_group_permission[0]);
 
 						array_push($info_users[permission], $user_group[0]);
