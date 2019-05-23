@@ -67,13 +67,16 @@
         </div>
       </form>
       <br>
-      <form action="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
+      <form method="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
         <h3 class="dash-container-content-newUserContainer-form-titleDelete" id="deleteNotice">
           <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar noticia">
           Eliminar noticia
         </h3>
+        {{csrf|raw}}
+        <input type="hidden" name="xeki_action" value="auth::delete_notice" />
+        <input type="hidden" name="id_notice" value="{{notice.id}}" />
         <div class="dash-container-content-newUserContainer-form-deleteContainer" id="deleteNotice-container">
-          <button>Si, quiero eliminar esta noticia</button>
+          <button type="submit">Si, quiero eliminar esta noticia</button>
           <span id="cancelDelete">Cancelar</span>
         </div>
       </form>

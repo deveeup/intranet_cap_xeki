@@ -650,3 +650,26 @@
 	}
 });
 
+//delete notice 
+\xeki\routes::action('auth::delete_notice', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$id_notice = $_POST["id_notice"]; 
+
+		$delete_notice = $sql->delete("notices", "id = $id_notice");
+
+		if($delete_notice){
+			\xeki\core::redirect('panel/noticias');
+		}else {
+			# error 
+		}
+	}else {
+		#error csrf
+	}
+});
