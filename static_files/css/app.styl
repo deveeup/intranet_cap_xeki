@@ -98,8 +98,15 @@ body
 			_reset(0)
 			&-figure 
 				_reset(0)
+				_w(100px)
+				_dfr(center, center)
+				_h(100px)
+				overflow hidden
+				_(rgba($blue, .2))
+				_br(50%)
 				img 
 					_reset(0)
+					_fullW()
 			&-container 
 				_reset(0)
 				_mLeft(15px)
@@ -447,7 +454,6 @@ body
 	.edit-profile
 		_dfr(space-between, flex-start)
 		_reset(0)
-		
 		&-info
 			_dfr(flex-start, flex-start)
 			_fw(wrap)
@@ -462,9 +468,15 @@ body
 			&-image
 				_dfc(center, center)
 				figure
-					_w(150px)
+					_w(130px)
+					_br(50%)
+					_h(130px)
+					_(rgba($blue, .2))
+					_dfr(center, center)
+					overflow hidden
 					img 
 						_fullW()
+						_reset(0)
 				&-form 
 					_dfr(center, center)
 					_mTop(-10px)
@@ -570,6 +582,20 @@ body
 				&-buttons
 					_fullW()
 					_dfr(center, center)
+					&-a
+						_w(66%)
+						_bc(rgba($orange, .8))
+						_aReset(white)
+						_br(5px)
+						_ta(center)
+						padding 3px 5px
+						transition .3s
+						&:hover 
+							_bc($orange)
+							text-decoration none 
+							_aReset(white)
+						&:active 
+							transform scale(.9)
 					&-label 
 						_bc($blue2)
 						_br(5px)

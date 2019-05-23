@@ -684,15 +684,53 @@
 	$valid_csrf = $csrf->validate_token();
 
 	if($valid_csrf) {
-
-    $encode = str_shuffle("abc123".uniqid());
 		
+		$encode = str_shuffle("abc123".uniqid());
 		$nameImage = $_FILES['image_user']['name'];
 		$nameImageHash = $encode.'-'.$nameImage;
 		$pathImage = 'static_files/xeki_admin/uploads';
 		$pathTmpImage = $_FILES['image_user']['tmp_name'];
 		$pathFolder = $pathImage.'/'.$nameImageHash;
 		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'image' => $nameImageHash,
+		);
+		$id_user = $_POST['id_user']; 
+		$updateImage = $sql->update("auth_user", $data, " id = $id_user ");
+		\xeki\core::redirect('edit_profile');
+		
+	}else {
+		#error csrf
+	}
+});
+
+//upload image (my user)
+\xeki\routes::action('auth::update_pdf_user', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		d("VALID CSREEFEE!");
+		$encode = str_shuffle("abc123".uniqid());
+		$namePdf = $_FILES['hdv']['name'];
+		$namePdfHash = $encode.'-'.$namePdf;
+		$pathImage = 'documents';
+		$pathTmpImage = $_FILES['hdv']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$namePdfHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'cv' => $namePdfHash,
+		);
+		$id_user = $_POST['id_user']; 
+		$updateImage = $sql->update("auth_user", $data, " id = $id_user ");
+		// \xeki\core::redirect('edit_profile');
+		
 	}else {
 		#error csrf
 	}

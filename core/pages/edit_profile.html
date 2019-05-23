@@ -8,11 +8,12 @@
         {% if user.image == '' %}
           <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% else %}
-          <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+          <img src="static_files/xeki_admin/uploads/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% endif %}
       </figure>
       <form enctype="multipart/form-data" method="POST" class="edit-profile-info-image-form">
         {{csrf|raw}}
+        <input type="hidden" name="id_user" value="{{user.id}}" />
         <input type="hidden" name="xeki_action" value="auth::update_image_my_profile">
         <input type="file" name="image_user" id="image_user" class="edit-profile-info-image-form-file">
         <label for="image_user" class="edit-profile-info-image-form-label">Seleccionar</label>
@@ -49,14 +50,31 @@
       <input type="hidden" name="xeki_action" value="upload-user" />
       <input type="submit" class="edit-profile-form-formContainer-submit" value="&#10003; Actualizar">
     </form>
-    <form class="edit-profile-form-formContainer">
-      <label for="username">Hoja de vida</label>
-      <input type="file" class="edit-profile-form-formContainer-file" name="hdv" id="hdv" />
-      <div class="edit-profile-form-formContainer-buttons">
-        <label for="hdv" class="edit-profile-form-formContainer-buttons-label">Seleccionar PDF</label>
-        <input type="submit" class="edit-profile-form-formContainer-buttons-submit" value="&#10003;">
-      </div>
-    </form>
+    {% if user.cv %}
+      <form class="edit-profile-form-formContainer" method="post" enctype="multipart/form-data">
+        <label for="">Ver hoja de vida</label>
+        <a href="{{URL_BASE}}/documents/{{user.cv}}" class="edit-profile-form-formContainer-buttons-a" target="_blank">Hoja de vida de {{user.first_name|raw}} {{user.last_name|raw}}</a>
+        <br>
+        <input type="file" class="edit-profile-form-formContainer-file" name="hdv" id="hdv" />
+        <label for="username">Actualizar de vida</label>
+        {{csrf|raw}}
+        <input type="hidden" name="xeki_action" value="auth::update_pdf_user" />
+        <input type="hidden" name="id_user" value="{{user.id}}" />
+        <div class="edit-profile-form-formContainer-buttons">
+          <label for="hdv" class="edit-profile-form-formContainer-buttons-label">Seleccionar PDF</label>
+          <input type="submit" class="edit-profile-form-formContainer-buttons-submit" value="&#10003;">
+        </div>
+      </form>
+    {% else %}
+      <form class="edit-profile-form-formContainer">
+        <label for="username">Hoja de vida</label>
+        <input type="file" class="edit-profile-form-formContainer-file" name="hdv" id="hdv" />
+        <div class="edit-profile-form-formContainer-buttons">
+          <label for="hdv" class="edit-profile-form-formContainer-buttons-label">Seleccionar PDF</label>
+          <input type="submit" class="edit-profile-form-formContainer-buttons-submit" value="&#10003;">
+        </div>
+      </form>
+    {% endif %}
   </div>
 </div>
 
