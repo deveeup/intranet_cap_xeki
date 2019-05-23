@@ -673,3 +673,27 @@
 		#error csrf
 	}
 });
+
+//upload image (my user)
+\xeki\routes::action('auth::update_image_my_profile', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+
+    $encode = str_shuffle("abc123".uniqid());
+		
+		$nameImage = $_FILES['image_user']['name'];
+		$nameImageHash = $encode.'-'.$nameImage;
+		$pathImage = 'static_files/xeki_admin/uploads';
+		$pathTmpImage = $_FILES['image_user']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$nameImageHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+	}else {
+		#error csrf
+	}
+});

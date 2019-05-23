@@ -11,18 +11,20 @@
           <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% endif %}
       </figure>
-      <form method="POST" class="edit-profile-info-image-form">
-        <input type="file" name="image" id="image" class="edit-profile-info-image-form-file">
-        <label for="image" class="edit-profile-info-image-form-label">Seleccionar</label>
+      <form enctype="multipart/form-data" method="POST" class="edit-profile-info-image-form">
+        {{csrf|raw}}
+        <input type="hidden" name="xeki_action" value="auth::update_image_my_profile">
+        <input type="file" name="image_user" id="image_user" class="edit-profile-info-image-form-file">
+        <label for="image_user" class="edit-profile-info-image-form-label">Seleccionar</label>
         <input type="submit" class="edit-profile-info-image-form-submit" value="&#10003;">
       </form>
     </div>
     <div class="edit-profile-info-user">
-      <h1>{{user.first_name}} {{user.last_name}}</h1>
-      <h2>{{user.position}}</h2>
+      <h1>{{user.first_name|raw}} {{user.last_name|raw}}</h1>
+      <h2>{{user.position|raw}}</h2>
       <h3>
         <img src="static_files/img/icon-location.png" alt="{{alt}} Ubicación">
-        {{user.city|raw}}
+        {{city.name|raw}}
       </h3>
     </div>
     <div class="edit-profile-info-text">
@@ -38,11 +40,11 @@
       <label for="username">Nombre de usuario</label>
       <input type="text" value="{{user.username}}" placeholder="Nombre de usuario" name="username" id="username" />
       <label for="university">Universidad de egreso</label>
-      <input type="text" value="{{user.university}}" placeholder="Universidad de egreso" name="university" id="university" />
+      <input type="text" value="{{user.university|raw}}" placeholder="Universidad de egreso" name="university" id="university" />
       <label for="career">Carrera</label>
-      <input type="text" value="{{user.career}}" placeholder="Carrera" name="career" id="career" />
+      <input type="text" value="{{user.career|raw}}" placeholder="Carrera" name="career" id="career" />
       <label for="description">Resumen profesional</label>
-      <textarea name="description" cols="30" rows="10" name="description">{{user.description}}</textarea>
+      <textarea name="description" cols="30" rows="10" name="description">{{user.description|raw}}</textarea>
       {{csrf|raw}}
       <input type="hidden" name="xeki_action" value="upload-user" />
       <input type="submit" class="edit-profile-form-formContainer-submit" value="&#10003; Actualizar">
