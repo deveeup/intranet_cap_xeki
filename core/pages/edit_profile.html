@@ -66,14 +66,27 @@
         </div>
       </form>
     {% else %}
-      <form class="edit-profile-form-formContainer">
-        <label for="username">Hoja de vida</label>
+      <form class="edit-profile-form-formContainer" method="post" enctype="multipart/form-data">
+        <label for="username">Actualiza tu hoja de vida</label>
         <input type="file" class="edit-profile-form-formContainer-file" name="hdv" id="hdv" />
+        {{csrf|raw}}
+        <input type="hidden" name="xeki_action" value="auth::update_pdf_user" />
+        <input type="hidden" name="id_user" value="{{user.id}}" />
         <div class="edit-profile-form-formContainer-buttons">
           <label for="hdv" class="edit-profile-form-formContainer-buttons-label">Seleccionar PDF</label>
           <input type="submit" class="edit-profile-form-formContainer-buttons-submit" value="&#10003;">
         </div>
       </form>
+    {% endif %}
+    {% if update_pdf_user %}
+      <div class="edit-profile-form-messageSuccessful">
+        <p>{{update_pdf_user}}</p>
+      </div>
+    {% endif %}
+    {% if update_pdf_user_error %}
+      <div class="edit-profile-form-messageError">
+        <p>{{update_pdf_user_error}}</p>
+      </div>
     {% endif %}
   </div>
 </div>

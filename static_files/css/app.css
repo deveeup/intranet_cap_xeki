@@ -795,6 +795,29 @@ body footer .footer-item-cap {
   width: 50%;
   margin-top: 30px;
 }
+.edit-profile-form-messageSuccessful,
+.edit-profile-form-messageError {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-radius: 5px;
+  margin: auto;
+  background-color: rgba(0,128,0,0.5);
+  border: 1px solid #f5f5f5;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+.edit-profile-form-messageSuccessful p,
+.edit-profile-form-messageError p {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.edit-profile-form-messageError {
+  background-color: rgba(255,0,0,0.5) !important;
+}
 .edit-profile-form-formContainer {
   width: 100%;
   padding: 10px 0;

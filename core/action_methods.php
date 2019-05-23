@@ -715,7 +715,6 @@
 	$valid_csrf = $csrf->validate_token();
 
 	if($valid_csrf) {
-		d("VALID CSREEFEE!");
 		$encode = str_shuffle("abc123".uniqid());
 		$namePdf = $_FILES['hdv']['name'];
 		$namePdfHash = $encode.'-'.$namePdf;
@@ -727,10 +726,15 @@
 		$data = array(
 			'cv' => $namePdfHash,
 		);
+
 		$id_user = $_POST['id_user']; 
-		$updateImage = $sql->update("auth_user", $data, " id = $id_user ");
-		// \xeki\core::redirect('edit_profile');
-		
+		$updatePdfSql = $sql->update("auth_user", $data, " id = $id_user ");
+
+		if($updatePdfSql){
+			\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
+		}else{
+			\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
+		}	
 	}else {
 		#error csrf
 	}

@@ -532,11 +532,24 @@ body
 						_w(20px)
 						_reset(0)
 						margin-right 5px
-						
 		&-form 
 			_reset(0)
 			_w(50%)
 			_mTop(30px)
+			&-messageSuccessful, &-messageError
+				_dfc(center, center)
+				_fullW()
+				_br(5px)
+				_ma()
+				_bc(rgba(green, .5))
+				_($white)
+				padding 10px 0
+				margin-bottom 30px
+				p 
+					_c(white)
+					_reset(0)
+			&-messageError
+				background-color rgba(red, .5) !important
 			&-formContainer 
 				_fullW()
 				padding 10px 0
