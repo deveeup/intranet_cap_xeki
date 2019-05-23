@@ -1074,7 +1074,7 @@ body
 								_reset(0)
 								_mLeft(10px)
 								_w(20px)
-								_mTop(0px)
+								_mTop(-2px)
 								img 
 									_reset(0)
 									_fullW()
@@ -1189,6 +1189,11 @@ body
 									figure 
 										_reset(0)
 										_w(80px)
+										_h(80px)
+										_br(50%)
+										_(rgba($blue, .5))
+										overflow hidden
+										_dfr(center, center)
 										img 
 											_fullW()
 											_reset(0)
@@ -1280,10 +1285,15 @@ body
 								transform scale(.9)
 					&-header 
 						_dfr(flex-start, center)
-						figure 
+						&-figure 
 							_reset(0)
 							_w(150px)
+							_h(150px)
+							_br(50%)
 							_mRight(25px)
+							overflow hidden 
+							_(rgba($blue, .5))
+							_dfr(center, center)
 							img 
 								_fullW()
 								_reset(0)

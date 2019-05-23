@@ -55,7 +55,11 @@
           <div class="dash-container-content-tableContent-item-moreInfo-div">
             <div class="dash-container-content-tableContent-item-moreInfo-div-imageContainer">
               <figure>
-                <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{user.first_name}}">
+                {% if user.image %}
+                  <img src="static_files/xeki_admin/uploads/{{user.image}}" alt="{{alt}} {{user.first_name}}">
+                {% else %}
+                  <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{user.first_name}}">
+                {% endif %}
               </figure>
               <h3>{{user.first_name|raw}}</h3>
             </div>
