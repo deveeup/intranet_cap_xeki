@@ -1157,6 +1157,62 @@ body footer .footer-item-cap {
   padding: 5px 20px;
   margin-left: -3px;
 }
+.dash-container-content-newUserContainer-form-titleDelete {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #010647;
+  font-size: 1.1em;
+  text-align: left;
+  width: 100%;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dash-container-content-newUserContainer-form-titleDelete:active {
+  transform: scale(0.98);
+}
+.dash-container-content-newUserContainer-form-titleDelete img {
+  width: 30px;
+  margin: 0;
+  padding: 0;
+}
+.dash-container-content-newUserContainer-form-deleteContainer {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  display: none;
+  padding-bottom: 10px;
+}
+.dash-container-content-newUserContainer-form-deleteContainer button {
+  background-color: #e35825;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.dash-container-content-newUserContainer-form-deleteContainer button:active {
+  transform: scale(0.9);
+}
+.dash-container-content-newUserContainer-form-deleteContainer span {
+  border: 1px solid #e35825;
+  color: #e35825;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin-left: 15px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dash-container-content-newUserContainer-form-deleteContainer span:active {
+  transform: scale(0.9);
+}
 .dash-container-content-newUserContainer-form-formControl {
   width: 100%;
   align-items: center;

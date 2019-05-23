@@ -719,7 +719,7 @@ body
 						_fwn()
 						margin 15px 0
 
-//dashboard
+//dash 
 	.dash 
 		&-header
 			border-bottom 1px solid rgba($orange, .3)
@@ -805,6 +805,47 @@ body
 						_(rgba($gray, .4))
 						padding 5px 20px
 						margin-left -3px
+						&-titleDelete 
+							_dfr(flex-start, center)
+							_c($blue)
+							_fz(1.1em)
+							_ta(left)
+							_fullW()
+							_mTop(4px)
+							cursor pointer 
+							transition .3s
+							&:active 
+								transform scale(.98)
+							img 
+								_w(30px)
+								_reset(0)
+						&-deleteContainer
+							_fullW()
+							_dfr(flex-start, center)
+							_dn()
+							padding-bottom 10px
+							button 
+								_bc($orange)
+								_br(5px)
+								_c(white)
+								border none 
+								padding 5px 10px
+								outline none
+								transition .3s
+								cursor pointer
+								&:active 
+									transform scale(.9)
+							span 
+								_($orange)
+								_c($orange)
+								_br(5px)
+								padding 4px 10px
+								_mLeft(15px)
+								outline none 
+								cursor pointer
+								transition .3s
+								&:active 
+										transform scale(.9)
 						&-formControl 
 							_fullW()
 							_dfr(flex-start, center)

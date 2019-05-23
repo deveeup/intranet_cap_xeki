@@ -68,10 +68,13 @@
       </form>
       <br>
       <form action="post" class="dash-container-content-newUserContainer-form" autocomplete="off">
-        <h3>¿Deseas eliminar esta noticia?</h3>
-        <div>
+        <h3 class="dash-container-content-newUserContainer-form-titleDelete" id="deleteNotice">
+          <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar noticia">
+          Eliminar noticia
+        </h3>
+        <div class="dash-container-content-newUserContainer-form-deleteContainer" id="deleteNotice-container">
           <button>Si, quiero eliminar esta noticia</button>
-          <span>Cancelar</span>
+          <span id="cancelDelete">Cancelar</span>
         </div>
       </form>
     </div>
@@ -82,5 +85,14 @@
 {% endblock %}
 {% block scripts %}
 {{ parent() }}
-  <script></script>
+  <script>
+    $(document).ready(function(){
+     $("#deleteNotice").click(function(){
+       $('#deleteNotice-container').slideToggle();
+     });
+     $("#cancelDelete").click(function(){
+       $('#deleteNotice-container').slideToggle();
+     });
+   });
+   </script>
 {% endblock %}
