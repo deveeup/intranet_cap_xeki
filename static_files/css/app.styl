@@ -1498,6 +1498,19 @@ body
 						padding 10px
 						_dfr(flex-start, center)
 						_fw(wrap)
+						&-link 
+							_w(35px)
+							_reset(0)
+							_mRight(5px)
+							border-bottom 1px solid transparent
+							transition .3s
+							will-change transform
+							img 
+								_fullW()
+							&:hover
+								border-bottom 1px solid $blue
+							&:active 
+								transform scale(.8)
 						&-figure 
 							_w(30px)
 							_reset(0)
@@ -1601,9 +1614,26 @@ body
 									padding 10px
 									_br(0)
 									_dfr(flex-start, center)
+									_fw(wrap)
+									&-br 
+										_(transparent)
+										_fullW()
+										margin 5px 0
+									input[type="file"]
+										width: 0.1px;
+										height: 0.1px;
+										opacity: 0;
+										overflow: hidden;
+										position: absolute;
+										z-index: -1;
 									label
 										_reset(0)
 										margin-right 15px
+									.labelFile
+										_(rgba($orange, .5))
+										padding 3px 5px 
+										_br(5px)
+										cursor pointer
 									input[type="text"]
 										_br(3px)
 										outline none
@@ -1623,7 +1653,12 @@ body
 										&:active 
 											transform scale(.7)
 										&:hover 
-											cursor pointer							
+											cursor pointer		
+									.buttonSubmit
+										_bc($orange)	
+										_c(white)
+										_br(5px)
+										padding 3px 15px				
 						
 				&-groupsContentUsers 
 					_fullW()

@@ -38,7 +38,7 @@ if(!$auth->is_logged()){
 		foreach ($info_admin as $info_admin_alone){
 			$first_array_group = array();
 			array_push($first_array_group, $info_admin_alone);
-	
+
 			$queryThree = "SELECT * FROM auth_group WHERE auth_group.id = '$info_admin_alone[group_ref]' ";
 			$array_group_info = $sql->query($queryThree);
 			array_push($first_array_group, $array_group_info[0]);
@@ -62,8 +62,5 @@ if(!$auth->is_logged()){
 		$items_to_print['info_group'] = $info_group_admin;
 		\xeki\html_manager::render('404/index.html', $items_to_print);
 	}
-
-	}
-
-
 	
+	}

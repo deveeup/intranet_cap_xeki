@@ -2162,6 +2162,24 @@ body footer .footer-item-cap {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+.dash-container-content-groupsContent-item-link {
+  width: 35px;
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+  will-change: transform;
+}
+.dash-container-content-groupsContent-item-link img {
+  width: 100%;
+}
+.dash-container-content-groupsContent-item-link:hover {
+  border-bottom: 1px solid #010647;
+}
+.dash-container-content-groupsContent-item-link:active {
+  transform: scale(0.8);
+}
 .dash-container-content-groupsContent-item-figure {
   width: 30px;
   margin: 0;
@@ -2313,11 +2331,31 @@ body footer .footer-item-cap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control-br {
+  border: 1px solid transparent;
+  width: 100%;
+  margin: 5px 0;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 .dash-container-content-groupsContent-item-editContainer form .form-control label {
   margin: 0;
   padding: 0;
   margin-right: 15px;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control .labelFile {
+  border: 1px solid rgba(227,88,37,0.5);
+  padding: 3px 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .dash-container-content-groupsContent-item-editContainer form .form-control input[type="text"] {
   border-radius: 3px;
@@ -2344,6 +2382,12 @@ body footer .footer-item-cap {
 }
 .dash-container-content-groupsContent-item-editContainer form .form-control button:hover {
   cursor: pointer;
+}
+.dash-container-content-groupsContent-item-editContainer form .form-control .buttonSubmit {
+  background-color: #e35825;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 15px;
 }
 .dash-container-content-groupsContentUsers {
   width: 100%;

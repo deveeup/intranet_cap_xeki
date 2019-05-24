@@ -751,14 +751,48 @@
 
 	if($valid_csrf) {
 		$id_city = $_POST["id_city"]; 
-
 		$delete_city = $sql->delete("cities", "id = $id_city");
-
 		if($delete_city){
 			\xeki\core::redirect('panel/ciudades');
 		}else {
 			# error 
 		}
+	}else {
+		#error csrf
+	}
+});
+
+//update pdf agreements 
+\xeki\routes::action('auth::update_agreements', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$encode = str_shuffle("abc123".uniqid());
+		$namePdf = $_FILES['file_pdf']['name'];
+		$namePdfHash = $encode.'-'.$namePdf;
+		$pathImage = 'documents';
+		$pathTmpImage = $_FILES['file_pdf']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$namePdfHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'name' => $namePdfHash,
+			'modified_by' => $_POST['id_user']
+		);
+
+		$id_convenio = $_POST['id_convenio']; 
+		$updatePdfSql = $sql->update("agreements", $data, " id = $id_convenio ");
+
+		// if($updatePdfSql){
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
+		// }else{
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
+		// }	
 	}else {
 		#error csrf
 	}
