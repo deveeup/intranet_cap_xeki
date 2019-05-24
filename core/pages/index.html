@@ -44,9 +44,9 @@
 						<img src="static_files/img/{{item.image}}" alt="{{alt}} Image">
 					</figure>
 					<div class="eventSliders-item-container">
-						<h3>{{item.name}}</h3>
+						<h3>{{item.name|raw}}</h3>
 						<p>
-							{{item.description}}
+							{{item.description|raw|length > 120 ? item.description|slice(0, 120) ~ '...' : item.description}}
 						</p>
 						<a href="#" class="eventSliders-item-container-viewmore">Ver más</a>
 					</div>
@@ -75,7 +75,6 @@
 			dots:true,
 			nav: false,
 			dotsEach: true,
-
     });
   });
 </script>

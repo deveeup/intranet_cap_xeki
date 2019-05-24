@@ -54,9 +54,8 @@
           <figure>
             <form method="post">
               {{csrf|raw}}
-              <input type="hidden" name="group_id" value="{{city.id}}" />
-              <input type="hidden" name="action" value="delete" />
-              <input type="hidden" name="xeki_action" value="auth::action_groups" />
+              <input type="hidden" name="id_city" value="{{city.id}}" />
+              <input type="hidden" name="xeki_action" value="auth::delete_city" />
               <button type="submit">
                 <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar" />
               </button>

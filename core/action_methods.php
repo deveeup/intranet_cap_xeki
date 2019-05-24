@@ -739,3 +739,27 @@
 		#error csrf
 	}
 });
+
+//delete city
+\xeki\routes::action('auth::delete_city', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$id_city = $_POST["id_city"]; 
+
+		$delete_city = $sql->delete("cities", "id = $id_city");
+
+		if($delete_city){
+			\xeki\core::redirect('panel/ciudades');
+		}else {
+			# error 
+		}
+	}else {
+		#error csrf
+	}
+});

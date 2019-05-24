@@ -220,7 +220,7 @@ body header .header-menu {
   background-color: #29dde8;
   height: 530px;
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 0;
   right: 0;
   z-index: 3;
@@ -479,8 +479,13 @@ body footer .footer-item-cap {
   text-align: left;
   width: 100%;
 }
+.home .events-container .eventSliders-item-container h3 {
+  font-size: 1.2em;
+  line-height: 1;
+}
 .home .events-container .eventSliders-item-container p {
   line-height: 1.3;
+  font-style: italic;
 }
 .home .events-container .eventSliders-item-container-viewmore {
   background-color: #e35825;
@@ -493,6 +498,7 @@ body footer .footer-item-cap {
   padding: 0 15px;
   will-change: transform;
   transition: 0.3s;
+  margin-bottom: 10px;
 }
 .home .events-container .eventSliders-item-container-viewmore:active {
   transform: scale(0.9);
