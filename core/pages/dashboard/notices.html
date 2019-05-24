@@ -58,7 +58,7 @@
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-title">{{notice.name}}</span>
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Noticia dirigida para: {{notice.info_group[0].name}}</span>
             <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Fecha de creación: {{notice.date_created|date}}</span>
-            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="#">@{{notice.user[0].username}}</a></span>
+            <span class="dash-container-content-tableContent-item-noticeInfo-textInfo-dateInfo">Creado por: <a href="{{URL_BASE}}usuarios/{{notice.user[0].username}}">@{{notice.user[0].username}}</a></span>
             <div class="dash-container-content-tableContent-item-noticeInfo-actionContainer">
               <a>
                 <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver noticia">

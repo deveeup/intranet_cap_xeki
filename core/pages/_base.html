@@ -24,10 +24,14 @@
 <header>
   <div class="user">
     <figure class="user-figure">
-      {% if auth_user_info.image == '' %}
-        <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
+      {% if auth_user_info.image %}
+        <a href="{{URL_BASE}}usuarios/{{auth_user_info.username}}">
+          <img src="static_files/xeki_admin/uploads/{{auth_user_info.image}}" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
+        </a>
       {% else %}
-        <img src="static_files/xeki_admin/uploads/{{auth_user_info.image}}" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
+        <a href="{{URL_BASE}}usuarios/{{auth_user_info.username}}">
+          <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
+        </a>
       {% endif %}
     </figure>
     <div class="user-container">

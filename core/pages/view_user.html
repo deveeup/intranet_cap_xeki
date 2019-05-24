@@ -66,7 +66,7 @@
             <img src="static_files/img/logo-capillas.jpg" alt="{{alt}} Capillas de La Fe">
           </figure>
           <span>Empresa: Consorcio Exequial</span>
-        {% else %}
+        {% elseif user.company == 2 %}
           <figure class="viewUser-right-containerTop-item-companyFigure">
             <img src="static_files/img/logo-coorserpark.jpg" alt="{{alt}} Coorserpark">
           </figure>
@@ -97,7 +97,7 @@
       <p>
         {{user.description}}
       </p>
-      <a href="{{URL_BASE}}/documents/{{user.cv}}">Ver hoja de vida de {{user.first_name}}</a>
+      <a href="{{URL_BASE}}/documents/{{user.cv}}" target="_blank">Ver hoja de vida de {{user.first_name}}</a>
     </div>
   </div>
 </div>
