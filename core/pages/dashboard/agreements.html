@@ -23,15 +23,20 @@
         Agregar doc
       </a>
       <div class="dash-container-content-optionContainer-create">
-        <form method="post">
-          {{csrf|raw}}
-          <label for="name">Nombre de la ciudad</label>
-          <input type="text" name="name" placeholder="Bogotá" />
-          <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
-          <input type="hidden" name="xeki_action" value="auth::create_city" />
-          <button type="submit">
-            <img src="static_files/img/icon-dash-sendForm.png" alt="{{alt}} Actualizar grupo">
-          </button>
+        <form method="post" enctype="multipart/form-data">
+          <div class="form-control">
+            {{csrf|raw}}
+            <label for="file_pdf">PDF del convenio</label>
+            <label for="file_pdf" class="labelFile">Seleccione el PDF del convenio</label>
+            <input type="file" name="file_pdf" id="file_pdf" value="{{convenio.name}}" />
+            <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+            <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
+            <input type="hidden" name="xeki_action" value="auth::create_agreements" />
+            <div class="form-control-br"></div>
+            <button type="submit" class="buttonSubmit">
+              Actualizar
+            </button>
+          </div>
         </form>
       </div>
     </div>
@@ -52,7 +57,7 @@
         <figure class="dash-container-content-groupsContent-item-figure">
           <img src="static_files/img/icon-dash-action-viewPdf.png" alt="{{alt}} Grupo">
         </figure>
-        <h5 class="dash-container-content-groupsContent-item-title">{{convenio.name}}</h5>
+        <h5 class="dash-container-content-groupsContent-item-title">PDF de convenios</h5>
           <a href="{{URL_BASE}}documents/{{convenio.name}}" target="_blank" class="dash-container-content-groupsContent-item-link">
             <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver documento">
           </a>

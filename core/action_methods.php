@@ -797,3 +797,60 @@
 		#error csrf
 	}
 });
+
+//delete pdf agreements 
+\xeki\routes::action('auth::delete_agreements', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$id_convenio = $_POST['id_convenio']; 
+		$deletePdf = $sql->delete("agreements", "id = $id_convenio");
+		// if($updatePdfSql){
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
+		// }else{
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
+		// }	
+	}else {
+		#error csrf
+	}
+});
+//create pdf agreements 
+\xeki\routes::action('auth::create_agreements', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$encode = str_shuffle("abc123".uniqid());
+		$namePdf = $_FILES['file_pdf']['name'];
+		$namePdfHash = $encode.'-'.$namePdf;
+		$pathImage = 'documents';
+		$pathTmpImage = $_FILES['file_pdf']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$namePdfHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'name' => $namePdfHash,
+			'created_by' => $_POST['id_user']
+		);
+
+		$id_convenio = $_POST['id_convenio']; 
+		$createPdfSql = $sql->insert("agreements", $data);
+
+		// if($updatePdfSql){
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
+		// }else{
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
+		// }	
+	}else {
+		#error csrf
+	}
+});

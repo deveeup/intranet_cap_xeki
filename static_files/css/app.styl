@@ -1039,23 +1039,55 @@ body
 						_mTop(10px)
 						padding 10px
 						form 
-							_dfr(flex-start, center)
-							label 
-								_reset(0)
-								_mRight(10px)
-							input 
-								padding 0 5px
-							button 
-								_dfr(center, center)
-								background none 
-								border none
-								transition .3s
-								outline none
-								will-change transform 
-								&:active 
-									transform scale(.8)
-								img 
-									_w(25px)
+							.form-control 
+								padding 10px
+								_br(0)
+								_dfr(flex-start, center)
+								_fw(wrap)
+								&-br 
+									_(transparent)
+									_fullW()
+									margin 5px 0
+								input[type="file"]
+									width: 0.1px;
+									height: 0.1px;
+									opacity: 0;
+									overflow: hidden;
+									position: absolute;
+									z-index: -1;
+								label
+									_reset(0)
+									margin-right 15px
+								.labelFile
+									_(rgba($orange, .5))
+									padding 3px 5px 
+									_br(5px)
+									cursor pointer
+								input[type="text"]
+									_br(3px)
+									outline none
+									border none 
+									border 1px solid rgba($gray, .3)
+									padding 3px 10px
+									margin-right 10px
+								button 
+									background-color transparent 
+									border none
+									transition .3s
+									outline none
+									cursor pointer
+									img 
+										_w(25px)
+										_reset(0)
+									&:active 
+										transform scale(.7)
+									&:hover 
+										cursor pointer		
+								.buttonSubmit
+									_bc($orange)	
+									_c(white)
+									_br(5px)
+									padding 3px 15px
 				&-tableContent 
 					_fullW()
 					_(transparent)
