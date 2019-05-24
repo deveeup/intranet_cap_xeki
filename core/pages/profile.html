@@ -15,10 +15,10 @@
     </div>
     <div class="profile-header-imageContainer">
       <figure>
-        {% if user.image == '' %}
-        <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+        {% if user.image %}
+          <img src="static_files/xeki_admin/uploads/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% else %}
-        <img src="static_files/img/{{user.image}}" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
+          <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{ user.first_name }} {{ user.last_name }}">
         {% endif %}
       </figure>
       <a href="{{URL_BASE}}edit_profile" class="profile-header-imageContainer-buttonEdit">

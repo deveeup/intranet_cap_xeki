@@ -22,6 +22,10 @@ if(!$auth->is_logged()){
 	#search user
 	$queryOne = "SELECT * FROM auth_user WHERE auth_user.username = '$username' ";
 	$array_user = $sql->query($queryOne);
+	$city = $array_user[0][city];
+	#search cities 
+	$queryFour = "SELECT * FROM cities WHERE cities.id = '$city' ";
+	$cityName = $sql->query($queryFour);
 
 	if($array_user){
 		$idUser = $array_user[0][id];
@@ -40,10 +44,12 @@ if(!$auth->is_logged()){
 			array_push($first_array_group, $array_group_info[0]);
 			array_push($info_group_admin, $first_array_group);
 		}
+
 		#sending data to view
 		$items_to_print = array();
 		$items_to_print['user'] = $array_user[0];
 		$items_to_print['info_group'] = $info_group_admin;
+		$items_to_print['city'] = $cityName[0];
 		\xeki\html_manager::render('view_user.html', $items_to_print);
 	}else {
 		#info page

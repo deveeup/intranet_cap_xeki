@@ -4,7 +4,11 @@
 <div class="viewUser">
   <div class="viewUser-left">
     <figure class="viewUser-left-figure">
-      <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{user.first_name}} {{user.last_name}}" />
+      {% if user.image %}
+        <img src="static_files/xeki_admin/uploads/{{user.image}}" class=class="dash-container-content-userEditContent-header-figureContent" alt="{{alt}} {{user.first_name}}">
+      {% else %}
+        <img src="static_files/img/img_profile_default_x2.png" alt="{{alt}} {{user.first_name}} {{user.last_name}}" />
+      {% endif %}
     </figure>
     <div class="viewUser-left-infoContainer">
       <div class="viewUser-left-infoContainer-item">
@@ -49,12 +53,12 @@
   </div>
   <div class="viewUser-right">
     <div class="viewUser-right-containerTop">
-      <h2>{{user.first_name}} {{user.last_name}}</h2>
+      <h2>{{user.first_name|raw}} {{user.last_name|raw}}</h2>
       <div class="viewUser-right-containerTop-item">
         <figure>
           <img src="static_files/img/icon-dash-location-2.png" alt="{{alt}} Ubicación">
         </figure>
-        <span>Ubicación: {{user.city}}</span>
+        <span>Ubicación: {{city.name|raw}}</span>
       </div>
       <div class="viewUser-right-containerTop-item">
         {% if user.company == 1 %}
@@ -73,7 +77,7 @@
         <figure>
           <img src="static_files/img/icon-dash-email-2.png" alt="{{alt}} Email">
         </figure>
-        <span>Email: {{user.email}}</span>
+        <span>Email: {{user.email|raw}}</span>
       </div>
       <div class="viewUser-right-containerTop-item">
         <figure>
@@ -85,7 +89,7 @@
         <figure>
           <img src="static_files/img/icon-dash-workPosition.png" alt="{{alt}} Cargo">
         </figure>
-        <span>Cargo: {{user.position}}</span>
+        <span>Cargo: {{user.position|raw}}</span>
       </div>
     </div>
     <div class="viewUser-right-containerBottom">
@@ -93,7 +97,7 @@
       <p>
         {{user.description}}
       </p>
-      <a href="#">Ver hoja de vida de {{user.first_name}}</a>
+      <a href="{{URL_BASE}}/documents/{{user.cv}}">Ver hoja de vida de {{user.first_name}}</a>
     </div>
   </div>
 </div>

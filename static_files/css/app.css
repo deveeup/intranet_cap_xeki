@@ -585,6 +585,15 @@ body footer .footer-item-cap {
   margin: 0;
   padding: 0;
   width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid rgba(1,6,71,0.5);
+  overflow: hidden;
 }
 .profile-header-imageContainer figure img {
   margin: 0;
@@ -2683,7 +2692,15 @@ body footer .footer-item-cap {
 }
 .viewUser-left-figure {
   width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid rgba(1,6,71,0.5);
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-top: 25px;
+  overflow: hidden;
 }
 .viewUser-left-figure img {
   width: 100%;
