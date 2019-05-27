@@ -33,11 +33,17 @@ if(!$auth->is_logged()){
 	#query agreements 
 	$query_search_agreements = "SELECT * FROM agreements";
 	$query_agreements = $sql->query($query_search_agreements);
+
+	#query inductions 
+	$query_search_induction = "SELECT * FROM induction";
+	$query_induction = $sql->query($query_search_induction);
+
 	#sending data to view
 	$items_to_print = array();
 	$items_to_print['user'] = $data['user'];
 	$items_to_print['notices'] = $notices_data;
 	$items_to_print['agreements'] = $query_agreements[0];
+	$items_to_print['inductions'] = $query_induction[0];
 
 	
 	\xeki\html_manager::render('index.html',$items_to_print);
