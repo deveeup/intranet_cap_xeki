@@ -788,11 +788,11 @@
 		$id_convenio = $_POST['id_convenio']; 
 		$updatePdfSql = $sql->update("agreements", $data, " id = $id_convenio ");
 
-		// if($updatePdfSql){
-		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
-		// }else{
-		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
-		// }	
+		if($updatePdfSql){
+			\xeki\html_manager::add_extra_data("update_pdf_agreements","El documento del conveni se ha actualizado de manera correcta.");
+		}else{
+			\xeki\html_manager::add_extra_data("update_pdf_agreements_error","Se ha producido un error.");
+		}	
 	}else {
 		#error csrf
 	}
@@ -810,11 +810,11 @@
 	if($valid_csrf) {
 		$id_convenio = $_POST['id_convenio']; 
 		$deletePdf = $sql->delete("agreements", "id = $id_convenio");
-		// if($updatePdfSql){
-		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
-		// }else{
-		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
-		// }	
+		if($deletePdf){
+			\xeki\html_manager::add_extra_data("delete_agreements","El documento pdf del convenio se ha eliminado de manera correcta.");
+		}else{
+			\xeki\html_manager::add_extra_data("delete_agreements_error","Se ha producido un error.");
+		}	
 	}else {
 		#error csrf
 	}
