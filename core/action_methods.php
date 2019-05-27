@@ -789,7 +789,7 @@
 		$updatePdfSql = $sql->update("agreements", $data, " id = $id_convenio ");
 
 		if($updatePdfSql){
-			\xeki\html_manager::add_extra_data("update_pdf_agreements","El documento del conveni se ha actualizado de manera correcta.");
+			\xeki\html_manager::add_extra_data("update_pdf_agreements","El documento del convenio se ha actualizado de manera correcta.");
 		}else{
 			\xeki\html_manager::add_extra_data("update_pdf_agreements_error","Se ha producido un error.");
 		}	
@@ -819,6 +819,7 @@
 		#error csrf
 	}
 });
+
 //create pdf agreements 
 \xeki\routes::action('auth::create_agreements', function(){
 	#import module
@@ -850,6 +851,100 @@
 		// }else{
 		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
 		// }	
+	}else {
+		#error csrf
+	}
+});
+
+//create pdf induction 
+\xeki\routes::action('auth::create_induction', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$encode = str_shuffle("abc123".uniqid());
+		$namePdf = $_FILES['file_pdf']['name'];
+		$namePdfHash = $encode.'-'.$namePdf;
+		$pathImage = 'documents';
+		$pathTmpImage = $_FILES['file_pdf']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$namePdfHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'name' => $namePdfHash,
+			'created_by' => $_POST['id_user']
+		);
+
+		$id_convenio = $_POST['id_convenio']; 
+		$createPdfSql = $sql->insert("induction", $data);
+
+		// if($updatePdfSql){
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user","Tu hoja de vida se ha actualizado con éxito.");
+		// }else{
+		// 	\xeki\html_manager::add_extra_data("update_pdf_user_error","Se ha producido un error.");
+		// }	
+	}else {
+		#error csrf
+	}
+});
+
+//delete pdf induction 
+\xeki\routes::action('auth::delete_induction', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$id_induction = $_POST['id_induction']; 
+		$deletePdf = $sql->delete("induction", "id = $id_induction");
+		if($deletePdf){
+			\xeki\html_manager::add_extra_data("delete_induction","El documento pdf de la inducción / reinducción se ha eliminado de manera correcta.");
+		}else{
+			\xeki\html_manager::add_extra_data("delete_induction_error","Se ha producido un error.");
+		}	
+	}else {
+		#error csrf
+	}
+});
+
+//update pdf induction 
+\xeki\routes::action('auth::update_induction', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+
+	if($valid_csrf) {
+		$encode = str_shuffle("abc123".uniqid());
+		$namePdf = $_FILES['file_pdf']['name'];
+		$namePdfHash = $encode.'-'.$namePdf;
+		$pathImage = 'documents';
+		$pathTmpImage = $_FILES['file_pdf']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$namePdfHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'name' => $namePdfHash,
+			'modified_by' => $_POST['id_user']
+		);
+
+		$id_induction = $_POST['id_induction']; 
+		$updatePdfSql = $sql->update("induction", $data, " id = $id_induction ");
+
+		if($updatePdfSql){
+			\xeki\html_manager::add_extra_data("update_pdf_induction","El documento de la inducción / reinducción se ha actualizado de manera correcta.");
+		}else{
+			\xeki\html_manager::add_extra_data("update_pdf_induction_error","Se ha producido un error.");
+		}	
 	}else {
 		#error csrf
 	}

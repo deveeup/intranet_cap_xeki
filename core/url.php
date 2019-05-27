@@ -257,7 +257,7 @@
 
         #sending data to view
         $items_to_print = array();
-        $items_to_print['induction'] = $induction;
+        $items_to_print['inductions'] = $induction;
         \xeki\html_manager::render('dashboard/induction.html',$items_to_print);
       }else{
         \xeki\core::redirect('');

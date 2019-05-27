@@ -14,9 +14,9 @@
       <figure>
         <img src="static_files/img/image_formatos.png" alt="{{alt}} Usuarios">
       </figure>
-      <h1>Documento de convenios</h1>
+      <h1>Documento de Inducción / Reinducción</h1>
     </div>
-    {% if agreements == null %}
+    {% if inductions == null %}
     <div class="dash-container-content-optionContainer">
       <a href="#" id="createGroup">
         <img src="static_files/img/icon-dash-add.png" alt="{{alt}} Agregar usuario">
@@ -26,12 +26,12 @@
         <form method="post" enctype="multipart/form-data">
           <div class="form-control">
             {{csrf|raw}}
-            <label for="file_pdf">PDF del convenio</label>
-            <label for="file_pdf" class="labelFile">Seleccione el PDF del convenio</label>
-            <input type="file" name="file_pdf" id="file_pdf" value="{{convenio.name}}" />
-            <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+            <label for="file_pdf">PDF del induction</label>
+            <label for="file_pdf" class="labelFile">Seleccione el PDF del induction</label>
+            <input type="file" name="file_pdf" id="file_pdf" value="{{induction.name}}" />
+            <input type="hidden" name="id_induction" value="{{induction.id}}" />
             <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
-            <input type="hidden" name="xeki_action" value="auth::create_agreements" />
+            <input type="hidden" name="xeki_action" value="auth::create_induction" />
             <div class="form-control-br"></div>
             <button type="submit" class="buttonSubmit">
               Actualizar
@@ -42,40 +42,40 @@
     </div>
     {% endif %}
     <div class="dash-container-content-groupsContent">
-      {% if delete_agreements_error %}
+      {% if delete_induction_error %}
         <div class="dash-container-content-groupsContent-item-error">
-          <p>{{delete_agreements_error}}</p>
+          <p>{{delete_induction_error}}</p>
         </div>
       {% endif %}
-      {% if delete_agreements %}
+      {% if delete_induction %}
         <div class="dash-container-content-groupsContent-item-done">
-          <p>{{delete_agreements}}</p>
+          <p>{{delete_induction}}</p>
         </div>
       {% endif %}
-      {% if update_pdf_agreements_error %}
+      {% if update_pdf_induction_error %}
         <div class="dash-container-content-groupsContent-item-error">
-          <p>{{update_pdf_agreements_error}}</p>
+          <p>{{update_pdf_induction_error}}</p>
         </div>
       {% endif %}
-      {% if update_pdf_agreements %}
+      {% if update_pdf_induction %}
         <div class="dash-container-content-groupsContent-item-done">
-          <p>{{update_pdf_agreements}}</p>
+          <p>{{update_pdf_induction}}</p>
         </div>
       {% endif %}
-      {% for convenio in agreements %}
+      {% for induction in inductions %}
       <div class="dash-container-content-groupsContent-item">
         <figure class="dash-container-content-groupsContent-item-figure">
           <img src="static_files/img/icon-dash-action-viewPdf.png" alt="{{alt}} Grupo">
         </figure>
-        <h5 class="dash-container-content-groupsContent-item-title">PDF de convenios</h5>
-          <a href="{{URL_BASE}}documents/{{convenio.name}}" target="_blank" class="dash-container-content-groupsContent-item-link">
+        <h5 class="dash-container-content-groupsContent-item-title">PDF de Inducción / Reinducción</h5>
+          <a href="{{URL_BASE}}documents/{{induction.name}}" target="_blank" class="dash-container-content-groupsContent-item-link">
             <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver documento">
           </a>
           <figure>
             <form method="post">
               {{csrf|raw}}
-              <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
-              <input type="hidden" name="xeki_action" value="auth::delete_agreements" />
+              <input type="hidden" name="id_induction" value="{{induction.id}}" />
+              <input type="hidden" name="xeki_action" value="auth::delete_induction" />
               <button type="submit">
                 <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar" />
               </button>
@@ -94,12 +94,12 @@
           <form method="post" enctype="multipart/form-data">
             <div class="form-control">
               {{csrf|raw}}
-              <label for="file_pdf">PDF del convenio</label>
-              <label for="file_pdf" class="labelFile">Seleccione el PDF del convenio</label>
-              <input type="file" name="file_pdf" id="file_pdf" value="{{convenio.name}}" />
-              <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+              <label for="file_pdf">PDF de la Inducción / Reinducción </label>
+              <label for="file_pdf" class="labelFile">Seleccione el PDF de la Inducción / Reinducción</label>
+              <input type="file" name="file_pdf" id="file_pdf" value="{{induction.name}}" />
+              <input type="hidden" name="id_induction" value="{{induction.id}}" />
               <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
-              <input type="hidden" name="xeki_action" value="auth::update_agreements" />
+              <input type="hidden" name="xeki_action" value="auth::update_induction" />
               <div class="form-control-br"></div>
               <button type="submit" class="buttonSubmit">
                 Actualizar
