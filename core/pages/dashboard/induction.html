@@ -1,0 +1,133 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="dash">
+  <div class="dash-header">
+    <figure class="dash-header-figure">
+      <img src="static_files/img/icon-config.png" alt="{{alt}} Panel">
+    </figure>
+    <h2 class="dash-header-title">Panel de administración</h2>
+  </div>
+  <div class="dash-container">
+  {% include 'dashboard/left_menu.html' %} 
+  <div class="dash-container-content">
+    <div class="dash-container-content-titleContainer">
+      <figure>
+        <img src="static_files/img/image_formatos.png" alt="{{alt}} Usuarios">
+      </figure>
+      <h1>Documento de convenios</h1>
+    </div>
+    {% if agreements == null %}
+    <div class="dash-container-content-optionContainer">
+      <a href="#" id="createGroup">
+        <img src="static_files/img/icon-dash-add.png" alt="{{alt}} Agregar usuario">
+        Agregar doc
+      </a>
+      <div class="dash-container-content-optionContainer-create">
+        <form method="post" enctype="multipart/form-data">
+          <div class="form-control">
+            {{csrf|raw}}
+            <label for="file_pdf">PDF del convenio</label>
+            <label for="file_pdf" class="labelFile">Seleccione el PDF del convenio</label>
+            <input type="file" name="file_pdf" id="file_pdf" value="{{convenio.name}}" />
+            <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+            <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
+            <input type="hidden" name="xeki_action" value="auth::create_agreements" />
+            <div class="form-control-br"></div>
+            <button type="submit" class="buttonSubmit">
+              Actualizar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+    <div class="dash-container-content-groupsContent">
+      {% if delete_agreements_error %}
+        <div class="dash-container-content-groupsContent-item-error">
+          <p>{{delete_agreements_error}}</p>
+        </div>
+      {% endif %}
+      {% if delete_agreements %}
+        <div class="dash-container-content-groupsContent-item-done">
+          <p>{{delete_agreements}}</p>
+        </div>
+      {% endif %}
+      {% if update_pdf_agreements_error %}
+        <div class="dash-container-content-groupsContent-item-error">
+          <p>{{update_pdf_agreements_error}}</p>
+        </div>
+      {% endif %}
+      {% if update_pdf_agreements %}
+        <div class="dash-container-content-groupsContent-item-done">
+          <p>{{update_pdf_agreements}}</p>
+        </div>
+      {% endif %}
+      {% for convenio in agreements %}
+      <div class="dash-container-content-groupsContent-item">
+        <figure class="dash-container-content-groupsContent-item-figure">
+          <img src="static_files/img/icon-dash-action-viewPdf.png" alt="{{alt}} Grupo">
+        </figure>
+        <h5 class="dash-container-content-groupsContent-item-title">PDF de convenios</h5>
+          <a href="{{URL_BASE}}documents/{{convenio.name}}" target="_blank" class="dash-container-content-groupsContent-item-link">
+            <img src="static_files/img/icon-dash-action-view.png" alt="{{alt}} Ver documento">
+          </a>
+          <figure>
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+              <input type="hidden" name="xeki_action" value="auth::delete_agreements" />
+              <button type="submit">
+                <img src="static_files/img/icon-dash-action-delete.png" alt="{{alt}} Eliminar" />
+              </button>
+            </form>
+          </figure>
+          <figure class="form_edit_group">
+            <form method="post">
+              {{csrf|raw}}
+              <input type="hidden" name="action" value="edit" />
+              <button type="button" >
+                <img src="static_files/img/icon-dash-action-edit.png" alt="{{alt}} Editar" />
+              </button>
+            </form>
+          </figure>
+        <div class="dash-container-content-groupsContent-item-editContainer editGroup">
+          <form method="post" enctype="multipart/form-data">
+            <div class="form-control">
+              {{csrf|raw}}
+              <label for="file_pdf">PDF del convenio</label>
+              <label for="file_pdf" class="labelFile">Seleccione el PDF del convenio</label>
+              <input type="file" name="file_pdf" id="file_pdf" value="{{convenio.name}}" />
+              <input type="hidden" name="id_convenio" value="{{convenio.id}}" />
+              <input type="hidden" name="id_user" value="{{auth_user_info.id}}" />
+              <input type="hidden" name="xeki_action" value="auth::update_agreements" />
+              <div class="form-control-br"></div>
+              <button type="submit" class="buttonSubmit">
+                Actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ parent() }}
+  <script>
+    $(document).ready(function(){
+      $(".form_edit_group").click(function(){
+        $userContent = $(this);
+        $content = $userContent.next(".editGroup");
+        $content.slideToggle(400);
+      });
+      $("#createGroup").click(function(){
+        $( ".dash-container-content-optionContainer-create" ).slideToggle("slow");
+      });
+    });
+  </script>
+{% endblock %}
