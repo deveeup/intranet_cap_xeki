@@ -30,10 +30,14 @@ if(!$auth->is_logged()){
 	$notices = "SELECT * FROM notices WHERE group_ref = '$id_notice' ";
 	$notices_data = $sql->query($notices);
 
+	#query agreements 
+	$query_search_agreements = "SELECT * FROM agreements";
+	$query_agreements = $sql->query($query_search_agreements);
 	#sending data to view
 	$items_to_print = array();
 	$items_to_print['user'] = $data['user'];
 	$items_to_print['notices'] = $notices_data;
+	$items_to_print['agreements'] = $query_agreements[0];
 
 	
 	\xeki\html_manager::render('index.html',$items_to_print);
