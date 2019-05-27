@@ -44,6 +44,8 @@
       <input type="text" value="{{user.university|raw}}" placeholder="Universidad de egreso" name="university" id="university" />
       <label for="career">Carrera</label>
       <input type="text" value="{{user.career|raw}}" placeholder="Carrera" name="career" id="career" />
+      <label for="career">Número de contacto</label>
+      <input type="text" value="{{user.phone|raw}}" placeholder="Carrera" name="phone" id="phone" />
       <label for="description">Resumen profesional</label>
       <textarea name="description" cols="30" rows="10" name="description">{{user.description|raw}}</textarea>
       {{csrf|raw}}

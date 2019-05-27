@@ -20,6 +20,7 @@
 			'university'=>$data['university'],
 			'career'=>$data['career'],
 			'description'=>$data['description'],
+			'phone'=>$data['phone'],
 		];
 		$user->update($data_update);
 		\xeki\core::redirect('edit_profile');
@@ -443,6 +444,38 @@
 		}else{
 			#error
 			\xeki\html_manager::add_extra_data("update_user_otherInfo_error", "Se ha producido un error.");
+		}
+	}else{
+		#error csrf
+	}
+});
+
+//update info user person (by user admin)
+\xeki\routes::action('auth::update_info_user', function(){
+	#import module
+	$sql = \xeki\module_manager::import_module("db-sql");
+	$csrf = \xeki\module_manager::import_module('csrf');
+
+	#validate token 
+	$valid_csrf = $csrf->validate_token();
+	
+	if($valid_csrf) {
+
+		$idUser = $_POST['user_id'];
+
+		$data = array(
+			'first_name' => $_POST['first_name'],
+			'last_name' => $_POST['last_name'],
+			'username' => $_POST['username'],
+			'email' => $_POST['email']
+		);
+		$updateInfo = $sql->update("auth_user", $data, "id = $idUser ");
+
+		if($updateInfo){
+			\xeki\html_manager::add_extra_data("update_info_user", "El usuario se ha actualizado con éxito.");
+		}else{
+			#error
+			\xeki\html_manager::add_extra_data("update_info_user_error", "Se ha producido un error.");
 		}
 	}else{
 		#error csrf

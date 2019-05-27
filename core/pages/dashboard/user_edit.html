@@ -55,92 +55,142 @@
           <figure>
             <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Configuración de perfil">
           </figure>
-          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Perfil</h3>
+          <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Datos personales</h3>
         </div>
         <div class="dash-container-content-userEditContent-infoUser-formContainer">
           <form method="POST">
-            <h3 class="title">&#8226; Rol / Permisos</h3>
+            {{csrf|raw}}
+            <h3 class="title">&#8226; Información</h3>
             <div class="form-control">
-              <label for="">Estado del usuario</label>
-              <select name="is_active" id="is_active">
-                <option value="no">Inactivo</option>
-                <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
-              </select>
+              <label for="first_name">Nombres</label>
+              <input type="text" id="first_name" name="first_name" value="{{user.first_name|raw}}" placeholder="{% if user.first_name|raw %} {{user.first_name|raw}} {% else %} ¿Cuál es el nombre del usuario? {% endif %}">
             </div>
             <div class="form-control">
-              <label for="">Usuario Super administrador</label>
-              <select name="is_superuser" id="is_superuser">
-                <option value="no">No</option>
-                <option value="yes" {% if user.is_superuser == 'yes' %} selected {% endif %}>Si</option>
-              </select>
+              <label for="last_name">Apellidos</label>
+              <input type="text" id="last_name" name="last_name" value="{{user.last_name|raw}}" placeholder="{% if user.last_name|raw %} {{user.last_name|raw}} {% else %} ¿Cuál es el apellido del usuario? {% endif %}">
             </div>
-            <input type="hidden" name="xeki_action" value="auth::update_rol" />
-            <input type="hidden" name="id" value="{{user.id}}" />
             <div class="form-control">
-              <button>Actualizar</button>
+              <label for="username">Nombre de usuario</label>
+              <input type="text" id="username" name="username" value="{{user.username|raw}}" placeholder="{% if user.username|raw %} {{user.username|raw}} {% else %} ¿Cuál es el nombre de usuario? {% endif %}">
             </div>
-            {% if update_user_rol %}
-              <div class="form-control">
-                <p class="form-control-successful">
-                    {{update_user_rol}}
-                </p>
-              </div>
-            {% endif %}
-            {% if update_user_rol_error %}
-              <div class="form-control">
-                <p class="form-control-error">
-                  {{update_user_rol_error}}
-                </p>
-              </div>
-            {% endif %}
-          </form>
-          <form method="POST">
-            <h3 class="title">&#8226; Grupos</h3>
-            {% if groups_users is empty  %}
-              <div class="form-control">
-                <label>{{user.first_name}} no pertenece a ningún grupo aún.</label>
-              </div>
-            {% else %}
-              <div class="form-control">
-                <label>{{user.first_name}} pertenece a los siguientes grupos:</label>
-                <div class="form-control-groups">
-                  {% for group_user in groups_users %}
-                    <a href="#">&#8226; {{ group_user.name }}</a>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
             <div class="form-control">
-              <label for="">Agregar a {{user.first_name}} al grupo </label>
-              <select name="id_group" id="id_group">
-                {% for group in groups %}
-                  <h1>{{group.name}}</h1>
-                  <option value="{{group.id}}">{{group.name}}</option>
-                {% endfor %}
-              </select>
+              <label for="email">Email del usuario</label>
+              <input type="text" id="email" name="email" value="{{user.email|raw}}" placeholder="{% if user.email|raw %} {{user.email|raw}} {% else %} ¿Cuál es el email del usuario? {% endif %}">
             </div>
-            <input type="hidden" name="xeki_action" value="auth::add_group" />
-            <input type="hidden" name="id_user" value="{{user.id}}" />
+            <input type="hidden" name="xeki_action" value="auth::update_info_user" />
+            <input type="hidden" name="user_id" value="{{user.id}}" />
             <div class="form-control">
               <button>Actualizar</button>
             </div>
-            {% if add_user_group %}
+            {% if update_info_user %}
               <div class="form-control">
                 <p class="form-control-successful">
-                  {{add_user_group}}
+                    {{update_info_user}}
                 </p>
               </div>
             {% endif %}
-            {% if add_user_group_error %}
+            {% if update_info_user_error %}
               <div class="form-control">
                 <p class="form-control-error">
-                  {{add_user_group_error}}
+                  {{update_info_user_error}}
                 </p>
               </div>
             {% endif %}
           </form>
         </div>
-      </div>
+        <hr>
+        <!-- asd -->
+        <div class="dash-container-content-userEditContent-infoUser">
+          <div class="dash-container-content-userEditContent-infoUser-titleContainer">
+            <figure>
+              <img src="static_files/img/icon-dash-menu-permission.png" alt="{{alt}} Configuración de perfil">
+            </figure>
+            <h3 class="dash-container-content-userEditContent-infoUser-titleContainer-title">Perfil</h3>
+          </div>
+          <div class="dash-container-content-userEditContent-infoUser-formContainer">
+            <form method="POST">
+              <h3 class="title">&#8226; Rol / Permisos</h3>
+              <div class="form-control">
+                <label for="">Estado del usuario</label>
+                <select name="is_active" id="is_active">
+                  <option value="no">Inactivo</option>
+                  <option value="yes" {% if user.is_active == 'yes' %} selected {% endif %}>Activo</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label for="">Usuario Super administrador</label>
+                <select name="is_superuser" id="is_superuser">
+                  <option value="no">No</option>
+                  <option value="yes" {% if user.is_superuser == 'yes' %} selected {% endif %}>Si</option>
+                </select>
+              </div>
+              <input type="hidden" name="xeki_action" value="auth::update_rol" />
+              <input type="hidden" name="id" value="{{user.id}}" />
+              <div class="form-control">
+                <button>Actualizar</button>
+              </div>
+              {% if update_user_rol %}
+                <div class="form-control">
+                  <p class="form-control-successful">
+                      {{update_user_rol}}
+                  </p>
+                </div>
+              {% endif %}
+              {% if update_user_rol_error %}
+                <div class="form-control">
+                  <p class="form-control-error">
+                    {{update_user_rol_error}}
+                  </p>
+                </div>
+              {% endif %}
+            </form>
+            <form method="POST">
+              <h3 class="title">&#8226; Grupos</h3>
+              {% if groups_users is empty  %}
+                <div class="form-control">
+                  <label>{{user.first_name}} no pertenece a ningún grupo aún.</label>
+                </div>
+              {% else %}
+                <div class="form-control">
+                  <label>{{user.first_name}} pertenece a los siguientes grupos:</label>
+                  <div class="form-control-groups">
+                    {% for group_user in groups_users %}
+                      <a href="#">&#8226; {{ group_user.name }}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+              <div class="form-control">
+                <label for="">Agregar a {{user.first_name}} al grupo </label>
+                <select name="id_group" id="id_group">
+                  {% for group in groups %}
+                    <h1>{{group.name}}</h1>
+                    <option value="{{group.id}}">{{group.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <input type="hidden" name="xeki_action" value="auth::add_group" />
+              <input type="hidden" name="id_user" value="{{user.id}}" />
+              <div class="form-control">
+                <button>Actualizar</button>
+              </div>
+              {% if add_user_group %}
+                <div class="form-control">
+                  <p class="form-control-successful">
+                    {{add_user_group}}
+                  </p>
+                </div>
+              {% endif %}
+              {% if add_user_group_error %}
+                <div class="form-control">
+                  <p class="form-control-error">
+                    {{add_user_group_error}}
+                  </p>
+                </div>
+              {% endif %}
+            </form>
+          </div>
+        </div>
       <hr>
       <div class="dash-container-content-userEditContent-security">
         <div class="dash-container-content-userEditContent-infoUser-titleContainer">
@@ -172,7 +222,7 @@
             </div>
             <div class="form-control">
               <label for="">Cargo</label>
-              <input type="text" name="position" value="{{user.position}}" placeholder="{% if user.position %} {{user.position}} {% else %} ¿Qué cargo desempeña este usuario? {% endif %}">
+              <input type="text" name="position" value="{{user.position|raw}}" placeholder="{% if user.position|raw %} {{user.position|raw}} {% else %} ¿Qué cargo desempeña este usuario? {% endif %}">
             </div>
             <div class="form-control">
               <label for="">Número de contacto</label>
