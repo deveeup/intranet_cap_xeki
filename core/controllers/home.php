@@ -18,16 +18,14 @@ if(!$auth->is_logged()){
 	#info user
 	$user = $auth->get_user(); 
 	$data['user'] = $user->get_info();
-
 	#info group
 	$id_user = $user->get("id");
 	$query_search_notice = "SELECT group_ref FROM auth_user_group WHERE user_ref = '$id_user' ";
 	$query_notice = $sql->query($query_search_notice);
-
-	$id_notice = $query_notice[0]['group_ref'];
-
+	$group_user = $query_notice[0]['group_ref'];
+	$for_company = $user->get("company");
 	#query notices
-	$notices = "SELECT * FROM notices WHERE group_ref = '$id_notice' ";
+	$notices = "SELECT * FROM notices WHERE group_ref = '$group_user' AND for_company = '$for_company' OR for_company = '0' OR  group_ref = '0' AND for_company = '$for_company' ";
 	$notices_data = $sql->query($notices);
 
 	#query agreements 
