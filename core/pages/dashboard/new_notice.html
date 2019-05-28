@@ -45,11 +45,15 @@
         <div class="dash-container-content-newUserContainer-form-formControl">
           <label for="">¿A quién va dirigida la noticia?</label>
           <select name="company" id="company">
+            <option value="" disabled>Empresa</option>
+            <option value="0">Todos</option>
             {% for company in business %}
-              <option value="{{company.id}}">{{company.name}}</option>
+            <option value="{{company.id}}">{{company.name}}</option>
             {% endfor %}
           </select>
           <select name="group" id="group">
+            <option value="" disabled>Departamento</option>
+            <option value="0">Todos</option>
             {% for group in groups %}
               <option value="{{group.id}}">{{group.name}}</option>
             {% endfor %}
