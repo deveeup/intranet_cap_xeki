@@ -41,7 +41,11 @@
 				{% for item in notices %}
 				<div class="eventSliders-item">
 					<figure class="eventSliders-item-figure">
-						<img src="static_files/img/{{item.image}}" alt="{{alt}} Image">
+						{% if item.image != '' %}
+							<img src="static_files/xeki_admin/uploads/{{item.image}}" alt="{{alt}} Image">
+						{% else %}
+							<img src="static_files/img/img_banner_default.jpg" alt="{{alt}} Image">
+						{% endif %}
 					</figure>
 					<div class="eventSliders-item-container">
 						<h3>{{item.name|raw}}</h3>
