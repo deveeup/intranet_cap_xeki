@@ -635,11 +635,7 @@
 
 	if($valid_csrf) {
 		$data = array(
-			'group_ref' => $_POST['group'],
-			'name' => $_POST['name'],
-			'description' => $_POST['description'],
-			'created_by' => $_POST['id_user'],
-			'for_company' => $_POST['company']
+			
 		);
 		$insert = $sql->insert("notices", $data);
 
@@ -650,6 +646,34 @@
 			\xeki\html_manager::add_extra_data("create_notice_error","Se ha producido un error.");
 		}
 	}else{
+		#error csrf
+	}
+	# new 
+	if($valid_csrf) {
+		$encode = str_shuffle("abc123".uniqid());
+		$nameImage = $_FILES['file']['name'];
+		if($nameImage != null){
+			$nameImageHash = $encode.'-'.$nameImage;
+		}else{
+			$nameImageHash = '';
+		}
+		$pathImage = 'static_files/xeki_admin/uploads';
+		$pathTmpImage = $_FILES['file']['tmp_name'];
+		$pathFolder = $pathImage.'/'.$nameImageHash;
+		move_uploaded_file($pathTmpImage,$pathFolder);
+
+		$data = array(
+			'group_ref' => $_POST['group'],
+			'name' => $_POST['name'],
+			'description' => $_POST['description'],
+			'created_by' => $_POST['id_user'],
+			'for_company' => $_POST['company'],
+			'image' => $nameImageHash
+		);
+
+		$createNotice = $sql->insert("notices", $data);
+		\xeki\html_manager::add_extra_data("create_notice","La noticia se ha agregado con éxito.");
+	}else {
 		#error csrf
 	}
 });
