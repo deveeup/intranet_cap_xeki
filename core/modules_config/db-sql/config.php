@@ -2,9 +2,9 @@
 
 $MODULE_DATA_CONFIG = array(
     "main" => array(
-        "host" => "35.232.45.40",
+        "host" => "35.229.124.166",
         "user" => "root",
-        "pass" => "5EmP^fg@6z(5",
-        "db"   => "xeki_test",
+        "pass" => "0egKx0heFMwKb2cp",
+        "db"   => "intranet",
     )
 );
