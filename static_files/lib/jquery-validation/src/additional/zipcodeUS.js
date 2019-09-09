@@ -1,1 +1,0 @@
-$.validator.addMethod("zipcodeUS",function(d,i){return this.optional(i)||/^\d{5}(-\d{4})?$/.test(d)},"The specified US ZIP Code is invalid");

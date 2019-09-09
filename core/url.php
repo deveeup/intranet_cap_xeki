@@ -1,6 +1,6 @@
 <?php
 
-  \xeki\routes::any('', 'login'); 
+  \xeki\routes::any('', 'home'); 
   \xeki\routes::any('inicio', 'home');
   \xeki\routes::any('perfil', 'profile');
   \xeki\routes::any('panel/grupos/{group_id}', 'group_view');

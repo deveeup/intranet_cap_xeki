@@ -1,1 +1,0 @@
-module.exports=function(s){"use strict";s.initConfig({echo:{one:{message:"one has changed"}},watch:{options:{atBegin:!0},one:{files:["lib/one.js","Gruntfile.js"],tasks:"echo:one"}}}),s.loadTasks("../tasks"),s.loadTasks("../../../tasks"),s.registerTask("default",["echo"])};

@@ -5,18 +5,18 @@ $MODULE_DATA_CONFIG = array(
         "type_sender" => "mailgun", // smtp,local,mailgun
 
         // mailgun ::config
-        "mailgun_key"=>'key-2c30c0b1f143848307408ebcfe1f5508',
-        "mailgun_domain"=>'capillasdelafe.com',
+        "mailgun_key"=>'',
+        "mailgun_domain"=>'wepet.io',
 
         // smtp config
         "smtp_domain" =>"smtp.gmail.com",
-        "smtp_email" =>"xeki.rldocjsi@gmail.com",
-        "smtp_pass" =>"P4ssW0rd122#",
+        "smtp_email" =>"jossedaviid1@gmail.com",
+        "smtp_pass" =>"29Hasa29-",
         
         "smtp_port" =>"587",
         "smtp_secure" =>"tls",
 
-        "default_from" => "Capillas de la fe <contacto@capillasdelafe.com>",
+        "default_from" => "WePet <contacto@wepet.io>",
 
         #aws
         'aws_key'    => 'key',

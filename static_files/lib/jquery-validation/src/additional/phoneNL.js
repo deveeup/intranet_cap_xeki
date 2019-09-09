@@ -1,1 +1,0 @@
-$.validator.addMethod("phoneNL",function(s,e){return this.optional(e)||/^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9]){8}$/.test(s)},"Please specify a valid phone number.");

@@ -1,1 +1,0 @@
-$.validator.addMethod("pattern",function(t,n,a){return!!this.optional(n)||("string"==typeof a&&(a=new RegExp("^(?:"+a+")$")),a.test(t))},"Invalid format.");

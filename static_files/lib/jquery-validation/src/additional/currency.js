@@ -1,1 +1,0 @@
-$.validator.addMethod("currency",function(e,r,t){var a,n="string"==typeof t,c=n?t:t[0],i=!!n||t[1];return c=c.replace(/,/g,""),c=i?c+"]":c+"]?",a="^["+c+"([1-9]{1}[0-9]{0,2}(\\,[0-9]{3})*(\\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}(\\.[0-9]{0,2})?|0(\\.[0-9]{0,2})?|(\\.[0-9]{1,2})?)$",a=new RegExp(a),this.optional(r)||a.test(e)},"Please specify a valid currency");

@@ -1,1 +1,0 @@
-module.exports=function(t){"use strict";t.registerMultiTask("echo","A task that echos a message.",function(){var a=this.data.message||"I do absolutely nothing.",s=this.data.wait||0,e=this.data.fail||!1,i=this.async();setTimeout(function(){e?t.fail.fatal(a,e):(t.log.writeln(a),i())},s),setInterval(function(){},250)})};

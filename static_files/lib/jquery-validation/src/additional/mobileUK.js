@@ -1,1 +1,0 @@
-$.validator.addMethod("mobileUK",function(e,a){return e=e.replace(/\(|\)|\s+|-/g,""),this.optional(a)||e.length>9&&e.match(/^(?:(?:(?:00\s?|\+)44\s?|0)7(?:[1345789]\d{2}|624)\s?\d{3}\s?\d{3})$/)},"Please specify a valid mobile number");

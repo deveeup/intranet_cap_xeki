@@ -1,232 +1,30 @@
-<!-- xeki -->
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <title>{{page_title}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="robots" content="index,follow"/>
-  <meta name="description" content="{{page_description}}"/>
-  <meta name="keywords" content="{{page_keywords}}"/>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="shortcut icon" href="static_files/favicon.png"/>
-  <link rel="icon" type="image/png" href="static_files/favicon.png"/>
-  <link rel="icon" type="image/vnd.microsoft.icon" href="static_files/favicon.png"/>
-  <link type="text/css" rel="stylesheet" href="static_files/vendor/bootstrap/dist/css/bootstrap.min.css"/>
-  <link type="text/css" rel="stylesheet" href="static_files/css/app.css"/>
-  
-  <!-- Owl -->
-  <link rel="stylesheet" href="static_files/lib/owl.carousel/dist/assets/owl.carousel.css">
-  <link rel="stylesheet" href="static_files/lib/owl.carousel/dist/assets/owl.theme.green.css"/>
-  {% block metaData %}{% endblock %}
-</head>
-<body>
-<header>
-  <div class="user">
-    <figure class="user-figure">
-      {% if auth_user_info.image %}
-        <a href="{{URL_BASE}}usuarios/{{auth_user_info.username}}">
-          <img src="static_files/xeki_admin/uploads/{{auth_user_info.image}}" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
-        </a>
-      {% else %}
-        <a href="{{URL_BASE}}usuarios/{{auth_user_info.username}}">
-          <img src="static_files/img/img_profile_default.png" alt="{{alt}} {{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}">
-        </a>
-      {% endif %}
-    </figure>
-    <div class="user-container">
-      <h4>{{ auth_user_info.first_name|raw }} {{ auth_user_info.last_name|raw }}</h4>
-      <span>{{ auth_user_info.position|raw }}</span>
-    </div>
-  </div>  
-  <div class="business">
-    <figure class="business-figure-cap">
-      <a href="{{cap}}" target="_blank">
-        <img src="static_files/img/capillas_colors.png" alt="{{alt}} Funeraria">
-      </a>
-    </figure>
-    <div class="business-separator"></div>
-    <figure class="business-figure-coor">
-      <a href="{{coor}}" target="_blank">
-        <img src="static_files/img/coorserpark_colors.png" alt="{{alt}} Coorserpark">
-      </a>
-    </figure>
-  </div>
-  <div class="menu">
-    <figure>
-      <a href="{{URL_BASE}}">
-        <img src="static_files/img/home-icon.png" alt="{{alt}} Buscar">
-      </a>
-    </figure>
-    {% if admin == 'yes' %}
-    <figure>
-      <a href="{{URL_BASE}}panel">
-        <img src="static_files/img/icon-dashboard.png" alt="{{alt}} Buscar">
-      </a>
-    </figure>
-    {% endif %}
-    <figure id="menu">
-      <img src="static_files/img/burguermenu.png" alt="{{alt}} Menú">
-    </figure>
-    <figure>
-      <a href="{{URL_BASE}}logout">
-        <img src="static_files/img/logout-icon.png" alt="{{alt}} Buscar">
-      </a>
-    </figure>
-  </div>
-  <div class="header-menu">
-    <figure class="header-menu-close" id="close-menu">
-      <img src="static_files/img/icon_close.png" alt="{{alt}} Cerrar">
-    </figure>
-    <div class="header-menu-container">
-      <div class="header-menu-container-item">
-        <a href="{{URL_BASE}}perfil">
-          <figure>
-            <img src="static_files/img/icon_profile.png" alt="{{alt}} Perfil">
-          </figure>
-          <button>
-            <a href="{{URL_BASE}}perfil">
-              Perfil
-            </a>
-          </button>
-        </a>
-      </div>
-      <div class="header-menu-container-item">
-        <a href="">
-          <figure>
-            <img src="static_files/img/icon_trainings.png" alt="{{alt}} Capacitaciones">
-          </figure>
-          <button>
-            <a href="#">
-              Capacitaciones
-            </a>
-          </button>
-        </a>
-      </div>
-      {% for item in transversal_process_global %}
-        <div class="header-menu-container-item">
-          <form method="post" class="header-menu-container-item-form">
-            <figure class="header-menu-container-item-form-figure">
-              <button type="submit" class="header-menu-container-item-form-figure-buttonImage">
-                <img src="static_files/img/{{item.icon}}" alt="{{alt}} {{item.name}}">
-              </button>
-            </figure>
-            <input type="hidden" name="id" value="{{item.id}}"/>
-            <input type="hidden" name="xeki_action" value="process" />
-            <button type="submit" class="header-menu-container-item-form-buttonText">
-              {{item.name}}
-            </button>
-          </form>
-        </div>
-      {% endfor %}
-
-      <!-- <div class="header-menu-container-item">
-        <a href="">
-          <figure>
-            <img src="static_files/img/icon_process_transversal.png" alt="{{alt}} Procesos transversales">
-          </figure>
-          <button>
-            <a href="#">
-              Procesos transversales
-            </a>
-          </button>
-        </a>
-      </div>
-      <div class="header-menu-container-item">
-          <a href="">
-            <figure>
-              <img src="static_files/img/icon_process_coorserpark.png" alt="{{alt}} Procesos Coorserpark">
-            </figure>
-            <button>
-              <a href="#">
-                Procesos Coorserpark
-              </a>
-            </button>
-          </a>
-        </div>
-        <div class="header-menu-container-item">
-          <a href="">
-            <figure>
-              <img src="static_files/img/icon_process_capillas.png" alt="{{alt}} Perfil">
-            </figure>
-            <button>
-              <a href="#">
-                Procesos Consorcio
-              </a>
-            </button>
-          </a>
-        </div> -->
-
-        <div class="header-menu-container-item">
-          <a href="">
-            <figure>
-              <img src="static_files/img/icon_docs.png" alt="{{alt}} Perfil">
-            </figure>
-            <button>
-              <a href="#">
-                Documentos y solicitudes
-              </a>
-            </button>
-          </a>
-        </div>
-    </div>
-  </div>
-</header>
-{% block content %} {% endblock %}
-
-<footer>
-  <div class="footer-item">
-    <figure class="footer-item-cap">
-      <a href="https://www.facebook.com/capillasdelafeoficial/" target="_blank">
-        <img src="static_files/img/logo_capilllas_footer.png" alt="{{alt}} Capillas de La Fe">
-      </a>
-    </figure>
-    <figure class="footer-item-fb">
-      <a href="https://www.facebook.com/capillasdelafeoficial/" target="_blank">
-        <img src="static_files/img/icon_facebook.png" alt="{{alt}} Capillas de La Fe">
-      </a>
-    </figure>
-  </div>
-  <div class="footer-separator"></div>
-  <div class="footer-item">
-    <figure class="footer-item-cap">
-      <a href="https://www.facebook.com/Coorserpark/" target="_blank">
-        <img src="static_files/img/logo_coorserpark_footer.png" alt="{{alt}} Capillas de La Fe">
-      </a>
-    </figure>
-    <figure class="footer-item-fb">
-      <a href="https://www.facebook.com/Coorserpark/" target="_blank">
-        <img src="static_files/img/icon_facebook.png" alt="{{alt}} Capillas de La Fe">
-      </a>
-    </figure>
-  </div>
-</footer>
-
-<script type="text/javascript" src="static_files/vendor/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="static_files/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="static_files/lib/owl.carousel/dist/owl.carousel.js"></script>
-<script type="text/javascript" src="static_files/lib/flexslider/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="static_files/js/_baseAnimation.js"></script>
-<script type="text/javascript" src="static_files/lib/fancybox/source/jquery.fancybox.pack.js"></script>
-
-<link type="text/css" rel="stylesheet" href="static_files/lib/font-awesome/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="static_files/lib/flexslider/flexslider.css" media="screen"/>
-<link rel="stylesheet" href="static_files/lib/fancybox/source/jquery.fancybox.css" type="text/css" media="screen"/>
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('#menu').click(function(){
-      $( ".header-menu" ).slideToggle("slow");
-    })
-    $('#close-menu').click(function(){
-      $( ".header-menu" ).slideToggle("slow");
-    })
-  });
-</script>
-
-{% block scripts %} {% endblock %}
-
-
-</body>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="robots" content="index,follow" />
+    <meta name="description" content="{{ page_description }}" />
+    <meta name="keywords" content="{{ page_keywords }}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="static_files/favicon.png" />
+    <link rel="icon" type="image/png" href="static_files/favicon.png" />
+    <link
+      rel="icon"
+      type="image/vnd.microsoft.icon"
+      href="static_files/favicon.png"
+    />
+    {% block metaData %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <span>wepet header</span>
+    </header>
+    {% block content %} {% endblock %}
+    <footer>
+      <span>footer</span>
+    </footer>
+    {% block scripts %} {% endblock %}
+  </body>
 </html>
-
-

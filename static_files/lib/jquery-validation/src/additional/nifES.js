@@ -1,1 +1,0 @@
-$.validator.addMethod("nifES",function(t){"use strict";return!!(t=t.toUpperCase()).match("((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)")&&(/^[0-9]{8}[A-Z]{1}$/.test(t)?"TRWAGMYFPDXBNJZSQVHLCKE".charAt(t.substring(8,0)%23)===t.charAt(8):!!/^[KLM]{1}/.test(t)&&t[8]===String.fromCharCode(64))},"Please specify a valid NIF number.");

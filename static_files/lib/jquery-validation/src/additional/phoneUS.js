@@ -1,1 +1,0 @@
-$.validator.addMethod("phoneUS",function(e,a){return e=e.replace(/\s+/g,""),this.optional(a)||e.length>9&&e.match(/^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/)},"Please specify a valid phone number");

@@ -1,1 +1,0 @@
-var nospawn=!0;

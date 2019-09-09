@@ -1,1 +1,0 @@
-module.exports=function(t){var i={};t.registerTask("finalize","Print all option values.",function(){console.log("###"+JSON.stringify(i)+"###")}),Object.keys(t.cli.optlist).forEach(function(n){t.registerTask(n,'Store the current "'+n+'" option value.',function(){i[this.name]=t.option(this.name)})})};

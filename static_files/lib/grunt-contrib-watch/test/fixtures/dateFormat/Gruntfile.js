@@ -1,1 +1,0 @@
-module.exports=function(e){"use strict";e.initConfig({echo:{one:{message:"one has changed"}},watch:{options:{dateFormat:function(s){e.log.writeln("dateFormat has worked! Done in "+s+"ms. Waiting...")}},one:{files:["lib/one.js","Gruntfile.js"],tasks:"echo:one"}}}),e.loadTasks("../tasks"),e.loadTasks("../../../tasks"),e.registerTask("default",["echo"])};

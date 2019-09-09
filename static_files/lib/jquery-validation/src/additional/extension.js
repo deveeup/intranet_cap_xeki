@@ -1,1 +1,0 @@
-$.validator.addMethod("extension",function(e,t,a){return a="string"==typeof a?a.replace(/,/g,"|"):"png|jpe?g|gif",this.optional(t)||e.match(new RegExp("\\.("+a+")$","i"))},$.validator.format("Please enter a value with a valid extension."));
